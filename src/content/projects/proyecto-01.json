@@ -1,0 +1,14 @@
+{
+  "slug": "proyecto-01",
+  "title": "App de banca móvil",
+  "category": "Banca digital · App móvil",
+  "description": "Rediseño de la experiencia de onboarding y transacciones para una fintech con +500K usuarios.",
+  "figmaEmbed": "",
+  "coverImage": "",
+  "images": [],
+  "featured": true,
+  "tags": ["Mobile", "UX", "Banking", "iOS"],
+  "context": "La app de banca móvil presentaba una tasa de abandono del 68% en el flujo de onboarding. El cliente necesitaba reducir la fricción y aumentar la conversión.",
+  "process": "Se realizaron entrevistas con usuarios, análisis de datos de comportamiento y workshops con el equipo de producto. Se iteraron 4 versiones del prototipo con pruebas de usabilidad.",
+  "result": "El rediseño redujo el abandono en onboarding un 41% y aumentó la activación de nuevas cuentas en un 28% en los primeros 3 meses."
+}

@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "portfolioPlus": "Portfolio Plus",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "tag": "PRODUCT DESIGNER",
+    "titleLine1": "Diseño productos digitales",
+    "titleLine2": "que funcionan de",
+    "titleHighlight": "verdad.",
+    "description": "Especialista en apps móviles, banca digital, SaaS, e-commerce y landing pages.",
+    "ctaPrimary": "Ver proyectos",
+    "ctaSecondary": "Sobre mí"
+  },
+  "bentoGrid": {
+    "sectionTag": "PROYECTOS DESTACADOS",
+    "viewCase": "Ver caso",
+    "viewAll": "Ver todos los proyectos"
+  },
+  "plusBanner": {
+    "label": "PORTFOLIO PLUS",
+    "title": "Proyectos bajo NDA disponibles",
+    "description": "Accedé a casos de estudio privados de proyectos bancarios y SaaS con información detallada.",
+    "cta": "Solicitar acceso"
+  },
+  "about": {
+    "tag": "SOBRE MÍ",
+    "title": "Product Designer con foco en resultados",
+    "bio": "Soy Mariano Solle, Product Designer con más de 8 años de experiencia diseñando productos digitales en verticales de banca, SaaS, e-commerce y servicios. Me especializo en crear experiencias que equilibran necesidades del usuario con objetivos de negocio.",
+    "tools": "Herramientas",
+    "specializations": "Especializaciones"
+  },
+  "projects": {
+    "tag": "PROYECTOS",
+    "title": "Casos de estudio",
+    "viewCase": "Ver caso completo",
+    "prototype": "Ver prototipo",
+    "context": "Contexto",
+    "process": "Proceso",
+    "result": "Resultado"
+  },
+  "portfolioPlus": {
+    "tag": "PORTFOLIO PLUS",
+    "title": "Acceso a proyectos privados",
+    "description": "Estos proyectos están bajo acuerdo de confidencialidad. Ingresá la contraseña para acceder a los casos completos.",
+    "passwordLabel": "Contraseña de acceso",
+    "passwordPlaceholder": "Ingresá la contraseña",
+    "submit": "Acceder",
+    "error": "Contraseña incorrecta. Intentá de nuevo.",
+    "requestAccess": "¿No tenés acceso? Contactame"
+  },
+  "contact": {
+    "tag": "CONTACTO",
+    "title": "Hablemos",
+    "description": "Estoy disponible para proyectos freelance, posiciones de Product Design y colaboraciones.",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "Tu email",
+    "messagePlaceholder": "Contame sobre tu proyecto...",
+    "submit": "Enviar mensaje",
+    "success": "Mensaje enviado. Te respondo pronto."
+  },
+  "footer": {
+    "copy": "Mariano Solle — Product Designer",
+    "linkedin": "LinkedIn",
+    "dribbble": "Dribbble"
+  }
+}
