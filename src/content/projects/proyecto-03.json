@@ -1,13 +1,15 @@
 {
   "slug": "proyecto-03",
   "title": "E-commerce móvil",
+  "year": "2023",
   "category": "E-commerce · Mobile",
   "description": "Optimización del checkout y experiencia de compra para marketplace de moda con 1M+ de visitas mensuales.",
   "figmaEmbed": "",
   "coverImage": "",
   "images": [],
   "featured": false,
-  "tags": ["E-commerce", "Mobile", "Checkout", "UX"],
+  "tags": ["E-commerce", "Mobile", "UX"],
+  "isNDA": false,
   "context": "El funnel de compra presentaba alta fricción en el paso de pago y envío. La tasa de conversión era del 1.2%, por debajo del benchmark del sector.",
   "process": "Análisis de heatmaps, sesiones grabadas y entrevistas con compradores frecuentes. Se rediseñó el checkout en un flujo de 2 pasos con autocompletado inteligente.",
   "result": "La tasa de conversión aumentó al 2.4%, duplicando las ventas. El ticket promedio subió un 18% gracias a mejoras en cross-selling."

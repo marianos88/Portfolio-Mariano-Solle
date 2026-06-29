@@ -1,6 +1,7 @@
 export type Project = {
   slug: string
   title: string
+  year: string
   category: string
   description: string
   figmaEmbed?: string
@@ -8,6 +9,7 @@ export type Project = {
   images?: string[]
   featured?: boolean
   tags?: string[]
+  isNDA?: boolean
   context?: string
   process?: string
   result?: string

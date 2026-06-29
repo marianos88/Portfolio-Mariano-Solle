@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { getLocale, getMessages } from 'next-intl/server'
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
+import { LenisProvider } from '@/components/layout/LenisProvider'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import '@/styles/globals.css'
@@ -39,9 +40,11 @@ export default async function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
+            <LenisProvider>
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+            </LenisProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

@@ -1,14 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl
+export function middleware(request: NextRequest) {
+  const isNDARoute = request.nextUrl.pathname.startsWith('/portfolio-plus/')
+  const authCookie = request.cookies.get('portfolio-plus-auth')
 
-  // Protect individual NDA case pages
-  if (pathname.startsWith('/portfolio-plus/') && pathname !== '/portfolio-plus/') {
-    const access = req.cookies.get('portfolio_plus_access')?.value
-    if (access !== 'granted') {
-      return NextResponse.redirect(new URL('/portfolio-plus', req.url))
-    }
+  if (isNDARoute && !authCookie?.value) {
+    return NextResponse.redirect(new URL('/portfolio-plus', request.url))
   }
 
   return NextResponse.next()

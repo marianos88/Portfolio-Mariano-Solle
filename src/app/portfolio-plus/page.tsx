@@ -7,7 +7,7 @@ import { getNdaProjects } from '@/lib/projects'
 export default async function PortfolioPlusPage() {
   const t = await getTranslations('portfolioPlus')
   const cookieStore = await cookies()
-  const hasAccess = cookieStore.get('portfolio_plus_access')?.value === 'granted'
+  const hasAccess = !!cookieStore.get('portfolio-plus-auth')?.value
   const projects = getNdaProjects()
 
   return (

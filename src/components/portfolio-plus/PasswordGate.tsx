@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 
 export default function PasswordGate() {
   const t = useTranslations('portfolioPlus')
@@ -31,8 +32,14 @@ export default function PasswordGate() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-sm">
-      <label className="block text-[12px] tracking-[1px] uppercase dark:text-off-white/50 text-mid-gray">
+    <motion.form
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className="space-y-4 max-w-sm"
+    >
+      <label className="block text-[11px] tracking-[2px] uppercase dark:text-off-white/50 text-mid-gray">
         {t('passwordLabel')}
       </label>
       <input
@@ -41,23 +48,29 @@ export default function PasswordGate() {
         onChange={(e) => setPassword(e.target.value)}
         placeholder={t('passwordPlaceholder')}
         required
-        className="w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-theme
-          dark:bg-[#2e2e2e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/30
-          bg-white border-[#e0e0e0] text-dark placeholder-mid-gray/50
-          focus:ring-2 focus:ring-mint/30"
+        className="w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-all
+          dark:bg-[#1e1e1e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/20
+          bg-white border-[#e0e0e0] text-dark placeholder-mid-gray/40
+          focus:dark:border-mint/50 focus:border-[#2a7a4a]/50"
       />
       {error && (
-        <p className="text-[12px] text-red-400">{t('error')}</p>
+        <motion.p
+          initial={{ opacity: 0, x: -4 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-[12px] text-red-400"
+        >
+          {t('error')}
+        </motion.p>
       )}
       <button
         type="submit"
         disabled={loading}
-        className="w-full py-3 rounded-md text-[13px] font-medium transition-all duration-200 disabled:opacity-50
+        className="w-full py-3 rounded-md text-[13px] font-medium transition-all duration-200 disabled:opacity-50 hover:opacity-90
           dark:bg-mint dark:text-mid-gray
-          bg-dark text-off-white hover:opacity-90"
+          bg-dark text-off-white"
       >
         {loading ? '...' : t('submit')}
       </button>
-    </form>
+    </motion.form>
   )
 }

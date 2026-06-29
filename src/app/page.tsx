@@ -1,13 +1,11 @@
 import Hero from '@/components/home/Hero'
-import BentoGrid from '@/components/home/BentoGrid'
-import PlusBanner from '@/components/home/PlusBanner'
+import ProjectList from '@/components/home/ProjectList'
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <BentoGrid />
-      <PlusBanner />
+      <ProjectList />
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { verifyPassword } from '@/lib/auth'
+import bcrypt from 'bcryptjs'
 
 export async function POST(req: NextRequest) {
   const { password } = await req.json()
@@ -8,18 +8,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
   }
 
-  const valid = await verifyPassword(password)
-
-  if (!valid) {
-    return NextResponse.json({ error: 'Incorrect password' }, { status: 401 })
+  const hash = process.env.PORTFOLIO_PLUS_PASSWORD_HASH
+  if (!hash) {
+    return NextResponse.json({ error: 'Not configured' }, { status: 500 })
   }
 
-  const response = NextResponse.json({ success: true })
-  response.cookies.set('portfolio_plus_access', 'granted', {
+  const valid = await bcrypt.compare(password, hash)
+
+  if (!valid) {
+    return NextResponse.json({ error: 'Contraseña incorrecta' }, { status: 401 })
+  }
+
+  const response = NextResponse.json({ ok: true })
+  response.cookies.set('portfolio-plus-auth', 'granted', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    maxAge: 60 * 60 * 24 * 7, // 7 days
+    sameSite: 'strict',
+    maxAge: 60 * 60 * 24 * 7,
     path: '/',
   })
 

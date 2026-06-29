@@ -1,13 +1,15 @@
 {
   "slug": "proyecto-02",
   "title": "Dashboard SaaS B2B",
+  "year": "2023",
   "category": "SaaS · Dashboard",
   "description": "Sistema de analytics y gestión para plataforma B2B con más de 200 empresas clientes.",
   "figmaEmbed": "",
   "coverImage": "",
   "images": [],
   "featured": false,
-  "tags": ["SaaS", "Dashboard", "B2B", "Web"],
+  "tags": ["SaaS", "Dashboard", "B2B"],
+  "isNDA": false,
   "context": "El dashboard existente era percibido como complejo y difícil de aprender. Los usuarios necesitaban acceder rápido a métricas clave sin curva de aprendizaje.",
   "process": "Card sorting, árbol de contenidos y prototipado rápido. Se definió una arquitectura de información basada en flujos de trabajo reales de los usuarios.",
   "result": "El tiempo para completar tareas clave se redujo un 55%. El NPS del producto aumentó de 24 a 61 puntos en 6 meses."

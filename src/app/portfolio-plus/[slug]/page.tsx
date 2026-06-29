@@ -11,7 +11,7 @@ export function generateStaticParams() {
 export default async function NdaCasePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const cookieStore = await cookies()
-  const hasAccess = cookieStore.get('portfolio_plus_access')?.value === 'granted'
+  const hasAccess = !!cookieStore.get('portfolio-plus-auth')?.value
 
   if (!hasAccess) redirect('/portfolio-plus')
 
