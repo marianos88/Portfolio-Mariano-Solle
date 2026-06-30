@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { getPublicProjects } from '@/lib/projects'
 import ProjectListItem from './ProjectListItem'
@@ -11,25 +10,24 @@ export default function ProjectList() {
   const projects = getPublicProjects()
 
   return (
-    <section className="max-w-6xl mx-auto px-6 pb-32">
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-[11px] tracking-[2px] uppercase mb-2 font-light dark:text-off-white/30 text-mid-gray/50"
-      >
-        {t('sectionTag')}
-      </motion.p>
+    <section
+      className="w-full rounded-t-[40px] dark:bg-dark bg-off-white pb-32 pt-12
+        shadow-[0_-4px_40px_rgba(0,0,0,0.12)]"
+    >
+      <div className="max-w-6xl mx-auto px-8">
+        <p className="text-[11px] tracking-[2px] uppercase mb-2 font-light dark:text-off-white/30 text-mid-gray/50">
+          {t('sectionTag')}
+        </p>
 
-      <div>
-        {projects.map((project, i) => (
-          <ProjectListItem key={project.slug} project={project} index={i} />
-        ))}
-        {/* Portfolio Plus always last — never reveals NDA content */}
-        <PortfolioPlusCard index={projects.length} />
-        {/* Bottom border */}
-        <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
+        <div>
+          {projects.map((project, i) => (
+            <ProjectListItem key={project.slug} project={project} index={i} />
+          ))}
+          {/* Portfolio Plus always last — never reveals NDA content */}
+          <PortfolioPlusCard index={projects.length} />
+          {/* Bottom border */}
+          <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
+        </div>
       </div>
     </section>
   )
