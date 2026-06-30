@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { Project } from '@/lib/projects'
+import VideoPlayer from './VideoPlayer'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -42,7 +43,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           {project.title}
         </motion.h1>
 
-        {/* Meta row */}
+        {/* Meta row — no year */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,10 +56,6 @@ export default function ProjectDetail({ project }: { project: Project }) {
               <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{project.role}</p>
             </div>
           )}
-          <div>
-            <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/30 text-mid-gray/50">Año</p>
-            <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{project.year}</p>
-          </div>
           {project.scope && project.scope.length > 0 && (
             <div>
               <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/30 text-mid-gray/50">Scope</p>
@@ -92,31 +89,75 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </FadeSection>
       )}
 
-      {/* ── Perfil de usuarios ── */}
-      {project.researchStats && project.researchStats.length > 0 && (
+      {/* ── ¿Cómo investigamos? + Objetivo ── */}
+      {project.research && (
         <FadeSection>
-          <div className="max-w-6xl mx-auto px-6 py-16">
-            <p className="text-[11px] tracking-[2px] uppercase mb-10 dark:text-off-white/30 text-mid-gray/50">
-              Perfil de usuarios investigados
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {project.researchStats.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.07 }}
-                >
-                  <p className="text-[52px] md:text-[64px] font-medium tracking-[-0.03em] leading-none mb-2 dark:text-mint text-[#2a7a4a]">
-                    {s.value}
-                  </p>
-                  <p className="text-[12px] font-light dark:text-off-white/40 text-mid-gray/60">{s.label}</p>
-                </motion.div>
-              ))}
+          <div className="max-w-6xl mx-auto px-6 pb-16 grid md:grid-cols-[200px_1fr] gap-10">
+            <div /> {/* spacer to align with label column */}
+            <div className="grid md:grid-cols-2 gap-10">
+              <div>
+                <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-off-white/30 text-mid-gray/50">
+                  ¿Cómo investigamos?
+                </p>
+                <p className="text-[14px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray">
+                  {project.research.how}
+                </p>
+              </div>
+              <div>
+                <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-off-white/30 text-mid-gray/50">
+                  Objetivo
+                </p>
+                <p className="text-[14px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray">
+                  {project.research.objective}
+                </p>
+              </div>
             </div>
           </div>
         </FadeSection>
+      )}
+
+      {/* ── 5 elementos image ── */}
+      {project.researchImage && (
+        <FadeSection>
+          <div className="max-w-6xl mx-auto px-6 pb-16">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.researchImage}
+              alt="5 elementos de UX"
+              className="w-full rounded-xl object-cover"
+            />
+          </div>
+        </FadeSection>
+      )}
+
+      {/* ── Perfil de usuarios ── */}
+      {project.researchStats && project.researchStats.length > 0 && (
+        <>
+          <Divider />
+          <FadeSection>
+            <div className="max-w-6xl mx-auto px-6 py-16">
+              <p className="text-[11px] tracking-[2px] uppercase mb-10 dark:text-off-white/30 text-mid-gray/50">
+                Perfil de usuarios investigados
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {project.researchStats.map((s, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.07 }}
+                  >
+                    <p className="text-[52px] md:text-[64px] font-medium tracking-[-0.03em] leading-none mb-2 dark:text-mint text-[#2a7a4a]">
+                      {s.value}
+                    </p>
+                    <p className="text-[12px] font-light dark:text-off-white/40 text-mid-gray/60">{s.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </FadeSection>
+        </>
       )}
 
       <Divider />
@@ -146,6 +187,20 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </FadeSection>
       )}
 
+      {/* ── Matriz FVD image ── */}
+      {project.obstaclesImage && (
+        <FadeSection>
+          <div className="max-w-6xl mx-auto px-6 pb-16">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.obstaclesImage}
+              alt="Matriz FVD"
+              className="w-full rounded-xl object-cover"
+            />
+          </div>
+        </FadeSection>
+      )}
+
       <Divider />
 
       {/* ── Proceso ── */}
@@ -160,31 +215,48 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </FadeSection>
       )}
 
-      {/* ── Datos clave ── */}
-      {project.stats && project.stats.length > 0 && (
+      {/* ── Mac grande image ── */}
+      {project.processImage && (
         <FadeSection>
-          <div className="max-w-6xl mx-auto px-6 py-16">
-            <p className="text-[11px] tracking-[2px] uppercase mb-10 dark:text-off-white/30 text-mid-gray/50">
-              Datos clave
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {project.stats.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.07 }}
-                >
-                  <p className="text-[52px] md:text-[64px] font-medium tracking-[-0.03em] leading-none mb-2 dark:text-off-white text-dark">
-                    {s.value}
-                  </p>
-                  <p className="text-[12px] font-light dark:text-off-white/40 text-mid-gray/60">{s.label}</p>
-                </motion.div>
-              ))}
-            </div>
+          <div className="max-w-6xl mx-auto px-6 pb-16">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.processImage}
+              alt="Prototipo en pantalla"
+              className="w-full rounded-xl object-cover"
+            />
           </div>
         </FadeSection>
+      )}
+
+      {/* ── Datos clave (mint numbers) ── */}
+      {project.stats && project.stats.length > 0 && (
+        <>
+          <Divider />
+          <FadeSection>
+            <div className="max-w-6xl mx-auto px-6 py-16">
+              <p className="text-[11px] tracking-[2px] uppercase mb-10 dark:text-off-white/30 text-mid-gray/50">
+                Datos clave
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {project.stats.map((s, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.07 }}
+                  >
+                    <p className="text-[52px] md:text-[64px] font-medium tracking-[-0.03em] leading-none mb-2 dark:text-mint text-[#2a7a4a]">
+                      {s.value}
+                    </p>
+                    <p className="text-[12px] font-light dark:text-off-white/40 text-mid-gray/60">{s.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </FadeSection>
+        </>
       )}
 
       <Divider />
@@ -234,6 +306,41 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </>
       )}
 
+      {/* ── Conclusión ── */}
+      {project.conclusion && (
+        <>
+          <Divider />
+          <FadeSection>
+            <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-[200px_1fr] gap-10">
+              <SectionLabel>Conclusión</SectionLabel>
+              <div>
+                <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-mint/70 text-[#2a7a4a]">
+                  Resultados
+                </p>
+                <p className="text-[15px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray max-w-2xl">
+                  {project.conclusion}
+                </p>
+              </div>
+            </div>
+          </FadeSection>
+        </>
+      )}
+
+      {/* ── Video del prototipo ── */}
+      {project.videoSrc && (
+        <>
+          <Divider />
+          <FadeSection>
+            <div className="max-w-6xl mx-auto px-6 py-16">
+              <p className="text-[11px] tracking-[2px] uppercase mb-6 dark:text-off-white/30 text-mid-gray/50">
+                Prototipo en acción
+              </p>
+              <VideoPlayer src={project.videoSrc} poster={project.coverImage} />
+            </div>
+          </FadeSection>
+        </>
+      )}
+
       {/* ── Figma embed ── */}
       {project.figmaEmbed && (
         <>
@@ -243,11 +350,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               Prototipo interactivo
             </p>
             <div className="aspect-video w-full rounded-xl overflow-hidden">
-              <iframe
-                src={project.figmaEmbed}
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
+              <iframe src={project.figmaEmbed} allowFullScreen className="w-full h-full border-0" />
             </div>
           </div>
         </>

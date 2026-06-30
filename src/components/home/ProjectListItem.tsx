@@ -31,13 +31,11 @@ export default function ProjectListItem({
           dark:border-mid-gray/50 border-[#e0e0e0]
           hover:dark:border-mint/30 hover:border-[#aaeec4]/50"
       >
-        <div className="flex items-baseline gap-6 md:gap-10 flex-1 min-w-0">
-          {/* Index */}
+        {/* Left: index + title */}
+        <div className="flex items-center gap-6 md:gap-10 flex-1 min-w-0">
           <span className="text-[11px] tracking-[2px] dark:text-off-white/20 text-mid-gray/40 shrink-0 w-6">
             {String(index + 1).padStart(2, '0')}
           </span>
-
-          {/* Title */}
           <h3
             className="text-[24px] md:text-[32px] lg:text-[36px] font-medium tracking-[-0.02em] truncate transition-colors duration-200
               dark:text-off-white text-dark
@@ -47,11 +45,21 @@ export default function ProjectListItem({
           </h3>
         </div>
 
-        <div className="hidden md:flex items-center gap-8 shrink-0 ml-8">
-          {/* Year */}
-          <span className="text-[12px] font-light dark:text-off-white/30 text-mid-gray/50">
-            {project.year}
-          </span>
+        {/* Right: thumbnail + tags + arrow */}
+        <div className="hidden md:flex items-center gap-6 shrink-0 ml-8">
+          {/* Thumbnail: grayscale → color on hover */}
+          {project.coverImage && (
+            <div className="w-16 h-11 rounded-md overflow-hidden shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={project.coverImage}
+                alt=""
+                className={`w-full h-full object-cover transition-all duration-500 ${
+                  hovered ? 'grayscale-0 scale-105' : 'grayscale'
+                }`}
+              />
+            </div>
+          )}
 
           {/* Tags */}
           <div className="flex items-center gap-2">
@@ -74,7 +82,7 @@ export default function ProjectListItem({
         </div>
       </Link>
 
-      {/* Floating image preview */}
+      {/* Floating large image preview (follows cursor) */}
       <AnimatePresence>
         {hovered && project.coverImage && (
           <motion.div
@@ -83,17 +91,10 @@ export default function ProjectListItem({
             exit={{ opacity: 0, scale: 0.92 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
             className="pointer-events-none fixed z-50 w-64 h-40 rounded-xl overflow-hidden shadow-2xl"
-            style={{
-              left: mousePos.x + 20,
-              top: mousePos.y - 80,
-            }}
+            style={{ left: mousePos.x + 20, top: mousePos.y - 80 }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={project.coverImage}
-              alt=""
-              className="w-full h-full object-cover"
-            />
+            <img src={project.coverImage} alt="" className="w-full h-full object-cover" />
           </motion.div>
         )}
         {hovered && !project.coverImage && (
@@ -103,8 +104,7 @@ export default function ProjectListItem({
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.2 }}
             className="pointer-events-none fixed z-50 w-64 h-40 rounded-xl overflow-hidden shadow-2xl
-              dark:bg-[#2e2e2e] bg-[#f0f0f0]
-              flex items-center justify-center"
+              dark:bg-[#2e2e2e] bg-[#f0f0f0] flex items-center justify-center"
             style={{ left: mousePos.x + 20, top: mousePos.y - 80 }}
           >
             <span className="text-[11px] tracking-[2px] uppercase dark:text-off-white/20 text-mid-gray/30">

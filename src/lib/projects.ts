@@ -16,12 +16,18 @@ export type Project = {
   scope?: string[]
   challenge?: string
   context?: string
+  research?: { how: string; objective: string }
+  researchImage?: string
   process?: string
+  processImage?: string
   result?: string
   stats?: Stat[]
   researchStats?: Stat[]
   obstacles?: string[]
+  obstaclesImage?: string
   quotes?: string[]
+  conclusion?: string
+  videoSrc?: string
 }
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
