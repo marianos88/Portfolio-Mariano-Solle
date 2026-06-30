@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "portfolioPlus": "Portfolio Plus",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tag": "PRODUCT DESIGNER",
+    "titleLine1": "I design digital products that",
+    "titleLine2": "actually",
+    "titleHighlight": "works.",
+    "description": "Specialist in mobile apps, digital banking, SaaS, e-commerce and landing pages.",
+    "ctaPrimary": "View projects",
+    "ctaSecondary": "About me"
+  },
+  "bentoGrid": {
+    "sectionTag": "FEATURED PROJECTS",
+    "viewCase": "View case",
+    "viewAll": "View all projects"
+  },
+  "plusBanner": {
+    "label": "PORTFOLIO PLUS",
+    "title": "NDA projects available",
+    "description": "Access private case studies from banking and SaaS projects with detailed information.",
+    "cta": "Request access"
+  },
+  "about": {
+    "tag": "ABOUT",
+    "title": "Product Designer focused on results",
+    "bio": "I'm Mariano Solle, a Product Designer with 8+ years of experience designing digital products across banking, SaaS, e-commerce and services verticals. I specialize in creating experiences that balance user needs with business goals.",
+    "tools": "Tools",
+    "specializations": "Specializations"
+  },
+  "projects": {
+    "tag": "PROJECTS",
+    "title": "Case studies",
+    "viewCase": "View full case",
+    "prototype": "View prototype",
+    "context": "Context",
+    "process": "Process",
+    "result": "Result"
+  },
+  "portfolioPlus": {
+    "tag": "PORTFOLIO PLUS",
+    "title": "Access to private projects",
+    "description": "These projects are under a confidentiality agreement. Enter the password to access the full cases.",
+    "passwordLabel": "Access password",
+    "passwordPlaceholder": "Enter the password",
+    "submit": "Access",
+    "error": "Incorrect password. Please try again.",
+    "requestAccess": "Don't have access? Contact me"
+  },
+  "contact": {
+    "tag": "CONTACT",
+    "title": "Let's talk",
+    "description": "I'm available for freelance projects, Product Design positions and collaborations.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Tell me about your project...",
+    "submit": "Send message",
+    "success": "Message sent. I'll get back to you soon."
+  },
+  "footer": {
+    "copy": "Mariano Solle — Product Designer",
+    "linkedin": "LinkedIn",
+    "dribbble": "Dribbble"
+  }
+}
