@@ -1,5 +1,15 @@
 export type Stat = { value: string; label: string }
 
+export type ProjectSection =
+  | { type: 'text'; label: string; content: string }
+  | { type: 'twoCol'; col1Label: string; col1Content: string; col2Label: string; col2Content: string }
+  | { type: 'image'; src: string; alt?: string }
+  | { type: 'video'; src: string; poster?: string; label?: string }
+  | { type: 'list'; label: string; intro?: string; items: string[] }
+  | { type: 'grid'; label: string; items: { title: string; description?: string }[] }
+  | { type: 'stats'; label?: string; items: Stat[] }
+  | { type: 'divider' }
+
 export type Project = {
   slug: string
   title: string
@@ -15,6 +25,7 @@ export type Project = {
   role?: string
   scope?: string[]
   challenge?: string
+  // Legacy fields (SportClub)
   context?: string
   research?: { how: string; objective: string }
   researchImage?: string
@@ -28,6 +39,8 @@ export type Project = {
   quotes?: string[]
   conclusion?: string
   videoSrc?: string
+  // Flexible sections (MercadoPago and future projects)
+  sections?: ProjectSection[]
 }
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports

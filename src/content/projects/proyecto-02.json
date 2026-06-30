@@ -1,16 +1,188 @@
 {
   "slug": "proyecto-02",
-  "title": "Dashboard SaaS B2B",
-  "year": "2023",
-  "category": "SaaS · Dashboard",
-  "description": "Sistema de analytics y gestión para plataforma B2B con más de 200 empresas clientes.",
+  "title": "Análisis UX/UI MercadoPago",
+  "year": "2024",
+  "category": "UX Research · Fintech",
+  "description": "Investigación exploratoria sobre los desafíos que enfrentan comerciantes y clientes al usar Mercado Pago Point, identificando pain points y oportunidades para mejorar la experiencia de pagos digitales.",
   "figmaEmbed": "",
-  "coverImage": "",
+  "coverImage": "/images/Portada-meli.png",
   "images": [],
-  "featured": false,
-  "tags": ["SaaS", "Dashboard", "B2B"],
+  "featured": true,
+  "tags": ["UX Research", "Fintech", "Mobile"],
   "isNDA": false,
-  "context": "El dashboard existente era percibido como complejo y difícil de aprender. Los usuarios necesitaban acceder rápido a métricas clave sin curva de aprendizaje.",
-  "process": "Card sorting, árbol de contenidos y prototipado rápido. Se definió una arquitectura de información basada en flujos de trabajo reales de los usuarios.",
-  "result": "El tiempo para completar tareas clave se redujo un 55%. El NPS del producto aumentó de 24 a 61 puntos en 6 meses."
+  "role": "UX Designer",
+  "scope": ["Competitive Analysis", "User Research", "Journey Mapping", "Problem Framing", "Opportunity Identification"],
+  "challenge": "Identify the needs, frustrations, and behaviors of merchants and customers using Mercado Pago Point in order to understand how digital payment experiences can better support small businesses operating in dynamic economic environments.",
+  "sections": [
+    {
+      "type": "image",
+      "src": "/images/mac-meli.png",
+      "alt": "Mercado Pago Point"
+    },
+    {
+      "type": "twoCol",
+      "col1Label": "Context",
+      "col1Content": "The project focused on understanding how merchants and customers interact with Mercado Pago Point, identifying pain points, behaviors, and unmet needs to uncover opportunities for improving the payment experience.",
+      "col2Label": "Problem Statement · Research Question",
+      "col2Content": "How might digital payment experiences better support small businesses and their customers in environments where economic conditions, payment preferences, and operational needs constantly evolve?"
+    },
+    {
+      "type": "image",
+      "src": "/images/competidores-analizados.png",
+      "alt": "Competidores analizados"
+    },
+    {
+      "type": "grid",
+      "label": "Research Goals",
+      "items": [
+        { "title": "Understand merchant pain points", "description": "Identify operational challenges when accepting digital payments." },
+        { "title": "Understand customer expectations", "description": "Explore payment preferences and adoption behaviors." },
+        { "title": "Discover usability barriers", "description": "Identify friction points across the payment journey." },
+        { "title": "Identify opportunities", "description": "Generate insights that could inform future product improvements." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/fortalezas-debilidades.png",
+      "alt": "Fortalezas y debilidades"
+    },
+    {
+      "type": "grid",
+      "label": "Users",
+      "items": [
+        { "title": "Small Business Owners", "description": "Need a simple and reliable way to accept payments." },
+        { "title": "Independent Sellers", "description": "Need quick transactions while serving customers." },
+        { "title": "New Merchants", "description": "Need guidance and reassurance during the payment process." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/Arquetipo.png",
+      "alt": "Arquetipo de usuario"
+    },
+    {
+      "type": "image",
+      "src": "/images/mapa-empatia.png",
+      "alt": "Mapa de empatía"
+    },
+    {
+      "type": "list",
+      "label": "My Role",
+      "intro": "As Product Designer, I conducted an exploratory UX case study to understand how merchants and customers interact with digital payment solutions and identify opportunities to improve the overall experience. Responsibilities included:",
+      "items": [
+        "Secondary Research",
+        "Competitive Benchmarking",
+        "User Personas",
+        "Journey Mapping",
+        "Problem Framing",
+        "Opportunity Identification",
+        "UX Recommendations",
+        "Concept Exploration"
+      ]
+    },
+    {
+      "type": "grid",
+      "label": "Discovery & Research",
+      "items": [
+        { "title": "Economic volatility", "description": "Merchants needed to update prices frequently and adapt to changing operating costs." },
+        { "title": "Payment method diversification", "description": "Businesses increasingly relied on multiple payment methods to meet customer expectations." },
+        { "title": "Digital adoption acceleration", "description": "QR payments and contactless transactions became essential for remaining competitive." }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "Research Insights",
+      "items": [
+        "Simplify onboarding for new merchants.",
+        "Better support merchants operating in changing economic environments."
+      ]
+    },
+    {
+      "type": "grid",
+      "label": "Information Architecture · Research Framework",
+      "items": [
+        { "title": "User Personas", "description": "Merchant and customer profiles to understand motivations and pain points." },
+        { "title": "Journey Mapping", "description": "Mapping key interactions across the payment experience." },
+        { "title": "Ecosystem Analysis", "description": "Understanding how the Point ecosystem fits within merchants' daily operations." },
+        { "title": "Opportunity Mapping", "description": "Identifying areas for future product improvements." }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/userflow.png",
+      "alt": "User Flow"
+    },
+    {
+      "type": "list",
+      "label": "Key Insights",
+      "items": [
+        "Trust is essential during financial transactions.",
+        "Visibility of system status reduces anxiety.",
+        "Small businesses need operational simplicity.",
+        "Digital payment adoption is heavily influenced by customer behavior."
+      ]
+    },
+    {
+      "type": "list",
+      "label": "Deliverables",
+      "items": [
+        "Research Synthesis",
+        "Personas",
+        "Journey Maps",
+        "Problem Statements",
+        "Opportunity Areas",
+        "UX Recommendations",
+        "Concept Explorations"
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/identidad-visual.png",
+      "alt": "Identidad visual"
+    },
+    {
+      "type": "image",
+      "src": "/images/wireframes-baja.png",
+      "alt": "Wireframes de baja fidelidad"
+    },
+    {
+      "type": "image",
+      "src": "/images/wireframes-alta.png",
+      "alt": "Wireframes de alta fidelidad"
+    },
+    {
+      "type": "text",
+      "label": "Key Outcomes · Why This Research Matters",
+      "content": "This study highlighted that adopting digital payments is not only a technological challenge but also an operational and economic one. Understanding the realities of small businesses helps identify opportunities to build more accessible, trustworthy, and adaptable financial products."
+    },
+    {
+      "type": "text",
+      "label": "Challenge",
+      "content": "Transform a transactional experience into a simple, fast, and trustworthy payment journey for merchants who rely on digital payments to run their businesses."
+    },
+    {
+      "type": "text",
+      "label": "Constraints",
+      "content": "The project was developed in a highly dynamic economic environment where merchants needed to constantly adjust prices and adapt to changing operating costs. At the same time, digital payment adoption was rapidly increasing, making QR and contactless payments a necessity rather than an option. Additionally, transaction fees represented a significant consideration for small businesses, creating a tension between adopting modern payment methods and maintaining profitability."
+    },
+    {
+      "type": "list",
+      "label": "Key Learnings",
+      "items": [
+        "Digital payment adoption is driven as much by consumer behavior as by technological innovation.",
+        "Small businesses need tools that minimize operational complexity in rapidly changing economic environments.",
+        "Great financial products are not only efficient; they must also build confidence and adapt to the realities of merchants' daily operations."
+      ]
+    },
+    {
+      "type": "video",
+      "src": "/images/meli-landing-page.mp4",
+      "label": "Landing page"
+    },
+    {
+      "type": "video",
+      "src": "/images/app-meli.mp4",
+      "label": "App"
+    }
+  ]
 }
