@@ -1,3 +1,5 @@
+export type Stat = { value: string; label: string }
+
 export type Project = {
   slug: string
   title: string
@@ -10,9 +12,16 @@ export type Project = {
   featured?: boolean
   tags?: string[]
   isNDA?: boolean
+  role?: string
+  scope?: string[]
+  challenge?: string
   context?: string
   process?: string
   result?: string
+  stats?: Stat[]
+  researchStats?: Stat[]
+  obstacles?: string[]
+  quotes?: string[]
 }
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports

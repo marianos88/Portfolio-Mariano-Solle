@@ -1,16 +1,44 @@
 {
   "slug": "proyecto-01",
-  "title": "App de banca móvil",
-  "year": "2024",
-  "category": "Banca digital · App móvil",
-  "description": "Rediseño de la experiencia de onboarding y transacciones para una fintech con +500K usuarios.",
+  "title": "SportClub",
+  "year": "2023",
+  "category": "UX/UI Design · Plataforma web",
+  "description": "Rediseño de la plataforma de turnos web para una cadena de gimnasios, unificando dos sitios paralelos en una experiencia clara, intuitiva y alineada con los intereses de cada socio.",
   "figmaEmbed": "",
-  "coverImage": "",
+  "coverImage": "/images/sportclub-cover.png",
   "images": [],
   "featured": true,
-  "tags": ["Mobile", "UX", "Banking"],
+  "tags": ["UX Research", "UI Design", "Web"],
   "isNDA": false,
-  "context": "La app de banca móvil presentaba una tasa de abandono del 68% en el flujo de onboarding. El cliente necesitaba reducir la fricción y aumentar la conversión.",
-  "process": "Se realizaron entrevistas con usuarios, análisis de datos de comportamiento y workshops con el equipo de producto. Se iteraron 4 versiones del prototipo con pruebas de usabilidad.",
-  "result": "El rediseño redujo el abandono en onboarding un 41% y aumentó la activación de nuevas cuentas en un 28% en los primeros 3 meses."
+  "role": "UX/UI Designer",
+  "scope": ["UX Research", "Information Architecture", "UX/UI Design", "Design System", "Usability Testing"],
+  "challenge": "Rediseñar la plataforma de la cadena de gimnasios SportClub para que los usuarios puedan solicitar turnos web de una manera más sencilla y sin complicaciones, unificando dos plataformas que convivían en paralelo.",
+  "context": "La pandemia generó que los gimnasios tuvieran que adaptarse a través de plataformas virtuales para ofrecer servicios on-demand y turnos web. Al momento del análisis coexistían dos plataformas que podían vincularse para resolver factores que mejoren la usabilidad del sitio.",
+  "process": "Se realizaron 2 entrevistas y 10 encuestas semiestructuradas, confidenciales y virtuales con usuarios de SportClub. Se aplicó card sorting con 10 usuarios para definir la nueva arquitectura de la información, y se iteró el prototipo con pruebas de usabilidad por Zoom.",
+  "result": "Las pruebas de usabilidad arrojaron resultados positivos en todas las tareas asignadas. Los usuarios destacaron la claridad de la interfaz y la facilidad de resolución de las tareas. El prototipo final unificó las dos plataformas en una sola experiencia coherente.",
+  "stats": [
+    { "value": "12", "label": "Usuarios investigados (entrevistas + encuestas)" },
+    { "value": "50%", "label": "De socios declaró disconformidad con la plataforma anterior" },
+    { "value": "10", "label": "Usuarios en card sorting para nueva arquitectura" },
+    { "value": "2", "label": "Plataformas unificadas en una sola experiencia" }
+  ],
+  "obstacles": [
+    "\"No es intuitiva\"",
+    "\"La página tiene demasiada información, imágenes y colores. Me resulta confusa\"",
+    "\"No tiene buscador o lupa\"",
+    "\"No recuerdo el link del sitio específico para solicitar turnos y tengo que googlearlo\"",
+    "\"Colores demasiado fuertes en los carteles y no se distingue bien el texto\"",
+    "\"Existen 2 páginas en paralelo cuando podrían unificar todo en una misma\""
+  ],
+  "researchStats": [
+    { "value": "90%", "label": "Género femenino" },
+    { "value": "28", "label": "Años de edad promedio" },
+    { "value": "60%", "label": "Ubicación en CABA" },
+    { "value": "80%", "label": "Profesionales universitarios" }
+  ],
+  "quotes": [
+    "¡Me gustó mucho el prototipo! La interfaz es muy clara y fácil de resolver.",
+    "Las tareas me parecieron fáciles de cumplir. Me confundió un poco la descripción de la tarea pero pude resolverla sin problemas.",
+    "Me pareció un sitio bastante completo. Vamos a ver cómo queda cuando estén todos los caminos hechos."
+  ]
 }
