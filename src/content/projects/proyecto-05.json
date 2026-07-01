@@ -1,0 +1,141 @@
+{
+  "slug": "proyecto-05",
+  "title": "Finish – 24Hr Challenge Landing Experience",
+  "year": "2023",
+  "category": "CPG · FMCG · Marketing · Consumer Goods",
+  "description": "Finish is a global dishwashing brand from Reckitt, and this project tells the story of how we transformed a product campaign into a digital experience that demonstrated product efficacy through an interactive challenge while driving engagement and purchase intent.",
+  "figmaEmbed": "",
+  "coverImage": "/images/finish/portada.png",
+  "images": [],
+  "featured": true,
+  "tags": ["UX Strategy", "Landing Page", "Responsive Design", "Conversion"],
+  "isNDA": false,
+  "role": "UX Designer",
+  "scope": ["UX Strategy", "Information Architecture", "Content Experience", "UX/UI Design", "Responsive Design", "Conversion Optimization"],
+  "challenge": "Design a campaign experience capable of demonstrating product performance while maintaining clarity, simplicity, and conversion opportunities across all devices.",
+  "sections": [
+    {
+      "type": "image",
+      "src": "/images/finish/portada.png",
+      "alt": "Finish 24Hr Challenge Landing Experience"
+    },
+    {
+      "type": "twoCol",
+      "col1Label": "Role",
+      "col1Content": "UX Designer",
+      "col2Label": "Industry",
+      "col2Content": "CPG · FMCG · Marketing · Consumer Goods"
+    },
+    {
+      "type": "twoCol",
+      "col1Label": "Product",
+      "col1Content": "Promotional landing page for the Finish Quantum 24Hr Challenge campaign",
+      "col2Label": "Scope",
+      "col2Content": "UX Strategy, Information Architecture, Content Experience, UX/UI Design, Responsive Design, Conversion Optimization"
+    },
+    {
+      "type": "twoCol",
+      "col1Label": "Team",
+      "col1Content": "Brand Manager, Product Owner, Tech Lead, Developers, Marketing Stakeholders",
+      "col2Label": "Challenge",
+      "col2Content": "Design a campaign experience capable of demonstrating product performance while maintaining clarity, simplicity, and conversion opportunities across all devices."
+    },
+    {
+      "type": "image",
+      "src": "/images/finish/macbook.png",
+      "alt": "Finish landing page"
+    },
+    {
+      "type": "text",
+      "label": "Finish 24Hr Challenge Landing Page",
+      "content": "Promotional landing page designed to communicate the Finish 24Hr Challenge, demonstrating the product's efficacy at removing 24-hour dried stains while generating engagement and purchase consideration."
+    },
+    {
+      "type": "grid",
+      "label": "Project Metrics",
+      "items": [
+        { "title": "Industry", "description": "FMCG/CPG · Marketing · Consumer Goods" },
+        { "title": "Client", "description": "Finish (Reckitt)" },
+        { "title": "Market", "description": "UK" },
+        { "title": "Project type", "description": "Landing page" }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "1 · The Challenge",
+      "intro": "The team needed to create a digital experience that:",
+      "items": [
+        "Explained the challenge in a few seconds.",
+        "Clearly communicated the participation steps.",
+        "Inspired the user through a real recipe.",
+        "Integrated retailers to facilitate purchase.",
+        "Worked correctly on desktop and mobile.",
+        "Could launch even without all assets available (e.g. YouTube video not yet published)."
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Business Problem",
+      "content": "How can we demonstrate product effectiveness through an interactive challenge, avoiding visual overload and maintaining a clear, adaptable experience on any device?"
+    },
+    {
+      "type": "list",
+      "label": "Role · Senior UX Designer",
+      "intro": "Responsibilities included:",
+      "items": [
+        "Information architecture definition",
+        "Responsive experience design",
+        "Content organization",
+        "Message prioritization",
+        "Technical and content constraint resolution",
+        "UX pattern proposals to improve challenge comprehension",
+        "Collaboration with Marketing and Creative teams"
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/images/finish/mockup-low-def.png",
+      "alt": "Low fidelity mockup"
+    },
+    {
+      "type": "image",
+      "src": "/images/finish/user-journey.png",
+      "alt": "User journey"
+    },
+    {
+      "type": "grid",
+      "label": "Design Challenges",
+      "items": [
+        { "title": "Responsive content management", "description": "Design an experience that maintained content legibility regardless of device." },
+        { "title": "Information simplification", "description": "Reduce visual complexity to improve challenge comprehension." },
+        { "title": "Constraint-based design", "description": "Build a complete experience even when some key assets were not yet available." },
+        { "title": "Branding vs conversion balance", "description": "Combine storytelling, product demonstration, and purchase opportunities within a single experience." }
+      ]
+    },
+    {
+      "type": "grid",
+      "label": "Metrics Analyzed",
+      "items": [
+        { "title": "Completion Rate", "description": "Challenge completion rate." },
+        { "title": "CTR in retailers", "description": "Click-through rate to retail partners." },
+        { "title": "Avg. time on recipe", "description": "Average time spent on recipe section." },
+        { "title": "Scroll Depth & CVR", "description": "Scroll depth and conversion rate toward purchase." }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Results",
+      "content": "Designed the architecture and experience of a promotional landing for Finish, transforming a campaign concept ('24Hr Challenge') into a clear, responsive, conversion-oriented digital experience. The solution prioritized immediate challenge comprehension, reduced visual load, and created multiple interaction points to drive engagement and product purchase."
+    },
+    {
+      "type": "video",
+      "src": "/videos/finish/finish-landing-macbook.mp4",
+      "label": "Landing page – Desktop"
+    },
+    {
+      "type": "video",
+      "src": "/videos/finish/finish-landing-iphone.mp4",
+      "label": "Landing page – Mobile"
+    }
+  ]
+}

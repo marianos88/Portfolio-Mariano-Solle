@@ -48,6 +48,8 @@ const publicProjects: Project[] = [
   require('../content/projects/proyecto-01.json'),
   require('../content/projects/proyecto-02.json'),
   require('../content/projects/proyecto-03.json'),
+  require('../content/projects/proyecto-04.json'),
+  require('../content/projects/proyecto-05.json'),
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
