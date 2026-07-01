@@ -5,7 +5,7 @@
   "category": "UX Research · Fintech",
   "description": "Investigación exploratoria sobre los desafíos que enfrentan comerciantes y clientes al usar Mercado Pago Point, identificando pain points y oportunidades para mejorar la experiencia de pagos digitales.",
   "figmaEmbed": "",
-  "coverImage": "/images/Portada-meli.png",
+  "coverImage": "/images/mercadopago/portada.png",
   "images": [],
   "featured": true,
   "tags": ["UX Research", "Fintech", "Mobile"],
@@ -16,7 +16,7 @@
   "sections": [
     {
       "type": "image",
-      "src": "/images/mac-meli.png",
+      "src": "/images/mercadopago/mac.png",
       "alt": "Mercado Pago Point"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "type": "image",
-      "src": "/images/competidores-analizados.png",
+      "src": "/images/mercadopago/competidores-analizados.png",
       "alt": "Competidores analizados"
     },
     {
@@ -43,7 +43,7 @@
     },
     {
       "type": "image",
-      "src": "/images/fortalezas-debilidades.png",
+      "src": "/images/mercadopago/fortalezas-debilidades.png",
       "alt": "Fortalezas y debilidades"
     },
     {
@@ -57,12 +57,12 @@
     },
     {
       "type": "image",
-      "src": "/images/Arquetipo.png",
+      "src": "/images/mercadopago/arquetipo.png",
       "alt": "Arquetipo de usuario"
     },
     {
       "type": "image",
-      "src": "/images/mapa-empatia.png",
+      "src": "/images/mercadopago/mapa-empatia.png",
       "alt": "Mapa de empatía"
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "type": "image",
-      "src": "/images/userflow.png",
+      "src": "/images/mercadopago/userflow.png",
       "alt": "User Flow"
     },
     {
@@ -137,17 +137,17 @@
     },
     {
       "type": "image",
-      "src": "/images/identidad-visual.png",
+      "src": "/images/mercadopago/identidad-visual.png",
       "alt": "Identidad visual"
     },
     {
       "type": "image",
-      "src": "/images/wireframes-baja.png",
+      "src": "/images/mercadopago/wireframes-baja.png",
       "alt": "Wireframes de baja fidelidad"
     },
     {
       "type": "image",
-      "src": "/images/wireframes-alta.png",
+      "src": "/images/mercadopago/wireframes-alta.png",
       "alt": "Wireframes de alta fidelidad"
     },
     {
@@ -176,12 +176,12 @@
     },
     {
       "type": "video",
-      "src": "/images/meli-landing-page.mp4",
+      "src": "/videos/mercadopago/landing-page.mp4",
       "label": "Landing page"
     },
     {
       "type": "video",
-      "src": "/images/app-meli.mp4",
+      "src": "/videos/mercadopago/app.mp4",
       "label": "App"
     }
   ]
