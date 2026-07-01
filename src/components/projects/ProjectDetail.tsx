@@ -2,19 +2,24 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import type { Project, ProjectSection } from '@/lib/projects'
+import { useLocale } from 'next-intl'
+import type { Project, ProjectSection, ProjectLocale } from '@/lib/projects'
+import { getProjectLocale } from '@/lib/projects'
 import VideoPlayer from './VideoPlayer'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
 export default function ProjectDetail({ project }: { project: Project }) {
+  const locale = useLocale()
+  const loc = getProjectLocale(project, locale)
+
   return (
     <article>
       {/* ── Hero cover ── */}
       <div className="relative w-full h-[60vh] min-h-[420px] overflow-hidden dark:bg-[#1a1a1a] bg-[#e8e8e8]">
         {project.coverImage && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
+          <img src={project.coverImage} alt={loc.title} className="w-full h-full object-cover" />
         )}
         <div className="absolute inset-0 dark:bg-dark/40 bg-dark/10" />
       </div>
@@ -27,7 +32,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           transition={{ duration: 0.4 }}
           className="text-[11px] tracking-[2px] uppercase mb-4 font-light dark:text-mint text-[#2a7a4a]"
         >
-          {project.category}
+          {loc.category}
         </motion.p>
 
         <motion.h1
@@ -36,7 +41,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           transition={{ duration: 0.6, delay: 0.05, ease }}
           className="text-[48px] md:text-[64px] lg:text-[80px] font-medium tracking-[-0.025em] leading-[1.0] mb-10 dark:text-off-white text-dark"
         >
-          {project.title}
+          {loc.title}
         </motion.h1>
 
         {/* Meta row */}
@@ -46,46 +51,46 @@ export default function ProjectDetail({ project }: { project: Project }) {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="flex flex-wrap gap-x-10 gap-y-4 pb-10 border-b dark:border-mid-gray/30 border-[#e0e0e0]"
         >
-          {project.role && (
+          {loc.role && (
             <div>
               <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/30 text-mid-gray/50">Role</p>
-              <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{project.role}</p>
+              <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{loc.role}</p>
             </div>
           )}
-          {project.scope && project.scope.length > 0 && (
+          {loc.scope && loc.scope.length > 0 && (
             <div>
               <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/30 text-mid-gray/50">Scope</p>
-              <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{project.scope.join(' · ')}</p>
+              <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{loc.scope.join(' · ')}</p>
             </div>
           )}
         </motion.div>
       </div>
 
       {/* ── Challenge (always shown) ── */}
-      {project.challenge && (
+      {loc.challenge && (
         <FadeSection delay={0.2}>
           <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-[200px_1fr] gap-10">
             <SectionLabel>Challenge</SectionLabel>
             <p className="text-[20px] md:text-[24px] font-light leading-[1.6] dark:text-off-white/90 text-dark">
-              {project.challenge}
+              {loc.challenge}
             </p>
           </div>
         </FadeSection>
       )}
 
-      {/* ── Flexible sections (MercadoPago, future projects) ── */}
-      {project.sections && project.sections.length > 0 && (
+      {/* ── Flexible sections ── */}
+      {loc.sections && loc.sections.length > 0 && (
         <>
           <Divider />
-          {project.sections.map((section, i) => (
+          {loc.sections.map((section, i) => (
             <SectionRenderer key={i} section={section} coverImage={project.coverImage} />
           ))}
         </>
       )}
 
-      {/* ── Legacy layout (SportClub) ── */}
-      {!project.sections && (
-        <LegacyLayout project={project} />
+      {/* ── Legacy layout (SportClub / NDA) ── */}
+      {!loc.sections && (
+        <LegacyLayout loc={loc} coverImage={project.coverImage} figmaEmbed={project.figmaEmbed} />
       )}
 
       {/* ── Footer nav ── */}
@@ -97,7 +102,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           ← All projects
         </Link>
         <span className="text-[11px] tracking-[2px] uppercase dark:text-off-white/20 text-mid-gray/40">
-          {project.category}
+          {loc.category}
         </span>
       </div>
     </article>
@@ -112,12 +117,36 @@ function SectionRenderer({ section, coverImage }: { section: ProjectSection; cov
     return <Divider />
   }
 
+  if (section.type === 'heading') {
+    const sizeClass =
+      section.size === 'lg'
+        ? 'text-[32px] md:text-[40px]'
+        : section.size === 'sm'
+        ? 'text-[16px]'
+        : 'text-[22px] md:text-[28px]'
+    return (
+      <FadeSection>
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <h2
+            className={`${sizeClass} font-medium tracking-[-0.02em] dark:text-off-white text-dark`}
+          >
+            {section.text}
+          </h2>
+        </div>
+      </FadeSection>
+    )
+  }
+
   if (section.type === 'image') {
+    const imgClass =
+      section.size === 'medium'
+        ? 'max-w-2xl mx-auto w-full rounded-xl object-cover'
+        : 'w-full rounded-xl object-cover'
     return (
       <FadeSection>
         <div className="max-w-6xl mx-auto px-6 py-8">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={section.src} alt={section.alt ?? ''} className="w-full rounded-xl object-cover" />
+          <img src={section.src} alt={section.alt ?? ''} className={imgClass} />
         </div>
       </FadeSection>
     )
@@ -134,7 +163,11 @@ function SectionRenderer({ section, coverImage }: { section: ProjectSection; cov
                 {section.label}
               </p>
             )}
-            <VideoPlayer src={section.src} poster={section.poster ?? coverImage} />
+            <VideoPlayer
+              src={section.src}
+              poster={section.poster ?? coverImage}
+              orientation={section.orientation}
+            />
           </div>
         </FadeSection>
       </>
@@ -269,60 +302,68 @@ function SectionRenderer({ section, coverImage }: { section: ProjectSection; cov
 }
 
 /* ─────────────────────────────────────────────
-   Legacy layout kept for SportClub backward compat
+   Legacy layout kept for SportClub / NDA backward compat
 ───────────────────────────────────────────── */
-function LegacyLayout({ project }: { project: Project }) {
+function LegacyLayout({
+  loc,
+  coverImage,
+  figmaEmbed,
+}: {
+  loc: ProjectLocale
+  coverImage?: string
+  figmaEmbed?: string
+}) {
   return (
     <>
-      {project.context && (
+      {loc.context && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-[200px_1fr] gap-10">
               <SectionLabel>Contexto</SectionLabel>
               <p className="text-[15px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray max-w-2xl">
-                {project.context}
+                {loc.context}
               </p>
             </div>
           </FadeSection>
 
-          {project.research && (
+          {loc.research && (
             <FadeSection>
               <div className="max-w-6xl mx-auto px-6 pb-16 grid md:grid-cols-[200px_1fr] gap-10">
                 <div />
                 <div className="grid md:grid-cols-2 gap-10">
                   <div>
                     <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-off-white/30 text-mid-gray/50">¿Cómo investigamos?</p>
-                    <p className="text-[14px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray">{project.research.how}</p>
+                    <p className="text-[14px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray">{loc.research.how}</p>
                   </div>
                   <div>
                     <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-off-white/30 text-mid-gray/50">Objetivo</p>
-                    <p className="text-[14px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray">{project.research.objective}</p>
+                    <p className="text-[14px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray">{loc.research.objective}</p>
                   </div>
                 </div>
               </div>
             </FadeSection>
           )}
 
-          {project.researchImage && (
+          {loc.researchImage && (
             <FadeSection>
               <div className="max-w-6xl mx-auto px-6 pb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={project.researchImage} alt="" className="w-full rounded-xl object-cover" />
+                <img src={loc.researchImage} alt="" className="w-full rounded-xl object-cover" />
               </div>
             </FadeSection>
           )}
         </>
       )}
 
-      {project.researchStats && project.researchStats.length > 0 && (
+      {loc.researchStats && loc.researchStats.length > 0 && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16">
               <p className="text-[11px] tracking-[2px] uppercase mb-10 dark:text-off-white/30 text-mid-gray/50">Perfil de usuarios investigados</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {project.researchStats.map((s, i) => (
+                {loc.researchStats.map((s, i) => (
                   <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}>
                     <p className="text-[52px] md:text-[64px] font-medium tracking-[-0.03em] leading-none mb-2 dark:text-mint text-[#2a7a4a]">{s.value}</p>
                     <p className="text-[12px] font-light dark:text-off-white/40 text-mid-gray/60">{s.label}</p>
@@ -334,14 +375,14 @@ function LegacyLayout({ project }: { project: Project }) {
         </>
       )}
 
-      {project.obstacles && project.obstacles.length > 0 && (
+      {loc.obstacles && loc.obstacles.length > 0 && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-[200px_1fr] gap-10">
               <SectionLabel>Obstáculos detectados</SectionLabel>
               <div className="grid sm:grid-cols-2 gap-4">
-                {project.obstacles.map((obs, i) => (
+                {loc.obstacles.map((obs, i) => (
                   <motion.div key={i} initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }} className="p-5 rounded-xl dark:bg-[#1e1e1e] bg-[#f5f5f5] border dark:border-mid-gray/20 border-[#e8e8e8]">
                     <p className="text-[14px] font-light leading-[1.6] dark:text-off-white/70 text-mid-gray italic">{obs}</p>
                   </motion.div>
@@ -349,45 +390,45 @@ function LegacyLayout({ project }: { project: Project }) {
               </div>
             </div>
           </FadeSection>
-          {project.obstaclesImage && (
+          {loc.obstaclesImage && (
             <FadeSection>
               <div className="max-w-6xl mx-auto px-6 pb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={project.obstaclesImage} alt="" className="w-full rounded-xl object-cover" />
+                <img src={loc.obstaclesImage} alt="" className="w-full rounded-xl object-cover" />
               </div>
             </FadeSection>
           )}
         </>
       )}
 
-      {project.process && (
+      {loc.process && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-[200px_1fr] gap-10">
               <SectionLabel>Proceso</SectionLabel>
-              <p className="text-[15px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray max-w-2xl">{project.process}</p>
+              <p className="text-[15px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray max-w-2xl">{loc.process}</p>
             </div>
           </FadeSection>
-          {project.processImage && (
+          {loc.processImage && (
             <FadeSection>
               <div className="max-w-6xl mx-auto px-6 pb-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={project.processImage} alt="" className="w-full rounded-xl object-cover" />
+                <img src={loc.processImage} alt="" className="w-full rounded-xl object-cover" />
               </div>
             </FadeSection>
           )}
         </>
       )}
 
-      {project.stats && project.stats.length > 0 && (
+      {loc.stats && loc.stats.length > 0 && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16">
               <p className="text-[11px] tracking-[2px] uppercase mb-10 dark:text-off-white/30 text-mid-gray/50">Datos clave</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {project.stats.map((s, i) => (
+                {loc.stats.map((s, i) => (
                   <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}>
                     <p className="text-[52px] md:text-[64px] font-medium tracking-[-0.03em] leading-none mb-2 dark:text-mint text-[#2a7a4a]">{s.value}</p>
                     <p className="text-[12px] font-light dark:text-off-white/40 text-mid-gray/60">{s.label}</p>
@@ -399,26 +440,26 @@ function LegacyLayout({ project }: { project: Project }) {
         </>
       )}
 
-      {project.result && (
+      {loc.result && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-[200px_1fr] gap-10">
               <SectionLabel>Resultado</SectionLabel>
-              <p className="text-[20px] md:text-[24px] font-light leading-[1.6] dark:text-off-white/90 text-dark max-w-2xl">{project.result}</p>
+              <p className="text-[20px] md:text-[24px] font-light leading-[1.6] dark:text-off-white/90 text-dark max-w-2xl">{loc.result}</p>
             </div>
           </FadeSection>
         </>
       )}
 
-      {project.quotes && project.quotes.length > 0 && (
+      {loc.quotes && loc.quotes.length > 0 && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16">
               <p className="text-[11px] tracking-[2px] uppercase mb-10 dark:text-off-white/30 text-mid-gray/50">Voz de los usuarios</p>
               <div className="grid md:grid-cols-3 gap-6">
-                {project.quotes.map((q, i) => (
+                {loc.quotes.map((q, i) => (
                   <motion.blockquote key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="p-6 rounded-xl dark:bg-[#1e1e1e] bg-[#f5f5f5] border dark:border-mid-gray/20 border-[#e8e8e8]">
                     <p className="text-[14px] font-light leading-[1.7] dark:text-off-white/70 text-mid-gray italic mb-4">&ldquo;{q}&rdquo;</p>
                     <p className="text-[10px] tracking-[2px] uppercase dark:text-off-white/20 text-mid-gray/40">Usuario testeado</p>
@@ -430,7 +471,7 @@ function LegacyLayout({ project }: { project: Project }) {
         </>
       )}
 
-      {project.conclusion && (
+      {loc.conclusion && (
         <>
           <Divider />
           <FadeSection>
@@ -438,32 +479,32 @@ function LegacyLayout({ project }: { project: Project }) {
               <SectionLabel>Conclusión</SectionLabel>
               <div>
                 <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-mint/70 text-[#2a7a4a]">Resultados</p>
-                <p className="text-[15px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray max-w-2xl">{project.conclusion}</p>
+                <p className="text-[15px] font-light leading-[1.8] dark:text-off-white/60 text-mid-gray max-w-2xl">{loc.conclusion}</p>
               </div>
             </div>
           </FadeSection>
         </>
       )}
 
-      {project.videoSrc && (
+      {loc.videoSrc && (
         <>
           <Divider />
           <FadeSection>
             <div className="max-w-6xl mx-auto px-6 py-16">
               <p className="text-[11px] tracking-[2px] uppercase mb-6 dark:text-off-white/30 text-mid-gray/50">Prototipo en acción</p>
-              <VideoPlayer src={project.videoSrc} poster={project.coverImage} />
+              <VideoPlayer src={loc.videoSrc} poster={coverImage} />
             </div>
           </FadeSection>
         </>
       )}
 
-      {project.figmaEmbed && (
+      {figmaEmbed && (
         <>
           <Divider />
           <div className="max-w-6xl mx-auto px-6 py-16">
             <p className="text-[11px] tracking-[2px] uppercase mb-6 dark:text-off-white/30 text-mid-gray/50">Prototipo interactivo</p>
             <div className="aspect-video w-full rounded-xl overflow-hidden">
-              <iframe src={project.figmaEmbed} allowFullScreen className="w-full h-full border-0" />
+              <iframe src={figmaEmbed} allowFullScreen className="w-full h-full border-0" />
             </div>
           </div>
         </>

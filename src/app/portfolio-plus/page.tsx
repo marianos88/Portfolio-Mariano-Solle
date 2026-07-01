@@ -1,11 +1,12 @@
 import { cookies } from 'next/headers'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
 import Link from 'next/link'
 import PasswordGate from '@/components/portfolio-plus/PasswordGate'
-import { getNdaProjects } from '@/lib/projects'
+import { getNdaProjects, getProjectLocale } from '@/lib/projects'
 
 export default async function PortfolioPlusPage() {
   const t = await getTranslations('portfolioPlus')
+  const locale = await getLocale()
   const cookieStore = await cookies()
   const hasAccess = !!cookieStore.get('portfolio-plus-auth')?.value
   const projects = getNdaProjects()
@@ -24,26 +25,29 @@ export default async function PortfolioPlusPage() {
 
       {hasAccess ? (
         <div className="grid md:grid-cols-2 gap-4">
-          {projects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/portfolio-plus/${project.slug}`}
-              className="group block rounded-xl border p-6 transition-all duration-200
-                group-hover:translate-y-[-2px] group-hover:shadow-lg
-                dark:bg-[#2e2e2e] dark:border-mid-gray
-                bg-white border-[#e0e0e0]"
-            >
-              <p className="text-[11px] tracking-[2px] uppercase mb-2 dark:text-mint text-[#2a7a4a]">
-                {project.category}
-              </p>
-              <h3 className="text-[18px] font-medium mb-1 dark:text-off-white text-dark">
-                {project.title}
-              </h3>
-              <p className="text-[13px] font-light dark:text-off-white/50 text-mid-gray">
-                {project.description}
-              </p>
-            </Link>
-          ))}
+          {projects.map((project) => {
+            const loc = getProjectLocale(project, locale)
+            return (
+              <Link
+                key={project.slug}
+                href={`/portfolio-plus/${project.slug}`}
+                className="group block rounded-xl border p-6 transition-all duration-200
+                  group-hover:translate-y-[-2px] group-hover:shadow-lg
+                  dark:bg-[#2e2e2e] dark:border-mid-gray
+                  bg-white border-[#e0e0e0]"
+              >
+                <p className="text-[11px] tracking-[2px] uppercase mb-2 dark:text-mint text-[#2a7a4a]">
+                  {loc.category}
+                </p>
+                <h3 className="text-[18px] font-medium mb-1 dark:text-off-white text-dark">
+                  {loc.title}
+                </h3>
+                <p className="text-[13px] font-light dark:text-off-white/50 text-mid-gray">
+                  {loc.description}
+                </p>
+              </Link>
+            )
+          })}
         </div>
       ) : (
         <div>
