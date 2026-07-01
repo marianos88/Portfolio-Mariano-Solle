@@ -3,7 +3,9 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLocale } from 'next-intl'
 import type { Project } from '@/lib/projects'
+import { getProjectLocale } from '@/lib/projects'
 
 export default function ProjectListItem({
   project,
@@ -12,6 +14,8 @@ export default function ProjectListItem({
   project: Project
   index: number
 }) {
+  const locale = useLocale()
+  const loc = getProjectLocale(project, locale)
   const [hovered, setHovered] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
 
@@ -41,7 +45,7 @@ export default function ProjectListItem({
               dark:text-off-white text-dark
               group-hover:dark:text-mint group-hover:text-[#2a7a4a]"
           >
-            {project.title}
+            {loc.title}
           </h3>
         </div>
 
@@ -63,7 +67,7 @@ export default function ProjectListItem({
 
           {/* Tags */}
           <div className="flex items-center gap-2">
-            {project.tags?.slice(0, 2).map((tag) => (
+            {loc.tags?.slice(0, 2).map((tag) => (
               <span
                 key={tag}
                 className="text-[10px] tracking-[1px] uppercase px-2 py-1 rounded
@@ -108,7 +112,7 @@ export default function ProjectListItem({
             style={{ left: mousePos.x + 20, top: mousePos.y - 80 }}
           >
             <span className="text-[11px] tracking-[2px] uppercase dark:text-off-white/20 text-mid-gray/30">
-              {project.category}
+              {loc.category}
             </span>
           </motion.div>
         )}

@@ -3,11 +3,14 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import type { Project } from '@/lib/projects'
+import { getProjectLocale } from '@/lib/projects'
 
 export default function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
   const t = useTranslations('projects')
+  const locale = useLocale()
+  const loc = getProjectLocale(project, locale)
   const [hovered, setHovered] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
 
@@ -37,10 +40,10 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
                 dark:text-off-white text-dark
                 group-hover:dark:text-mint group-hover:text-[#2a7a4a]"
             >
-              {project.title}
+              {loc.title}
             </h3>
             <p className="text-[13px] font-light mt-1 dark:text-off-white/40 text-mid-gray hidden md:block">
-              {project.description}
+              {loc.description}
             </p>
           </div>
         </div>
@@ -48,7 +51,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
         <div className="hidden md:flex items-center gap-8 shrink-0 ml-8">
           <span className="text-[12px] font-light dark:text-off-white/30 text-mid-gray/50">{project.year}</span>
           <div className="flex gap-2">
-            {project.tags?.slice(0, 2).map((tag) => (
+            {loc.tags?.slice(0, 2).map((tag) => (
               <span key={tag} className="text-[10px] tracking-[1px] uppercase px-2 py-1 rounded dark:bg-[#2e2e2e] dark:text-off-white/40 bg-[#f0f0f0] text-mid-gray">
                 {tag}
               </span>

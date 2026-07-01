@@ -3,7 +3,15 @@
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function VideoPlayer({ src, poster }: { src: string; poster?: string }) {
+export default function VideoPlayer({
+  src,
+  poster,
+  orientation = 'landscape',
+}: {
+  src: string
+  poster?: string
+  orientation?: 'landscape' | 'portrait'
+}) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
 
@@ -20,8 +28,16 @@ export default function VideoPlayer({ src, poster }: { src: string; poster?: str
 
   const handleEnded = () => setPlaying(false)
 
+  const containerClass =
+    orientation === 'portrait'
+      ? 'relative mx-auto aspect-[9/16] rounded-xl overflow-hidden bg-black cursor-pointer'
+      : 'relative w-full aspect-video rounded-xl overflow-hidden bg-black cursor-pointer'
+
+  const containerStyle =
+    orientation === 'portrait' ? { maxWidth: '320px' } : undefined
+
   return (
-    <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-black cursor-pointer" onClick={toggle}>
+    <div className={containerClass} style={containerStyle} onClick={toggle}>
       <video
         ref={videoRef}
         src={src}
@@ -31,7 +47,6 @@ export default function VideoPlayer({ src, poster }: { src: string; poster?: str
         playsInline
       />
 
-      {/* Overlay + play/pause button */}
       <AnimatePresence>
         {!playing && (
           <motion.div
@@ -49,7 +64,6 @@ export default function VideoPlayer({ src, poster }: { src: string; poster?: str
               className="w-16 h-16 rounded-full flex items-center justify-center
                 dark:bg-mint bg-off-white shadow-2xl"
             >
-              {/* Play icon */}
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M5 3l14 9-14 9V3z" fill="currentColor" className="dark:text-mid-gray text-dark" />
               </svg>
@@ -58,11 +72,9 @@ export default function VideoPlayer({ src, poster }: { src: string; poster?: str
         )}
       </AnimatePresence>
 
-      {/* Pause button overlay (subtle, appears on hover when playing) */}
       {playing && (
         <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/20">
           <div className="w-14 h-14 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm">
-            {/* Pause icon */}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <rect x="6" y="4" width="4" height="16" rx="1" fill="white" />
               <rect x="14" y="4" width="4" height="16" rx="1" fill="white" />
