@@ -1,24 +1,14 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useLocale } from 'next-intl'
 
 export default function LangSwitch() {
-  const [locale, setLocale] = useState<'es' | 'en'>(() => {
-    if (typeof document !== 'undefined') {
-      const match = document.cookie.match(/locale=([^;]+)/)
-      return (match?.[1] as 'es' | 'en') ?? 'es'
-    }
-    return 'es'
-  })
-  const [, startTransition] = useTransition()
+  const locale = useLocale()
 
   const toggle = () => {
     const next = locale === 'es' ? 'en' : 'es'
     document.cookie = `locale=${next}; path=/; max-age=31536000`
-    setLocale(next)
-    startTransition(() => {
-      window.location.reload()
-    })
+    window.location.reload()
   }
 
   return (
