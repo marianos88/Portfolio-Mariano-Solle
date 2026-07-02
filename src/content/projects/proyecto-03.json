@@ -7,134 +7,134 @@
   "featured": true,
   "isNDA": false,
   "es": {
-    "title": "Banking Platform Redesign",
-    "category": "Fintech · Banking · Enterprise Software",
-    "description": "This project focused on redesigning a legacy banking platform used by internal and external users, transforming a complex and outdated experience into a modern, scalable, and user-centered product that aligned business goals with operational efficiency.",
+    "title": "Rediseño de Plataforma Bancaria",
+    "category": "Fintech · Banca · Software Empresarial",
+    "description": "Este proyecto se enfocó en el rediseño de una plataforma bancaria legacy utilizada por usuarios internos y externos, transformando una experiencia compleja y desactualizada en un producto moderno, escalable y centrado en el usuario que alineó los objetivos de negocio con la eficiencia operativa.",
     "tags": ["UX Research", "UI Design", "Design System", "Enterprise"],
     "role": "Product Designer",
-    "scope": ["UX Research", "Information Architecture", "UX/UI Design", "Design System", "Usability Testing", "User Stories", "QA"],
-    "challenge": "Redesign a platform that had remained largely unchanged for more than a decade while reducing operational friction and improving efficiency for hundreds of internal and external users.",
+    "scope": ["UX Research", "Arquitectura de Información", "UX/UI Design", "Design System", "Pruebas de Usabilidad", "User Stories", "QA"],
+    "challenge": "Rediseñar una plataforma que había permanecido prácticamente sin cambios durante más de una década, reduciendo la fricción operativa y mejorando la eficiencia para cientos de usuarios internos y externos.",
     "sections": [
-      { "type": "image", "src": "/images/bank/portada.png", "alt": "Banking Platform Redesign" },
-      { "type": "twoCol", "col1Label": "Role", "col1Content": "Product Designer", "col2Label": "Industry", "col2Content": "Fintech · Banking · Enterprise Software" },
-      { "type": "twoCol", "col1Label": "Product", "col1Content": "End-to-end redesign of a banking web platform and transactional workflows.", "col2Label": "Scope", "col2Content": "UX Research, Information Architecture, UX/UI Design, Design System, Usability Testing, User Stories, QA" },
-      { "type": "twoCol", "col1Label": "Team", "col1Content": "Product Owner, Apps Manager, Product Manager, Tech Lead, Developers, Business Reporter, Business Stakeholders", "col2Label": "Challenge", "col2Content": "Redesign a platform that had remained largely unchanged for more than a decade while reducing operational friction and improving efficiency for hundreds of internal and external users." },
-      { "type": "image", "src": "/images/bank/macbook.png", "alt": "Banking Platform" },
+      { "type": "image", "src": "/images/bank/portada.png", "alt": "Rediseño de Plataforma Bancaria" },
+      { "type": "twoCol", "col1Label": "Rol", "col1Content": "Product Designer", "col2Label": "Industria", "col2Content": "Fintech · Banca · Software Empresarial" },
+      { "type": "twoCol", "col1Label": "Producto", "col1Content": "Rediseño end-to-end de una plataforma web bancaria y flujos transaccionales.", "col2Label": "Alcance", "col2Content": "UX Research, Arquitectura de Información, UX/UI Design, Design System, Pruebas de Usabilidad, User Stories, QA" },
+      { "type": "twoCol", "col1Label": "Equipo", "col1Content": "Product Owner, Apps Manager, Product Manager, Tech Lead, Desarrolladores, Business Reporter, Stakeholders de Negocio", "col2Label": "Desafío", "col2Content": "Rediseñar una plataforma que había permanecido prácticamente sin cambios durante más de una década, reduciendo la fricción operativa y mejorando la eficiencia para cientos de usuarios internos y externos." },
+      { "type": "image", "src": "/images/bank/macbook.png", "alt": "Plataforma Bancaria" },
       { "type": "text", "label": "Rediseño de Plataforma Bancaria de Comercio Exterior (COMEX)", "content": "Plataforma de Comercio Exterior (COMEX) para la gestión de operaciones internacionales y el cumplimiento de las regulaciones emitidas por el Banco Central de la República Argentina (BCRA)." },
-      { "type": "grid", "label": "Context", "items": [
-        { "title": "Industry", "description": "Banking / Foreign Trade (COMEX)" },
-        { "title": "Users", "description": "+2.000 internal and external users" },
-        { "title": "Duration", "description": "4 years" },
-        { "title": "Scope", "description": "End-to-end redesign of a 13-year-old legacy web-app" }
+      { "type": "grid", "label": "Contexto", "items": [
+        { "title": "Industria", "description": "Banca / Comercio Exterior (COMEX)" },
+        { "title": "Usuarios", "description": "+2.000 usuarios internos y externos" },
+        { "title": "Duración", "description": "4 años" },
+        { "title": "Alcance", "description": "Rediseño end-to-end de una web-app legacy de 13 años" }
       ]},
-      { "type": "grid", "label": "Impact Snapshot", "items": [
-        { "title": "13 years", "description": "Of reactive evolution without an integral UX strategy." },
-        { "title": "100%", "description": "Of screens redesigned and optimized." },
-        { "title": "+2.000", "description": "Internal and external users impacted." },
-        { "title": "+20", "description": "Research and validation instances conducted." }
+      { "type": "grid", "label": "Resumen de Impacto", "items": [
+        { "title": "13 años", "description": "De evolución reactiva sin una estrategia integral de UX." },
+        { "title": "100%", "description": "De pantallas rediseñadas y optimizadas." },
+        { "title": "+2.000", "description": "Usuarios internos y externos impactados." },
+        { "title": "+20", "description": "Instancias de investigación y validación realizadas." }
       ]},
-      { "type": "list", "label": "Role · Senior Product Designer", "intro": "UX Research · Requirements Definition · User Stories · QA & Release Validation. Responsibilities included:", "items": [
+      { "type": "list", "label": "Rol · Senior Product Designer", "intro": "UX Research · Definición de Requerimientos · User Stories · QA y Validación de Releases. Las responsabilidades incluyeron:", "items": [
         "UX Research",
-        "Product Definition",
-        "User Stories writing",
-        "Information Architecture definition",
-        "Design System collaboration and evolution",
-        "QA & release validation",
-        "Stakeholder management"
+        "Definición del Producto",
+        "Redacción de User Stories",
+        "Definición de Arquitectura de Información",
+        "Colaboración y evolución del Design System",
+        "QA y validación de releases",
+        "Gestión de stakeholders"
       ]},
-      { "type": "text", "label": "1 · The Challenge", "content": "The platform supported Foreign Trade processes subject to BCRA regulations, where users had to manage international operations, documentation and regulatory validations through an experience that had remained practically unchanged for 13 years. The platform had evolved through situational adjustments and immediate regulatory needs, without a comprehensive experience strategy or a research-based approach, generating significant UX and operational debt." },
-      { "type": "list", "label": "UX Debt Accumulated", "items": [
-        "Critical information hard to find.",
-        "Lengthy and unintuitive flows.",
-        "Low visibility of statuses and validations.",
-        "Inconsistent terminology.",
-        "Poor differentiation between profiles and roles.",
-        "High cognitive load.",
-        "Risk of errors in regulated processes."
+      { "type": "text", "label": "1 · El Desafío", "content": "La plataforma soportaba procesos de Comercio Exterior sujetos a las regulaciones del BCRA, donde los usuarios debían gestionar operaciones internacionales, documentación y validaciones regulatorias a través de una experiencia que había permanecido prácticamente sin cambios durante 13 años. La plataforma había evolucionado mediante ajustes situacionales y necesidades regulatorias inmediatas, sin una estrategia integral de experiencia ni un enfoque basado en investigación, generando una deuda significativa de UX y operativa." },
+      { "type": "list", "label": "Deuda de UX Acumulada", "items": [
+        "Información crítica difícil de encontrar.",
+        "Flujos extensos y poco intuitivos.",
+        "Baja visibilidad de estados y validaciones.",
+        "Terminología inconsistente.",
+        "Escasa diferenciación entre perfiles y roles.",
+        "Alta carga cognitiva.",
+        "Riesgo de errores en procesos regulados."
       ]},
-      { "type": "list", "label": "Context Constraints", "intro": "The transformation had to take place on a mission-critical platform supporting financial operations and daily transactions. Requirements included:", "items": [
-        "Implementation without service interruptions.",
-        "Historical information must remain available to users.",
-        "Forms and letters generated in the previous version must be preserved for at least one year post-implementation.",
-        "Historical documentation must remain accessible in Read Only mode."
+      { "type": "list", "label": "Restricciones del Contexto", "intro": "La transformación debía realizarse en una plataforma de misión crítica que soportaba operaciones financieras y transacciones diarias. Los requisitos incluyeron:", "items": [
+        "Implementación sin interrupciones del servicio.",
+        "La información histórica debe permanecer disponible para los usuarios.",
+        "Los formularios y cartas generados en la versión anterior deben preservarse al menos un año post-implementación.",
+        "La documentación histórica debe permanecer accesible en modo Solo Lectura."
       ]},
-      { "type": "grid", "label": "Business Goals", "items": [
-        { "title": "Modernize", "description": "A critical platform for banking operations." },
-        { "title": "Reduce risk", "description": "Minimize operational errors in regulated processes." },
-        { "title": "Improve efficiency", "description": "Streamline workflows for internal and external users." },
-        { "title": "Design System", "description": "Enable future evolution through a corporate Design System." }
+      { "type": "grid", "label": "Objetivos de Negocio", "items": [
+        { "title": "Modernizar", "description": "Una plataforma crítica para las operaciones bancarias." },
+        { "title": "Reducir el riesgo", "description": "Minimizar errores operativos en procesos regulados." },
+        { "title": "Mejorar la eficiencia", "description": "Optimizar los flujos de trabajo para usuarios internos y externos." },
+        { "title": "Design System", "description": "Habilitar la evolución futura mediante un Design System corporativo." }
       ]},
-      { "type": "grid", "label": "User Goals", "items": [
-        { "title": "Clarity", "description": "Quickly understand the status of operations." },
-        { "title": "Trust", "description": "Increase confidence during high-stakes operations." },
-        { "title": "Efficiency", "description": "Complete tasks with fewer steps and less navigation." },
-        { "title": "Cognitive load", "description": "Reduce the mental effort required to operate the platform." }
+      { "type": "grid", "label": "Objetivos del Usuario", "items": [
+        { "title": "Claridad", "description": "Comprender rápidamente el estado de las operaciones." },
+        { "title": "Confianza", "description": "Aumentar la seguridad durante operaciones de alto riesgo." },
+        { "title": "Eficiencia", "description": "Completar tareas con menos pasos y menor navegación." },
+        { "title": "Carga cognitiva", "description": "Reducir el esfuerzo mental requerido para operar la plataforma." }
       ]},
-      { "type": "text", "label": "2 · Discovery & Research", "content": "Over the 4 years of product evolution, a continuous research process was implemented with business users and end clients. Activities included quarterly meetings with business users, semi-annual interviews with end clients, discovery workshops, pain point surveys, and iterative feature validations." },
-      { "type": "grid", "label": "Research Metrics", "items": [
-        { "title": "+20", "description": "Research and validation instances." },
-        { "title": "4 years", "description": "Of Continuous Discovery." },
-        { "title": "Continuous feedback", "description": "For roadmap evolution." }
+      { "type": "text", "label": "2 · Descubrimiento e Investigación", "content": "Durante los 4 años de evolución del producto, se implementó un proceso de investigación continua con usuarios de negocio y clientes finales. Las actividades incluyeron reuniones trimestrales con usuarios de negocio, entrevistas semestrales con clientes finales, workshops de discovery, encuestas de pain points y validaciones iterativas de funcionalidades." },
+      { "type": "grid", "label": "Métricas de Investigación", "items": [
+        { "title": "+20", "description": "Instancias de investigación y validación." },
+        { "title": "4 años", "description": "De Continuous Discovery." },
+        { "title": "Feedback continuo", "description": "Para la evolución del roadmap." }
       ]},
-      { "type": "list", "label": "User Pain Points", "items": [
-        "Users took too long to identify relevant regulatory information.",
-        "International operations lacked sufficient feedback and status visibility.",
-        "Users needed to consult multiple operation attributes but information was fragmented across horizontal scroll tables.",
-        "Navigation generated high cognitive load due to process complexity.",
-        "Different user profiles required specific information and actions based on their role.",
-        "System terminology and messages did not adequately support high-criticality processes.",
-        "Users had to navigate between multiple screens and tables to identify operation status and access the most relevant information."
+      { "type": "list", "label": "Pain Points del Usuario", "items": [
+        "Los usuarios tardaban demasiado en identificar información regulatoria relevante.",
+        "Las operaciones internacionales carecían de suficiente feedback y visibilidad de estado.",
+        "Los usuarios necesitaban consultar múltiples atributos de una operación, pero la información estaba fragmentada en tablas con scroll horizontal.",
+        "La navegación generaba alta carga cognitiva debido a la complejidad de los procesos.",
+        "Los distintos perfiles de usuario requerían información y acciones específicas según su rol.",
+        "La terminología y los mensajes del sistema no soportaban adecuadamente los procesos de alta criticidad.",
+        "Los usuarios debían navegar entre múltiples pantallas y tablas para identificar el estado de una operación y acceder a la información más relevante."
       ]},
-      { "type": "text", "label": "3 · Insights", "content": "In a regulated environment like COMEX, information clarity and process visibility are fundamental to reducing operational risk and increasing user confidence. Users needed to visualize the complete context of an operation in a single place, minimizing navigation and the effort required to access critical information." },
-      { "type": "image", "src": "/images/bank/estrategia-diseno.png", "alt": "Design strategy" },
-      { "type": "text", "label": "5 · Solution", "content": "The project was developed during the first years of the corporate Design System. The work consisted not only in consuming existing components, but also in identifying needs for new components, adapting patterns to complex COMEX use cases, iterating components with other teams, validating new visual and interaction solutions, and contributing to the evolution and maturity of the design system." },
-      { "type": "text", "label": "Dashboard as Operational Hub", "content": "The dashboard design aimed to convert it into the main point of consultation and tracking of operations, prioritizing contextual information, content prioritization, quick access to frequent actions, and reduction of unnecessary navigation." },
+      { "type": "text", "label": "3 · Insights", "content": "En un entorno regulado como COMEX, la claridad de la información y la visibilidad de los procesos son fundamentales para reducir el riesgo operativo y aumentar la confianza del usuario. Los usuarios necesitaban visualizar el contexto completo de una operación en un único lugar, minimizando la navegación y el esfuerzo para acceder a información crítica." },
+      { "type": "image", "src": "/images/bank/estrategia-diseno.png", "alt": "Estrategia de diseño" },
+      { "type": "text", "label": "5 · Solución", "content": "El proyecto se desarrolló durante los primeros años del Design System corporativo. El trabajo consistió no solo en consumir componentes existentes, sino también en identificar necesidades de nuevos componentes, adaptar patrones a casos de uso complejos de COMEX, iterar componentes con otros equipos, validar nuevas soluciones visuales e interactivas, y contribuir a la evolución y madurez del Design System." },
+      { "type": "text", "label": "Dashboard como Hub Operativo", "content": "El diseño del dashboard apuntó a convertirlo en el principal punto de consulta y seguimiento de operaciones, priorizando la información contextual, la jerarquización del contenido, el acceso rápido a acciones frecuentes y la reducción de la navegación innecesaria." },
       { "type": "video", "src": "/videos/bank/login-dashboard.mp4", "label": "Login & Dashboard" },
-      { "type": "list", "label": "Layout Changes", "items": [
-        "Consolidated information hierarchy to reduce cognitive load.",
-        "Reorganized navigation to prioritize frequent actions.",
-        "Introduced contextual widgets for status visibility.",
-        "Replaced horizontal scroll tables with expanded row views.",
-        "Adapted layout by user profile (internal vs. external).",
-        "Unified visual language through Design System adoption."
+      { "type": "list", "label": "Cambios de Layout", "items": [
+        "Jerarquía de información consolidada para reducir la carga cognitiva.",
+        "Navegación reorganizada para priorizar acciones frecuentes.",
+        "Incorporación de widgets contextuales para la visibilidad de estados.",
+        "Reemplazo de tablas con scroll horizontal por vistas de filas expandidas.",
+        "Layout adaptado por perfil de usuario (interno vs. externo).",
+        "Lenguaje visual unificado mediante la adopción del Design System."
       ]},
-      { "type": "text", "label": "Context-Oriented Widgets", "content": "Widgets were designed to display relevant information about operations, pending items, statuses, alerts, and priority tasks. The information varied by user profile (internal or external), showing only the most relevant content for each usage context." },
-      { "type": "video", "src": "/videos/bank/carrusel-operaciones.mp4", "label": "Operations carousel" },
-      { "type": "text", "label": "Cards and Information Carousels", "content": "The most important operation information was organized through cards within carousels, enabling users to quickly identify statuses and pending items, authorize and send operations in the waiting list, view relevant data, and quickly access priority operations." },
-      { "type": "text", "label": "Progressive Disclosure", "content": "Dashboard → Widgets & Cards → Datatables → Acciones + detalles. Each level revealed more detail progressively, reducing information overload while keeping critical data accessible at all times." },
-      { "type": "video", "src": "/videos/bank/autorizar-operaciones-datatable.mp4", "label": "Authorize operations datatable" },
-      { "type": "video", "src": "/videos/bank/configurar-dashboard.mp4", "label": "Configure dashboard" },
-      { "type": "heading", "text": "Draft a diseño de alta fidelidad" },
+      { "type": "text", "label": "Widgets Orientados al Contexto", "content": "Los widgets fueron diseñados para mostrar información relevante sobre operaciones, pendientes, estados, alertas y tareas prioritarias. La información variaba según el perfil del usuario (interno o externo), mostrando únicamente el contenido más relevante para cada contexto de uso." },
+      { "type": "video", "src": "/videos/bank/carrusel-operaciones.mp4", "label": "Carrusel de operaciones" },
+      { "type": "text", "label": "Cards y Carruseles de Información", "content": "La información más importante de las operaciones se organizó mediante cards dentro de carruseles, permitiendo a los usuarios identificar rápidamente estados y pendientes, autorizar y enviar operaciones en lista de espera, visualizar datos relevantes y acceder rápidamente a operaciones prioritarias." },
+      { "type": "text", "label": "Divulgación Progresiva", "content": "Dashboard → Widgets & Cards → Datatables → Acciones + detalles. Cada nivel revelaba más detalle de forma progresiva, reduciendo la sobrecarga de información y manteniendo los datos críticos accesibles en todo momento." },
+      { "type": "video", "src": "/videos/bank/autorizar-operaciones-datatable.mp4", "label": "Datatable de autorización de operaciones" },
+      { "type": "video", "src": "/videos/bank/configurar-dashboard.mp4", "label": "Configurar dashboard" },
+      { "type": "heading", "text": "Del borrador al diseño de alta fidelidad" },
       { "type": "image", "src": "/images/bank/dashboard-draft-to-final.png", "alt": "Dashboard draft to final" },
-      { "type": "text", "label": "Role Management", "content": "Differentiated experiences based on permissions, responsibilities, and operational needs. Each user profile accessed only the information and actions relevant to their role." },
+      { "type": "text", "label": "Gestión de Roles", "content": "Experiencias diferenciadas según permisos, responsabilidades y necesidades operativas. Cada perfil de usuario accedía únicamente a la información y las acciones relevantes para su rol." },
       { "type": "heading", "text": "Estructura del Header" },
       { "type": "image", "src": "/images/bank/header-profile.png", "alt": "Header profile" },
-      { "type": "video", "src": "/videos/bank/crear-operacion.mp4", "label": "Create operation" },
-      { "type": "text", "label": "Optimized Datatable & Modal", "content": "The datatable was redesigned to prioritize the most relevant information, expand visible data per row, and reduce dependency on horizontal scroll. The 'View Detail' modal provided complete operation visualization, grouping and hierarchizing information so users could review all necessary context without leaving their workflow." },
+      { "type": "video", "src": "/videos/bank/crear-operacion.mp4", "label": "Crear operación" },
+      { "type": "text", "label": "Datatable y Modal Optimizados", "content": "El datatable fue rediseñado para priorizar la información más relevante, ampliar los datos visibles por fila y reducir la dependencia del scroll horizontal. El modal 'Ver Detalle' proporcionó una visualización completa de la operación, agrupando y jerarquizando la información para que los usuarios pudieran revisar todo el contexto necesario sin abandonar su flujo de trabajo." },
       { "type": "image", "src": "/images/bank/modal-detalle.png", "alt": "Modal detalle" },
-      { "type": "text", "label": "Transition & Coexistence Strategy", "content": "Migration to the new experience had to take place without interrupting daily business operations. The strategy included coexistence between previous and new versions, permanent system availability, access to historical documentation, Read Only viewing of legacy forms and letters, and progressive migration of features and experiences." },
-      { "type": "grid", "label": "5 · Results · Impact on Users", "items": [
-        { "title": "↓ 35%", "description": "Time to locate critical information." },
-        { "title": "↓ 40%", "description": "Need to navigate between modules." },
-        { "title": "↑ 30%", "description": "Adoption of priority features." },
-        { "title": "↑ 35%", "description": "Perception of control and operation tracking." }
+      { "type": "text", "label": "Estrategia de Transición y Coexistencia", "content": "La migración a la nueva experiencia debía realizarse sin interrumpir las operaciones diarias del negocio. La estrategia incluyó la coexistencia entre la versión anterior y la nueva, disponibilidad permanente del sistema, acceso a documentación histórica, visualización en Solo Lectura de formularios y cartas legacy, y migración progresiva de funcionalidades y experiencias." },
+      { "type": "grid", "label": "5 · Resultados · Impacto en Usuarios", "items": [
+        { "title": "↓ 35%", "description": "Tiempo para localizar información crítica." },
+        { "title": "↓ 40%", "description": "Necesidad de navegar entre módulos." },
+        { "title": "↑ 30%", "description": "Adopción de funcionalidades prioritarias." },
+        { "title": "↑ 35%", "description": "Percepción de control y seguimiento de operaciones." }
       ]},
-      { "type": "grid", "label": "Impact on Business & Product", "items": [
-        { "title": "↑ 20%", "description": "Operational efficiency." },
-        { "title": "↓ 40%", "description": "Design and evolution time for new features." },
-        { "title": "100%", "description": "Visual and functional consistency via Design System." },
-        { "title": "+2.000", "description": "Users impacted." }
+      { "type": "grid", "label": "Impacto en Negocio y Producto", "items": [
+        { "title": "↑ 20%", "description": "Eficiencia operativa." },
+        { "title": "↓ 40%", "description": "Tiempo de diseño y evolución de nuevas funcionalidades." },
+        { "title": "100%", "description": "Consistencia visual y funcional mediante el Design System." },
+        { "title": "+2.000", "description": "Usuarios impactados." }
       ]},
-      { "type": "list", "label": "6 · Key Learnings", "items": [
-        "Modernizing a legacy system means redesigning processes, not just interfaces.",
-        "In regulated products, information clarity directly impacts operational efficiency and risk.",
-        "Continuous discovery enabled evidence-based decisions over four years of evolution.",
-        "Designing on an early-stage Design System requires balancing adopting standards with actively contributing to their evolution.",
-        "Designing for legacy systems means thinking not only about the future state, but also how it will temporarily coexist with previous versions.",
-        "In highly complex operational systems, information visibility is as important as process simplification.",
-        "Reducing cognitive load often means presenting information at the right moment and format, not simply showing less.",
-        "Dashboards in complex products must function as operational hubs, not just access points.",
-        "Participating in requirements definition and functional validations reduced the gap between design and development."
+      { "type": "list", "label": "6 · Aprendizajes Clave", "items": [
+        "Modernizar un sistema legacy significa rediseñar procesos, no solo interfaces.",
+        "En productos regulados, la claridad de la información impacta directamente en la eficiencia operativa y el riesgo.",
+        "El Continuous Discovery permitió tomar decisiones basadas en evidencia durante cuatro años de evolución.",
+        "Diseñar sobre un Design System en etapa temprana requiere equilibrar la adopción de estándares con la contribución activa a su evolución.",
+        "Diseñar para sistemas legacy implica pensar no solo en el estado futuro, sino también en cómo coexistirá temporalmente con las versiones anteriores.",
+        "En sistemas operativos de alta complejidad, la visibilidad de la información es tan importante como la simplificación de los procesos.",
+        "Reducir la carga cognitiva muchas veces significa presentar la información en el momento y formato adecuados, no simplemente mostrar menos.",
+        "Los dashboards en productos complejos deben funcionar como hubs operativos, no solo como puntos de acceso.",
+        "La participación en la definición de requerimientos y las validaciones funcionales redujo la brecha entre diseño y desarrollo."
       ]}
     ]
   },

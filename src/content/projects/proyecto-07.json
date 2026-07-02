@@ -7,122 +7,122 @@
   "featured": true,
   "isNDA": false,
   "es": {
-    "title": "Monitoring and Reporting Platform",
-    "category": "Fintech · Banking · Enterprise Software",
-    "description": "This project involved redesigning an internal management and control platform used by employees to manage operational processes, monitor information, and improve communication across different business areas.",
+    "title": "Plataforma de Monitoreo y Reporting",
+    "category": "Fintech · Banca · Software Empresarial",
+    "description": "Este proyecto involucró el rediseño de una plataforma interna de gestión y control utilizada por empleados para administrar procesos operativos, monitorear información y mejorar la comunicación entre distintas áreas de negocio.",
     "tags": ["UX Research", "Dashboard", "Design System", "Enterprise"],
     "role": "Product Designer",
-    "scope": ["UX Research", "Information Architecture", "UX/UI Design", "Design System", "Usability Testing"],
-    "challenge": "Simplify complex internal processes and redesign legacy workflows to improve operational efficiency, communication, and usability for hundreds of employees.",
+    "scope": ["UX Research", "Arquitectura de Información", "UX/UI Design", "Design System", "Pruebas de Usabilidad"],
+    "challenge": "Simplificar procesos internos complejos y rediseñar flujos legacy para mejorar la eficiencia operativa, la comunicación y la usabilidad para cientos de empleados.",
     "sections": [
-      { "type": "image", "src": "/images/internal-monitoring/portada.png", "alt": "Monitoring and Reporting Platform" },
-      { "type": "twoCol", "col1Label": "Role", "col1Content": "Product Designer", "col2Label": "Industry", "col2Content": "Fintech · Banking · Enterprise Software" },
-      { "type": "twoCol", "col1Label": "Product", "col1Content": "Internal management and operational control platform.", "col2Label": "Scope", "col2Content": "UX Research, Information Architecture, UX/UI Design, Design System, Usability Testing" },
-      { "type": "twoCol", "col1Label": "Team", "col1Content": "Product Owner, Apps Manager, Product Manager, Tech Lead, Developers, Business Reporter, Business Stakeholders", "col2Label": "Challenge", "col2Content": "Simplify complex internal processes and redesign legacy workflows to improve operational efficiency, communication, and usability for hundreds of employees." },
-      { "type": "image", "src": "/images/internal-monitoring/dashboard.png", "alt": "Monitoring dashboard" },
+      { "type": "image", "src": "/images/internal-monitoring/portada.png", "alt": "Plataforma de Monitoreo y Reporting" },
+      { "type": "twoCol", "col1Label": "Rol", "col1Content": "Product Designer", "col2Label": "Industria", "col2Content": "Fintech · Banca · Software Empresarial" },
+      { "type": "twoCol", "col1Label": "Producto", "col1Content": "Plataforma interna de gestión y control operativo.", "col2Label": "Alcance", "col2Content": "UX Research, Arquitectura de Información, UX/UI Design, Design System, Pruebas de Usabilidad" },
+      { "type": "twoCol", "col1Label": "Equipo", "col1Content": "Product Owner, Apps Manager, Product Manager, Tech Lead, Desarrolladores, Business Reporter, Stakeholders de Negocio", "col2Label": "Desafío", "col2Content": "Simplificar procesos internos complejos y rediseñar flujos legacy para mejorar la eficiencia operativa, la comunicación y la usabilidad para cientos de empleados." },
+      { "type": "image", "src": "/images/internal-monitoring/dashboard.png", "alt": "Dashboard de monitoreo" },
       { "type": "text", "label": "Rediseño de Plataforma de Monitoreo y Reporting Bancario", "content": "Modernización de una plataforma interna utilizada para supervisar, generar y gestionar reportes de transacciones intra-bancarias en tiempo real." },
-      { "type": "grid", "label": "Context", "items": [
-        { "title": "Industry", "description": "Banking" },
-        { "title": "Market", "description": "Perú" },
-        { "title": "Users", "description": "+1.000 internal employees" },
-        { "title": "Duration", "description": "3 years — end-to-end redesign" }
+      { "type": "grid", "label": "Contexto", "items": [
+        { "title": "Industria", "description": "Banca" },
+        { "title": "Mercado", "description": "Perú" },
+        { "title": "Usuarios", "description": "+1.000 empleados internos" },
+        { "title": "Duración", "description": "3 años — rediseño end-to-end" }
       ]},
-      { "type": "grid", "label": "Impact Snapshot", "items": [
-        { "title": "100%", "description": "Of screens redesigned and optimized." },
-        { "title": "+1.000", "description": "Internal users impacted." },
-        { "title": "3 years", "description": "Of Continuous Discovery." },
-        { "title": "Design System", "description": "Early adoption of the corporate Design System." }
+      { "type": "grid", "label": "Resumen de Impacto", "items": [
+        { "title": "100%", "description": "De pantallas rediseñadas y optimizadas." },
+        { "title": "+1.000", "description": "Usuarios internos impactados." },
+        { "title": "3 años", "description": "De Continuous Discovery." },
+        { "title": "Design System", "description": "Adopción temprana del Design System corporativo." }
       ]},
-      { "type": "text", "label": "1 · The Challenge", "content": "How to modernize a critical banking monitoring platform without affecting operational continuity, enabling more efficient real-time event management? The platform had over six years of evolution and was used daily by internal teams to monitor report generation, supervise intra-bank transactions, validate automatic processes, intervene manually on failures, and consult historical information." },
-      { "type": "list", "label": "UX Debt Accumulated", "items": [
-        "Low visibility of report statuses.",
-        "Lack of visual prioritization.",
-        "Dependency on expert knowledge.",
-        "Limited analytical capacity.",
-        "Unintuitive recovery processes.",
-        "Deprecated visual structure."
+      { "type": "text", "label": "1 · El Desafío", "content": "¿Cómo modernizar una plataforma crítica de monitoreo bancario sin afectar la continuidad operativa, permitiendo una gestión de eventos en tiempo real más eficiente? La plataforma contaba con más de seis años de evolución y era utilizada diariamente por equipos internos para monitorear la generación de reportes, supervisar transacciones intra-bancarias, validar procesos automáticos, intervenir manualmente ante fallas y consultar información histórica." },
+      { "type": "list", "label": "Deuda de UX Acumulada", "items": [
+        "Baja visibilidad de estados de reportes.",
+        "Falta de priorización visual.",
+        "Dependencia del conocimiento experto.",
+        "Capacidad analítica limitada.",
+        "Procesos de recuperación poco intuitivos.",
+        "Estructura visual desactualizada."
       ]},
-      { "type": "list", "label": "Domain Understanding · Critical Processes", "intro": "The platform supports critical processes where an operational error can affect traceability, internal processes, and incident resolution times:", "items": [
-        "Automatic report generation.",
-        "Real-time monitoring.",
-        "Status management.",
-        "Manual intervention.",
-        "Creator and authorizer roles.",
-        "Historical consultation."
+      { "type": "list", "label": "Comprensión del Dominio · Procesos Críticos", "intro": "La plataforma soporta procesos críticos donde un error operativo puede afectar la trazabilidad, los procesos internos y los tiempos de resolución de incidentes:", "items": [
+        "Generación automática de reportes.",
+        "Monitoreo en tiempo real.",
+        "Gestión de estados.",
+        "Intervención manual.",
+        "Roles de creador y autorizador.",
+        "Consulta histórica."
       ]},
-      { "type": "grid", "label": "Business Goals", "items": [
-        { "title": "Modernize", "description": "A critical platform for banking operations." },
-        { "title": "Reduce risk", "description": "Minimize operational errors and incident resolution times." },
-        { "title": "Improve efficiency", "description": "Streamline monitoring and reporting workflows." },
-        { "title": "Design System", "description": "Enable future evolution through a corporate Design System." }
+      { "type": "grid", "label": "Objetivos de Negocio", "items": [
+        { "title": "Modernizar", "description": "Una plataforma crítica para las operaciones bancarias." },
+        { "title": "Reducir el riesgo", "description": "Minimizar errores operativos y tiempos de resolución de incidentes." },
+        { "title": "Mejorar la eficiencia", "description": "Optimizar los flujos de monitoreo y reporting." },
+        { "title": "Design System", "description": "Habilitar la evolución futura mediante un Design System corporativo." }
       ]},
-      { "type": "grid", "label": "User Goals", "items": [
-        { "title": "Visibility", "description": "Quickly understand the state of operations." },
-        { "title": "Trust", "description": "Increase confidence during critical operations." },
-        { "title": "Efficiency", "description": "Complete tasks with fewer steps and less navigation." },
-        { "title": "Cognitive load", "description": "Reduce mental effort required to monitor and act." }
+      { "type": "grid", "label": "Objetivos del Usuario", "items": [
+        { "title": "Visibilidad", "description": "Comprender rápidamente el estado de las operaciones." },
+        { "title": "Confianza", "description": "Aumentar la seguridad durante operaciones críticas." },
+        { "title": "Eficiencia", "description": "Completar tareas con menos pasos y menor navegación." },
+        { "title": "Carga cognitiva", "description": "Reducir el esfuerzo mental requerido para monitorear y actuar." }
       ]},
-      { "type": "list", "label": "Role · Senior Product Designer — End-to-End", "intro": "Full participation across Discovery, Design, Product Definition, and Delivery & QA. Responsibilities included:", "items": [
-        "Research, interviews, workshops, pain point analysis, validations",
-        "Information Architecture, User Flows, Wireframes, UI Design",
-        "Dashboard and Data Visualization design",
-        "Design System adoption and contribution",
-        "User Stories and functional requirements documentation",
-        "Stakeholder alignment",
-        "Test cases, functional QA, pre-release validations, incident tracking"
+      { "type": "list", "label": "Rol · Senior Product Designer — End-to-End", "intro": "Participación completa en Discovery, Diseño, Definición del Producto y Delivery & QA. Las responsabilidades incluyeron:", "items": [
+        "Investigación, entrevistas, workshops, análisis de pain points, validaciones",
+        "Arquitectura de Información, User Flows, Wireframes, UI Design",
+        "Diseño de Dashboard y Visualización de Datos",
+        "Adopción y contribución al Design System",
+        "Documentación de User Stories y requerimientos funcionales",
+        "Alineación con stakeholders",
+        "Casos de prueba, QA funcional, validaciones pre-release, seguimiento de incidentes"
       ]},
-      { "type": "text", "label": "2 · Discovery & Research", "content": "Over 3 years of product evolution, a continuous research process was implemented. Activities included quarterly meetings with business users, semi-annual interviews with end clients, discovery workshops, pain point surveys, and iterative feature validations. Research findings were translated into User Stories, acceptance criteria, functional documentation, and requirement prioritization." },
-      { "type": "list", "label": "User Pain Points", "items": [
-        "Low visibility of report statuses.",
-        "Lack of visual prioritization.",
-        "Dependency on expert knowledge.",
-        "Limited analytical capacity.",
-        "Unintuitive recovery processes.",
-        "Deprecated visual structure."
+      { "type": "text", "label": "2 · Descubrimiento e Investigación", "content": "Durante 3 años de evolución del producto, se implementó un proceso de investigación continua. Las actividades incluyeron reuniones trimestrales con usuarios de negocio, entrevistas semestrales con clientes finales, workshops de discovery, encuestas de pain points y validaciones iterativas de funcionalidades. Los hallazgos de la investigación se tradujeron en User Stories, criterios de aceptación, documentación funcional y priorización de requerimientos." },
+      { "type": "list", "label": "Pain Points del Usuario", "items": [
+        "Baja visibilidad de estados de reportes.",
+        "Falta de priorización visual.",
+        "Dependencia del conocimiento experto.",
+        "Capacidad analítica limitada.",
+        "Procesos de recuperación poco intuitivos.",
+        "Estructura visual desactualizada."
       ]},
-      { "type": "text", "label": "3 · Insights", "content": "Users need a fast and reliable way to monitor report statuses and act on incidents, as the current platform hinders understanding of operational context and increases response times." },
-      { "type": "list", "label": "Design Strategy", "items": [
-        "Visibility: show system status (reports) immediately.",
-        "Efficiency: reduce unnecessary steps.",
-        "Availability to execute reports manually.",
-        "Security and traceability.",
-        "Align experience to the new Design System.",
-        "Facilitate monitoring and decision-making.",
-        "Scalability and consistency.",
-        "Adapt the experience by profile and permissions."
+      { "type": "text", "label": "3 · Insights", "content": "Los usuarios necesitan una forma rápida y confiable de monitorear los estados de los reportes y actuar ante incidentes, ya que la plataforma actual dificulta la comprensión del contexto operativo y aumenta los tiempos de respuesta." },
+      { "type": "list", "label": "Estrategia de Diseño", "items": [
+        "Visibilidad: mostrar el estado del sistema (reportes) de forma inmediata.",
+        "Eficiencia: reducir pasos innecesarios.",
+        "Disponibilidad para ejecutar reportes manualmente.",
+        "Seguridad y trazabilidad.",
+        "Alinear la experiencia al nuevo Design System.",
+        "Facilitar el monitoreo y la toma de decisiones.",
+        "Escalabilidad y consistencia.",
+        "Adaptar la experiencia por perfil y permisos."
       ]},
-      { "type": "text", "label": "5 · Solution", "content": "The solution was built on four main pillars: Operational Dashboard, Data Visualization, Status Management, and Safe Manual Intervention." },
-      { "type": "text", "label": "Dashboard as Operational Hub", "content": "The dashboard was designed as the primary monitoring point, incorporating key metrics, report statuses, alerts, indicators, quick access, and priority actions." },
+      { "type": "text", "label": "5 · Solución", "content": "La solución se construyó sobre cuatro pilares principales: Dashboard Operativo, Visualización de Datos, Gestión de Estados e Intervención Manual Segura." },
+      { "type": "text", "label": "Dashboard como Hub Operativo", "content": "El dashboard fue diseñado como el punto principal de monitoreo, incorporando métricas clave, estados de reportes, alertas, indicadores, acceso rápido y acciones prioritarias." },
       { "type": "video", "src": "/videos/internal-monitoring/login-dashboard.mp4", "label": "Login & Dashboard" },
-      { "type": "text", "label": "Data Visualization", "content": "Historical and operational information was transformed into charts, indicators, metrics, and trends — enabling anomaly detection, incident identification, and contextual understanding." },
+      { "type": "text", "label": "Visualización de Datos", "content": "La información histórica y operativa fue transformada en gráficos, indicadores, métricas y tendencias — permitiendo la detección de anomalías, la identificación de incidentes y la comprensión contextual." },
       { "type": "video", "src": "/videos/internal-monitoring/datatables.mp4", "label": "Datatables" },
-      { "type": "text", "label": "Optimized Datatables", "content": "Tables were redesigned to improve legibility, facilitate analysis, reduce cognitive load, and accelerate search. Status management was refined to cover automatic and manual states, immediate feedback, error messages, and context-aware available actions." },
-      { "type": "video", "src": "/videos/internal-monitoring/carrusel-cards.mp4", "label": "Carousel cards" },
-      { "type": "text", "label": "Progressive Disclosure", "content": "Dashboard → Carousel + cards → Datatables → Detailed report → Actions. This approach organized accessible information in the dashboard, kept metrics available at all times, and offered different levels of detail based on user need." },
-      { "type": "image", "src": "/images/internal-monitoring/dashboard-expanded.png", "alt": "Dashboard expanded" },
-      { "type": "text", "label": "Role Management", "content": "Differentiated experiences based on permissions, responsibilities, and operational needs — creator and authorizer roles with adapted views and available actions." },
-      { "type": "image", "src": "/images/internal-monitoring/header.png", "alt": "Header and profile" },
-      { "type": "text", "label": "Detail Modal", "content": "Full report visualization with the ability to view detail, edit, and send by email — all without leaving the current workflow." },
-      { "type": "image", "src": "/images/internal-monitoring/datatable-details.png", "alt": "Datatable details" },
-      { "type": "text", "label": "Transition Strategy", "content": "Migration to the new experience was designed to occur without interrupting daily business operations, through coexistence between previous and new versions, permanent system availability, and progressive migration of features and experiences." },
-      { "type": "grid", "label": "5 · Results · Impact on Users", "items": [
-        { "title": "↓ 35%", "description": "Time to identify incidents." },
-        { "title": "↓ 30%", "description": "Analysis time." },
-        { "title": "↓ 25%", "description": "Time to execute corrective actions." },
-        { "title": "↓ 40%", "description": "Navigation between screens." }
+      { "type": "text", "label": "Datatables Optimizados", "content": "Las tablas fueron rediseñadas para mejorar la legibilidad, facilitar el análisis, reducir la carga cognitiva y acelerar la búsqueda. La gestión de estados fue refinada para cubrir estados automáticos y manuales, feedback inmediato, mensajes de error y acciones disponibles según el contexto." },
+      { "type": "video", "src": "/videos/internal-monitoring/carrusel-cards.mp4", "label": "Carrusel de cards" },
+      { "type": "text", "label": "Divulgación Progresiva", "content": "Dashboard → Carrusel + cards → Datatables → Reporte detallado → Acciones. Este enfoque organizó la información accesible en el dashboard, mantuvo las métricas disponibles en todo momento y ofreció distintos niveles de detalle según la necesidad del usuario." },
+      { "type": "image", "src": "/images/internal-monitoring/dashboard-expanded.png", "alt": "Dashboard expandido" },
+      { "type": "text", "label": "Gestión de Roles", "content": "Experiencias diferenciadas según permisos, responsabilidades y necesidades operativas — roles de creador y autorizador con vistas y acciones disponibles adaptadas." },
+      { "type": "image", "src": "/images/internal-monitoring/header.png", "alt": "Header y perfil" },
+      { "type": "text", "label": "Modal de Detalle", "content": "Visualización completa del reporte con la posibilidad de ver el detalle, editar y enviar por email — todo sin abandonar el flujo de trabajo actual." },
+      { "type": "image", "src": "/images/internal-monitoring/datatable-details.png", "alt": "Detalles del datatable" },
+      { "type": "text", "label": "Estrategia de Transición", "content": "La migración a la nueva experiencia fue diseñada para realizarse sin interrumpir las operaciones diarias del negocio, mediante la coexistencia entre versiones anterior y nueva, disponibilidad permanente del sistema y migración progresiva de funcionalidades y experiencias." },
+      { "type": "grid", "label": "5 · Resultados · Impacto en Usuarios", "items": [
+        { "title": "↓ 35%", "description": "Tiempo para identificar incidentes." },
+        { "title": "↓ 30%", "description": "Tiempo de análisis." },
+        { "title": "↓ 25%", "description": "Tiempo para ejecutar acciones correctivas." },
+        { "title": "↓ 40%", "description": "Navegación entre pantallas." }
       ]},
-      { "type": "grid", "label": "Impact on Business", "items": [
-        { "title": "↑ Monitoring efficiency", "description": "Faster incident detection and response." },
-        { "title": "↓ Expert dependency", "description": "Reduced reliance on specialized knowledge." },
-        { "title": "↓ Operational risk", "description": "Fewer errors in critical processes." },
-        { "title": "↑ Design System adoption", "description": "Increased product scalability." }
+      { "type": "grid", "label": "Impacto en el Negocio", "items": [
+        { "title": "↑ Eficiencia de monitoreo", "description": "Detección y respuesta más rápida ante incidentes." },
+        { "title": "↓ Dependencia experta", "description": "Menor dependencia de conocimiento especializado." },
+        { "title": "↓ Riesgo operativo", "description": "Menos errores en procesos críticos." },
+        { "title": "↑ Adopción del Design System", "description": "Mayor escalabilidad del producto." }
       ]},
-      { "type": "list", "label": "6 · Key Learnings", "items": [
-        "In highly complex operational systems, information visibility is as important as process simplification.",
-        "Status visibility is as important as functionality.",
-        "Dashboards must function as operational decision-making hubs, not just access points.",
-        "Modernizing a legacy product means transforming processes, not just interfaces.",
-        "This project allowed me to lead the transformation of a critical banking monitoring platform, balancing operational needs, technical constraints, and user experience while contributing to the Design System's evolution."
+      { "type": "list", "label": "6 · Aprendizajes Clave", "items": [
+        "En sistemas operativos de alta complejidad, la visibilidad de la información es tan importante como la simplificación de los procesos.",
+        "La visibilidad de los estados es tan importante como la funcionalidad.",
+        "Los dashboards deben funcionar como hubs operativos de toma de decisiones, no solo como puntos de acceso.",
+        "Modernizar un producto legacy significa transformar procesos, no solo interfaces.",
+        "Este proyecto me permitió liderar la transformación de una plataforma crítica de monitoreo bancario, equilibrando necesidades operativas, restricciones técnicas y experiencia de usuario mientras contribuía a la evolución del Design System."
       ]}
     ]
   },
