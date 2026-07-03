@@ -103,9 +103,12 @@ export default async function PortfolioPlusPage({
       ) : (
         <div>
           {isExpired && (
-            <div className="mb-8 pl-4 border-l-2 dark:border-mint/40 border-[#2a7a4a]/30">
-              <p className="text-[14px] font-light leading-[1.7] dark:text-off-white/60 text-mid-gray">
+            <div className="mb-8 pl-4 border-l-2 dark:border-mint/40 border-[#2a7a4a]/30 space-y-1">
+              <p className="text-[14px] font-light dark:text-off-white/70 text-dark/70">
                 {t('expired')}
+              </p>
+              <p className="text-[13px] font-light dark:text-off-white/40 text-mid-gray">
+                {t('expiredHint')}
               </p>
             </div>
           )}

@@ -50,7 +50,8 @@
     "submit": "Desbloquear Portfolio",
     "error": "El código de acceso no es válido. Verificalo e intentá nuevamente.",
     "errorSuffix": "Si el problema continúa, solicitá un nuevo Access Code a Mariano.",
-    "expired": "Tu acceso anterior a Portfolio Plus expiró. Ingresá nuevamente tu Access Code para continuar.",
+    "expired": "Tu acceso anterior a Portfolio Plus expiró.",
+    "expiredHint": "Ingresá nuevamente tu Access Code para continuar.",
     "lockButton": "Bloquear Portfolio",
     "confidentialityTitle": "Confidencialidad",
     "confidentialityText": "Los proyectos incluidos en esta sección fueron desarrollados bajo acuerdos de confidencialidad (NDA) y se comparten exclusivamente con fines de evaluación profesional. La información presentada omite o adapta datos sensibles, procesos internos y contenido propietario para respetar los compromisos de confidencialidad asumidos con cada organización."

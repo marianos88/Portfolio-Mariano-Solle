@@ -50,7 +50,8 @@
     "submit": "Unlock Portfolio",
     "error": "The access code is not valid. Please verify it and try again.",
     "errorSuffix": "If the problem persists, please request a new Access Code from Mariano.",
-    "expired": "Your previous access to Portfolio Plus has expired. Enter your Access Code again to continue.",
+    "expired": "Your previous access to Portfolio Plus has expired.",
+    "expiredHint": "Enter your Access Code again to continue.",
     "lockButton": "Lock Portfolio",
     "confidentialityTitle": "Confidentiality",
     "confidentialityText": "The projects presented in this section were developed under Non-Disclosure Agreements (NDAs) and are shared exclusively for professional evaluation purposes. Sensitive information, internal processes and proprietary content have been omitted or adapted to respect the confidentiality commitments established with each organization."
