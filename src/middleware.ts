@@ -2,10 +2,10 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  const isNDARoute = request.nextUrl.pathname.startsWith('/portfolio-plus/')
-  const authCookie = request.cookies.get('portfolio-plus-auth')
+  const { pathname } = request.nextUrl
+  const session = request.cookies.get('portfolio_plus_session')
 
-  if (isNDARoute && !authCookie?.value) {
+  if (pathname.startsWith('/portfolio-plus/') && !session?.value) {
     return NextResponse.redirect(new URL('/portfolio-plus', request.url))
   }
 

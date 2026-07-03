@@ -20,7 +20,7 @@ export type ProjectLocale = {
   challenge?: string
   tags?: string[]
   sections?: ProjectSection[]
-  // Legacy fields (SportClub / NDA)
+  // Legacy fields (SportClub)
   context?: string
   research?: { how: string; objective: string }
   researchImage?: string
@@ -39,6 +39,7 @@ export type ProjectLocale = {
 export type Project = {
   slug: string
   year: string
+  visibility: 'public' | 'portfolio-plus'
   figmaEmbed?: string
   coverImage?: string
   images?: string[]
@@ -53,7 +54,7 @@ export function getProjectLocale(project: Project, locale: string): ProjectLocal
 }
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const publicProjects: Project[] = [
+const allProjects: Project[] = [
   require('../content/projects/proyecto-01.json'),
   require('../content/projects/proyecto-02.json'),
   require('../content/projects/proyecto-03.json'),
@@ -63,24 +64,22 @@ const publicProjects: Project[] = [
   require('../content/projects/proyecto-07.json'),
 ]
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const ndaProjects: Project[] = [
-  require('../content/portfolio-plus/caso-nda-01.json'),
-  require('../content/portfolio-plus/caso-nda-02.json'),
-]
-
 export function getPublicProjects(): Project[] {
-  return publicProjects
+  return allProjects.filter((p) => p.visibility === 'public')
 }
 
 export function getPublicProject(slug: string): Project | undefined {
-  return publicProjects.find((p) => p.slug === slug)
+  return getPublicProjects().find((p) => p.slug === slug)
 }
 
-export function getNdaProjects(): Project[] {
-  return ndaProjects
+export function getPortfolioPlusProjects(): Project[] {
+  return allProjects.filter((p) => p.visibility === 'portfolio-plus')
 }
 
-export function getNdaProject(slug: string): Project | undefined {
-  return ndaProjects.find((p) => p.slug === slug)
+export function getPortfolioPlusProject(slug: string): Project | undefined {
+  return getPortfolioPlusProjects().find((p) => p.slug === slug)
+}
+
+export function getAnyProject(slug: string): Project | undefined {
+  return allProjects.find((p) => p.slug === slug)
 }

@@ -5,10 +5,10 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 
-export default function PasswordGate() {
+export default function PasswordGate({ from }: { from?: string }) {
   const t = useTranslations('portfolioPlus')
   const router = useRouter()
-  const [password, setPassword] = useState('')
+  const [code, setCode] = useState('')
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -20,11 +20,11 @@ export default function PasswordGate() {
     const res = await fetch('/api/unlock', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password }),
+      body: JSON.stringify({ code }),
     })
 
     if (res.ok) {
-      router.refresh()
+      router.push(from || '/portfolio-plus')
     } else {
       setError(true)
       setLoading(false)
@@ -40,27 +40,29 @@ export default function PasswordGate() {
       className="space-y-4 max-w-sm"
     >
       <label className="block text-[11px] tracking-[2px] uppercase dark:text-off-white/50 text-mid-gray">
-        {t('passwordLabel')}
+        {t('accessCodeLabel')}
       </label>
       <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder={t('passwordPlaceholder')}
+        type="text"
+        value={code}
+        onChange={(e) => setCode(e.target.value)}
+        placeholder={t('accessCodePlaceholder')}
         required
+        autoComplete="off"
         className="w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-all
           dark:bg-[#1e1e1e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/20
           bg-white border-[#e0e0e0] text-dark placeholder-mid-gray/40
           focus:dark:border-mint/50 focus:border-[#2a7a4a]/50"
       />
       {error && (
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, x: -4 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-[12px] text-red-400"
+          className="space-y-1"
         >
-          {t('error')}
-        </motion.p>
+          <p className="text-[12px] text-red-400">{t('error')}</p>
+          <p className="text-[12px] dark:text-off-white/40 text-mid-gray">{t('errorSuffix')}</p>
+        </motion.div>
       )}
       <button
         type="submit"

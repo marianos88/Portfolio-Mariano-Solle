@@ -1,30 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server'
-import bcrypt from 'bcryptjs'
+import { verifyAccessCode } from '@/lib/auth'
+
+const SESSION_MAX_AGE = 60 * 60 * 24 * 30 // 30 days
+const VISITED_MAX_AGE = 60 * 60 * 24 * 60 // 60 days — survives session expiry for expiry message
 
 export async function POST(req: NextRequest) {
-  const { password } = await req.json()
+  const { code } = await req.json()
 
-  if (!password || typeof password !== 'string') {
+  if (!code || typeof code !== 'string') {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
   }
 
-  const hash = process.env.PORTFOLIO_PLUS_PASSWORD_HASH
-  if (!hash) {
-    return NextResponse.json({ error: 'Not configured' }, { status: 500 })
+  if (!verifyAccessCode(code)) {
+    return NextResponse.json({ error: 'Invalid access code' }, { status: 401 })
   }
 
-  const valid = await bcrypt.compare(password, hash)
-
-  if (!valid) {
-    return NextResponse.json({ error: 'Contraseña incorrecta' }, { status: 401 })
-  }
-
+  const isProd = process.env.NODE_ENV === 'production'
   const response = NextResponse.json({ ok: true })
-  response.cookies.set('portfolio-plus-auth', 'granted', {
+
+  response.cookies.set('portfolio_plus_session', 'granted', {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 60 * 60 * 24 * 7,
+    secure: isProd,
+    sameSite: 'lax',
+    maxAge: SESSION_MAX_AGE,
+    path: '/',
+  })
+
+  // Persists beyond session lifetime so we can detect expiry vs. first visit
+  response.cookies.set('portfolio_plus_visited', '1', {
+    httpOnly: true,
+    secure: isProd,
+    sameSite: 'lax',
+    maxAge: VISITED_MAX_AGE,
     path: '/',
   })
 

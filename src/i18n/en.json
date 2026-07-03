@@ -43,13 +43,17 @@
   },
   "portfolioPlus": {
     "tag": "PORTFOLIO PLUS",
-    "title": "Access to private projects",
-    "description": "These projects are under a confidentiality agreement. Enter the password to access the full cases.",
-    "passwordLabel": "Access password",
-    "passwordPlaceholder": "Enter the password",
-    "submit": "Access",
-    "error": "Incorrect password. Please try again.",
-    "requestAccess": "Don't have access? Contact me"
+    "title": "Portfolio Plus",
+    "description": "This section contains a selection of projects developed under Non-Disclosure Agreements (NDAs).\n\nIf you received an access code during a recruitment process or a business conversation, you can unlock the content below.",
+    "accessCodeLabel": "Access code",
+    "accessCodePlaceholder": "Enter your access code",
+    "submit": "Unlock Portfolio",
+    "error": "The access code is not valid. Please verify it and try again.",
+    "errorSuffix": "If the problem persists, please request a new Access Code from Mariano.",
+    "expired": "Your previous access to Portfolio Plus has expired. Enter your Access Code again to continue.",
+    "lockButton": "Lock Portfolio",
+    "confidentialityTitle": "Confidentiality",
+    "confidentialityText": "The projects presented in this section were developed under Non-Disclosure Agreements (NDAs) and are shared exclusively for professional evaluation purposes. Sensitive information, internal processes and proprietary content have been omitted or adapted to respect the confidentiality commitments established with each organization."
   },
   "contact": {
     "tag": "CONTACT",
