@@ -23,7 +23,7 @@ export default function ProjectCursor({ mouseX, mouseY, visible }: Props) {
       animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.75 }}
       transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="flex items-center gap-2 bg-[#ebebeb] rounded-full px-5 h-10">
+      <div className="flex items-center justify-center gap-3 bg-[#ebebeb] rounded-full pl-5 pr-[18px] h-10">
         <span className="text-[15px] font-medium text-dark leading-none whitespace-nowrap">
           {label}
         </span>
