@@ -27,7 +27,7 @@ export default function ProjectCursor({ mouseX, mouseY, visible }: Props) {
         <span className="text-[15px] font-medium text-dark leading-none whitespace-nowrap">
           {label}
         </span>
-        <span className="text-[15px] font-medium text-dark leading-none relative -top-px" aria-hidden="true">→</span>
+        <span className="text-[15px] font-medium text-dark leading-none" style={{ transform: 'translateY(-2px)' }} aria-hidden="true">→</span>
       </div>
     </motion.div>
   )
