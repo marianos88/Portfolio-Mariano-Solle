@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
 import type { Project } from '@/lib/projects'
 import { getProjectLocale } from '@/lib/projects'
@@ -13,7 +13,6 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
   const locale = useLocale()
   const loc = getProjectLocale(project, locale)
   const [hovered, setHovered] = useState(false)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const mouseX = useMotionValue(-999)
   const mouseY = useMotionValue(-999)
 
@@ -29,7 +28,6 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onMouseMove={(e) => {
-          setMousePos({ x: e.clientX, y: e.clientY })
           mouseX.set(e.clientX)
           mouseY.set(e.clientY)
         }}
@@ -56,6 +54,15 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
         </div>
 
         <div className="hidden md:flex items-center gap-8 shrink-0 ml-8">
+          {project.coverImage && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={project.coverImage}
+              alt=""
+              aria-hidden="true"
+              className="w-24 h-16 rounded-lg object-cover shrink-0 grayscale transition-[filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grayscale-0"
+            />
+          )}
           <span className="text-[12px] font-light dark:text-off-white/30 text-mid-gray/50">{project.year}</span>
           <div className="flex gap-2">
             {loc.tags?.slice(0, 2).map((tag) => (
@@ -67,22 +74,6 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
           <span className="text-[16px] transition-transform duration-200 dark:text-mint text-[#2a7a4a] group-hover:translate-x-1">→</span>
         </div>
       </Link>
-
-      <AnimatePresence>
-        {hovered && project.coverImage && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.92 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="pointer-events-none fixed z-50 w-64 h-40 rounded-xl overflow-hidden shadow-2xl"
-            style={{ left: mousePos.x + 20, top: mousePos.y - 80 }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={project.coverImage} alt="" className="w-full h-full object-cover" />
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {hovered && (
         <p className="sr-only">{t('viewCase')}</p>
