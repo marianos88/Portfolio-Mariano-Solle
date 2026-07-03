@@ -42,7 +42,7 @@ export default async function PortfolioPlusPage({
       <h1 className="text-[36px] md:text-[46px] font-medium tracking-[-0.02em] mb-4 dark:text-off-white text-dark">
         {t('title')}
       </h1>
-      <p className="text-[16px] font-light leading-[1.7] mb-12 max-w-xl dark:text-off-white/60 text-mid-gray">
+      <p className="text-[16px] font-light leading-[1.7] mb-12 max-w-xl dark:text-off-white/60 text-mid-gray whitespace-pre-line">
         {t('description')}
       </p>
 
@@ -66,32 +66,53 @@ export default async function PortfolioPlusPage({
                 <Link
                   key={project.slug}
                   href={`/projects/${project.slug}`}
+                  aria-label={loc.title}
                   className="group block rounded-xl border p-6 transition-all duration-200
                     dark:bg-[#2e2e2e] dark:border-mid-gray hover:dark:border-mint/30
-                    bg-white border-[#e0e0e0] hover:shadow-md"
+                    bg-white border-[#e0e0e0] hover:shadow-md
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+                    dark:focus-visible:ring-mint focus-visible:ring-[#2a7a4a]"
                 >
-                  <p className="text-[11px] tracking-[2px] uppercase mb-2 dark:text-mint text-[#2a7a4a]">
-                    {loc.category}
-                  </p>
+                  <div className="flex items-start justify-between mb-2">
+                    <p className="text-[11px] tracking-[2px] uppercase dark:text-mint text-[#2a7a4a]">
+                      {loc.category}
+                    </p>
+                    <span
+                      aria-hidden="true"
+                      className="text-[14px] dark:text-mint text-[#2a7a4a] transition-all duration-200
+                        opacity-0 group-hover:opacity-100 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </div>
                   <h3 className="text-[18px] font-medium mb-1 dark:text-off-white text-dark">
                     {loc.title}
                   </h3>
                   <p className="text-[13px] font-light dark:text-off-white/50 text-mid-gray">
                     {loc.description}
                   </p>
+                  {project.year && (
+                    <p className="mt-4 text-[11px] tracking-[1px] dark:text-off-white/20 text-mid-gray/40">
+                      {project.year}
+                    </p>
+                  )}
                 </Link>
               )
             })}
           </div>
 
-          <LockButton />
+          <div className="pt-8 border-t dark:border-mid-gray/30 border-[#e0e0e0]">
+            <LockButton />
+          </div>
         </div>
       ) : (
         <div>
           {isExpired && (
-            <p className="mb-6 text-[14px] font-light dark:text-off-white/50 text-mid-gray">
-              {t('expired')}
-            </p>
+            <div className="mb-8 pl-4 border-l-2 dark:border-mint/40 border-[#2a7a4a]/30">
+              <p className="text-[14px] font-light leading-[1.7] dark:text-off-white/60 text-mid-gray">
+                {t('expired')}
+              </p>
+            </div>
           )}
           <PasswordGate from={from} />
         </div>

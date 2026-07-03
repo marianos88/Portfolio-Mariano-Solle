@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl'
 import type { Project, ProjectSection, ProjectLocale } from '@/lib/projects'
 import { getProjectLocale } from '@/lib/projects'
 import VideoPlayer from './VideoPlayer'
+import LockButton from '@/components/portfolio-plus/LockButton'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -95,15 +96,28 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
       {/* ── Footer nav ── */}
       <div className="max-w-6xl mx-auto px-6 py-20 mt-8 flex justify-between items-center border-t dark:border-mid-gray/30 border-[#e0e0e0]">
-        <Link
-          href="/projects"
-          className="text-[13px] font-light dark:text-off-white/40 text-mid-gray hover:dark:text-off-white hover:text-dark transition-colors"
-        >
-          ← All projects
-        </Link>
-        <span className="text-[11px] tracking-[2px] uppercase dark:text-off-white/20 text-mid-gray/40">
-          {loc.category}
-        </span>
+        {project.visibility === 'portfolio-plus' ? (
+          <Link
+            href="/portfolio-plus"
+            className="text-[13px] font-light dark:text-off-white/40 text-mid-gray hover:dark:text-off-white hover:text-dark transition-colors"
+          >
+            ← Portfolio Plus
+          </Link>
+        ) : (
+          <Link
+            href="/projects"
+            className="text-[13px] font-light dark:text-off-white/40 text-mid-gray hover:dark:text-off-white hover:text-dark transition-colors"
+          >
+            ← All projects
+          </Link>
+        )}
+        {project.visibility === 'portfolio-plus' ? (
+          <LockButton />
+        ) : (
+          <span className="text-[11px] tracking-[2px] uppercase dark:text-off-white/20 text-mid-gray/40">
+            {loc.category}
+          </span>
+        )}
       </div>
     </article>
   )

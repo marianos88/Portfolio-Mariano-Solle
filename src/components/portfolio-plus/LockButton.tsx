@@ -16,7 +16,8 @@ export default function LockButton() {
     <button
       onClick={handleLock}
       className="text-[11px] tracking-[2px] uppercase transition-opacity opacity-40 hover:opacity-70
-        dark:text-off-white text-dark"
+        dark:text-off-white text-dark
+        focus-visible:outline-none focus-visible:opacity-100 focus-visible:underline"
     >
       {t('lockButton')}
     </button>
