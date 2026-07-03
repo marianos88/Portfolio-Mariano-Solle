@@ -1,7 +1,5 @@
-import bcrypt from 'bcryptjs'
-
-export async function verifyPassword(password: string): Promise<boolean> {
-  const hash = process.env.PORTFOLIO_PLUS_PASSWORD_HASH
-  if (!hash) return false
-  return bcrypt.compare(password, hash)
+export function verifyAccessCode(code: string): boolean {
+  const expected = process.env.PORTFOLIO_PLUS_ACCESS_CODE
+  if (!expected) return false
+  return code === expected
 }

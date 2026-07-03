@@ -43,13 +43,17 @@
   },
   "portfolioPlus": {
     "tag": "PORTFOLIO PLUS",
-    "title": "Acceso a proyectos privados",
-    "description": "Estos proyectos están bajo acuerdo de confidencialidad. Ingresá la contraseña para acceder a los casos completos.",
-    "passwordLabel": "Contraseña de acceso",
-    "passwordPlaceholder": "Ingresá la contraseña",
-    "submit": "Acceder",
-    "error": "Contraseña incorrecta. Intentá de nuevo.",
-    "requestAccess": "¿No tenés acceso? Contactame"
+    "title": "Portfolio Plus",
+    "description": "Esta sección contiene una selección de proyectos desarrollados bajo acuerdos de confidencialidad (NDA).\n\nSi recibiste un código de acceso durante un proceso de selección o una conversación comercial, podés desbloquear el contenido a continuación.",
+    "accessCodeLabel": "Código de acceso",
+    "accessCodePlaceholder": "Ingresá tu código de acceso",
+    "submit": "Desbloquear Portfolio",
+    "error": "El código de acceso no es válido. Verificalo e intentá nuevamente.",
+    "errorSuffix": "Si el problema continúa, solicitá un nuevo Access Code a Mariano.",
+    "expired": "Tu acceso anterior a Portfolio Plus expiró. Ingresá nuevamente tu Access Code para continuar.",
+    "lockButton": "Bloquear Portfolio",
+    "confidentialityTitle": "Confidencialidad",
+    "confidentialityText": "Los proyectos incluidos en esta sección fueron desarrollados bajo acuerdos de confidencialidad (NDA) y se comparten exclusivamente con fines de evaluación profesional. La información presentada omite o adapta datos sensibles, procesos internos y contenido propietario para respetar los compromisos de confidencialidad asumidos con cada organización."
   },
   "contact": {
     "tag": "CONTACTO",
