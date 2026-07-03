@@ -57,9 +57,10 @@ export default function PasswordGate({ from }: { from?: string }) {
         aria-describedby={error ? 'access-code-error' : undefined}
         aria-invalid={error ? true : undefined}
         className="w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-all
-          dark:bg-[#1e1e1e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/20
+          dark:bg-[#2e2e2e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/30
           bg-white border-[#e0e0e0] text-dark placeholder-mid-gray/40
-          focus:dark:border-mint/50 focus:border-[#2a7a4a]/50"
+          focus-visible:ring-2 focus-visible:ring-offset-2
+          dark:focus-visible:ring-mint/40 focus-visible:ring-[#2a7a4a]/40"
       />
       {error && (
         <motion.div

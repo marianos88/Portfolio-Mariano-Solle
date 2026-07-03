@@ -91,11 +91,6 @@ export default async function PortfolioPlusPage({
                   <p className="text-[13px] font-light dark:text-off-white/50 text-mid-gray">
                     {loc.description}
                   </p>
-                  {project.year && (
-                    <p className="mt-4 text-[11px] tracking-[1px] dark:text-off-white/20 text-mid-gray/40">
-                      {project.year}
-                    </p>
-                  )}
                 </Link>
               )
             })}
