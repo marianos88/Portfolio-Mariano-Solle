@@ -24,9 +24,8 @@ export default function PasswordGate({ from }: { from?: string }) {
     })
 
     if (res.ok) {
-      router.refresh()
       if (from) router.push(from)
-      else setLoading(false)
+      else window.location.reload()
     } else {
       setError(true)
       setLoading(false)
