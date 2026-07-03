@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
 import type { Project } from '@/lib/projects'
 import { getProjectLocale } from '@/lib/projects'
+import ProjectCursor from './ProjectCursor'
 
 export default function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
   const t = useTranslations('projects')
@@ -13,6 +14,8 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
   const loc = getProjectLocale(project, locale)
   const [hovered, setHovered] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const mouseX = useMotionValue(-999)
+  const mouseY = useMotionValue(-999)
 
   return (
     <motion.div
@@ -25,8 +28,12 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
         href={`/projects/${project.slug}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
-        className="group flex items-center justify-between py-6 md:py-8 border-t transition-all duration-200
+        onMouseMove={(e) => {
+          setMousePos({ x: e.clientX, y: e.clientY })
+          mouseX.set(e.clientX)
+          mouseY.set(e.clientY)
+        }}
+        className="cursor-none group flex items-center justify-between py-6 md:py-8 border-t transition-all duration-200
           dark:border-mid-gray/50 border-[#e0e0e0]
           hover:dark:border-mint/30 hover:border-[#aaeec4]/50"
       >
@@ -80,6 +87,8 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
       {hovered && (
         <p className="sr-only">{t('viewCase')}</p>
       )}
+
+      <ProjectCursor mouseX={mouseX} mouseY={mouseY} visible={hovered} />
     </motion.div>
   )
 }
