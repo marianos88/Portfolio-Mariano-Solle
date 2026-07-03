@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { verifyAccessCode } from '@/lib/auth'
+import { verifyAccessCode, generateSessionToken } from '@/lib/auth'
 
 const SESSION_MAX_AGE = 60 * 60 * 24 * 30 // 30 days
 const VISITED_MAX_AGE = 60 * 60 * 24 * 60 // 60 days — survives session expiry for expiry message
@@ -15,10 +15,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid access code' }, { status: 401 })
   }
 
+  const token = await generateSessionToken()
   const isProd = process.env.NODE_ENV === 'production'
   const response = NextResponse.json({ ok: true })
 
-  response.cookies.set('portfolio_plus_session', 'granted', {
+  response.cookies.set('portfolio_plus_session', token, {
     httpOnly: true,
     secure: isProd,
     sameSite: 'lax',

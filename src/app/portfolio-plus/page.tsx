@@ -4,6 +4,17 @@ import Link from 'next/link'
 import PasswordGate from '@/components/portfolio-plus/PasswordGate'
 import LockButton from '@/components/portfolio-plus/LockButton'
 import { getPortfolioPlusProjects, getProjectLocale } from '@/lib/projects'
+import { verifySessionToken } from '@/lib/auth'
+
+function sanitizeFrom(from: string | undefined): string | undefined {
+  if (!from) return undefined
+  try {
+    new URL(from) // succeeds only for absolute URLs — reject those
+    return undefined
+  } catch {
+    return from.startsWith('/') ? from : undefined
+  }
+}
 
 export const dynamic = 'force-dynamic'
 
@@ -15,11 +26,13 @@ export default async function PortfolioPlusPage({
   const t = await getTranslations('portfolioPlus')
   const locale = await getLocale()
   const cookieStore = await cookies()
-  const hasSession = !!cookieStore.get('portfolio_plus_session')?.value
+  const sessionToken = cookieStore.get('portfolio_plus_session')?.value ?? ''
+  const hasSession = await verifySessionToken(sessionToken)
   const hadVisited = !!cookieStore.get('portfolio_plus_visited')?.value
   const isExpired = !hasSession && hadVisited
   const projects = getPortfolioPlusProjects()
-  const { from } = await searchParams
+  const { from: rawFrom } = await searchParams
+  const from = sanitizeFrom(rawFrom)
 
   return (
     <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto">

@@ -1,12 +1,16 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { verifySessionToken } from '@/lib/auth'
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const session = request.cookies.get('portfolio_plus_session')
 
-  if (pathname.startsWith('/portfolio-plus/') && !session?.value) {
-    return NextResponse.redirect(new URL('/portfolio-plus', request.url))
+  if (pathname.startsWith('/portfolio-plus/')) {
+    const token = request.cookies.get('portfolio_plus_session')?.value ?? ''
+    const valid = await verifySessionToken(token)
+    if (!valid) {
+      return NextResponse.redirect(new URL('/portfolio-plus', request.url))
+    }
   }
 
   return NextResponse.next()

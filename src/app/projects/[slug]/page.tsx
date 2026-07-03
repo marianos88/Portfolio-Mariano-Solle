@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import { getAnyProject } from '@/lib/projects'
+import { verifySessionToken } from '@/lib/auth'
 import ProjectDetail from '@/components/projects/ProjectDetail'
 
 export const dynamic = 'force-dynamic'
@@ -12,7 +13,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   if (project.visibility === 'portfolio-plus') {
     const cookieStore = await cookies()
-    const hasAccess = !!cookieStore.get('portfolio_plus_session')?.value
+    const token = cookieStore.get('portfolio_plus_session')?.value ?? ''
+    const hasAccess = await verifySessionToken(token)
     if (!hasAccess) {
       redirect(`/portfolio-plus?from=${encodeURIComponent('/projects/' + slug)}`)
     }
