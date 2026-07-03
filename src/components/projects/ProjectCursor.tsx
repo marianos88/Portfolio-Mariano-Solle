@@ -11,7 +11,7 @@ interface Props {
 
 export default function ProjectCursor({ mouseX, mouseY, visible }: Props) {
   const locale = useLocale()
-  const label = locale === 'es' ? 'Ver proyecto' : 'View project'
+  const label = locale === 'es' ? 'Ver Proyecto' : 'View Project'
 
   const x = useSpring(mouseX, { stiffness: 400, damping: 28, mass: 0.5 })
   const y = useSpring(mouseY, { stiffness: 400, damping: 28, mass: 0.5 })
@@ -23,11 +23,11 @@ export default function ProjectCursor({ mouseX, mouseY, visible }: Props) {
       animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.75 }}
       transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="w-28 h-28 rounded-full bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center gap-1.5">
-        <span className="text-[20px] text-dark leading-none" aria-hidden="true">→</span>
-        <span className="text-[9px] tracking-[1.5px] uppercase text-dark/55 leading-none">
+      <div className="flex items-center gap-3 bg-white rounded-full px-5 h-10">
+        <span className="text-[13px] font-medium text-dark leading-none whitespace-nowrap">
           {label}
         </span>
+        <span className="text-[13px] font-medium text-dark leading-none" aria-hidden="true">→</span>
       </div>
     </motion.div>
   )
