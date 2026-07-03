@@ -24,7 +24,9 @@ export default function PasswordGate({ from }: { from?: string }) {
     })
 
     if (res.ok) {
-      router.push(from || '/portfolio-plus')
+      router.refresh()
+      if (from) router.push(from)
+      else setLoading(false)
     } else {
       setError(true)
       setLoading(false)
