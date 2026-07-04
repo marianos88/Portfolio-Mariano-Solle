@@ -13,21 +13,21 @@ const skills = [
 ]
 
 const specializationsEs = [
-  'Banca digital y fintech',
-  'Productos SaaS B2B y B2C',
-  'E-commerce',
   'Apps móviles',
-  'Landing pages y micrositios',
+  'Banca digital y fintech',
+  'E-commerce',
   'Gobierno',
+  'Landing pages y micrositios',
+  'Productos SaaS B2B y B2C',
 ]
 
 const specializationsEn = [
-  'Digital banking and fintech',
   'B2B and B2C SaaS products',
+  'Digital banking and fintech',
   'E-commerce',
-  'Mobile apps',
-  'Landing pages and microsites',
   'Government',
+  'Landing pages and microsites',
+  'Mobile apps',
 ]
 
 export default async function AboutSection() {
