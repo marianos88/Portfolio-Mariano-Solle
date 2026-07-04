@@ -28,8 +28,8 @@ export default function ProjectCursor({ mouseX, mouseY, visible }: Props) {
     }
   }, [visible]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const pillBg = theme === 'dark' ? '#2e2e2e' : '#ebebeb'
-  const pillText = theme === 'dark' ? '#a0a0a0' : '#3d3d3d'
+  const pillBg = theme === 'dark' ? '#ebebeb' : '#2e2e2e'
+  const pillText = theme === 'dark' ? '#3d3d3d' : '#a0a0a0'
 
   return (
     <motion.div
