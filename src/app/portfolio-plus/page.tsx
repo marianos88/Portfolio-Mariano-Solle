@@ -42,9 +42,6 @@ export default async function PortfolioPlusPage({
       <h1 className="text-[36px] md:text-[46px] font-medium tracking-[-0.02em] mb-4 dark:text-off-white text-dark">
         {t('title')}
       </h1>
-      <p className="text-[16px] font-light leading-[1.7] mb-12 max-w-xl dark:text-off-white/60 text-mid-gray whitespace-pre-line">
-        {t('description')}
-      </p>
 
       {hasSession ? (
         <div>
@@ -102,6 +99,9 @@ export default async function PortfolioPlusPage({
         </div>
       ) : (
         <div>
+          <p className="text-[16px] font-light leading-[1.7] mb-12 max-w-xl dark:text-off-white/60 text-mid-gray whitespace-pre-line">
+            {t('description')}
+          </p>
           {isExpired && (
             <div className="mb-8 pl-4 border-l-2 dark:border-mint/40 border-[#2a7a4a]/30 space-y-1">
               <p className="text-[14px] font-light dark:text-off-white/70 text-dark/70">
