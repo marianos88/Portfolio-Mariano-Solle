@@ -2,7 +2,7 @@
 
 ## Last Known Good Commit
 
-`bab9a62` — fix(cursor): swap theme mapping — light pill on dark mode, dark pill on light mode
+`cb2da6b` — Revert stacking cards experiment
 
 ---
 
