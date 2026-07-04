@@ -19,23 +19,12 @@ export default function ProjectList() {
           {t('sectionTag')}
         </p>
 
-        <div className="relative">
+        <div>
           {projects.map((project, i) => (
-            <div
-              key={project.slug}
-              className="sticky dark:bg-dark bg-off-white"
-              style={{ top: 64, zIndex: i + 1 }}
-            >
-              <ProjectListItem project={project} index={i} />
-            </div>
+            <ProjectListItem key={project.slug} project={project} index={i} />
           ))}
           {/* Portfolio Plus always last — never reveals NDA content */}
-          <div
-            className="sticky dark:bg-dark bg-off-white"
-            style={{ top: 64, zIndex: projects.length + 1 }}
-          >
-            <PortfolioPlusCard index={projects.length} />
-          </div>
+          <PortfolioPlusCard index={projects.length} />
           {/* Bottom border */}
           <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
         </div>
