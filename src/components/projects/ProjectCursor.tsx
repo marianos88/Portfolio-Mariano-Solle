@@ -23,11 +23,11 @@ export default function ProjectCursor({ mouseX, mouseY, visible }: Props) {
       animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.75 }}
       transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="flex items-center justify-center gap-3 bg-[#ebebeb] rounded-full pl-5 pr-[18px] h-10">
-        <span className="text-[15px] font-medium text-dark leading-none whitespace-nowrap">
+      <div className="flex items-center gap-[6px] bg-[#ebebeb] rounded-full px-5 h-[38px]">
+        <span className="text-[13px] font-normal text-[#3d3d3d] leading-none whitespace-nowrap">
           {label}
         </span>
-        <span className="text-[15px] font-medium text-dark leading-none" style={{ transform: 'translateY(-2px)' }} aria-hidden="true">→</span>
+        <span className="text-[13px] font-normal text-[#3d3d3d] leading-none" style={{ transform: 'translateY(-1px)' }} aria-hidden="true">→</span>
       </div>
     </motion.div>
   )
