@@ -2,7 +2,7 @@
 
 ## Last Known Good Commit
 
-`cb081b8` — Merge branch `claude/great-knuth-bpez38` (production bug fix)
+`bab9a62` — fix(cursor): swap theme mapping — light pill on dark mode, dark pill on light mode
 
 ---
 
@@ -29,6 +29,15 @@
 - Removed project years from all 7 project JSONs
 - Verified typography, spacing, and color tokens across locked/unlocked states
 - Error message hierarchy (primary red + secondary gray hint)
+
+### Phase 4 — Motion Cursor ✓
+- `ProjectCursor` — reusable spring-following pill cursor
+- Appears immediately at mouse position (no off-screen fly-in via `x.jump()`)
+- Theme-aware: light pill on dark bg, dark pill on light bg
+- Locale-aware: "Ver Proyecto" (ES) / "View Project" (EN)
+- Deployed on `/projects` (`ProjectCard`) and Home page projects list (`ProjectListItem`)
+- Replaced old floating-thumbnail-overlay in `ProjectListItem` — thumbnail now inline, grayscale → color on hover
+- Reference assets: `public/images/ui/cursor-pill-{dark|light}-{es|en}.png`
 
 ### Production Bug Fix ✓
 - Root cause: Next.js 14 RSC reconciliation doesn't reliably switch conditional branches on same route via `router.refresh()` in production

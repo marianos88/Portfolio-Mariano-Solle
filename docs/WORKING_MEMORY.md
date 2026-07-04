@@ -45,6 +45,45 @@
 | `PasswordGate` | `src/components/portfolio-plus/PasswordGate.tsx` |
 | `LockButton` | `src/components/portfolio-plus/LockButton.tsx` |
 | `ProjectDetail` | `src/components/projects/ProjectDetail.tsx` |
+| `ProjectCard` | `src/components/projects/ProjectCard.tsx` |
+| `ProjectCursor` | `src/components/projects/ProjectCursor.tsx` |
+| `ProjectListItem` | `src/components/home/ProjectListItem.tsx` |
+
+---
+
+## Motion Cursor — ProjectCursor
+
+Reusable pill cursor used on `/projects` and the Home page projects list.
+
+### Behavior
+- Follows mouse via `useMotionValue` + `useSpring` (`stiffness: 400, damping: 28, mass: 0.5`)
+- On hover entry: springs jump to current mouse position (`x.jump()` / `y.jump()`) — no off-screen fly-in
+- Fades + scales in/out (`opacity` + `scale`, 0.18s)
+- Native cursor suppressed on parent link (`cursor-none`)
+
+### Theme colors
+| Theme | Pill bg | Text |
+|-------|---------|------|
+| Dark | `#ebebeb` | `#3d3d3d` |
+| Light | `#2e2e2e` | `#a0a0a0` |
+
+Theme read from custom `useTheme()` hook (`src/components/ui/ThemeProvider.tsx`).
+
+### Reference assets
+`public/images/ui/cursor-pill-{dark|light}-{es|en}.png`
+
+### Integration pattern (ProjectCard / ProjectListItem)
+```tsx
+const mouseX = useMotionValue(-999)
+const mouseY = useMotionValue(-999)
+const [hovered, setHovered] = useState(false)
+
+onMouseEnter={(e) => { mouseX.set(e.clientX); mouseY.set(e.clientY); setHovered(true) }}
+onMouseLeave={() => setHovered(false)}
+onMouseMove={(e) => { mouseX.set(e.clientX); mouseY.set(e.clientY) }}
+
+<ProjectCursor mouseX={mouseX} mouseY={mouseY} visible={hovered} />
+```
 
 ---
 
