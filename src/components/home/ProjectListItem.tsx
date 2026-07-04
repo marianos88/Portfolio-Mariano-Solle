@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, useMotionValue } from 'framer-motion'
 import { useLocale } from 'next-intl'
 import type { Project } from '@/lib/projects'
 import { getProjectLocale } from '@/lib/projects'
+import ProjectCursor from '@/components/projects/ProjectCursor'
 
 export default function ProjectListItem({
   project,
@@ -17,7 +18,8 @@ export default function ProjectListItem({
   const locale = useLocale()
   const loc = getProjectLocale(project, locale)
   const [hovered, setHovered] = useState(false)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const mouseX = useMotionValue(-999)
+  const mouseY = useMotionValue(-999)
 
   return (
     <motion.div
@@ -28,14 +30,20 @@ export default function ProjectListItem({
     >
       <Link
         href={`/projects/${project.slug}`}
-        onMouseEnter={() => setHovered(true)}
+        onMouseEnter={(e) => {
+          mouseX.set(e.clientX)
+          mouseY.set(e.clientY)
+          setHovered(true)
+        }}
         onMouseLeave={() => setHovered(false)}
-        onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
-        className="group flex items-center justify-between py-6 md:py-8 border-t transition-all duration-200
+        onMouseMove={(e) => {
+          mouseX.set(e.clientX)
+          mouseY.set(e.clientY)
+        }}
+        className="cursor-none group flex items-center justify-between py-6 md:py-8 border-t transition-all duration-200
           dark:border-mid-gray/50 border-[#e0e0e0]
           hover:dark:border-mint/30 hover:border-[#aaeec4]/50"
       >
-        {/* Left: index + title */}
         <div className="flex items-center gap-6 md:gap-10 flex-1 min-w-0">
           <span className="text-[11px] tracking-[2px] dark:text-off-white/20 text-mid-gray/40 shrink-0 w-6">
             {String(index + 1).padStart(2, '0')}
@@ -49,9 +57,7 @@ export default function ProjectListItem({
           </h3>
         </div>
 
-        {/* Right: thumbnail + tags + arrow */}
         <div className="hidden md:flex items-center gap-6 shrink-0 ml-8">
-          {/* Thumbnail: grayscale → color on hover */}
           {project.coverImage && (
             <div className="w-16 h-11 rounded-md overflow-hidden shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -64,8 +70,6 @@ export default function ProjectListItem({
               />
             </div>
           )}
-
-          {/* Tags */}
           <div className="flex items-center gap-2">
             {loc.tags?.slice(0, 2).map((tag) => (
               <span
@@ -78,45 +82,13 @@ export default function ProjectListItem({
               </span>
             ))}
           </div>
-
-          {/* Arrow */}
           <span className="text-[16px] transition-transform duration-200 dark:text-mint text-[#2a7a4a] group-hover:translate-x-1">
             →
           </span>
         </div>
       </Link>
 
-      {/* Floating large image preview (follows cursor) */}
-      <AnimatePresence>
-        {hovered && project.coverImage && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.92 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="pointer-events-none fixed z-50 w-64 h-40 rounded-xl overflow-hidden shadow-2xl"
-            style={{ left: mousePos.x + 20, top: mousePos.y - 80 }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={project.coverImage} alt="" className="w-full h-full object-cover" />
-          </motion.div>
-        )}
-        {hovered && !project.coverImage && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.2 }}
-            className="pointer-events-none fixed z-50 w-64 h-40 rounded-xl overflow-hidden shadow-2xl
-              dark:bg-[#2e2e2e] bg-[#f0f0f0] flex items-center justify-center"
-            style={{ left: mousePos.x + 20, top: mousePos.y - 80 }}
-          >
-            <span className="text-[11px] tracking-[2px] uppercase dark:text-off-white/20 text-mid-gray/30">
-              {loc.category}
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <ProjectCursor mouseX={mouseX} mouseY={mouseY} visible={hovered} />
     </motion.div>
   )
 }

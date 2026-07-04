@@ -25,7 +25,11 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
     >
       <Link
         href={`/projects/${project.slug}`}
-        onMouseEnter={() => setHovered(true)}
+        onMouseEnter={(e) => {
+          mouseX.set(e.clientX)
+          mouseY.set(e.clientY)
+          setHovered(true)
+        }}
         onMouseLeave={() => setHovered(false)}
         onMouseMove={(e) => {
           mouseX.set(e.clientX)
