@@ -67,8 +67,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
               className="w-24 h-16 rounded-lg object-cover shrink-0 grayscale transition-[filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grayscale-0"
             />
           )}
-          <span className="text-[12px] font-light dark:text-off-white/30 text-mid-gray/50">{project.year}</span>
-          <div className="flex gap-2">
+<div className="flex gap-2">
             {loc.tags?.slice(0, 2).map((tag) => (
               <span key={tag} className="text-[10px] tracking-[1px] uppercase px-2 py-1 rounded dark:bg-[#2e2e2e] dark:text-off-white/40 bg-[#f0f0f0] text-mid-gray">
                 {tag}
