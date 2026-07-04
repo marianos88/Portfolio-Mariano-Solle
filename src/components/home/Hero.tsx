@@ -50,7 +50,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[14px] font-light leading-[1.7] mb-10 max-w-[440px]"
+          className="text-[14px] font-light leading-[1.7] mb-10 max-w-2xl"
           style={{ color: theme === 'dark' ? '#888' : '#555' }}
         >
           {t('description')}
