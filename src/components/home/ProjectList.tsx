@@ -4,10 +4,16 @@ import { useTranslations } from 'next-intl'
 import { getPublicProjects } from '@/lib/projects'
 import ProjectListItem from './ProjectListItem'
 import PortfolioPlusCard from './PortfolioPlusCard'
+import { STACK_OFFSET } from '@/lib/layout'
+
+// Home page section sits below the hero — no navbar offset needed here.
+// Cards stack relative to the section scroll, not the viewport top.
+const SECTION_STACK_TOP = 24
 
 export default function ProjectList() {
   const t = useTranslations('bentoGrid')
   const projects = getPublicProjects()
+  const total = projects.length + 1 // +1 for PortfolioPlusCard
 
   return (
     <section
@@ -21,11 +27,16 @@ export default function ProjectList() {
 
         <div>
           {projects.map((project, i) => (
-            <ProjectListItem key={project.slug} project={project} index={i} />
+            <div
+              key={project.slug}
+              style={{ position: 'sticky', top: SECTION_STACK_TOP + i * STACK_OFFSET, zIndex: i + 1 }}
+            >
+              <ProjectListItem project={project} index={i} />
+            </div>
           ))}
-          {/* Portfolio Plus always last — never reveals NDA content */}
-          <PortfolioPlusCard index={projects.length} />
-          {/* Bottom border */}
+          <div style={{ position: 'sticky', top: SECTION_STACK_TOP + projects.length * STACK_OFFSET, zIndex: projects.length + 1 }}>
+            <PortfolioPlusCard index={projects.length} />
+          </div>
           <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
         </div>
       </div>

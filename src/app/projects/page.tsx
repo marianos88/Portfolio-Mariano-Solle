@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import { getPublicProjects } from '@/lib/projects'
 import ProjectCard from '@/components/projects/ProjectCard'
+import { NAV_HEIGHT, STACK_OFFSET } from '@/lib/layout'
 
 export default async function ProjectsPage() {
   const t = await getTranslations('projects')
@@ -15,11 +16,16 @@ export default async function ProjectsPage() {
         {t('title')}
       </h1>
 
-      <div className="space-y-0">
+      <div>
         {projects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
+          <div
+            key={project.slug}
+            style={{ position: 'sticky', top: NAV_HEIGHT + i * STACK_OFFSET, zIndex: i + 1 }}
+          >
+            <ProjectCard project={project} index={i} />
+          </div>
         ))}
-        <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
+        <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" style={{ position: 'sticky', top: NAV_HEIGHT + projects.length * STACK_OFFSET, zIndex: projects.length + 1 }} />
       </div>
     </div>
   )

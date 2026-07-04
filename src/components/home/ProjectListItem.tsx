@@ -41,6 +41,7 @@ export default function ProjectListItem({
           mouseY.set(e.clientY)
         }}
         className="cursor-none group flex items-center justify-between py-6 md:py-8 border-t transition-all duration-200
+          dark:bg-dark bg-off-white
           dark:border-mid-gray/50 border-[#e0e0e0]
           hover:dark:border-mint/30 hover:border-[#aaeec4]/50"
       >
