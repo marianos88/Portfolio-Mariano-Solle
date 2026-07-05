@@ -1,17 +1,67 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useTranslations } from 'next-intl'
+
+type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
 export default function ContactPage() {
   const t = useTranslations('contact')
-  const [sent, setSent] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  // Honeypot ref — hidden from real users, filled by bots
+  const honeypotRef = useRef<HTMLInputElement>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Placeholder: integrate with email service (Resend, Formspree, etc.)
-    setSent(true)
+
+    // Reject if honeypot is filled
+    if (honeypotRef.current?.value) return
+
+    if (status === 'loading') return
+    setStatus('loading')
+    setErrorMessage('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      })
+
+      const data = await res.json()
+
+      if (res.ok) {
+        setStatus('success')
+        setName('')
+        setEmail('')
+        setMessage('')
+        setTimeout(() => setStatus('idle'), 6000)
+      } else if (res.status === 400) {
+        setErrorMessage(data.error ?? t('errorValidation'))
+        setStatus('error')
+      } else {
+        setErrorMessage(t('errorGeneric'))
+        setStatus('error')
+      }
+    } catch {
+      setErrorMessage(t('errorGeneric'))
+      setStatus('error')
+    }
   }
+
+  const inputClass =
+    'w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-theme ' +
+    'dark:bg-[#2e2e2e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/30 ' +
+    'bg-white border-[#e0e0e0] text-dark focus:ring-2 focus:ring-mint/30 ' +
+    'disabled:opacity-50 disabled:cursor-not-allowed'
+
+  const isLoading = status === 'loading'
 
   return (
     <div className="pt-32 pb-20 px-6 max-w-2xl mx-auto">
@@ -25,41 +75,73 @@ export default function ContactPage() {
         {t('description')}
       </p>
 
-      {sent ? (
+      {status === 'success' ? (
         <p className="text-[16px] font-light dark:text-mint text-[#2a7a4a]">{t('success')}</p>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+          {/* Honeypot — visually hidden, aria-hidden so screen readers skip it */}
+          <input
+            ref={honeypotRef}
+            type="text"
+            name="website"
+            aria-hidden="true"
+            tabIndex={-1}
+            autoComplete="off"
+            style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+          />
+
           <input
             type="text"
             placeholder={t('namePlaceholder')}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
-            className="w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-theme
-              dark:bg-[#2e2e2e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/30
-              bg-white border-[#e0e0e0] text-dark focus:ring-2 focus:ring-mint/30"
+            disabled={isLoading}
+            aria-label={t('namePlaceholder')}
+            className={inputClass}
           />
           <input
             type="email"
             placeholder={t('emailPlaceholder')}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-theme
-              dark:bg-[#2e2e2e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/30
-              bg-white border-[#e0e0e0] text-dark focus:ring-2 focus:ring-mint/30"
+            disabled={isLoading}
+            aria-label={t('emailPlaceholder')}
+            className={inputClass}
           />
           <textarea
             placeholder={t('messagePlaceholder')}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
             rows={5}
-            className="w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-theme resize-none
-              dark:bg-[#2e2e2e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/30
-              bg-white border-[#e0e0e0] text-dark focus:ring-2 focus:ring-mint/30"
+            disabled={isLoading}
+            aria-label={t('messagePlaceholder')}
+            className={
+              'w-full px-4 py-3 rounded-md border text-[14px] font-light outline-none transition-theme resize-none ' +
+              'dark:bg-[#2e2e2e] dark:border-mid-gray dark:text-off-white dark:placeholder-off-white/30 ' +
+              'bg-white border-[#e0e0e0] text-dark focus:ring-2 focus:ring-mint/30 ' +
+              'disabled:opacity-50 disabled:cursor-not-allowed'
+            }
           />
+
+          {status === 'error' && (
+            <p role="alert" className="text-[13px] font-light text-red-500 dark:text-red-400">
+              {errorMessage}
+            </p>
+          )}
+
           <button
             type="submit"
+            disabled={isLoading}
+            aria-busy={isLoading}
             className="px-8 py-3 rounded-md text-[13px] font-medium transition-all duration-200 hover:opacity-90
               dark:bg-mint dark:text-mid-gray
-              bg-dark text-off-white"
+              bg-dark text-off-white
+              disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {t('submit')}
+            {isLoading ? t('sending') : t('submit')}
           </button>
         </form>
       )}

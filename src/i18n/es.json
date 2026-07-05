@@ -65,7 +65,10 @@
     "emailPlaceholder": "Tu email",
     "messagePlaceholder": "Contame sobre tu proyecto...",
     "submit": "Enviar mensaje",
-    "success": "Mensaje enviado. Te respondo pronto."
+    "sending": "Enviando...",
+    "success": "Mensaje enviado. Te respondo pronto.",
+    "errorGeneric": "Algo salió mal. Por favor intentá de nuevo.",
+    "errorValidation": "Revisá tus datos e intentá de nuevo."
   },
   "footer": {
     "copy": "Mariano Solle — Product Designer",

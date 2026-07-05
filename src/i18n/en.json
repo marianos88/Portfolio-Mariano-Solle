@@ -65,7 +65,10 @@
     "emailPlaceholder": "Your email",
     "messagePlaceholder": "Tell me about your project...",
     "submit": "Send message",
-    "success": "Message sent. I'll get back to you soon."
+    "sending": "Sending...",
+    "success": "Message sent. I'll get back to you soon.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "errorValidation": "Please check your information and try again."
   },
   "footer": {
     "copy": "Mariano Solle — Product Designer",
