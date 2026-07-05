@@ -97,10 +97,9 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <motion.div
+        <motion.nav
           ref={mobileMenuRef}
           id="mobile-menu"
-          role="dialog"
           aria-label={t('mobileNav')}
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -121,7 +120,7 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-        </motion.div>
+        </motion.nav>
       )}
     </motion.nav>
   )
