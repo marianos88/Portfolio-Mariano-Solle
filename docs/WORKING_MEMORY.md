@@ -7,6 +7,7 @@
 | Framework | Next.js 14 App Router (TypeScript) |
 | Styling | Tailwind CSS — utility classes, `dark:` prefix for dark mode |
 | Animations | Framer Motion |
+| Scroll | Lenis (`lerp: 0.1, smoothWheel: true`) — no DOM wrapper, no overflow issues |
 | i18n | next-intl v4.13.0 — cookie-based locale (`es` / `en`) |
 | Deployment | Vercel |
 
@@ -22,6 +23,7 @@
 | `/portfolio-plus` | Locked section index (`force-dynamic`) |
 | `/api/unlock` | POST — validates access code, sets session cookie |
 | `/api/lock` | POST — clears session cookies |
+| `/api/contact` | POST — **pending implementation** (Resend) |
 
 ---
 
@@ -29,12 +31,45 @@
 
 | File | Purpose |
 |------|---------|
+| `src/app/page.tsx` | Home page — Stacked Sections layout |
 | `src/lib/projects.ts` | Project data, types, filter functions |
 | `src/lib/auth.ts` | Session token generation and verification |
 | `src/middleware.ts` | Route protection for `/portfolio-plus/:path+` |
 | `src/i18n/en.json` | English strings |
 | `src/i18n/es.json` | Spanish strings |
 | `src/content/projects/` | Project JSON files (7 total) |
+
+---
+
+## Stacked Sections — Home Page Architecture
+
+Implemented in `src/app/page.tsx`. Pure CSS sticky, no GSAP, no extra JS.
+
+```tsx
+export default function HomePage() {
+  return (
+    <div className="relative">
+      {/* Hero in normal document flow */}
+      <Hero />
+      {/* About sticks below navbar; Projects scrolls over it */}
+      <div className="sticky top-16 z-20 min-h-[100dvh]">
+        <AboutSection />
+      </div>
+      {/* Projects in normal flow, higher z-index to cover sticky About */}
+      <div className="relative z-30">
+        <ProjectList />
+      </div>
+    </div>
+  )
+}
+```
+
+### Key invariants
+- `top-16` = 64px = navbar effective height. Do not change without re-measuring navbar.
+- `min-h-[100dvh]` on About wrapper: ensures containing block is tall enough to hold sticky for the full ProjectList scroll range.
+- No `overflow: hidden` on any ancestor — confirmed across `html`, `body`, `LenisProvider`, `ThemeProvider`.
+- No negative margins on ProjectList — `-mt-*` shortens the containing block and releases sticky prematurely.
+- z-index ladder: Navbar `z-50` > ProjectList `z-30` > About `z-20`.
 
 ---
 
@@ -48,6 +83,9 @@
 | `ProjectCard` | `src/components/projects/ProjectCard.tsx` |
 | `ProjectCursor` | `src/components/projects/ProjectCursor.tsx` |
 | `ProjectListItem` | `src/components/home/ProjectListItem.tsx` |
+| `Hero` | `src/components/home/Hero.tsx` |
+| `AboutSection` | `src/components/home/AboutSection.tsx` |
+| `ProjectList` | `src/components/home/ProjectList.tsx` |
 
 ---
 
@@ -145,10 +183,11 @@ onMouseMove={(e) => { mouseX.set(e.clientX); mouseY.set(e.clientY) }}
 | Variable | Notes |
 |----------|-------|
 | `PORTFOLIO_PLUS_ACCESS_CODE` | Server-only. Never expose to client |
+| `RESEND_API_KEY` | Pending — required for contact form |
 
 ---
 
 ## Git
 
 - Main branch: `main`
-- Feature branch: `claude/great-knuth-bpez38`
+- Last merged branch: `claude/mariano-solle-portfolio-hjqyvc`

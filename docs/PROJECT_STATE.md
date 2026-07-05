@@ -2,7 +2,7 @@
 
 ## Last Known Good Commit
 
-`cb2da6b` — Revert stacking cards experiment
+`0622b32` — Merge: release stacked sections effect + Hero/About copy updates
 
 ---
 
@@ -44,6 +44,13 @@
 - Fix: replaced `window.location.reload()` call in `PasswordGate.tsx` on successful unlock
 - Confirmed working in production
 
+### Phase 5 — Stacked Sections (Home page) ✓
+- Hero renders in normal document flow (`min-h-screen`)
+- AboutSection wrapper: `sticky top-16 z-20 min-h-[100dvh]` — sticks 64px below viewport top (navbar height)
+- ProjectList wrapper: `relative z-30` — rises from below in normal flow, z-index covers sticky About
+- No negative margins, no artificial heights, no transforms — pure CSS sticky
+- `src/app/page.tsx` is the only modified file for this effect
+
 ---
 
 ## Current Portfolio Content
@@ -62,12 +69,9 @@
 
 ## Next Phase
 
-> _To be defined by Mariano._
-
-Suggested areas (not committed):
-- [ ] Home page / hero section updates
-- [ ] About / contact section
-- [ ] Project card design iteration
-- [ ] New public project content
-- [ ] Performance / SEO audit
-- [ ] Analytics integration
+- [ ] Domain configuration
+- [ ] Resend account setup and domain verification
+- [ ] `RESEND_API_KEY` environment variable in Vercel
+- [ ] Contact form: API Route `/api/contact` using Next.js + Resend
+- [ ] Send messages to `mariano.solle@gmail.com`
+- [ ] Maintain exact current visual design of the contact form
