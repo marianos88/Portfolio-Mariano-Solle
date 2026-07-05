@@ -2,7 +2,7 @@
 
 ## Last Known Good Commit
 
-`51afc90` — Merge: release contact form full stack implementation
+`18cbfe1` — release: Phase 7 — SEO & Metadata merged to main
 
 ---
 
@@ -84,6 +84,25 @@
 - Success: two-line copy (title + body), fade + 8px upward animation (220ms)
 - Error: server message shown; input preserved for retry
 
+### Phase 7 — SEO & Metadata ✓
+- `metadataBase`: `https://marianosolle.com`
+- Title template: `'%s — Mariano Solle'` with default fallback
+- Root metadata: keywords, authors, creator, canonical, robots, OG, Twitter Cards, icons, theme-color
+- Per-page `metadata` or `generateMetadata` for: Home, Projects, Contact, Portfolio Plus, every case study
+- Portfolio Plus page and all NDA project pages: `robots: { index: false, follow: false }`
+- JSON-LD structured data: `Person`, `WebSite`, `WebPage`, `CreativeWork` (schema.org)
+  - `src/lib/structured-data.ts` — typed builder functions
+  - `src/components/seo/JsonLd.tsx` — `<script type="application/ld+json">` injector
+- `app/sitemap.ts` — auto-generated `/sitemap.xml` (all public pages)
+- `app/robots.ts` — `/robots.txt` (allow `/`, disallow `/portfolio-plus`, `/api/`)
+- `app/opengraph-image.tsx` — branded default OG image (1200×630) via `ImageResponse`
+- Per-project OG images use `coverImage` field from JSON
+- `ContactForm` extracted to `src/components/contact/ContactForm.tsx` (client component); `contact/page.tsx` is now a server component that exports metadata
+- **Validation results:**
+  - `sitemap.xml` ✓ compiled and served correctly
+  - `robots.txt` ✓ compiled and served correctly
+  - External crawlers (Facebook Debugger, LinkedIn, OG validators) redirected to `vercel.com/login` on preview URL — this is **expected behavior**: Vercel Deployment Protection is enabled by default on all team preview deployments. Not a code issue. Production domain `marianosolle.com` has no such protection.
+
 ---
 
 ## Current Portfolio Content
@@ -102,6 +121,9 @@
 
 ## Remaining Roadmap
 
+- [ ] **Phase 8 — Accessibility (WCAG AA)** ← next
+- [ ] Phase 9 — Performance
+- [ ] Phase 10 — Microinteractions
 - [ ] Rate limiting on `/api/contact` (if real spam appears)
 - [ ] Analytics (if needed)
 - [ ] New case studies / project content updates

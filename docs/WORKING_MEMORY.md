@@ -1,193 +1,91 @@
-# Working Memory — Portfolio Mariano Sollé
+# Handoff — marianosolle.com
 
-## Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 14 App Router (TypeScript) |
-| Styling | Tailwind CSS — utility classes, `dark:` prefix for dark mode |
-| Animations | Framer Motion |
-| Scroll | Lenis (`lerp: 0.1, smoothWheel: true`) — no DOM wrapper, no overflow issues |
-| i18n | next-intl v4.13.0 — cookie-based locale (`es` / `en`) |
-| Deployment | Vercel |
+_Last updated: Phase 7 complete, merged to main, live in production._
 
 ---
 
-## Routes
+## Architecture
 
-| Route | Notes |
-|-------|-------|
-| `/` | Home |
-| `/projects` | Public project list |
-| `/projects/[slug]` | Project detail — gates portfolio-plus slugs server-side |
-| `/portfolio-plus` | Locked section index (`force-dynamic`) |
-| `/api/unlock` | POST — validates access code, sets session cookie |
-| `/api/lock` | POST — clears session cookies |
-| `/api/contact` | POST — **pending implementation** (Resend) |
+**Stack:** Next.js 14 App Router · TypeScript · Tailwind CSS · Vercel · Cloudflare
 
----
-
-## Key Files
-
-| File | Purpose |
-|------|---------|
-| `src/app/page.tsx` | Home page — Stacked Sections layout |
-| `src/lib/projects.ts` | Project data, types, filter functions |
-| `src/lib/auth.ts` | Session token generation and verification |
-| `src/middleware.ts` | Route protection for `/portfolio-plus/:path+` |
-| `src/i18n/en.json` | English strings |
-| `src/i18n/es.json` | Spanish strings |
-| `src/content/projects/` | Project JSON files (7 total) |
+| Layer | Detail |
+|---|---|
+| Framework | Next.js 14.2 App Router, React 18, TypeScript |
+| Styling | Tailwind CSS 3.4, custom tokens in `tailwind.config.ts` |
+| i18n | `next-intl` with a `locale` cookie (`es` default, `en` available) — no URL-based routing |
+| Auth | HMAC-SHA256 stateless session in HttpOnly cookie (30d), Portfolio Plus only |
+| Email | Resend SDK, `contact@marianosolle.com`, sends to `mariano.solle@gmail.com` |
+| Content | JSON files in `src/content/projects/` and `src/content/portfolio-plus/` |
+| SEO | Metadata Routes API, JSON-LD via `src/lib/structured-data.ts`, sitemap, robots |
+| Hosting | Vercel (production: `marianosolle.com` via Cloudflare) |
 
 ---
 
-## Stacked Sections — Home Page Architecture
+## Completed Phases
 
-Implemented in `src/app/page.tsx`. Pure CSS sticky, no GSAP, no extra JS.
-
-```tsx
-export default function HomePage() {
-  return (
-    <div className="relative">
-      {/* Hero in normal document flow */}
-      <Hero />
-      {/* About sticks below navbar; Projects scrolls over it */}
-      <div className="sticky top-16 z-20 min-h-[100dvh]">
-        <AboutSection />
-      </div>
-      {/* Projects in normal flow, higher z-index to cover sticky About */}
-      <div className="relative z-30">
-        <ProjectList />
-      </div>
-    </div>
-  )
-}
-```
-
-### Key invariants
-- `top-16` = 64px = navbar effective height. Do not change without re-measuring navbar.
-- `min-h-[100dvh]` on About wrapper: ensures containing block is tall enough to hold sticky for the full ProjectList scroll range.
-- No `overflow: hidden` on any ancestor — confirmed across `html`, `body`, `LenisProvider`, `ThemeProvider`.
-- No negative margins on ProjectList — `-mt-*` shortens the containing block and releases sticky prematurely.
-- z-index ladder: Navbar `z-50` > ProjectList `z-30` > About `z-20`.
+| Phase | Name | Status |
+|---|---|---|
+| 1–3 | Portfolio Plus (auth gate) | ✓ Production |
+| 4 | Motion Cursor | ✓ Production |
+| 5 | Stacked Sections | ✓ Production |
+| 6 | Contact Form (full stack) | ✓ Production |
+| 7 | SEO & Metadata | ✓ Production |
 
 ---
 
-## Components
+## Current Production State
 
-| Component | Path |
-|-----------|------|
-| `PasswordGate` | `src/components/portfolio-plus/PasswordGate.tsx` |
-| `LockButton` | `src/components/portfolio-plus/LockButton.tsx` |
-| `ProjectDetail` | `src/components/projects/ProjectDetail.tsx` |
-| `ProjectCard` | `src/components/projects/ProjectCard.tsx` |
-| `ProjectCursor` | `src/components/projects/ProjectCursor.tsx` |
-| `ProjectListItem` | `src/components/home/ProjectListItem.tsx` |
-| `Hero` | `src/components/home/Hero.tsx` |
-| `AboutSection` | `src/components/home/AboutSection.tsx` |
-| `ProjectList` | `src/components/home/ProjectList.tsx` |
+- **URL:** `https://marianosolle.com`
+- **Last deploy commit:** `18cbfe1` (Phase 7 merge)
+- **Vercel project:** `portfolio-mariano-solle` (team: `portfolio-mariano-solle`)
+- All 7 projects live; 3 public, 4 gated behind Portfolio Plus
 
 ---
 
-## Motion Cursor — ProjectCursor
+## Key Files & Conventions
 
-Reusable pill cursor used on `/projects` and the Home page projects list.
+| What | Where |
+|---|---|
+| Root metadata | `src/app/layout.tsx` |
+| Per-page metadata | Each `page.tsx` via `metadata` or `generateMetadata` |
+| JSON-LD builders | `src/lib/structured-data.ts` |
+| JSON-LD component | `src/components/seo/JsonLd.tsx` |
+| OG default image | `src/app/opengraph-image.tsx` (ImageResponse, edge runtime) |
+| Sitemap | `src/app/sitemap.ts` |
+| Robots | `src/app/robots.ts` |
+| i18n strings | `src/i18n/es.json` + `src/i18n/en.json` |
+| Project content | `src/content/projects/proyecto-0N.json` |
+| Auth | `src/lib/auth.ts` (HMAC-SHA256) |
+| Middleware | `src/middleware.ts` (protects `/portfolio-plus/:path+`) |
+| Contact API | `src/app/api/contact/route.ts` |
+| Contact form | `src/components/contact/ContactForm.tsx` (`'use client'`) |
 
-### Behavior
-- Follows mouse via `useMotionValue` + `useSpring` (`stiffness: 400, damping: 28, mass: 0.5`)
-- On hover entry: springs jump to current mouse position (`x.jump()` / `y.jump()`) — no off-screen fly-in
-- Fades + scales in/out (`opacity` + `scale`, 0.18s)
-- Native cursor suppressed on parent link (`cursor-none`)
-
-### Theme colors
-| Theme | Pill bg | Text |
-|-------|---------|------|
-| Dark | `#ebebeb` | `#3d3d3d` |
-| Light | `#2e2e2e` | `#a0a0a0` |
-
-Theme read from custom `useTheme()` hook (`src/components/ui/ThemeProvider.tsx`).
-
-### Reference assets
-`public/images/ui/cursor-pill-{dark|light}-{es|en}.png`
-
-### Integration pattern (ProjectCard / ProjectListItem)
-```tsx
-const mouseX = useMotionValue(-999)
-const mouseY = useMotionValue(-999)
-const [hovered, setHovered] = useState(false)
-
-onMouseEnter={(e) => { mouseX.set(e.clientX); mouseY.set(e.clientY); setHovered(true) }}
-onMouseLeave={() => setHovered(false)}
-onMouseMove={(e) => { mouseX.set(e.clientX); mouseY.set(e.clientY) }}
-
-<ProjectCursor mouseX={mouseX} mouseY={mouseY} visible={hovered} />
-```
+### Active conventions
+- New pages → `src/app/`, reusable components → `src/components/`
+- i18n strings in `src/i18n/es.json` and `src/i18n/en.json`; validate with `scripts/validate-i18n.mjs`
+- Email copy is self-contained in `src/app/api/contact/route.ts` (`EMAIL_COPY` map)
+- Feature branches: `claude/<feature-name>` → Preview on Vercel → manual approval → merge to `main`
+- Commit style: `type(scope): description` with Co-Authored-By trailer
+- Never push to `main` directly; always use a feature branch and wait for approval
 
 ---
 
-## Projects
+## Design Decisions (do not revisit without reason)
 
-| File | Visibility |
-|------|-----------|
-| `proyecto-01.json` | public |
-| `proyecto-02.json` | public |
-| `proyecto-03.json` | portfolio-plus |
-| `proyecto-04.json` | public |
-| `proyecto-05.json` | portfolio-plus |
-| `proyecto-06.json` | portfolio-plus |
-| `proyecto-07.json` | portfolio-plus |
+- **Locale in cookie, not URL** — keeps paths clean; `next-intl` reads the cookie server-side
+- **Portfolio Plus: stateless HMAC auth** — no database; token in HttpOnly cookie, 30d TTL
+- **Honeypot bots get silent 200** — avoids signalling detection
+- **Portfolio Plus + NDA projects: noindex** — auth-gated content should not be indexed
+- **OG validation on preview URLs fails with redirect to vercel.com/login** — this is Vercel Deployment Protection on team preview deployments; it is expected and not a code issue; validate OG on production domain only
+- **Rate limiting on contact form deferred** — add only if real spam appears
 
 ---
 
-## Design Conventions
+## Remaining Roadmap
 
-### Layout
-- Page container: `max-w-4xl mx-auto px-6 pt-32 pb-20`
-
-### Typography
-| Use | Class |
-|-----|-------|
-| Tag / label | `text-[11px] tracking-[2px] uppercase` |
-| Body small | `text-[13px] font-light` |
-| Body | `text-[14px] font-light` |
-| Body large | `text-[16px] font-light leading-[1.7]` |
-| Card heading | `text-[18px] font-medium` |
-| Page H1 | `text-[36px] md:text-[46px] font-medium tracking-[-0.02em]` |
-
-### Colors
-| Token | Dark | Light |
-|-------|------|-------|
-| Accent | `dark:text-mint` | `text-[#2a7a4a]` |
-| Text primary | `dark:text-off-white` | `text-dark` |
-| Text muted | `dark:text-off-white/60` | `text-mid-gray` |
-| Text faint | `dark:text-off-white/40` | `text-mid-gray` |
-| Card bg | `dark:bg-[#2e2e2e]` | `bg-white` |
-| Card border | `dark:border-mid-gray` | `border-[#e0e0e0]` |
-
-### Focus rings
-- Dark: `focus-visible:ring-mint` / `focus-visible:ring-mint/40`
-- Light: `focus-visible:ring-[#2a7a4a]` / `focus-visible:ring-[#2a7a4a]/40`
-
----
-
-## i18n
-
-- Translation files: `src/i18n/en.json`, `src/i18n/es.json`
-- Server: `getTranslations('namespace')`, `getLocale()`
-- Client: `useTranslations('namespace')`, `useLocale()`
-
----
-
-## Environment Variables
-
-| Variable | Notes |
-|----------|-------|
-| `PORTFOLIO_PLUS_ACCESS_CODE` | Server-only. Never expose to client |
-| `RESEND_API_KEY` | Pending — required for contact form |
-
----
-
-## Git
-
-- Main branch: `main`
-- Last merged branch: `claude/mariano-solle-portfolio-hjqyvc`
+1. **Phase 8 — Accessibility (WCAG AA)** ← next
+2. Phase 9 — Performance
+3. Phase 10 — Microinteractions
+4. Rate limiting on `/api/contact` (conditional on spam)
+5. Analytics (conditional)
+6. New case study content as projects are added
