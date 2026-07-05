@@ -1,0 +1,102 @@
+{
+  "slug": "proyecto-01",
+  "year": "2023",
+  "visibility": "public",
+  "figmaEmbed": "",
+  "coverImage": "/images/sportclub/portada.png",
+  "images": [],
+  "featured": true,
+  "isNDA": false,
+  "es": {
+    "title": "SportClub",
+    "category": "UX/UI Design · Plataforma web",
+    "description": "Rediseño de la plataforma de turnos web para una cadena de gimnasios, unificando dos sitios paralelos en una experiencia clara, intuitiva y alineada con los intereses de cada socio.",
+    "tags": ["UX Research", "UI Design", "Web"],
+    "role": "UX/UI Designer",
+    "scope": ["UX Research", "Information Architecture", "UX/UI Design", "Design System", "Usability Testing"],
+    "challenge": "Rediseñar la plataforma de la cadena de gimnasios SportClub para que los usuarios puedan solicitar turnos web de una manera más sencilla y sin complicaciones, unificando dos plataformas que convivían en paralelo.",
+    "context": "La pandemia generó que los gimnasios tuvieran que adaptarse a través de plataformas virtuales para ofrecer servicios on-demand y turnos web. Al momento del análisis coexistían dos plataformas que podían vincularse para resolver factores que mejoren la usabilidad del sitio.",
+    "research": {
+      "how": "Se realizaron 2 entrevistas y 10 encuestas con formato semiestructurado, confidenciales y de modalidad virtual a usuarios de la cadena de gimnasios Sportclub, manteniendo un guión de preguntas establecidas con la posibilidad de profundizar en algún tema clave de interés para enriquecer la información obtenida.",
+      "objective": "El objetivo del análisis está enfocado en comprender cómo se podría estructurar el rediseño UX/UI del sitio web para mejorar la navegación y usabilidad de acuerdo a los intereses de cada usuario."
+    },
+    "researchImage": "/images/sportclub/elementos.png",
+    "process": "Se realizaron 2 entrevistas y 10 encuestas semiestructuradas, confidenciales y virtuales con usuarios de SportClub. Se aplicó card sorting con 10 usuarios para definir la nueva arquitectura de la información, y se iteró el prototipo con pruebas de usabilidad por Zoom.",
+    "processImage": "/images/sportclub/mac.png",
+    "result": "Las pruebas de usabilidad arrojaron resultados positivos en todas las tareas asignadas. Los usuarios destacaron la claridad de la interfaz y la facilidad de resolución de las tareas. El prototipo final unificó las dos plataformas en una sola experiencia coherente.",
+    "stats": [
+      { "value": "12", "label": "Usuarios investigados (entrevistas + encuestas)" },
+      { "value": "50%", "label": "De socios declaró disconformidad con la plataforma anterior" },
+      { "value": "10", "label": "Usuarios en card sorting para nueva arquitectura" },
+      { "value": "2", "label": "Plataformas unificadas en una sola experiencia" }
+    ],
+    "obstacles": [
+      "\"No es intuitiva\"",
+      "\"La página tiene demasiada información, imágenes y colores. Me resulta confusa\"",
+      "\"No tiene buscador o lupa\"",
+      "\"No recuerdo el link del sitio específico para solicitar turnos y tengo que googlearlo\"",
+      "\"Colores demasiado fuertes en los carteles y no se distingue bien el texto\"",
+      "\"Existen 2 páginas en paralelo cuando podrían unificar todo en una misma\""
+    ],
+    "obstaclesImage": "/images/sportclub/matriz-fvd.png",
+    "researchStats": [
+      { "value": "90%", "label": "Género femenino" },
+      { "value": "28", "label": "Años de edad promedio" },
+      { "value": "60%", "label": "Ubicación en CABA" },
+      { "value": "80%", "label": "Profesionales universitarios" }
+    ],
+    "quotes": [
+      "¡Me gustó mucho el prototipo! La interfaz es muy clara y fácil de resolver.",
+      "Las tareas me parecieron fáciles de cumplir. Me confundió un poco la descripción de la tarea pero pude resolverla sin problemas.",
+      "Me pareció un sitio bastante completo. Vamos a ver cómo queda cuando estén todos los caminos hechos."
+    ],
+    "conclusion": "Con las pruebas de usabilidad finalizadas, se obtuvieron insights con resultados positivos para las tareas asignadas a los usuarios. Con el informe realizado, se realizarán las mejoras necesarias y aplicar los ajustes en el prototipo.",
+    "videoSrc": "/videos/sportclub/video-sportclub.mp4"
+  },
+  "en": {
+    "title": "SportClub",
+    "category": "UX/UI Design · Web Platform",
+    "description": "Redesign of the web appointment platform for a gym chain, unifying two parallel sites into a clear, intuitive experience aligned with each member's interests.",
+    "tags": ["UX Research", "UI Design", "Web"],
+    "role": "UX/UI Designer",
+    "scope": ["UX Research", "Information Architecture", "UX/UI Design", "Design System", "Usability Testing"],
+    "challenge": "Redesign the SportClub gym chain platform so users can book appointments in a simpler, hassle-free way, unifying two platforms that coexisted in parallel.",
+    "context": "The pandemic forced gyms to adapt through virtual platforms to offer on-demand services and online appointments. At the time of analysis, two platforms coexisted that could be merged to improve the site's usability.",
+    "research": {
+      "how": "2 interviews and 10 semi-structured, confidential, virtual surveys were conducted with SportClub gym chain users, following a set of established questions with the flexibility to explore key topics in depth.",
+      "objective": "The analysis aimed to understand how the UX/UI redesign of the website could be structured to improve navigation and usability according to each user's interests."
+    },
+    "researchImage": "/images/sportclub/elementos.png",
+    "process": "2 interviews and 10 semi-structured, confidential, virtual surveys were conducted with SportClub users. Card sorting was applied with 10 users to define the new information architecture, and the prototype was iterated with usability tests via Zoom.",
+    "processImage": "/images/sportclub/mac.png",
+    "result": "Usability tests yielded positive results for all assigned tasks. Users highlighted the clarity of the interface and ease of completing tasks. The final prototype unified both platforms into a single coherent experience.",
+    "stats": [
+      { "value": "12", "label": "Users researched (interviews + surveys)" },
+      { "value": "50%", "label": "Of members expressed dissatisfaction with the previous platform" },
+      { "value": "10", "label": "Users in card sorting for new architecture" },
+      { "value": "2", "label": "Platforms unified into a single experience" }
+    ],
+    "obstacles": [
+      "\"It's not intuitive\"",
+      "\"The page has too much information, images and colors. It's confusing\"",
+      "\"There's no search bar or magnifying glass\"",
+      "\"I can't remember the specific link to book appointments and I have to Google it\"",
+      "\"Colors are too strong on the banners and the text isn't easy to read\"",
+      "\"There are 2 parallel pages when they could unify everything into one\""
+    ],
+    "obstaclesImage": "/images/sportclub/matriz-fvd.png",
+    "researchStats": [
+      { "value": "90%", "label": "Female gender" },
+      { "value": "28", "label": "Average age" },
+      { "value": "60%", "label": "Located in CABA" },
+      { "value": "80%", "label": "University professionals" }
+    ],
+    "quotes": [
+      "I really liked the prototype! The interface is very clear and easy to navigate.",
+      "The tasks seemed easy to complete. I got a bit confused by the task description but managed without any problems.",
+      "It seemed like a fairly complete site. Let's see how it looks when all the flows are built."
+    ],
+    "conclusion": "With the usability tests completed, insights were obtained with positive results for all tasks assigned to users. Based on the report, the necessary improvements will be made and adjustments applied to the prototype.",
+    "videoSrc": "/videos/sportclub/video-sportclub.mp4"
+  }
+}

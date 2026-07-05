@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "portfolioPlus": "Portfolio Plus",
+    "contact": "Contact",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "mobileNav": "Mobile navigation"
+  },
+  "hero": {
+    "tag": "PRODUCT DESIGNER",
+    "titleLine1": "I turn complex processes into",
+    "titleLine2": "",
+    "titleHighlight": "clear experiences",
+    "description": "Experience designing digital products for banking, CPG, Fintech, Government and SaaS",
+    "ctaPrimary": "View projects",
+    "ctaSecondary": "About me"
+  },
+  "bentoGrid": {
+    "sectionTag": "FEATURED PROJECTS",
+    "viewCase": "View case",
+    "viewAll": "View all projects"
+  },
+  "plusBanner": {
+    "label": "PORTFOLIO PLUS",
+    "title": "NDA projects available",
+    "description": "Access private case studies from banking and SaaS projects with detailed information.",
+    "cta": "Request access"
+  },
+  "about": {
+    "tag": "ABOUT",
+    "title": "Product Designer focused on results",
+    "bio": "I'm Mariano Solle, a Product Designer with over 8 years of experience in Banking, Government and international agencies. Focused on transforming user needs and business goals into digital solutions. Advanced proficiency in Figma, Artificial Intelligence tools, collaboration platforms and product management.",
+    "tools": "Tools",
+    "skills": "Skills",
+    "specializations": "Specializations"
+  },
+  "projects": {
+    "tag": "PROJECTS",
+    "title": "Case studies",
+    "viewCase": "View full case",
+    "prototype": "View prototype",
+    "context": "Context",
+    "process": "Process",
+    "result": "Result"
+  },
+  "portfolioPlus": {
+    "tag": "PORTFOLIO PLUS",
+    "title": "Portfolio Plus",
+    "description": "This section contains a selection of projects developed under Non-Disclosure Agreements (NDAs).\n\nIf you received an access code during a recruitment process or a business conversation, you can unlock the content below.",
+    "accessCodeLabel": "Access code",
+    "accessCodePlaceholder": "Enter your access code",
+    "submit": "Unlock Portfolio",
+    "error": "The access code is not valid. Please verify it and try again.",
+    "errorSuffix": "If the problem persists, please request a new Access Code from Mariano.",
+    "expired": "Your previous access to Portfolio Plus has expired.",
+    "expiredHint": "Enter your Access Code again to continue.",
+    "lockButton": "Lock Portfolio",
+    "confidentialityTitle": "Confidentiality",
+    "confidentialityText": "The projects presented in this section were developed under Non-Disclosure Agreements (NDAs) and are shared exclusively for professional evaluation purposes. Sensitive information, internal processes and proprietary content have been omitted or adapted to respect the confidentiality commitments established with each organization."
+  },
+  "contact": {
+    "tag": "CONTACT",
+    "title": "Let's talk",
+    "description": "I'm available for freelance projects, Product Design positions and collaborations.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Tell me about your project...",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "successTitle": "Thanks for reaching out!",
+    "successBody": "Your message has been received successfully. I'll get back to you as soon as possible.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "errorValidation": "Please check your information and try again.",
+    "errorName": "Name is required.",
+    "errorEmail": "Please enter a valid email address.",
+    "errorMessage": "Message is required."
+  },
+  "videoPlayer": {
+    "play": "Play video",
+    "pause": "Pause video"
+  },
+  "footer": {
+    "copy": "Mariano Solle — Product Designer",
+    "linkedin": "LinkedIn",
+    "dribbble": "Dribbble",
+    "socialNav": "Social links"
+  }
+}

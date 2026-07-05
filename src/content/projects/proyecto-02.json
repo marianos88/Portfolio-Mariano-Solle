@@ -1,0 +1,188 @@
+{
+  "slug": "proyecto-02",
+  "year": "2024",
+  "visibility": "public",
+  "figmaEmbed": "",
+  "coverImage": "/images/mercadopago/portada.png",
+  "images": [],
+  "featured": true,
+  "isNDA": false,
+  "es": {
+    "title": "Análisis UX/UI MercadoPago",
+    "category": "UX Research · Fintech",
+    "description": "Investigación exploratoria sobre los desafíos que enfrentan comerciantes y clientes al usar Mercado Pago Point, identificando pain points y oportunidades para mejorar la experiencia de pagos digitales.",
+    "tags": ["UX Research", "Fintech", "Mobile"],
+    "role": "UX Designer",
+    "scope": ["Análisis Competitivo", "Investigación de Usuarios", "Journey Mapping", "Definición del Problema", "Identificación de Oportunidades"],
+    "challenge": "Identificar las necesidades, frustraciones y comportamientos de comerciantes y clientes que utilizan Mercado Pago Point, para comprender cómo las experiencias de pago digital pueden brindar mejor soporte a las pequeñas empresas que operan en entornos económicos dinámicos.",
+    "sections": [
+      { "type": "image", "src": "/images/mercadopago/mac.png", "alt": "Mercado Pago Point" },
+      { "type": "twoCol", "col1Label": "Contexto", "col1Content": "El proyecto se enfocó en comprender cómo comerciantes y clientes interactúan con Mercado Pago Point, identificando pain points, comportamientos y necesidades no satisfechas para descubrir oportunidades de mejora en la experiencia de pagos.", "col2Label": "Definición del Problema · Pregunta de Investigación", "col2Content": "¿Cómo pueden las experiencias de pago digital brindar mejor soporte a las pequeñas empresas y sus clientes en entornos donde las condiciones económicas, las preferencias de pago y las necesidades operativas evolucionan constantemente?" },
+      { "type": "heading", "text": "Competidores analizados" },
+      { "type": "image", "src": "/images/mercadopago/competidores-analizados.png", "alt": "Competidores analizados" },
+      { "type": "grid", "label": "Objetivos de Investigación", "items": [
+        { "title": "Comprender los pain points del comerciante", "description": "Identificar los desafíos operativos al aceptar pagos digitales." },
+        { "title": "Comprender las expectativas del cliente", "description": "Explorar las preferencias de pago y los comportamientos de adopción." },
+        { "title": "Descubrir barreras de usabilidad", "description": "Identificar puntos de fricción a lo largo del journey de pago." },
+        { "title": "Identificar oportunidades", "description": "Generar insights que puedan informar mejoras futuras del producto." }
+      ]},
+      { "type": "image", "src": "/images/mercadopago/fortalezas-debilidades.png", "alt": "Fortalezas y debilidades" },
+      { "type": "grid", "label": "Usuarios", "items": [
+        { "title": "Pequeños comerciantes", "description": "Necesitan una forma simple y confiable de aceptar pagos." },
+        { "title": "Vendedores independientes", "description": "Necesitan transacciones rápidas mientras atienden clientes." },
+        { "title": "Comerciantes nuevos", "description": "Necesitan orientación y seguridad durante el proceso de pago." }
+      ]},
+      { "type": "heading", "text": "Arquetipo de usuario" },
+      { "type": "image", "src": "/images/mercadopago/arquetipo.png", "alt": "Arquetipo de usuario" },
+      { "type": "heading", "text": "Mapa de empatía" },
+      { "type": "image", "src": "/images/mercadopago/mapa-empatia.png", "alt": "Mapa de empatía" },
+      { "type": "list", "label": "Mi Rol", "intro": "Como Product Designer, realicé un caso de estudio UX exploratorio para comprender cómo comerciantes y clientes interactúan con soluciones de pago digital e identificar oportunidades para mejorar la experiencia general. Las responsabilidades incluyeron:", "items": [
+        "Investigación Secundaria",
+        "Benchmarking Competitivo",
+        "User Personas",
+        "Journey Mapping",
+        "Definición del Problema",
+        "Identificación de Oportunidades",
+        "Recomendaciones de UX",
+        "Exploración de Conceptos"
+      ]},
+      { "type": "grid", "label": "Descubrimiento e Investigación", "items": [
+        { "title": "Volatilidad económica", "description": "Los comerciantes necesitaban actualizar precios con frecuencia y adaptarse a costos operativos cambiantes." },
+        { "title": "Diversificación de medios de pago", "description": "Los negocios dependían cada vez más de múltiples métodos de pago para satisfacer las expectativas de sus clientes." },
+        { "title": "Aceleración de la adopción digital", "description": "Los pagos con QR y las transacciones sin contacto se volvieron esenciales para mantenerse competitivos." }
+      ]},
+      { "type": "list", "label": "Hallazgos de la Investigación", "items": [
+        "Simplificar el onboarding para nuevos comerciantes.",
+        "Brindar mejor soporte a los comerciantes que operan en entornos económicos cambiantes."
+      ]},
+      { "type": "grid", "label": "Arquitectura de Información · Marco de Investigación", "items": [
+        { "title": "User Personas", "description": "Perfiles de comerciantes y clientes para comprender motivaciones y pain points." },
+        { "title": "Journey Mapping", "description": "Mapeo de las interacciones clave a lo largo de la experiencia de pago." },
+        { "title": "Análisis del Ecosistema", "description": "Comprensión de cómo el ecosistema de Point encaja en las operaciones diarias de los comerciantes." },
+        { "title": "Mapeo de Oportunidades", "description": "Identificación de áreas para futuras mejoras del producto." }
+      ]},
+      { "type": "heading", "text": "Userflow" },
+      { "type": "image", "src": "/images/mercadopago/userflow.png", "alt": "User Flow" },
+      { "type": "list", "label": "Hallazgos Clave", "items": [
+        "La confianza es fundamental durante las transacciones financieras.",
+        "La visibilidad del estado del sistema reduce la ansiedad del usuario.",
+        "Las pequeñas empresas necesitan simplicidad operativa.",
+        "La adopción de pagos digitales está fuertemente influenciada por el comportamiento del consumidor."
+      ]},
+      { "type": "list", "label": "Entregables", "items": [
+        "Síntesis de la Investigación",
+        "Personas",
+        "Journey Maps",
+        "Definiciones del Problema",
+        "Áreas de Oportunidad",
+        "Recomendaciones de UX",
+        "Exploraciones de Concepto"
+      ]},
+      { "type": "heading", "text": "Identidad visual" },
+      { "type": "image", "src": "/images/mercadopago/identidad-visual.png", "alt": "Identidad visual" },
+      { "type": "heading", "text": "Wireframes en baja fidelidad" },
+      { "type": "image", "src": "/images/mercadopago/wireframes-baja.png", "alt": "Wireframes de baja fidelidad" },
+      { "type": "heading", "text": "Wireframes en alta fidelidad" },
+      { "type": "image", "src": "/images/mercadopago/wireframes-alta.png", "alt": "Wireframes de alta fidelidad" },
+      { "type": "text", "label": "Resultados Clave · Por Qué Esta Investigación Importa", "content": "Este estudio destacó que la adopción de pagos digitales no es solo un desafío tecnológico, sino también operativo y económico. Comprender las realidades de las pequeñas empresas ayuda a identificar oportunidades para crear productos financieros más accesibles, confiables y adaptables." },
+      { "type": "text", "label": "Desafío", "content": "Transformar una experiencia transaccional en un journey de pago simple, rápido y confiable para los comerciantes que dependen de los pagos digitales para operar sus negocios." },
+      { "type": "text", "label": "Restricciones", "content": "El proyecto se desarrolló en un entorno económico altamente dinámico donde los comerciantes necesitaban ajustar precios constantemente y adaptarse a costos operativos cambiantes. Al mismo tiempo, la adopción de pagos digitales crecía aceleradamente, convirtiendo los pagos con QR y sin contacto en una necesidad más que en una opción. Además, las comisiones por transacción representaban una consideración significativa para las pequeñas empresas, generando una tensión entre adoptar métodos de pago modernos y mantener la rentabilidad." },
+      { "type": "list", "label": "Aprendizajes Clave", "items": [
+        "La adopción de pagos digitales está impulsada tanto por el comportamiento del consumidor como por la innovación tecnológica.",
+        "Las pequeñas empresas necesitan herramientas que minimicen la complejidad operativa en entornos económicos de rápida evolución.",
+        "Los grandes productos financieros no solo deben ser eficientes; también deben generar confianza y adaptarse a las realidades de las operaciones cotidianas de los comerciantes."
+      ]},
+      { "type": "video", "src": "/videos/mercadopago/landing-page.mp4", "label": "Landing page" },
+      { "type": "video", "src": "/videos/mercadopago/app.mp4", "label": "App", "orientation": "portrait" }
+    ]
+  },
+  "en": {
+    "title": "MercadoPago UX/UI Analysis",
+    "category": "UX Research · Fintech",
+    "description": "Exploratory research on the challenges faced by merchants and customers using Mercado Pago Point, identifying pain points and opportunities to improve the digital payment experience.",
+    "tags": ["UX Research", "Fintech", "Mobile"],
+    "role": "UX Designer",
+    "scope": ["Competitive Analysis", "User Research", "Journey Mapping", "Problem Framing", "Opportunity Identification"],
+    "challenge": "Identify the needs, frustrations, and behaviors of merchants and customers using Mercado Pago Point in order to understand how digital payment experiences can better support small businesses operating in dynamic economic environments.",
+    "sections": [
+      { "type": "image", "src": "/images/mercadopago/mac.png", "alt": "Mercado Pago Point" },
+      { "type": "twoCol", "col1Label": "Context", "col1Content": "The project focused on understanding how merchants and customers interact with Mercado Pago Point, identifying pain points, behaviors, and unmet needs to uncover opportunities for improving the payment experience.", "col2Label": "Problem Statement · Research Question", "col2Content": "How might digital payment experiences better support small businesses and their customers in environments where economic conditions, payment preferences, and operational needs constantly evolve?" },
+      { "type": "heading", "text": "Analyzed Competitors" },
+      { "type": "image", "src": "/images/mercadopago/competidores-analizados.png", "alt": "Analyzed competitors" },
+      { "type": "grid", "label": "Research Goals", "items": [
+        { "title": "Understand merchant pain points", "description": "Identify operational challenges when accepting digital payments." },
+        { "title": "Understand customer expectations", "description": "Explore payment preferences and adoption behaviors." },
+        { "title": "Discover usability barriers", "description": "Identify friction points across the payment journey." },
+        { "title": "Identify opportunities", "description": "Generate insights that could inform future product improvements." }
+      ]},
+      { "type": "image", "src": "/images/mercadopago/fortalezas-debilidades.png", "alt": "Strengths and weaknesses" },
+      { "type": "grid", "label": "Users", "items": [
+        { "title": "Small Business Owners", "description": "Need a simple and reliable way to accept payments." },
+        { "title": "Independent Sellers", "description": "Need quick transactions while serving customers." },
+        { "title": "New Merchants", "description": "Need guidance and reassurance during the payment process." }
+      ]},
+      { "type": "heading", "text": "User Archetype" },
+      { "type": "image", "src": "/images/mercadopago/arquetipo.png", "alt": "User archetype" },
+      { "type": "heading", "text": "Empathy Map" },
+      { "type": "image", "src": "/images/mercadopago/mapa-empatia.png", "alt": "Empathy map" },
+      { "type": "list", "label": "My Role", "intro": "As Product Designer, I conducted an exploratory UX case study to understand how merchants and customers interact with digital payment solutions and identify opportunities to improve the overall experience. Responsibilities included:", "items": [
+        "Secondary Research",
+        "Competitive Benchmarking",
+        "User Personas",
+        "Journey Mapping",
+        "Problem Framing",
+        "Opportunity Identification",
+        "UX Recommendations",
+        "Concept Exploration"
+      ]},
+      { "type": "grid", "label": "Discovery & Research", "items": [
+        { "title": "Economic volatility", "description": "Merchants needed to update prices frequently and adapt to changing operating costs." },
+        { "title": "Payment method diversification", "description": "Businesses increasingly relied on multiple payment methods to meet customer expectations." },
+        { "title": "Digital adoption acceleration", "description": "QR payments and contactless transactions became essential for remaining competitive." }
+      ]},
+      { "type": "list", "label": "Research Insights", "items": [
+        "Simplify onboarding for new merchants.",
+        "Better support merchants operating in changing economic environments."
+      ]},
+      { "type": "grid", "label": "Information Architecture · Research Framework", "items": [
+        { "title": "User Personas", "description": "Merchant and customer profiles to understand motivations and pain points." },
+        { "title": "Journey Mapping", "description": "Mapping key interactions across the payment experience." },
+        { "title": "Ecosystem Analysis", "description": "Understanding how the Point ecosystem fits within merchants' daily operations." },
+        { "title": "Opportunity Mapping", "description": "Identifying areas for future product improvements." }
+      ]},
+      { "type": "heading", "text": "User Flow" },
+      { "type": "image", "src": "/images/mercadopago/userflow.png", "alt": "User Flow" },
+      { "type": "list", "label": "Key Insights", "items": [
+        "Trust is essential during financial transactions.",
+        "Visibility of system status reduces anxiety.",
+        "Small businesses need operational simplicity.",
+        "Digital payment adoption is heavily influenced by customer behavior."
+      ]},
+      { "type": "list", "label": "Deliverables", "items": [
+        "Research Synthesis",
+        "Personas",
+        "Journey Maps",
+        "Problem Statements",
+        "Opportunity Areas",
+        "UX Recommendations",
+        "Concept Explorations"
+      ]},
+      { "type": "heading", "text": "Visual Identity" },
+      { "type": "image", "src": "/images/mercadopago/identidad-visual.png", "alt": "Visual identity" },
+      { "type": "heading", "text": "Low-fidelity Wireframes" },
+      { "type": "image", "src": "/images/mercadopago/wireframes-baja.png", "alt": "Low-fidelity wireframes" },
+      { "type": "heading", "text": "High-fidelity Wireframes" },
+      { "type": "image", "src": "/images/mercadopago/wireframes-alta.png", "alt": "High-fidelity wireframes" },
+      { "type": "text", "label": "Key Outcomes · Why This Research Matters", "content": "This study highlighted that adopting digital payments is not only a technological challenge but also an operational and economic one. Understanding the realities of small businesses helps identify opportunities to build more accessible, trustworthy, and adaptable financial products." },
+      { "type": "text", "label": "Challenge", "content": "Transform a transactional experience into a simple, fast, and trustworthy payment journey for merchants who rely on digital payments to run their businesses." },
+      { "type": "text", "label": "Constraints", "content": "The project was developed in a highly dynamic economic environment where merchants needed to constantly adjust prices and adapt to changing operating costs. At the same time, digital payment adoption was rapidly increasing, making QR and contactless payments a necessity rather than an option. Additionally, transaction fees represented a significant consideration for small businesses, creating a tension between adopting modern payment methods and maintaining profitability." },
+      { "type": "list", "label": "Key Learnings", "items": [
+        "Digital payment adoption is driven as much by consumer behavior as by technological innovation.",
+        "Small businesses need tools that minimize operational complexity in rapidly changing economic environments.",
+        "Great financial products are not only efficient; they must also build confidence and adapt to the realities of merchants' daily operations."
+      ]},
+      { "type": "video", "src": "/videos/mercadopago/landing-page.mp4", "label": "Landing page" },
+      { "type": "video", "src": "/videos/mercadopago/app.mp4", "label": "App", "orientation": "portrait" }
+    ]
+  }
+}
