@@ -1,13 +1,42 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { getPublicProjects } from '@/lib/projects'
 import ProjectCard from '@/components/projects/ProjectCard'
+import JsonLd from '@/components/seo/JsonLd'
+import { webPageSchema } from '@/lib/structured-data'
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description:
+    'Case studies by Mariano Solle — UX/UI design projects for banking, fintech, SaaS, and e-commerce.',
+  alternates: { canonical: 'https://marianosolle.com/projects' },
+  openGraph: {
+    title: 'Projects — Mariano Solle',
+    description:
+      'Case studies by Mariano Solle — UX/UI design projects for banking, fintech, SaaS, and e-commerce.',
+    url: 'https://marianosolle.com/projects',
+    type: 'website',
+  },
+  twitter: {
+    title: 'Projects — Mariano Solle',
+    description:
+      'Case studies by Mariano Solle — UX/UI design projects for banking, fintech, SaaS, and e-commerce.',
+  },
+}
 
 export default async function ProjectsPage() {
   const t = await getTranslations('projects')
   const projects = getPublicProjects()
 
+  const jsonLd = webPageSchema(
+    'Projects — Mariano Solle',
+    'Case studies by Mariano Solle — UX/UI design projects for banking, fintech, SaaS, and e-commerce.',
+    '/projects',
+  )
+
   return (
     <div className="pt-32 pb-20 max-w-6xl mx-auto px-6">
+      <JsonLd data={jsonLd} />
       <p className="text-[11px] tracking-[2px] uppercase mb-4 font-light dark:text-mint text-[#2a7a4a]">
         {t('tag')}
       </p>

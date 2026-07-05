@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { getTranslations, getLocale } from 'next-intl/server'
 import Link from 'next/link'
@@ -5,6 +6,25 @@ import PasswordGate from '@/components/portfolio-plus/PasswordGate'
 import LockButton from '@/components/portfolio-plus/LockButton'
 import { getPortfolioPlusProjects, getProjectLocale } from '@/lib/projects'
 import { verifySessionToken } from '@/lib/auth'
+
+export const metadata: Metadata = {
+  title: 'Portfolio Plus',
+  description:
+    'Private case studies from banking and SaaS projects under NDA. Access requires a valid access code.',
+  alternates: { canonical: 'https://marianosolle.com/portfolio-plus' },
+  robots: { index: false, follow: false },
+  openGraph: {
+    title: 'Portfolio Plus — Mariano Solle',
+    description:
+      'Private case studies from banking and SaaS projects under NDA.',
+    url: 'https://marianosolle.com/portfolio-plus',
+    type: 'website',
+  },
+  twitter: {
+    title: 'Portfolio Plus — Mariano Solle',
+    description: 'Private case studies from banking and SaaS projects under NDA.',
+  },
+}
 
 function sanitizeFrom(from: string | undefined): string | undefined {
   if (!from) return undefined
