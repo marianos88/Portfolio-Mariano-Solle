@@ -1,0 +1,112 @@
+{
+  "slug": "proyecto-04",
+  "year": "2023",
+  "visibility": "public",
+  "figmaEmbed": "",
+  "coverImage": "/images/ambition/portada.png",
+  "images": [],
+  "featured": true,
+  "isNDA": false,
+  "es": {
+    "title": "Ambition – NFT Collection Builder",
+    "category": "Web3 · Blockchain · SaaS",
+    "description": "Ambition es una plataforma SaaS Web3 que permite a creadores y comunidades lanzar colecciones NFT sin necesidad de código ni recursos de desarrollo — y este proyecto cuenta cómo diseñamos una experiencia de landing que tradujo conceptos complejos de blockchain en una narrativa de producto clara, accesible y orientada a la conversión.",
+    "tags": ["UX Strategy", "Web3", "SaaS", "Landing Page"],
+    "role": "UX Designer",
+    "scope": ["UX Strategy", "Arquitectura de Información", "UX/UI Design", "Diseño Responsivo", "Optimización de Conversión"],
+    "challenge": "Simplificar la complejidad de lanzar colecciones NFT y comunicar la propuesta de valor del producto en menos de cinco segundos.",
+    "sections": [
+      { "type": "image", "src": "/images/ambition/portada.png", "alt": "Ambition NFT Collection Builder" },
+      { "type": "twoCol", "col1Label": "Rol", "col1Content": "UX Designer", "col2Label": "Industria", "col2Content": "Web3 · Blockchain · SaaS" },
+      { "type": "twoCol", "col1Label": "Producto", "col1Content": "NFT Collection Builder sin código", "col2Label": "Alcance", "col2Content": "UX Strategy, Arquitectura de Información, UX/UI Design, Diseño Responsivo, Optimización de Conversión" },
+      { "type": "twoCol", "col1Label": "Equipo", "col1Content": "Agencia de Diseño, PM, Tech Lead, Desarrolladores", "col2Label": "Desafío", "col2Content": "Simplificar la complejidad de lanzar colecciones NFT y comunicar la propuesta de valor del producto en menos de cinco segundos." },
+      { "type": "image", "src": "/images/ambition/macbook.png", "alt": "Ambition platform" },
+      { "type": "text", "label": "Contexto", "content": "Durante el auge del mercado NFT, lanzar una colección requería conocimientos de blockchain, desarrollo de smart contracts, configuración de wallets, despliegue técnico y altos costos de desarrollo. El objetivo del producto era democratizar este proceso a través de una solución self-service sin código." },
+      { "type": "text", "label": "El Desafío", "content": "Diseñar una landing page capaz de explicar un producto técnicamente complejo, generar confianza en un mercado emergente, demostrar el valor del producto rápidamente, educar a usuarios no técnicos e incrementar la conversión hacia el registro." },
+      { "type": "list", "label": "Rol · Senior Product / UX Designer", "intro": "Las responsabilidades incluyeron:", "items": [
+        "UX Strategy",
+        "Arquitectura de Información",
+        "Diseño Responsivo",
+        "Definición de la narrativa del producto",
+        "Priorización de contenido",
+        "Diseño de componentes de conversión",
+        "Optimización del funnel de adquisición"
+      ]},
+      { "type": "grid", "label": "Objetivos de Negocio", "items": [
+        { "title": "Adquisición", "description": "Incrementar el número de creadores registrados." },
+        { "title": "Educación", "description": "Reducir la barrera de entrada al mundo NFT." },
+        { "title": "Conversión", "description": "Impulsar la prueba del producto." },
+        { "title": "Credibilidad", "description": "Posicionar la plataforma como una solución profesional y confiable." }
+      ]},
+      { "type": "grid", "label": "Usuarios Objetivo", "items": [
+        { "title": "Creadores de NFT", "description": "Artistas y diseñadores." },
+        { "title": "Comunidades", "description": "Proyectos Web3 que buscan lanzar una colección." },
+        { "title": "Emprendedores", "description": "Usuarios interesados en monetizar a través de NFTs." },
+        { "title": "Fundadores no técnicos", "description": "Personas sin experiencia en blockchain." }
+      ]},
+      { "type": "text", "label": "Arquitectura de Información · Problema > Solución > Confianza > Validación > Conversión", "content": "La landing fue estructurada en torno a un funnel narrativo: comunicar la propuesta de valor en menos de 5 segundos, explicar cómo funciona el producto en lenguaje sencillo, y generar la confianza suficiente para impulsar el registro." },
+      { "type": "text", "label": "Sección Hero", "content": "El hero evita la terminología técnica y comunica únicamente el beneficio principal: 'Lanzá tu colección NFT sin Devs.' Esto reduce la ansiedad, la incertidumbre y la fricción de entrada. Los componentes incluyeron un titular poderoso, descripción breve, CTA principal y una muestra visual del producto." },
+      { "type": "text", "label": "Cómo Funciona · Tené tu colección NFT en blockchain", "content": "Blockchain y Smart Contracts son conceptos difíciles de comprender. La solución de UX fue mostrar la interfaz del producto, una colección creada y una explicación simplificada — para que los usuarios entendieran: 'No necesito programar para hacer esto.'" },
+      { "type": "image", "src": "/images/ambition/user-journey.png", "alt": "User journey" },
+      { "type": "grid", "label": "Desafíos de Diseño", "items": [
+        { "title": "Simplificar tecnología compleja", "description": "Traducir conceptos de blockchain a lenguaje accesible." },
+        { "title": "Reducir la fricción del onboarding", "description": "Diseñar una experiencia comprensible para usuarios no técnicos." },
+        { "title": "Generar confianza en un mercado emergente", "description": "Incorporar métricas, testimonios y señales de credibilidad." },
+        { "title": "Narrativa de conversión", "description": "Construir una landing orientada a la adquisición y activación." }
+      ]},
+      { "type": "text", "label": "Resultados", "content": "Se diseñó la experiencia y la arquitectura de una landing page para una plataforma de creación de colecciones NFT sin código. El objetivo fue simplificar un proceso altamente técnico, transformándolo en una propuesta clara, accesible y orientada a la conversión. La solución combinó storytelling del producto, señales de confianza y demostraciones visuales para ayudar a usuarios no técnicos a lanzar sus proyectos blockchain sin programación." },
+      { "type": "video", "src": "/videos/ambition/ambition-landing-page.mp4", "label": "Landing page" }
+    ]
+  },
+  "en": {
+    "title": "Ambition – NFT Collection Builder",
+    "category": "Web3 · Blockchain · SaaS",
+    "description": "Ambition is a Web3 SaaS platform that empowers creators and communities to launch NFT collections without coding or development resources — and this project tells the story of how we designed a landing experience that translated complex blockchain concepts into a clear, accessible, and conversion-driven product narrative.",
+    "tags": ["UX Strategy", "Web3", "SaaS", "Landing Page"],
+    "role": "UX Designer",
+    "scope": ["UX Strategy", "Information Architecture", "UX/UI Design", "Responsive Design", "Conversion Optimization"],
+    "challenge": "Simplify the complexity of launching NFT collections and communicate the product value proposition in under five seconds.",
+    "sections": [
+      { "type": "image", "src": "/images/ambition/portada.png", "alt": "Ambition NFT Collection Builder" },
+      { "type": "twoCol", "col1Label": "Role", "col1Content": "UX Designer", "col2Label": "Industry", "col2Content": "Web3 · Blockchain · SaaS" },
+      { "type": "twoCol", "col1Label": "Product", "col1Content": "No-code NFT Collection Builder", "col2Label": "Scope", "col2Content": "UX Strategy, Information Architecture, UX/UI Design, Responsive Design, Conversion Optimization" },
+      { "type": "twoCol", "col1Label": "Team", "col1Content": "Design Agency, PM, Tech Lead, Developers", "col2Label": "Challenge", "col2Content": "Simplify the complexity of launching NFT collections and communicate the product value proposition in under five seconds." },
+      { "type": "image", "src": "/images/ambition/macbook.png", "alt": "Ambition platform" },
+      { "type": "text", "label": "Context", "content": "During the NFT market boom, launching a collection required blockchain knowledge, smart contract development, wallet configuration, technical deployment, and high development costs. The product's goal was to democratize this process through a self-service, no-code solution." },
+      { "type": "text", "label": "The Challenge", "content": "Design a landing page capable of explaining a technically complex product, generating trust in an emerging market, demonstrating product value quickly, educating non-technical users, and increasing conversion toward registration." },
+      { "type": "list", "label": "Role · Senior Product / UX Designer", "intro": "Responsibilities included:", "items": [
+        "UX Strategy",
+        "Information Architecture",
+        "Responsive Design",
+        "Product narrative definition",
+        "Content prioritization",
+        "Conversion component design",
+        "Acquisition funnel optimization"
+      ]},
+      { "type": "grid", "label": "Business Goals", "items": [
+        { "title": "Acquisition", "description": "Increase the number of registered creators." },
+        { "title": "Education", "description": "Lower the barrier to entry into the NFT world." },
+        { "title": "Conversion", "description": "Drive product trial." },
+        { "title": "Credibility", "description": "Position the platform as a professional and trustworthy solution." }
+      ]},
+      { "type": "grid", "label": "Target Users", "items": [
+        { "title": "NFT Creators", "description": "Artists and designers." },
+        { "title": "Communities", "description": "Web3 projects looking to launch a collection." },
+        { "title": "Entrepreneurs", "description": "Users interested in monetizing through NFTs." },
+        { "title": "Non-Technical Founders", "description": "People with no blockchain experience." }
+      ]},
+      { "type": "text", "label": "Information Architecture · Problem > Solution > Confidence > Validation > Conversion", "content": "The landing was structured around a narrative funnel: communicate the value proposition in under 5 seconds, explain how the product works in plain language, and build enough trust to drive registration." },
+      { "type": "text", "label": "Hero Section", "content": "The hero avoids technical terminology and communicates only the main benefit: 'Launch your NFT collection without Devs.' This reduces anxiety, uncertainty, and entry friction. Components included a powerful headline, brief description, main CTA, and a visual product showcase." },
+      { "type": "text", "label": "How It Works · Own your NFT collection on the blockchain", "content": "Blockchain and Smart Contracts are difficult concepts to understand. The UX solution was to show the product interface, a created collection, and a simplified explanation — so users understand: 'I don't need to code to do this.'" },
+      { "type": "image", "src": "/images/ambition/user-journey.png", "alt": "User journey" },
+      { "type": "grid", "label": "Design Challenges", "items": [
+        { "title": "Simplify complex technology", "description": "Translate blockchain concepts into accessible language." },
+        { "title": "Reduce onboarding friction", "description": "Design an understandable experience for non-technical users." },
+        { "title": "Build trust in an emerging market", "description": "Incorporate metrics, testimonials and credibility signals." },
+        { "title": "Conversion narrative", "description": "Build a landing oriented toward acquisition and activation." }
+      ]},
+      { "type": "text", "label": "Results", "content": "Designed the experience and architecture of a landing page for a no-code NFT collection creation platform. The goal was to simplify a highly technical process, transforming it into a clear, accessible, and conversion-oriented proposition. The solution combined product storytelling, trust signals, and visual demonstrations to help non-technical users launch their blockchain projects without any programming." },
+      { "type": "video", "src": "/videos/ambition/ambition-landing-page.mp4", "label": "Landing page" }
+    ]
+  }
+}
