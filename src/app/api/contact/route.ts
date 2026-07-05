@@ -144,11 +144,12 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       from: "contact@marianosolle.com",
       to: "mariano.solle@gmail.com",
       replyTo: email,
-      subject: "New contact from marianosolle.com",
+      subject: `Portfolio inquiry — ${name}`,
       html: buildHtml(safeName, safeEmail, safeMessage, timestamp),
       text: buildText(name, email, message, timestamp),
     });
-  } catch {
+  } catch (error) {
+    console.error("[contact] Resend error:", error);
     return NextResponse.json({ error: "Failed to send email." }, { status: 500 });
   }
 
