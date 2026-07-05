@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-mint: #AAEEC4;
+  --color-off-white: #F8F8F8;
+  --color-mid-gray: #3E3E3E;
+  --color-dark: #222222;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-dark text-off-white transition-colors duration-300;
+  }
+
+  .light body,
+  html.light body {
+    @apply bg-off-white text-dark;
+  }
+}
+
+@layer utilities {
+  .transition-theme {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+}
