@@ -2,54 +2,87 @@
 
 ## Last Known Good Commit
 
-`0622b32` — Merge: release stacked sections effect + Hero/About copy updates
+`51afc90` — Merge: release contact form full stack implementation
+
+---
+
+## Infrastructure
+
+| Item | Status |
+|------|--------|
+| Domain: marianosolle.com | ✓ Live |
+| Cloudflare DNS + proxy | ✓ Configured |
+| HTTPS / SSL | ✓ Active |
+| WWW → apex redirect | ✓ Active |
+| Vercel production | ✓ Deployed |
+| Resend domain verified | ✓ contact@marianosolle.com |
+| SPF / DKIM | ✓ Configured |
+
+## Environment Variables (Vercel)
+
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Resend email delivery |
+| `PORTFOLIO_PLUS_ACCESS_CODE` | Portfolio Plus password gate |
 
 ---
 
 ## Completed Work
 
 ### Portfolio Plus — Phases 1–3 ✓
-- Visibility-based project filtering (single array, `visibility` field)
+- Visibility-based project filtering (`visibility` field in JSON)
 - Password gate UI: `PasswordGate`, `LockButton` components
 - HMAC-SHA256 stateless session auth (`src/lib/auth.ts`)
 - HttpOnly cookie system: session (30d) + visited (60d)
 - Middleware route protection for `/portfolio-plus/:path+`
 - RSC-level auth on `/portfolio-plus` page and `/projects/[slug]`
-- `?from=` redirect param with open redirect prevention (`sanitizeFrom`)
+- `?from=` redirect with open redirect prevention (`sanitizeFrom`)
 - Session expiry UX (`expired` + `expiredHint` i18n keys)
 - Confidentiality notice on unlocked view
 - `POST /api/lock` endpoint + LockButton in project detail footer
 
 ### Security Hardening ✓
-- Replaced static cookie value with HMAC-SHA256 token
-- Added `sanitizeFrom()` — rejects absolute URLs and non-`/` paths
-- Verified env var is server-only (`PORTFOLIO_PLUS_ACCESS_CODE`)
+- HMAC-SHA256 token replaces static cookie value
+- `sanitizeFrom()` rejects absolute URLs and non-`/` paths
+- `PORTFOLIO_PLUS_ACCESS_CODE` is server-only
 
 ### Visual Polish ✓
-- Removed project years from all 7 project JSONs
-- Verified typography, spacing, and color tokens across locked/unlocked states
+- Project years removed from all 7 project JSONs
+- Typography, spacing, and color tokens verified across all states
 - Error message hierarchy (primary red + secondary gray hint)
 
 ### Phase 4 — Motion Cursor ✓
-- `ProjectCursor` — reusable spring-following pill cursor
-- Appears immediately at mouse position (no off-screen fly-in via `x.jump()`)
-- Theme-aware: light pill on dark bg, dark pill on light bg
-- Locale-aware: "Ver Proyecto" (ES) / "View Project" (EN)
-- Deployed on `/projects` (`ProjectCard`) and Home page projects list (`ProjectListItem`)
-- Replaced old floating-thumbnail-overlay in `ProjectListItem` — thumbnail now inline, grayscale → color on hover
-- Reference assets: `public/images/ui/cursor-pill-{dark|light}-{es|en}.png`
+- `ProjectCursor` — spring-following pill cursor
+- Appears immediately at mouse position (no off-screen fly-in)
+- Theme-aware and locale-aware ("Ver Proyecto" / "View Project")
+- Active on `/projects` and Home page project list
 
-### Production Bug Fix ✓
-- Root cause: Next.js 14 RSC reconciliation doesn't reliably switch conditional branches on same route via `router.refresh()` in production
-- Fix: replaced `window.location.reload()` call in `PasswordGate.tsx` on successful unlock
-- Confirmed working in production
+### Phase 5 — Stacked Sections ✓
+- Hero in normal flow (`min-h-screen`)
+- AboutSection: `sticky top-16 z-20 min-h-[100dvh]`
+- ProjectList: `relative z-30` — rises over sticky About
+- Pure CSS sticky, no transforms or artificial heights
 
-### Phase 5 — Stacked Sections (Home page) ✓
-- Hero renders in normal document flow (`min-h-screen`)
-- AboutSection wrapper: `sticky top-16 z-20 min-h-[100dvh]` — sticks 64px below viewport top (navbar height)
-- ProjectList wrapper: `relative z-30` — rises from below in normal flow, z-index covers sticky About
-- No negative margins, no artificial heights, no transforms — pure CSS sticky
-- `src/app/page.tsx` is the only modified file for this effect
+### Phase 6 — Contact Form (Full Stack) ✓
+- `POST /api/contact` — Next.js App Router route handler
+- Resend SDK integration; sends to `mariano.solle@gmail.com`
+- Reply-To set to visitor's email address
+- HTML email + plain text fallback
+- Email template localized (ES/EN) based on `locale` cookie
+- Timestamp in `America/Argentina/Buenos_Aires` (ART), locale-formatted
+- Subject: `Consulta desde el portfolio — {name}` / `Portfolio inquiry — {name}`
+- Header: `Nuevo mensaje de contacto` / `Portfolio Inquiry`
+- Server-side honeypot validation (silent 200 to bots)
+- Content-length guard (20 KB) before JSON parse
+- Input validation: required fields, email format, max lengths
+- HTML sanitization on all user input
+- `console.error` logging before 500 responses; internals not exposed
+- 405 for all non-POST methods
+- Frontend: idle/loading/success/error state machine
+- Blur-triggered per-field validation; errors cleared immediately on fix
+- Submit disabled while form is invalid or submitting
+- Success: two-line copy (title + body), fade + 8px upward animation (220ms)
+- Error: server message shown; input preserved for retry
 
 ---
 
@@ -67,11 +100,8 @@
 
 ---
 
-## Next Phase
+## Remaining Roadmap
 
-- [ ] Domain configuration
-- [ ] Resend account setup and domain verification
-- [ ] `RESEND_API_KEY` environment variable in Vercel
-- [ ] Contact form: API Route `/api/contact` using Next.js + Resend
-- [ ] Send messages to `mariano.solle@gmail.com`
-- [ ] Maintain exact current visual design of the contact form
+- [ ] Rate limiting on `/api/contact` (if real spam appears)
+- [ ] Analytics (if needed)
+- [ ] New case studies / project content updates
