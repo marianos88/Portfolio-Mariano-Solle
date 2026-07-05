@@ -168,10 +168,22 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const safeName = sanitize(name);
   const safeEmail = sanitize(email);
   const safeMessage = sanitize(message);
-  const timestamp = new Date().toUTCString();
 
   const locale = resolveLocale(req);
   const copy = EMAIL_COPY[locale];
+
+  const timestampLocale = locale === "en" ? "en-US" : "es-AR";
+  const timestamp = new Date()
+    .toLocaleString(timestampLocale, {
+      timeZone: "America/Argentina/Buenos_Aires",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    })
+    .replace(/\bGMT[-+]\d+\b/g, "ART") + " (ART)";
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
