@@ -8,6 +8,33 @@ const MAX_BODY_SIZE = 20_000;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Email copy per locale — kept here to avoid pulling server i18n into the route
+const EMAIL_COPY = {
+  es: {
+    subject: (name: string) => `Consulta desde el portfolio — ${name}`,
+    header: "Nuevo mensaje de contacto",
+    labelFrom: "Nombre",
+    labelEmail: "Email",
+    labelMessage: "Mensaje",
+    labelReceived: "Recibido",
+  },
+  en: {
+    subject: (name: string) => `Portfolio inquiry — ${name}`,
+    header: "Portfolio Inquiry",
+    labelFrom: "Name",
+    labelEmail: "Email",
+    labelMessage: "Message",
+    labelReceived: "Received",
+  },
+} as const;
+
+type Locale = keyof typeof EMAIL_COPY;
+
+function resolveLocale(req: NextRequest): Locale {
+  const cookie = req.cookies.get("locale")?.value ?? "";
+  return cookie === "en" ? "en" : "es";
+}
+
 function sanitize(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -36,7 +63,13 @@ function validate(name: string, email: string, message: string): ValidationResul
   return { valid: true };
 }
 
-function buildHtml(name: string, email: string, message: string, timestamp: string): string {
+function buildHtml(
+  name: string,
+  email: string,
+  message: string,
+  timestamp: string,
+  copy: (typeof EMAIL_COPY)[Locale],
+): string {
   const lines = message.replace(/\n/g, "<br>");
   return `<!DOCTYPE html>
 <html lang="en">
@@ -47,27 +80,27 @@ function buildHtml(name: string, email: string, message: string, timestamp: stri
       <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:600px;width:100%">
         <tr><td style="background:#1a1a1a;padding:24px 32px">
           <p style="margin:0;color:#a8e6cf;font-size:11px;letter-spacing:2px;text-transform:uppercase">marianosolle.com</p>
-          <p style="margin:8px 0 0;color:#ffffff;font-size:20px;font-weight:500">New contact message</p>
+          <p style="margin:8px 0 0;color:#ffffff;font-size:20px;font-weight:500">${copy.header}</p>
         </td></tr>
         <tr><td style="padding:32px">
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td style="padding-bottom:20px;border-bottom:1px solid #eeeeee">
-                <p style="margin:0 0 4px;font-size:11px;color:#999999;letter-spacing:1px;text-transform:uppercase">From</p>
+                <p style="margin:0 0 4px;font-size:11px;color:#999999;letter-spacing:1px;text-transform:uppercase">${copy.labelFrom}</p>
                 <p style="margin:0;font-size:15px;color:#1a1a1a;font-weight:500">${name}</p>
                 <p style="margin:4px 0 0;font-size:14px;color:#555555">${email}</p>
               </td>
             </tr>
             <tr>
               <td style="padding-top:20px">
-                <p style="margin:0 0 8px;font-size:11px;color:#999999;letter-spacing:1px;text-transform:uppercase">Message</p>
+                <p style="margin:0 0 8px;font-size:11px;color:#999999;letter-spacing:1px;text-transform:uppercase">${copy.labelMessage}</p>
                 <p style="margin:0;font-size:14px;color:#1a1a1a;line-height:1.7">${lines}</p>
               </td>
             </tr>
           </table>
         </td></tr>
         <tr><td style="padding:16px 32px;background:#f9f9f9;border-top:1px solid #eeeeee">
-          <p style="margin:0;font-size:11px;color:#aaaaaa">Received: ${timestamp}</p>
+          <p style="margin:0;font-size:11px;color:#aaaaaa">${copy.labelReceived}: ${timestamp}</p>
         </td></tr>
       </table>
     </td></tr>
@@ -76,18 +109,24 @@ function buildHtml(name: string, email: string, message: string, timestamp: stri
 </html>`;
 }
 
-function buildText(name: string, email: string, message: string, timestamp: string): string {
+function buildText(
+  name: string,
+  email: string,
+  message: string,
+  timestamp: string,
+  copy: (typeof EMAIL_COPY)[Locale],
+): string {
   return [
-    "New contact message — marianosolle.com",
+    `${copy.header} — marianosolle.com`,
     "----------------------------------------",
-    `From:    ${name}`,
-    `Email:   ${email}`,
+    `${copy.labelFrom}:    ${name}`,
+    `${copy.labelEmail}:   ${email}`,
     "",
-    "Message:",
+    `${copy.labelMessage}:`,
     message,
     "",
     "----------------------------------------",
-    `Received: ${timestamp}`,
+    `${copy.labelReceived}: ${timestamp}`,
   ].join("\n");
 }
 
@@ -114,7 +153,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   // Honeypot — bots fill this, humans don't
   const honeypot = typeof raw.website === "string" ? raw.website : "";
   if (honeypot.length > 0) {
-    // Return 200 to avoid signalling detection to bots
     return NextResponse.json({ success: true }, { status: 200 });
   }
 
@@ -132,6 +170,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const safeMessage = sanitize(message);
   const timestamp = new Date().toUTCString();
 
+  const locale = resolveLocale(req);
+  const copy = EMAIL_COPY[locale];
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ error: "Internal server error." }, { status: 500 });
@@ -144,9 +185,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       from: "contact@marianosolle.com",
       to: "mariano.solle@gmail.com",
       replyTo: email,
-      subject: `Portfolio inquiry — ${name}`,
-      html: buildHtml(safeName, safeEmail, safeMessage, timestamp),
-      text: buildText(name, email, message, timestamp),
+      subject: copy.subject(name),
+      html: buildHtml(safeName, safeEmail, safeMessage, timestamp, copy),
+      text: buildText(name, email, message, timestamp, copy),
     });
   } catch (error) {
     console.error("[contact] Resend error:", error);
