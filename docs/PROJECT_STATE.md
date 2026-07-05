@@ -2,7 +2,7 @@
 
 ## Last Known Good Commit
 
-`18cbfe1` — release: Phase 7 — SEO & Metadata merged to main
+`74c5ce9` — merge: Phase 9 — Accessibility (WCAG AA) merged to main
 
 ---
 
@@ -71,37 +71,54 @@
 - Email template localized (ES/EN) based on `locale` cookie
 - Timestamp in `America/Argentina/Buenos_Aires` (ART), locale-formatted
 - Subject: `Consulta desde el portfolio — {name}` / `Portfolio inquiry — {name}`
-- Header: `Nuevo mensaje de contacto` / `Portfolio Inquiry`
 - Server-side honeypot validation (silent 200 to bots)
 - Content-length guard (20 KB) before JSON parse
 - Input validation: required fields, email format, max lengths
 - HTML sanitization on all user input
-- `console.error` logging before 500 responses; internals not exposed
-- 405 for all non-POST methods
 - Frontend: idle/loading/success/error state machine
 - Blur-triggered per-field validation; errors cleared immediately on fix
-- Submit disabled while form is invalid or submitting
-- Success: two-line copy (title + body), fade + 8px upward animation (220ms)
-- Error: server message shown; input preserved for retry
 
 ### Phase 7 — SEO & Metadata ✓
 - `metadataBase`: `https://marianosolle.com`
 - Title template: `'%s — Mariano Solle'` with default fallback
 - Root metadata: keywords, authors, creator, canonical, robots, OG, Twitter Cards, icons, theme-color
-- Per-page `metadata` or `generateMetadata` for: Home, Projects, Contact, Portfolio Plus, every case study
+- Per-page `metadata` or `generateMetadata` for all pages and case studies
 - Portfolio Plus page and all NDA project pages: `robots: { index: false, follow: false }`
 - JSON-LD structured data: `Person`, `WebSite`, `WebPage`, `CreativeWork` (schema.org)
-  - `src/lib/structured-data.ts` — typed builder functions
-  - `src/components/seo/JsonLd.tsx` — `<script type="application/ld+json">` injector
-- `app/sitemap.ts` — auto-generated `/sitemap.xml` (all public pages)
-- `app/robots.ts` — `/robots.txt` (allow `/`, disallow `/portfolio-plus`, `/api/`)
-- `app/opengraph-image.tsx` — branded default OG image (1200×630) via `ImageResponse`
-- Per-project OG images use `coverImage` field from JSON
-- `ContactForm` extracted to `src/components/contact/ContactForm.tsx` (client component); `contact/page.tsx` is now a server component that exports metadata
-- **Validation results:**
-  - `sitemap.xml` ✓ compiled and served correctly
-  - `robots.txt` ✓ compiled and served correctly
-  - External crawlers (Facebook Debugger, LinkedIn, OG validators) redirected to `vercel.com/login` on preview URL — this is **expected behavior**: Vercel Deployment Protection is enabled by default on all team preview deployments. Not a code issue. Production domain `marianosolle.com` has no such protection.
+- `app/sitemap.ts` — auto-generated `/sitemap.xml`
+- `app/robots.ts` — `/robots.txt`
+- `app/opengraph-image.tsx` — branded default OG image (1200×630)
+
+### Phase 8 — Performance & Core Web Vitals ✓
+- All bare `<img>` tags replaced with `next/image`
+- `preload="none"` on all `<video>` elements
+- Google Fonts `@import` removed; Inter loaded via `next/font/google`
+- Lenis RAF loop paused on `document.hidden`
+- Cache headers: `immutable` for `/_next/static/`, `max-age=3600, stale-while-revalidate=86400` for `/images/`
+
+### Phase 9 — Accessibility (WCAG AA) ✓
+- Skip-to-main-content link in root layout (`#main-content`)
+- Global `:focus-visible` ring (2px mint/green, 3px offset) in `globals.css`
+- `@media (prefers-reduced-motion: reduce)` in `globals.css`
+- Lenis smooth scroll disabled when `prefers-reduced-motion: reduce`
+- `useReducedMotion()` guards on all Framer Motion animations (Hero, BentoGrid, ProjectListItem, ProjectCard, PlusBanner, PortfolioPlusCard)
+- Hero infinite bounce animation respects reduced-motion
+- Mobile menu: `<nav aria-label>` (not dialog), `aria-expanded`, `aria-controls`, focus-in on open / return focus on close
+- VideoPlayer: `role="button"`, `tabIndex`, `onKeyDown` (Enter/Space), `aria-label`, `aria-pressed`
+- ContactForm: sr-only `<label>` per field, `aria-describedby` on inputs, `aria-invalid` only on error, focus to success div on submit
+- ContactForm success: `role="status"`, `aria-live="polite"`, `tabIndex=-1` + `el.focus()`
+- LangSwitch: `aria-label` communicates current language and switch target
+- All decorative `→` arrows: `aria-hidden="true"` across BentoGrid, ProjectListItem, ProjectCard, AboutSection, Footer, PlusBanner, PortfolioPlusCard
+- Hero `↓` scroll indicator: `aria-hidden="true"`
+- `🔒` emoji in PlusBanner and PortfolioPlusCard: `aria-hidden="true"`
+- ProjectCursor floating pill: `aria-hidden="true"`
+- VideoPlayer play/pause overlays: `aria-hidden="true"`
+- Figma iframe in LegacyLayout: `title="Prototipo interactivo en Figma"`
+- AboutSection column headers upgraded from `<p>` to `<h3>`
+- All opacity-based text tokens upgraded to pass WCAG AA 4.5:1 contrast
+- External links in Footer and ContactForm: `sr-only "(opens in new tab)"` hints
+- Footer social links wrapped in `<nav aria-label>` + `<ul>`
+- Translation keys added: `nav.openMenu/closeMenu/mobileNav`, `videoPlayer.play/pause`, `footer.socialNav`
 
 ---
 
@@ -121,9 +138,7 @@
 
 ## Remaining Roadmap
 
-- [ ] **Phase 8 — Accessibility (WCAG AA)** ← next
-- [ ] Phase 9 — Performance
-- [ ] Phase 10 — Microinteractions
+- [ ] **Phase 10 — Premium Polish & Microinteractions** ← next
 - [ ] Rate limiting on `/api/contact` (if real spam appears)
 - [ ] Analytics (if needed)
 - [ ] New case studies / project content updates
