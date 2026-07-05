@@ -6,12 +6,28 @@ import { motion } from 'framer-motion'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 import LangSwitch from '@/components/ui/LangSwitch'
 import { useScrollNav } from '@/hooks/useScrollNav'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function Navbar() {
   const t = useTranslations('nav')
   const scrolled = useScrollNav()
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+
+  // Move focus into the menu when it opens; return focus to the button when it closes
+  useEffect(() => {
+    if (menuOpen) {
+      const firstLink = mobileMenuRef.current?.querySelector<HTMLAnchorElement>('a')
+      firstLink?.focus()
+    }
+  }, [menuOpen])
+
+  const closeMenu = () => {
+    setMenuOpen(false)
+    // Return focus to the trigger button
+    menuButtonRef.current?.focus()
+  }
 
   return (
     <motion.nav
@@ -67,11 +83,14 @@ export default function Navbar() {
           <LangSwitch />
           <ThemeToggle />
           <button
+            ref={menuButtonRef}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
+            aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             className="text-[11px] tracking-[2px] uppercase dark:text-off-white/60 text-mid-gray w-6 text-center"
           >
-            {menuOpen ? '✕' : '☰'}
+            <span aria-hidden="true">{menuOpen ? '✕' : '☰'}</span>
           </button>
         </div>
       </div>
@@ -79,6 +98,10 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <motion.div
+          ref={mobileMenuRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-label={t('mobileNav')}
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden px-6 pt-4 pb-6 flex flex-col gap-5 dark:bg-dark/95 bg-white/95 backdrop-blur-md"
@@ -92,7 +115,7 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               className="text-[15px] font-light transition-theme dark:text-off-white/70 text-mid-gray"
             >
               {label}

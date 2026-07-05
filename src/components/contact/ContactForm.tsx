@@ -47,6 +47,8 @@ export default function ContactForm() {
         el.style.opacity = '1'
         el.style.transform = 'translateY(0)'
       })
+      // Move focus to the success message so screen readers announce it
+      el.focus()
     }
   }, [status])
 
@@ -102,7 +104,7 @@ export default function ContactForm() {
   return (
     <>
       {status === 'success' ? (
-        <div ref={successRef}>
+        <div ref={successRef} tabIndex={-1} role="status" aria-live="polite" className="outline-none">
           <p className="text-[16px] font-medium dark:text-mint text-[#2a7a4a] mb-1">
             {t('successTitle')}
           </p>
@@ -124,7 +126,11 @@ export default function ContactForm() {
           />
 
           <div>
+            <label htmlFor="contact-name" className="sr-only">
+              {t('namePlaceholder')}
+            </label>
             <input
+              id="contact-name"
               type="text"
               placeholder={t('namePlaceholder')}
               value={name}
@@ -132,19 +138,23 @@ export default function ContactForm() {
               onBlur={() => touch('name')}
               required
               disabled={isLoading}
-              aria-label={t('namePlaceholder')}
-              aria-invalid={!!showError('name')}
+              aria-invalid={showError('name') ? true : undefined}
+              aria-describedby={showError('name') ? 'contact-name-error' : undefined}
               className={showError('name') ? inputError : inputNormal}
             />
             {showError('name') && (
-              <p role="alert" className="mt-1 text-[12px] font-light text-red-500 dark:text-red-400">
+              <p id="contact-name-error" role="alert" className="mt-1 text-[12px] font-light text-red-500 dark:text-red-400">
                 {showError('name')}
               </p>
             )}
           </div>
 
           <div>
+            <label htmlFor="contact-email" className="sr-only">
+              {t('emailPlaceholder')}
+            </label>
             <input
+              id="contact-email"
               type="email"
               placeholder={t('emailPlaceholder')}
               value={email}
@@ -152,19 +162,23 @@ export default function ContactForm() {
               onBlur={() => touch('email')}
               required
               disabled={isLoading}
-              aria-label={t('emailPlaceholder')}
-              aria-invalid={!!showError('email')}
+              aria-invalid={showError('email') ? true : undefined}
+              aria-describedby={showError('email') ? 'contact-email-error' : undefined}
               className={showError('email') ? inputError : inputNormal}
             />
             {showError('email') && (
-              <p role="alert" className="mt-1 text-[12px] font-light text-red-500 dark:text-red-400">
+              <p id="contact-email-error" role="alert" className="mt-1 text-[12px] font-light text-red-500 dark:text-red-400">
                 {showError('email')}
               </p>
             )}
           </div>
 
           <div>
+            <label htmlFor="contact-message" className="sr-only">
+              {t('messagePlaceholder')}
+            </label>
             <textarea
+              id="contact-message"
               placeholder={t('messagePlaceholder')}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -172,8 +186,8 @@ export default function ContactForm() {
               required
               rows={5}
               disabled={isLoading}
-              aria-label={t('messagePlaceholder')}
-              aria-invalid={!!showError('message')}
+              aria-invalid={showError('message') ? true : undefined}
+              aria-describedby={showError('message') ? 'contact-message-error' : undefined}
               className={
                 (showError('message') ? inputError : inputNormal).replace(
                   'transition-theme',
@@ -182,7 +196,7 @@ export default function ContactForm() {
               }
             />
             {showError('message') && (
-              <p role="alert" className="mt-1 text-[12px] font-light text-red-500 dark:text-red-400">
+              <p id="contact-message-error" role="alert" className="mt-1 text-[12px] font-light text-red-500 dark:text-red-400">
                 {showError('message')}
               </p>
             )}
@@ -213,17 +227,21 @@ export default function ContactForm() {
           href="https://linkedin.com/in/marianosolle"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[12px] tracking-[1px] uppercase transition-theme dark:text-off-white/40 text-mid-gray hover:opacity-100"
+          className="text-[12px] tracking-[1px] uppercase transition-theme dark:text-off-white/60 text-mid-gray hover:opacity-100"
         >
-          LinkedIn →
+          LinkedIn
+          <span aria-hidden="true"> →</span>
+          <span className="sr-only"> (opens in new tab)</span>
         </a>
         <a
           href="https://dribbble.com/marianosolle"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[12px] tracking-[1px] uppercase transition-theme dark:text-off-white/40 text-mid-gray hover:opacity-100"
+          className="text-[12px] tracking-[1px] uppercase transition-theme dark:text-off-white/60 text-mid-gray hover:opacity-100"
         >
-          Dribbble →
+          Dribbble
+          <span aria-hidden="true"> →</span>
+          <span className="sr-only"> (opens in new tab)</span>
         </a>
       </div>
     </>

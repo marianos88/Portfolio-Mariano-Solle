@@ -1,17 +1,18 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
 export default function PlusBanner() {
   const t = useTranslations('plusBanner')
+  const prefersReducedMotion = useReducedMotion()
 
   return (
     <section className="px-6 pb-20 max-w-6xl mx-auto">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+        whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         className="rounded-xl border p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6
@@ -36,7 +37,8 @@ export default function PlusBanner() {
             dark:bg-mint dark:text-mid-gray
             bg-dark text-off-white"
         >
-          🔒 {t('cta')}
+          <span aria-hidden="true">🔒</span>
+          {t('cta')}
         </Link>
       </motion.div>
     </section>

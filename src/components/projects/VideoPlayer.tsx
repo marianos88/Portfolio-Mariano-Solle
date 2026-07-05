@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 export default function VideoPlayer({
   src,
@@ -12,6 +13,7 @@ export default function VideoPlayer({
   poster?: string
   orientation?: 'landscape' | 'portrait'
 }) {
+  const t = useTranslations('videoPlayer')
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
 
@@ -26,6 +28,13 @@ export default function VideoPlayer({
     }
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      toggle()
+    }
+  }
+
   const handleEnded = () => setPlaying(false)
 
   const containerClass =
@@ -37,7 +46,16 @@ export default function VideoPlayer({
     orientation === 'portrait' ? { maxWidth: '320px' } : undefined
 
   return (
-    <div className={containerClass} style={containerStyle} onClick={toggle}>
+    <div
+      role="button"
+      tabIndex={0}
+      aria-label={playing ? t('pause') : t('play')}
+      aria-pressed={playing}
+      className={containerClass}
+      style={containerStyle}
+      onClick={toggle}
+      onKeyDown={handleKeyDown}
+    >
       <video
         ref={videoRef}
         src={src}
@@ -46,6 +64,7 @@ export default function VideoPlayer({
         className="w-full h-full object-cover"
         playsInline
         preload="none"
+        aria-hidden="true"
       />
 
       <AnimatePresence>
@@ -56,6 +75,7 @@ export default function VideoPlayer({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="absolute inset-0 flex items-center justify-center bg-black/50"
+            aria-hidden="true"
           >
             <motion.div
               initial={{ scale: 0.85 }}
@@ -65,7 +85,7 @@ export default function VideoPlayer({
               className="w-16 h-16 rounded-full flex items-center justify-center
                 dark:bg-mint bg-off-white shadow-2xl"
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 3l14 9-14 9V3z" fill="currentColor" className="dark:text-mid-gray text-dark" />
               </svg>
             </motion.div>
@@ -74,9 +94,12 @@ export default function VideoPlayer({
       </AnimatePresence>
 
       {playing && (
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/20">
+        <div
+          className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/20"
+          aria-hidden="true"
+        >
           <div className="w-14 h-14 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="6" y="4" width="4" height="16" rx="1" fill="white" />
               <rect x="14" y="4" width="4" height="16" rx="1" fill="white" />
             </svg>

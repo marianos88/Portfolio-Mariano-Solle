@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
 import { getPublicProjects, getProjectLocale } from '@/lib/projects'
 
@@ -10,10 +10,11 @@ export default function BentoGrid() {
   const t = useTranslations('bentoGrid')
   const locale = useLocale()
   const projects = getPublicProjects()
+  const prefersReducedMotion = useReducedMotion()
 
   return (
     <section className="px-6 pb-20 max-w-6xl mx-auto">
-      <p className="text-[11px] tracking-[2px] uppercase mb-6 font-light dark:text-off-white/40 text-mid-gray">
+      <p className="text-[11px] tracking-[2px] uppercase mb-6 font-light dark:text-off-white/60 text-mid-gray">
         {t('sectionTag')}
       </p>
 
@@ -23,8 +24,8 @@ export default function BentoGrid() {
           return (
             <motion.div
               key={project.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className={project.featured ? 'md:col-span-2' : ''}
@@ -71,7 +72,7 @@ export default function BentoGrid() {
                           {loc.description}
                         </p>
                       </div>
-                      <span className="text-[18px] mt-1 dark:text-mint text-[#2a7a4a] group-hover:translate-x-1 transition-transform">
+                      <span aria-hidden="true" className="text-[18px] mt-1 dark:text-mint text-[#2a7a4a] group-hover:translate-x-1 transition-transform">
                         →
                       </span>
                     </div>
@@ -101,9 +102,9 @@ export default function BentoGrid() {
       <div className="mt-6 text-center">
         <Link
           href="/projects"
-          className="text-[13px] font-light tracking-wide transition-theme hover:opacity-70 dark:text-off-white/50 text-mid-gray"
+          className="text-[13px] font-light tracking-wide transition-theme hover:opacity-70 dark:text-off-white/60 text-mid-gray"
         >
-          {t('viewAll')} →
+          {t('viewAll')} <span aria-hidden="true">→</span>
         </Link>
       </div>
     </section>

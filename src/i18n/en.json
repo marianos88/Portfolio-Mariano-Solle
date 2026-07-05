@@ -3,7 +3,10 @@
     "about": "About",
     "projects": "Projects",
     "portfolioPlus": "Portfolio Plus",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "mobileNav": "Mobile navigation"
   },
   "hero": {
     "tag": "PRODUCT DESIGNER",
@@ -74,9 +77,14 @@
     "errorEmail": "Please enter a valid email address.",
     "errorMessage": "Message is required."
   },
+  "videoPlayer": {
+    "play": "Play video",
+    "pause": "Pause video"
+  },
   "footer": {
     "copy": "Mariano Solle — Product Designer",
     "linkedin": "LinkedIn",
-    "dribbble": "Dribbble"
+    "dribbble": "Dribbble",
+    "socialNav": "Social links"
   }
 }

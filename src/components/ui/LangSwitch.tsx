@@ -11,15 +11,20 @@ export default function LangSwitch() {
     window.location.reload()
   }
 
+  const label =
+    locale === 'es'
+      ? 'Switch to English (currently Spanish)'
+      : 'Cambiar a Español (actualmente English)'
+
   return (
     <button
       onClick={toggle}
-      aria-label="Switch language"
+      aria-label={label}
       className="text-[11px] tracking-[2px] uppercase transition-theme hover:opacity-70 dark:text-off-white/60 light:text-mid-gray"
     >
-      <span className={locale === 'es' ? 'opacity-100' : 'opacity-40'}>ES</span>
-      <span className="mx-1 opacity-30">|</span>
-      <span className={locale === 'en' ? 'opacity-100' : 'opacity-40'}>EN</span>
+      <span aria-hidden="true" className={locale === 'es' ? 'opacity-100' : 'opacity-40'}>ES</span>
+      <span aria-hidden="true" className="mx-1 opacity-30">|</span>
+      <span aria-hidden="true" className={locale === 'en' ? 'opacity-100' : 'opacity-40'}>EN</span>
     </button>
   )
 }

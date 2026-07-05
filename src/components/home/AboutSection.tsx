@@ -47,9 +47,9 @@ export default async function AboutSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           <div>
-            <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-off-white/40 text-mid-gray">
+            <h3 className="text-[11px] tracking-[2px] uppercase mb-4 font-light dark:text-off-white/60 text-mid-gray">
               {t('tools')}
-            </p>
+            </h3>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool) => (
                 <span
@@ -65,9 +65,9 @@ export default async function AboutSection() {
           </div>
 
           <div>
-            <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-off-white/40 text-mid-gray">
+            <h3 className="text-[11px] tracking-[2px] uppercase mb-4 font-light dark:text-off-white/60 text-mid-gray">
               {t('skills')}
-            </p>
+            </h3>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <span
@@ -83,16 +83,16 @@ export default async function AboutSection() {
           </div>
 
           <div>
-            <p className="text-[11px] tracking-[2px] uppercase mb-4 dark:text-off-white/40 text-mid-gray">
+            <h3 className="text-[11px] tracking-[2px] uppercase mb-4 font-light dark:text-off-white/60 text-mid-gray">
               {t('specializations')}
-            </p>
+            </h3>
             <ul className="space-y-2">
               {specializations.map((spec) => (
                 <li
                   key={spec}
                   className="text-[14px] font-light flex items-center gap-2 dark:text-off-white/70 text-mid-gray"
                 >
-                  <span className="dark:text-mint text-[#2a7a4a]">→</span>
+                  <span aria-hidden="true" className="dark:text-mint text-[#2a7a4a]">→</span>
                   {spec}
                 </li>
               ))}

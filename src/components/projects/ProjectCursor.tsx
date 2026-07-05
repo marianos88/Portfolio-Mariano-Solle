@@ -33,6 +33,7 @@ export default function ProjectCursor({ mouseX, mouseY, visible }: Props) {
 
   return (
     <motion.div
+      aria-hidden="true"
       className="fixed top-0 left-0 z-[100] pointer-events-none flex items-center justify-center"
       style={{ x, y, translateX: '-50%', translateY: '-50%' }}
       animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.75 }}

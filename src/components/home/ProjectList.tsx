@@ -15,7 +15,7 @@ export default function ProjectList() {
         shadow-[0_-4px_40px_rgba(0,0,0,0.12)]"
     >
       <div className="max-w-6xl mx-auto px-8">
-        <p className="text-[11px] tracking-[2px] uppercase mb-2 font-light dark:text-off-white/30 text-mid-gray/50">
+        <p className="text-[11px] tracking-[2px] uppercase mb-2 font-light dark:text-off-white/60 text-mid-gray">
           {t('sectionTag')}
         </p>
 

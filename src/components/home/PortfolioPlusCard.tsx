@@ -2,17 +2,18 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
 export default function PortfolioPlusCard({ index }: { index: number }) {
   const t = useTranslations('plusBanner')
   const [hovered, setHovered] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+      whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
     >
@@ -29,20 +30,21 @@ export default function PortfolioPlusCard({ index }: { index: number }) {
       >
         <div className="flex items-baseline gap-6 md:gap-10 flex-1 min-w-0">
           {/* Index */}
-          <span className="text-[11px] tracking-[2px] dark:text-off-white/20 text-mid-gray/40 shrink-0 w-6">
+          <span aria-hidden="true" className="text-[11px] tracking-[2px] dark:text-off-white/50 text-mid-gray shrink-0 w-6">
             {String(index + 1).padStart(2, '0')}
           </span>
 
           {/* Title with lock */}
           <div className="flex items-center gap-3 min-w-0">
             <AnimatePresence>
-              {hovered && (
+              {hovered && !prefersReducedMotion && (
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.2 }}
                   className="text-[20px]"
+                  aria-hidden="true"
                 >
                   🔒
                 </motion.span>
@@ -65,11 +67,11 @@ export default function PortfolioPlusCard({ index }: { index: number }) {
             NDA
           </span>
 
-          <span className="text-[11px] tracking-[1px] uppercase dark:text-off-white/30 text-mid-gray/50 hidden lg:block">
+          <span className="text-[11px] tracking-[1px] uppercase dark:text-off-white/60 text-mid-gray hidden lg:block">
             {t('label')}
           </span>
 
-          <span className="text-[16px] transition-transform duration-200 dark:text-mint text-[#2a7a4a] group-hover:translate-x-1">
+          <span aria-hidden="true" className="text-[16px] transition-transform duration-200 dark:text-mint text-[#2a7a4a] group-hover:translate-x-1">
             →
           </span>
         </div>

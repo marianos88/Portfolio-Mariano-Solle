@@ -61,13 +61,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
         >
           {loc.role && (
             <div>
-              <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/30 text-mid-gray/50">Role</p>
+              <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/60 text-mid-gray">Role</p>
               <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{loc.role}</p>
             </div>
           )}
           {loc.scope && loc.scope.length > 0 && (
             <div>
-              <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/30 text-mid-gray/50">Scope</p>
+              <p className="text-[10px] tracking-[2px] uppercase mb-1 dark:text-off-white/60 text-mid-gray">Scope</p>
               <p className="text-[13px] font-light dark:text-off-white/70 text-mid-gray">{loc.scope.join(' · ')}</p>
             </div>
           )}
@@ -551,9 +551,9 @@ function LegacyLayout({
         <>
           <Divider />
           <div className="max-w-6xl mx-auto px-6 py-16">
-            <p className="text-[11px] tracking-[2px] uppercase mb-6 dark:text-off-white/30 text-mid-gray/50">Prototipo interactivo</p>
+            <p className="text-[11px] tracking-[2px] uppercase mb-6 dark:text-off-white/60 text-mid-gray">Prototipo interactivo</p>
             <div className="aspect-video w-full rounded-xl overflow-hidden">
-              <iframe src={figmaEmbed} allowFullScreen className="w-full h-full border-0" />
+              <iframe src={figmaEmbed} allowFullScreen title="Prototipo interactivo en Figma" className="w-full h-full border-0" />
             </div>
           </div>
         </>
@@ -578,7 +578,7 @@ function FadeSection({ children, delay = 0 }: { children: React.ReactNode; delay
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] tracking-[2px] uppercase dark:text-off-white/30 text-mid-gray/50 pt-1 shrink-0">
+    <p className="text-[11px] tracking-[2px] uppercase dark:text-off-white/60 text-mid-gray pt-1 shrink-0">
       {children}
     </p>
   )
