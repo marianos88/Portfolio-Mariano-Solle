@@ -12,7 +12,7 @@ export default function HomePage() {
         <AboutSection />
       </div>
       {/* Projects in normal flow, higher z-index to cover sticky About */}
-      <div className="relative z-30 -mt-16">
+      <div className="relative z-30">
         <ProjectList />
       </div>
     </div>
