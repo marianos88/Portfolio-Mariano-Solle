@@ -16,148 +16,192 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
 
-      {/* ─── Volumetric ambient light — dark mode only ─────────────────────
-          7 oversized solid-color divs blurred 200–480px.
-          At this level no shape is visible — only atmospheric zones of
-          diffused light. Positioned entirely in the right half so the
-          gaussian falloff alone creates the organic dark→light transition.
-          No hard-edge overlays; only a very wide gradient from left.
-      ─────────────────────────────────────────────────────────────────── */}
+      {/* ── Aurora volumetric background ── dark mode only ──────────────────
+       *
+       *  Architecture: 7 solid-color divs with filter:blur(250–500px).
+       *  At these blur levels the original shape is completely unrecognisable —
+       *  only zones of diffused atmospheric light remain. No radial-gradient,
+       *  no circles, no blobs. The gaussian falloff does all the transitions.
+       *
+       *  Composition (matches reference preview):
+       *   · Luminosity peaks in the upper-right quadrant
+       *   · A diagonal band sweeps from 1 o'clock toward 7 o'clock
+       *   · Lower-left corner stays at #232323
+       *   · Left text column stays fully dark via a wide multi-stop shield
+       *
+       *  All volumes are confined to the right 45–100% of the viewport.
+       *  With 300px blur on a 1440px screen that adds ~21% bleed leftward,
+       *  placing the natural fade boundary around the 25–35% mark — well
+       *  behind the left shield which holds solid dark through 20%.
+       * ─────────────────────────────────────────────────────────────────── */}
       {theme === 'dark' && (
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ overflow: 'hidden' }}
           aria-hidden="true"
         >
-          {/* V1 — tall column, dark green depth base */}
+
+          {/* V1 ── upper-right primary mass
+               Large, bright. The dominant light source of the composition.
+               Tilted to create the diagonal aurora direction. */}
           <div style={{
             position: 'absolute',
-            width: '60%', height: '150%',
-            top: '-25%', right: '-10%',
-            background: 'rgba(95, 160, 120, 0.60)',
+            width: '70%',
+            height: '90%',
+            top: '-20%',
+            right: '-12%',
+            background: 'rgba(170, 238, 196, 0.50)',
+            filter: 'blur(280px)',
+            transform: 'rotate(-8deg)',
+            animation: 'heroAmbient1 54s ease-in-out infinite',
+            willChange: 'transform',
+          }} />
+
+          {/* V2 ── deep green base layer
+               Darker tone for depth behind V1. Wider vertical extent. */}
+          <div style={{
+            position: 'absolute',
+            width: '60%',
+            height: '130%',
+            top: '-15%',
+            right: '-8%',
+            background: 'rgba(90, 155, 110, 0.65)',
             filter: 'blur(340px)',
-            transform: 'rotate(7deg)',
-            animation: 'heroAmbient1 52s ease-in-out infinite',
+            transform: 'rotate(5deg)',
+            animation: 'heroAmbient2 71s ease-in-out infinite',
             willChange: 'transform',
           }} />
 
-          {/* V2 — wide upper mint cloud, bright concentration */}
+          {/* V3 ── diagonal aurora band
+               Strongly rotated horizontal slab. Creates the sweeping
+               streak visible in the reference from upper-right to center. */}
           <div style={{
             position: 'absolute',
-            width: '75%', height: '80%',
-            top: '-20%', right: '-15%',
-            background: 'rgba(170, 238, 196, 0.46)',
+            width: '82%',
+            height: '38%',
+            top: '18%',
+            right: '-20%',
+            background: 'rgba(155, 220, 178, 0.44)',
             filter: 'blur(260px)',
-            transform: 'rotate(-5deg)',
-            animation: 'heroAmbient2 67s ease-in-out infinite',
+            transform: 'rotate(-18deg)',
+            animation: 'heroAmbient3 47s ease-in-out infinite',
             willChange: 'transform',
           }} />
 
-          {/* V3 — diagonal sweep, aurora-band quality */}
+          {/* V4 ── secondary upper sweep
+               Slightly offset from V1 to break symmetry and add depth. */}
           <div style={{
             position: 'absolute',
-            width: '85%', height: '50%',
-            top: '25%', right: '-22%',
-            background: 'rgba(140, 210, 168, 0.42)',
-            filter: 'blur(400px)',
-            transform: 'rotate(-12deg)',
-            animation: 'heroAmbient3 45s ease-in-out infinite',
+            width: '55%',
+            height: '65%',
+            top: '-10%',
+            right: '3%',
+            background: 'rgba(170, 238, 196, 0.28)',
+            filter: 'blur(310px)',
+            transform: 'rotate(-4deg)',
+            animation: 'heroAmbient1 63s ease-in-out infinite reverse',
             willChange: 'transform',
           }} />
 
-          {/* V4 — lower-right depth, darker undertone */}
+          {/* V5 ── mid-right atmospheric fill
+               Keeps the center-right from going too dark between bands. */}
           <div style={{
             position: 'absolute',
-            width: '65%', height: '85%',
-            bottom: '-28%', right: '-5%',
-            background: 'rgba(80, 148, 108, 0.50)',
-            filter: 'blur(440px)',
-            transform: 'rotate(10deg)',
-            animation: 'heroAmbient2 58s ease-in-out infinite reverse',
+            width: '52%',
+            height: '75%',
+            top: '12%',
+            right: '-2%',
+            background: 'rgba(120, 190, 148, 0.36)',
+            filter: 'blur(380px)',
+            transform: 'rotate(11deg)',
+            animation: 'heroAmbient2 56s ease-in-out infinite reverse',
             willChange: 'transform',
           }} />
 
-          {/* V5 — mid-right floating volume, high mint density */}
+          {/* V6 ── lower-right anchor
+               Pulls light into the bottom-right corner, mirrors the
+               reference which has ambient green in that region. */}
           <div style={{
             position: 'absolute',
-            width: '50%', height: '95%',
-            top: '3%', right: '2%',
-            background: 'rgba(170, 238, 196, 0.32)',
-            filter: 'blur(290px)',
-            transform: 'rotate(-6deg)',
-            animation: 'heroAmbient1 73s ease-in-out infinite reverse',
+            width: '58%',
+            height: '70%',
+            bottom: '-20%',
+            right: '-6%',
+            background: 'rgba(80, 148, 108, 0.52)',
+            filter: 'blur(420px)',
+            transform: 'rotate(8deg)',
+            animation: 'heroAmbient3 68s ease-in-out infinite',
             willChange: 'transform',
           }} />
 
-          {/* V6 — wide shallow layer, extends glow toward center */}
+          {/* V7 ── wide shallow central haze
+               Extremely blurred, low opacity. Softens the transition zone
+               and prevents any hard falloff line in the center. */}
           <div style={{
             position: 'absolute',
-            width: '80%', height: '60%',
-            top: '18%', right: '-18%',
-            background: 'rgba(120, 185, 148, 0.28)',
+            width: '78%',
+            height: '55%',
+            top: '22%',
+            right: '-16%',
+            background: 'rgba(140, 210, 168, 0.22)',
             filter: 'blur(500px)',
-            transform: 'rotate(4deg)',
-            animation: 'heroAmbient3 61s ease-in-out infinite',
+            transform: 'rotate(-6deg)',
+            animation: 'heroAmbient1 83s ease-in-out infinite',
             willChange: 'transform',
           }} />
 
-          {/* V7 — thin luminous upper strip */}
-          <div style={{
-            position: 'absolute',
-            width: '55%', height: '32%',
-            top: '-6%', right: '8%',
-            background: 'rgba(170, 238, 196, 0.30)',
-            filter: 'blur(210px)',
-            transform: 'rotate(-16deg)',
-            animation: 'heroAmbient2 39s ease-in-out infinite',
-            willChange: 'transform',
-          }} />
-
-          {/* ── Left shield ───────────────────────────────────────────────
-              Very wide, very gradual. The blur volumes don't extend past
-              ~35% from left naturally, but this ensures the text column
-              stays anchored in darkness. No abrupt stops — every step
-              is spread over at least 10% to prevent any visible seam.
-          ─────────────────────────────────────────────────────────────── */}
+          {/* ── Left dark shield ──────────────────────────────────────────
+           *  Pure #232323 for the first 20%, then a very gradual multi-stop
+           *  fade across 60% of the screen. No abrupt stop at any point.
+           *  The gaussian blur handles the final organic transition;
+           *  this shield only ensures the text column stays fully dark.
+           * ─────────────────────────────────────────────────────────────── */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: [
-              'linear-gradient(to right,',
-              '  #232323       0%,',
-              '  #232323       20%,',
-              '  rgba(35,35,35,0.96) 30%,',
-              '  rgba(35,35,35,0.82) 42%,',
-              '  rgba(35,35,35,0.52) 54%,',
-              '  rgba(35,35,35,0.18) 65%,',
-              '  rgba(35,35,35,0.04) 73%,',
-              '  transparent    80%',
-              ')',
-            ].join(' '),
+            background: `linear-gradient(to right,
+              #232323        0%,
+              #232323       20%,
+              rgba(35,35,35,0.97) 28%,
+              rgba(35,35,35,0.88) 36%,
+              rgba(35,35,35,0.68) 46%,
+              rgba(35,35,35,0.42) 56%,
+              rgba(35,35,35,0.16) 66%,
+              rgba(35,35,35,0.04) 74%,
+              transparent   80%
+            )`,
           }} />
 
-          {/* Bottom anchor — keeps lower third in darkness */}
+          {/* ── Bottom fade ────────────────────────────────────────────────
+           *  Sinks the lower third back into darkness so the hero footer
+           *  area (scroll indicator, etc.) stays clean and dark.
+           * ─────────────────────────────────────────────────────────────── */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background:
-              'linear-gradient(to top, #232323 0%, rgba(35,35,35,0.70) 18%, rgba(35,35,35,0.18) 36%, transparent 54%)',
+            background: `linear-gradient(to top,
+              #232323        0%,
+              rgba(35,35,35,0.80) 15%,
+              rgba(35,35,35,0.30) 32%,
+              transparent   50%
+            )`,
           }} />
+
         </div>
       )}
 
-      {/* ─── Parallax decorative panel (right side) ───────────────────────
-          In dark mode the ambient volumes replace the need for any dark
-          overlay here — removing it eliminates the hard vertical seam
-          that was visible at the 50% mark.
-      ─────────────────────────────────────────────────────────────────── */}
+      {/* ── Parallax decorative panel ────────────────────────────────────────
+       *  In dark mode the ambient volumes replace this entirely.
+       *  Setting both children to opacity-0 in dark mode ensures zero
+       *  interference (the old dark:bg-gradient-to-l was the cause of
+       *  the hard vertical seam at the 50% mark).
+       * ─────────────────────────────────────────────────────────────────── */}
       <motion.div
         style={{ y: parallaxY }}
         className="absolute right-0 top-0 w-1/2 h-full pointer-events-none hidden lg:block"
       >
-        {/* Light-mode overlay only — dark mode lets the ambient show through */}
         <div className="absolute inset-0 bg-gradient-to-l from-transparent to-off-white z-10 dark:opacity-0" />
-        <div className="w-full h-full dark:opacity-0 bg-[#efefef] opacity-60" />
+        <div className="w-full h-full bg-[#efefef] opacity-60 dark:opacity-0" />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-20 lg:py-32">
