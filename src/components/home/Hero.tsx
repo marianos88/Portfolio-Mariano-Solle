@@ -21,34 +21,43 @@ export default function Hero() {
           className="absolute inset-0 pointer-events-none overflow-hidden"
           aria-hidden="true"
         >
-          {/* Primary glow — upper right, behind decorative panel */}
+          {/* Primary glow — upper right, dominant source */}
           <div
             style={{
               position: 'absolute',
-              width: '65%',
-              height: '90%',
-              top: '-15%',
-              right: '-5%',
+              width: '80%',
+              height: '100%',
+              top: '-20%',
+              right: '-15%',
               background:
-                'radial-gradient(ellipse 60% 55% at 60% 40%, rgba(170,238,196,0.065) 0%, transparent 72%)',
-              filter: 'blur(32px)',
+                'radial-gradient(ellipse 55% 50% at 65% 35%, rgba(170,238,196,0.18) 0%, rgba(170,238,196,0.06) 45%, transparent 72%)',
+              filter: 'blur(28px)',
               animation: 'heroAmbient1 52s ease-in-out infinite',
               willChange: 'transform',
             }}
           />
-          {/* Secondary glow — lower left, very faint */}
+          {/* Secondary glow — upper left, counter-balance */}
           <div
             style={{
               position: 'absolute',
-              width: '55%',
-              height: '70%',
-              bottom: '-10%',
-              left: '-8%',
+              width: '60%',
+              height: '75%',
+              top: '-5%',
+              left: '-10%',
               background:
-                'radial-gradient(ellipse 55% 50% at 40% 60%, rgba(170,238,196,0.038) 0%, transparent 70%)',
-              filter: 'blur(48px)',
+                'radial-gradient(ellipse 50% 45% at 35% 30%, rgba(170,238,196,0.09) 0%, transparent 68%)',
+              filter: 'blur(40px)',
               animation: 'heroAmbient2 67s ease-in-out infinite',
               willChange: 'transform',
+            }}
+          />
+          {/* Deep vignette — keeps center-bottom dark as anchor */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(ellipse 70% 60% at 50% 85%, rgba(34,34,34,0.85) 0%, transparent 70%)',
             }}
           />
         </div>
