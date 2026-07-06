@@ -15,73 +15,150 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
-      {/* Ambient background — dark mode only */}
+      {/* Volumetric ambient light — dark mode only */}
       {theme === 'dark' && (
         <div
-          className="absolute inset-0 pointer-events-none overflow-hidden"
+          className="absolute inset-0 pointer-events-none"
+          style={{ overflow: 'hidden' }}
           aria-hidden="true"
         >
-          {/* Base green wash — muted dark green depth across right half */}
+          {/*
+           * 7 overlapping light volumes, each massively oversized and
+           * blurred 250–500px. At this blur level no shape is visible —
+           * only zones of diffused atmospheric light remain.
+           * Volumes are offset, rotated, and animated at different speeds
+           * so they never form symmetric or repeating patterns.
+           */}
+
+          {/* V1 — tall right-side column, primary depth layer */}
           <div
             style={{
               position: 'absolute',
-              width: '72%',
-              height: '130%',
-              top: '-15%',
-              right: '-8%',
-              background:
-                'radial-gradient(ellipse 75% 70% at 60% 48%, rgba(120,185,145,0.30) 0%, rgba(100,160,125,0.10) 52%, transparent 78%)',
-              filter: 'blur(8px)',
+              width: '65%',
+              height: '140%',
+              top: '-20%',
+              right: '-12%',
+              background: 'rgba(110, 175, 140, 0.55)',
+              filter: 'blur(320px)',
+              transform: 'rotate(6deg)',
               animation: 'heroAmbient1 52s ease-in-out infinite',
               willChange: 'transform',
             }}
           />
-          {/* Upper-right bright lobe — the dominant light source */}
+
+          {/* V2 — wide upper sweep, brighter mint concentration */}
           <div
             style={{
               position: 'absolute',
-              width: '55%',
+              width: '80%',
               height: '75%',
-              top: '-10%',
-              right: '-5%',
-              background:
-                'radial-gradient(ellipse 58% 52% at 72% 22%, rgba(170,238,196,0.40) 0%, rgba(170,238,196,0.14) 38%, transparent 65%)',
-              filter: 'blur(12px)',
+              top: '-18%',
+              right: '-18%',
+              background: 'rgba(170, 238, 196, 0.42)',
+              filter: 'blur(260px)',
+              transform: 'rotate(-4deg)',
               animation: 'heroAmbient2 67s ease-in-out infinite',
               willChange: 'transform',
             }}
           />
-          {/* Aurora band — horizontal sweep across center-right */}
+
+          {/* V3 — diagonal horizontal band across center */}
           <div
             style={{
               position: 'absolute',
-              width: '60%',
-              height: '55%',
-              top: '22%',
-              right: '2%',
-              background:
-                'radial-gradient(ellipse 90% 38% at 52% 52%, rgba(150,215,175,0.22) 0%, rgba(120,185,145,0.06) 55%, transparent 72%)',
-              filter: 'blur(18px)',
+              width: '90%',
+              height: '45%',
+              top: '28%',
+              right: '-20%',
+              background: 'rgba(145, 210, 170, 0.38)',
+              filter: 'blur(380px)',
+              transform: 'rotate(-11deg)',
               animation: 'heroAmbient3 45s ease-in-out infinite',
               willChange: 'transform',
             }}
           />
-          {/* Left dark shield — protects text legibility */}
+
+          {/* V4 — lower right depth, darker green undertone */}
           <div
             style={{
               position: 'absolute',
-              inset: 0,
-              background:
-                'linear-gradient(to right, rgba(34,34,34,1) 0%, rgba(34,34,34,0.92) 22%, rgba(34,34,34,0.55) 42%, rgba(34,34,34,0.10) 62%, transparent 78%)',
+              width: '70%',
+              height: '80%',
+              bottom: '-25%',
+              right: '-8%',
+              background: 'rgba(90, 155, 115, 0.45)',
+              filter: 'blur(420px)',
+              transform: 'rotate(9deg)',
+              animation: 'heroAmbient2 58s ease-in-out infinite reverse',
+              willChange: 'transform',
             }}
           />
-          {/* Bottom fade — anchors lower portion in darkness */}
+
+          {/* V5 — mid-right floating volume, highest mint density */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '55%',
+              height: '90%',
+              top: '5%',
+              right: '0%',
+              background: 'rgba(170, 238, 196, 0.30)',
+              filter: 'blur(280px)',
+              transform: 'rotate(-7deg)',
+              animation: 'heroAmbient1 73s ease-in-out infinite reverse',
+              willChange: 'transform',
+            }}
+          />
+
+          {/* V6 — wide shallow layer, extends glow toward center */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '85%',
+              height: '55%',
+              top: '15%',
+              right: '-15%',
+              background: 'rgba(125, 190, 150, 0.25)',
+              filter: 'blur(480px)',
+              transform: 'rotate(3deg)',
+              animation: 'heroAmbient3 61s ease-in-out infinite',
+              willChange: 'transform',
+            }}
+          />
+
+          {/* V7 — thin upper strip, adds luminosity to top edge */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '60%',
+              height: '30%',
+              top: '-8%',
+              right: '5%',
+              background: 'rgba(170, 238, 196, 0.28)',
+              filter: 'blur(200px)',
+              transform: 'rotate(-15deg)',
+              animation: 'heroAmbient2 39s ease-in-out infinite',
+              willChange: 'transform',
+            }}
+          />
+
+          {/* Left dark shield — hard dark on left, progressive fade to center */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
               background:
-                'linear-gradient(to top, rgba(34,34,34,0.95) 0%, rgba(34,34,34,0.55) 28%, transparent 55%)',
+                'linear-gradient(to right, #232323 0%, #232323 28%, rgba(35,35,35,0.92) 38%, rgba(35,35,35,0.60) 48%, rgba(35,35,35,0.15) 60%, transparent 72%)',
+            }}
+          />
+
+          {/* Bottom anchor — sinks lower third back into darkness */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'linear-gradient(to top, #232323 0%, rgba(35,35,35,0.75) 20%, rgba(35,35,35,0.20) 40%, transparent 58%)',
             }}
           />
         </div>
