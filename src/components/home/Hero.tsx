@@ -15,6 +15,45 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
+      {/* Ambient background — dark mode only */}
+      {theme === 'dark' && (
+        <div
+          className="absolute inset-0 pointer-events-none overflow-hidden"
+          aria-hidden="true"
+        >
+          {/* Primary glow — upper right, behind decorative panel */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '65%',
+              height: '90%',
+              top: '-15%',
+              right: '-5%',
+              background:
+                'radial-gradient(ellipse 60% 55% at 60% 40%, rgba(170,238,196,0.065) 0%, transparent 72%)',
+              filter: 'blur(32px)',
+              animation: 'heroAmbient1 52s ease-in-out infinite',
+              willChange: 'transform',
+            }}
+          />
+          {/* Secondary glow — lower left, very faint */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '55%',
+              height: '70%',
+              bottom: '-10%',
+              left: '-8%',
+              background:
+                'radial-gradient(ellipse 55% 50% at 40% 60%, rgba(170,238,196,0.038) 0%, transparent 70%)',
+              filter: 'blur(48px)',
+              animation: 'heroAmbient2 67s ease-in-out infinite',
+              willChange: 'transform',
+            }}
+          />
+        </div>
+      )}
+
       {/* Parallax background image / decorative element */}
       <motion.div
         style={{ y: parallaxY }}
