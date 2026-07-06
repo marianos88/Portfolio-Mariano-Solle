@@ -8,7 +8,7 @@
   "featured": true,
   "isNDA": false,
   "es": {
-    "title": "Rediseño de Plataforma Bancaria",
+    "title": "Banco global - Rediseño de Plataforma bancaria",
     "category": "Fintech · Banca · Software Empresarial",
     "description": "Este proyecto se enfocó en el rediseño de una plataforma bancaria legacy utilizada por usuarios internos y externos, transformando una experiencia compleja y desactualizada en un producto moderno, escalable y centrado en el usuario que alineó los objetivos de negocio con la eficiencia operativa.",
     "tags": ["UX Research", "UI Design", "Design System", "Enterprise"],
@@ -140,7 +140,7 @@
     ]
   },
   "en": {
-    "title": "Banking Platform Redesign",
+    "title": "Global Bank - Banking Platform Redesign",
     "category": "Fintech · Banking · Enterprise Software",
     "description": "This project focused on redesigning a legacy banking platform used by internal and external users, transforming a complex and outdated experience into a modern, scalable, and user-centered product that aligned business goals with operational efficiency.",
     "tags": ["UX Research", "UI Design", "Design System", "Enterprise"],

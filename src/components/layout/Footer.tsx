@@ -22,17 +22,6 @@ export default async function Footer() {
                 <span className="sr-only"> (opens in new tab)</span>
               </a>
             </li>
-            <li>
-              <a
-                href="https://dribbble.com/marianosolle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] tracking-[2px] uppercase transition-theme dark:text-off-white/60 text-mid-gray hover:opacity-100"
-              >
-                {t('dribbble')}
-                <span className="sr-only"> (opens in new tab)</span>
-              </a>
-            </li>
           </ul>
         </nav>
       </div>
