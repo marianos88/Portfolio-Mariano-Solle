@@ -21,43 +21,67 @@ export default function Hero() {
           className="absolute inset-0 pointer-events-none overflow-hidden"
           aria-hidden="true"
         >
-          {/* Primary glow — upper right, dominant source */}
+          {/* Base green wash — muted dark green depth across right half */}
           <div
             style={{
               position: 'absolute',
-              width: '80%',
-              height: '100%',
-              top: '-20%',
-              right: '-15%',
+              width: '72%',
+              height: '130%',
+              top: '-15%',
+              right: '-8%',
               background:
-                'radial-gradient(ellipse 55% 50% at 65% 35%, rgba(170,238,196,0.18) 0%, rgba(170,238,196,0.06) 45%, transparent 72%)',
-              filter: 'blur(28px)',
+                'radial-gradient(ellipse 75% 70% at 60% 48%, rgba(120,185,145,0.30) 0%, rgba(100,160,125,0.10) 52%, transparent 78%)',
+              filter: 'blur(8px)',
               animation: 'heroAmbient1 52s ease-in-out infinite',
               willChange: 'transform',
             }}
           />
-          {/* Secondary glow — upper left, counter-balance */}
+          {/* Upper-right bright lobe — the dominant light source */}
           <div
             style={{
               position: 'absolute',
-              width: '60%',
+              width: '55%',
               height: '75%',
-              top: '-5%',
-              left: '-10%',
+              top: '-10%',
+              right: '-5%',
               background:
-                'radial-gradient(ellipse 50% 45% at 35% 30%, rgba(170,238,196,0.09) 0%, transparent 68%)',
-              filter: 'blur(40px)',
+                'radial-gradient(ellipse 58% 52% at 72% 22%, rgba(170,238,196,0.40) 0%, rgba(170,238,196,0.14) 38%, transparent 65%)',
+              filter: 'blur(12px)',
               animation: 'heroAmbient2 67s ease-in-out infinite',
               willChange: 'transform',
             }}
           />
-          {/* Deep vignette — keeps center-bottom dark as anchor */}
+          {/* Aurora band — horizontal sweep across center-right */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '60%',
+              height: '55%',
+              top: '22%',
+              right: '2%',
+              background:
+                'radial-gradient(ellipse 90% 38% at 52% 52%, rgba(150,215,175,0.22) 0%, rgba(120,185,145,0.06) 55%, transparent 72%)',
+              filter: 'blur(18px)',
+              animation: 'heroAmbient3 45s ease-in-out infinite',
+              willChange: 'transform',
+            }}
+          />
+          {/* Left dark shield — protects text legibility */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
               background:
-                'radial-gradient(ellipse 70% 60% at 50% 85%, rgba(34,34,34,0.85) 0%, transparent 70%)',
+                'linear-gradient(to right, rgba(34,34,34,1) 0%, rgba(34,34,34,0.92) 22%, rgba(34,34,34,0.55) 42%, rgba(34,34,34,0.10) 62%, transparent 78%)',
+            }}
+          />
+          {/* Bottom fade — anchors lower portion in darkness */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'linear-gradient(to top, rgba(34,34,34,0.95) 0%, rgba(34,34,34,0.55) 28%, transparent 55%)',
             }}
           />
         </div>
