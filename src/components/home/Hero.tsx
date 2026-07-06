@@ -30,7 +30,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-[11px] tracking-[2px] uppercase mb-8 font-light"
+          className="text-[12px] tracking-[2px] uppercase mb-8 font-light"
           style={{ color: theme === 'dark' ? '#AAEEC4' : '#2a7a4a' }}
         >
           {t('tag')}
@@ -74,8 +74,8 @@ export default function Hero() {
           <Link
             href="/about"
             className="px-6 py-3 text-[13px] font-light rounded-md border transition-all duration-200 hover:opacity-70
-              dark:border-mid-gray dark:text-off-white/70
-              border-[#ccc] text-mid-gray"
+              border-mint dark:text-off-white/70
+              text-mid-gray"
           >
             {t('ctaSecondary')}
           </Link>

@@ -57,11 +57,11 @@ export function getProjectLocale(project: Project, locale: string): ProjectLocal
 const allProjects: Project[] = [
   require('../content/projects/proyecto-01.json'),
   require('../content/projects/proyecto-02.json'),
-  require('../content/projects/proyecto-03.json'),
   require('../content/projects/proyecto-04.json'),
-  require('../content/projects/proyecto-05.json'),
-  require('../content/projects/proyecto-06.json'),
+  require('../content/projects/proyecto-03.json'),
   require('../content/projects/proyecto-07.json'),
+  require('../content/projects/proyecto-06.json'),
+  require('../content/projects/proyecto-05.json'),
 ]
 
 export function getPublicProjects(): Project[] {

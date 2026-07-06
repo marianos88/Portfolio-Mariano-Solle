@@ -52,7 +52,7 @@ export default function Navbar() {
           href="/"
           className="text-[15px] font-medium tracking-tight transition-theme dark:text-off-white text-dark hover:opacity-70"
         >
-          Mariano Solle
+          MARIANO SOLLE
         </Link>
 
         {/* Desktop links */}
@@ -60,7 +60,6 @@ export default function Navbar() {
           {[
             { href: '/about', label: t('about') },
             { href: '/projects', label: t('projects') },
-            { href: '/portfolio-plus', label: t('portfolioPlus') },
             { href: '/contact', label: t('contact') },
           ].map(({ href, label }) => (
             <Link
@@ -71,6 +70,13 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+          <Link
+            href="/portfolio-plus"
+            className="text-[13px] font-light px-3 py-1.5 rounded-md border transition-all duration-200 hover:opacity-80
+              border-mint dark:text-off-white/70 text-mid-gray hover:dark:text-off-white hover:text-dark"
+          >
+            {t('portfolioPlus')}
+          </Link>
 
           <div className="flex items-center gap-4 ml-4 pl-4 border-l dark:border-mid-gray/50 border-[#e0e0e0]">
             <LangSwitch />
