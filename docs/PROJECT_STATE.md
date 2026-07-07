@@ -2,7 +2,7 @@
 
 ## Last Known Good Commit
 
-`74c5ce9` — merge: Phase 9 — Accessibility (WCAG AA) merged to main
+`aa56403` — feat(analytics): Phase 11B instrumentation — events, context, ExternalLink
 
 ---
 
@@ -24,6 +24,7 @@
 |----------|---------|
 | `RESEND_API_KEY` | Resend email delivery |
 | `PORTFOLIO_PLUS_ACCESS_CODE` | Portfolio Plus password gate |
+| `GTM_ID` | Google Tag Manager container ID (server-only, production + self-hosted builds only) |
 
 ---
 
@@ -96,6 +97,39 @@
 - Lenis RAF loop paused on `document.hidden`
 - Cache headers: `immutable` for `/_next/static/`, `max-age=3600, stale-while-revalidate=86400` for `/images/`
 
+### Phase 11 — Analytics ✓
+
+#### 11A — Infrastructure
+- `src/lib/analytics.ts` — provider-agnostic `track()` / `pageview()` / `identify()` API
+- `AnalyticsEvent` union — typed event catalog; all call sites checked at compile time
+- `src/components/analytics/GtmScript.tsx` — `'use client'` component; renders GTM `<Script strategy="afterInteractive">` only when a valid `gtmId` prop is passed
+- `src/components/analytics/AnalyticsProvider.tsx` — fires `page_view` on every SPA route change via `usePathname()` + `useEffect` with `setTimeout(0)` to capture the correct `document.title`
+- `src/types/gtm.d.ts` — `Window.dataLayer` type declaration
+- GTM container ID resolved in `layout.tsx` (server component); loaded only on Vercel production (`VERCEL_ENV === 'production'`) or self-hosted production (`NODE_ENV === 'production' && !VERCEL_ENV`) — Vercel Preview Deployments excluded
+
+#### 11B — Event Instrumentation
+- `track()` automatically appends `page_path`, `page_title`, `locale`, `theme` to every event via DOM-only reads (`window.location.pathname`, `document.title`, `document.documentElement.lang/.classList`) — no coupling to localStorage or cookies
+- `src/components/ui/ExternalLink.tsx` — client component that wraps `<a target="_blank">` and fires `external_link_click` on click; used in `ContactForm` and `Footer`
+
+**Events now firing in production:**
+
+| Event | Where | Parameters |
+|---|---|---|
+| `page_view` | `AnalyticsProvider` (every route change) | `path`, `title` + auto-context |
+| `contact_form_submit` | `ContactForm` on `res.ok` | auto-context only |
+| `project_view` | `ProjectDetail` on mount (public projects) | `slug` + auto-context |
+| `portfolio_plus_case_view` | `ProjectDetail` on mount (gated projects) | `slug` + auto-context |
+| `portfolio_plus_unlock_success` | `PasswordGate` on `res.ok` | auto-context only |
+| `theme_toggle` | `ThemeToggle` | `theme` (next value) + auto-context |
+| `language_switch` | `LangSwitch` | `locale` (destination) + auto-context |
+| `external_link_click` | `ContactForm`, `Footer` | `url`, `destination` + auto-context |
+
+**Auto-context fields on every event:** `page_path`, `page_title`, `locale`, `theme`
+
+**GTM configuration (do not change):**
+- Single Custom Event trigger: regex matching all event names → `CE — All Custom Events`
+- Single GA4 tag: event name from `{{DLV — Event Name}}`, all parameters as DLVs → `GA4 — Custom Events`
+
 ### Phase 9 — Accessibility (WCAG AA) ✓
 - Skip-to-main-content link in root layout (`#main-content`)
 - Global `:focus-visible` ring (2px mint/green, 3px offset) in `globals.css`
@@ -140,5 +174,4 @@
 
 - [ ] **Phase 10 — Premium Polish & Microinteractions** ← next
 - [ ] Rate limiting on `/api/contact` (if real spam appears)
-- [ ] Analytics (if needed)
 - [ ] New case studies / project content updates

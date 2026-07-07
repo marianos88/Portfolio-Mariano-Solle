@@ -1,6 +1,6 @@
 # Handoff — marianosolle.com
 
-_Last updated: Phase 9 complete, merged to main, live in production._
+_Last updated: Phase 11B complete, merged to main._
 
 ---
 
@@ -33,13 +33,15 @@ _Last updated: Phase 9 complete, merged to main, live in production._
 | 7 | SEO & Metadata | ✓ Production |
 | 8 | Performance & Core Web Vitals | ✓ Production |
 | 9 | Accessibility (WCAG AA) | ✓ Production |
+| 11A | Analytics Infrastructure (GTM + GA4) | ✓ Production |
+| 11B | Analytics Instrumentation | ✓ Merged to main |
 
 ---
 
 ## Current Production State
 
 - **URL:** `https://marianosolle.com`
-- **Last deploy commit:** `74c5ce9` (Phase 9 merge)
+- **Last deploy commit:** `aa56403` (Phase 11B merge)
 - **Vercel project:** `portfolio-mariano-solle` (team: `portfolio-mariano-solle`)
 - All 7 projects live; 3 public, 4 gated behind Portfolio Plus
 
@@ -49,6 +51,11 @@ _Last updated: Phase 9 complete, merged to main, live in production._
 
 | What | Where |
 |---|---|
+| Analytics helper | `src/lib/analytics.ts` — `track()`, `pageview()`, typed `AnalyticsEvent` union |
+| GTM script injection | `src/components/analytics/GtmScript.tsx` (client component) |
+| SPA page_view tracking | `src/components/analytics/AnalyticsProvider.tsx` (client component) |
+| External link tracking | `src/components/ui/ExternalLink.tsx` — use instead of bare `<a>` for all external URLs |
+| GTM container ID | `GTM_ID` env var (server-only); resolved in `layout.tsx` |
 | Root layout + skip link | `src/app/layout.tsx` |
 | Root metadata + theme script | `src/app/layout.tsx` |
 | Per-page metadata | Each `page.tsx` via `metadata` or `generateMetadata` |
@@ -131,5 +138,4 @@ The Lenis RAF loop is intentionally paused on `document.hidden`. This is correct
 
 1. **Phase 10 — Premium Polish & Microinteractions** ← next
 2. Rate limiting on `/api/contact` (conditional on spam)
-3. Analytics (conditional)
-4. New case study content as projects are added
+3. New case study content as projects are added
