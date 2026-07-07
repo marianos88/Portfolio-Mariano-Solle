@@ -8,6 +8,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import JsonLd from '@/components/seo/JsonLd'
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider'
+import { GtmScript } from '@/components/analytics/GtmScript'
 import { personSchema, webSiteSchema } from '@/lib/structured-data'
 import '@/styles/globals.css'
 
@@ -103,6 +104,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <GtmScript />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
             <AnalyticsProvider>

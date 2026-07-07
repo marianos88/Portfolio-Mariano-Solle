@@ -1,31 +1,17 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { pageview } from '@/lib/analytics'
 
 /**
- * Initializes analytics once on mount and fires a page_view on every
- * client-side route change. Place this inside <body> in the root layout.
- *
- * No scripts are injected here yet — add provider initialization inside
- * the useEffect when a real SDK is integrated.
+ * Fires a page_view into the GTM dataLayer on every client-side route change.
+ * GTM script injection is handled separately by GtmScript (server component).
+ * Place this inside <body> in the root layout.
  */
 export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const initialized = useRef(false)
 
-  // One-time initialization
-  useEffect(() => {
-    if (initialized.current) return
-    initialized.current = true
-
-    // TODO: initialize GTM dataLayer and inject the GTM script
-    // window.dataLayer = window.dataLayer || []
-    // (inject <script> tag for GTM container NEXT_PUBLIC_GTM_ID)
-  }, [])
-
-  // Track route changes (also fires on first render for the initial page)
   useEffect(() => {
     pageview(pathname, document.title)
   }, [pathname])

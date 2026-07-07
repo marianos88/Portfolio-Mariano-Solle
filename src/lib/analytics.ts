@@ -46,8 +46,8 @@ function isEnabled(): boolean {
 export function track(event: AnalyticsEvent): void {
   if (!isEnabled()) return
 
-  // TODO: push to GTM dataLayer
-  // window.dataLayer?.push({ event: event.name, ...event })
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push({ event: event.name, ...event })
 }
 
 /**
@@ -65,5 +65,6 @@ export function pageview(path: string, title?: string): void {
 export function identify(_userId: string, _traits?: Record<string, unknown>): void {
   if (!isEnabled()) return
 
-  // TODO: push identity traits to GTM dataLayer
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push({ event: 'identify', userId: _userId, ..._traits })
 }
