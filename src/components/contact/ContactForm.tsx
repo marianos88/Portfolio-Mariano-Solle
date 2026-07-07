@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
+import { track } from '@/lib/analytics'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -72,6 +73,7 @@ export default function ContactForm() {
       const data = await res.json()
 
       if (res.ok) {
+        track({ name: 'contact_form_submit' })
         setStatus('success')
         setName('')
         setEmail('')
