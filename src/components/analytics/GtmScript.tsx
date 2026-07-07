@@ -2,13 +2,21 @@ import Script from 'next/script'
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 
+// True only on the live Vercel deployment.
+// VERCEL_ENV === 'preview' (preview deployments) is explicitly excluded.
+// Fallback to NODE_ENV for local production builds where VERCEL_ENV is unset.
+const isLiveProduction =
+  process.env.VERCEL_ENV === 'production' ||
+  (process.env.NODE_ENV === 'production' && !process.env.VERCEL_ENV)
+
 /**
  * Injects the GTM container script and noscript fallback.
- * Renders nothing when NEXT_PUBLIC_GTM_ID is unset or outside production.
+ * Renders nothing when NEXT_PUBLIC_GTM_ID is unset or not on the live site.
+ * Preview deployments are intentionally excluded to keep production metrics clean.
  * Place as the first child of <body> in the root layout.
  */
 export function GtmScript() {
-  if (!GTM_ID || process.env.NODE_ENV !== 'production') return null
+  if (!GTM_ID || !isLiveProduction) return null
 
   return (
     <>
