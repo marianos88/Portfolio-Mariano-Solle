@@ -104,7 +104,12 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <GtmScript />
+        <GtmScript gtmId={
+          process.env.VERCEL_ENV === 'production' ||
+          (process.env.NODE_ENV === 'production' && !process.env.VERCEL_ENV)
+            ? process.env.GTM_ID
+            : undefined
+        } />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
             <AnalyticsProvider>
