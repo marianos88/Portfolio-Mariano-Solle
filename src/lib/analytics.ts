@@ -4,9 +4,11 @@
  * All tracking calls go through this module. Swap the implementation
  * inside each function when a real provider is added — call sites stay unchanged.
  *
- * Environment variables (all optional — omitting them disables that provider):
- *   NEXT_PUBLIC_GA_ID       — Google Analytics measurement ID  (e.g. G-XXXXXXXXXX)
- *   NEXT_PUBLIC_CLARITY_ID  — Microsoft Clarity project ID
+ * Google Tag Manager is the single analytics entry point for this project.
+ * GA4, Clarity, and any future tools are configured inside GTM — not here.
+ *
+ * Environment variables:
+ *   NEXT_PUBLIC_GTM_ID  — GTM container ID (e.g. GTM-XXXXXXX)
  */
 
 // ---------------------------------------------------------------------------
@@ -44,9 +46,8 @@ function isEnabled(): boolean {
 export function track(event: AnalyticsEvent): void {
   if (!isEnabled()) return
 
-  // TODO: forward to provider SDK
-  // Example (GA4):
-  //   window.gtag?.('event', event.name, { ...event })
+  // TODO: push to GTM dataLayer
+  // window.dataLayer?.push({ event: event.name, ...event })
 }
 
 /**
@@ -64,5 +65,5 @@ export function pageview(path: string, title?: string): void {
 export function identify(_userId: string, _traits?: Record<string, unknown>): void {
   if (!isEnabled()) return
 
-  // TODO: forward to provider SDK
+  // TODO: push identity traits to GTM dataLayer
 }

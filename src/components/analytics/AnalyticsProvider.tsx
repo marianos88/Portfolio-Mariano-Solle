@@ -20,9 +20,9 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
     if (initialized.current) return
     initialized.current = true
 
-    // TODO: initialize provider SDK here
-    // Example (GA4):
-    //   window.gtag?.('config', process.env.NEXT_PUBLIC_GA_ID, { send_page_view: false })
+    // TODO: initialize GTM dataLayer and inject the GTM script
+    // window.dataLayer = window.dataLayer || []
+    // (inject <script> tag for GTM container NEXT_PUBLIC_GTM_ID)
   }, [])
 
   // Track route changes (also fires on first render for the initial page)
