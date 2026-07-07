@@ -7,6 +7,7 @@ import { LenisProvider } from '@/components/layout/LenisProvider'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import JsonLd from '@/components/seo/JsonLd'
+import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider'
 import { personSchema, webSiteSchema } from '@/lib/structured-data'
 import '@/styles/globals.css'
 
@@ -104,6 +105,7 @@ export default async function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
+            <AnalyticsProvider>
             <LenisProvider>
               {/* Skip navigation — hidden until focused by keyboard users */}
               <a
@@ -118,6 +120,7 @@ export default async function RootLayout({
               <main id="main-content">{children}</main>
               <Footer />
             </LenisProvider>
+            </AnalyticsProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
