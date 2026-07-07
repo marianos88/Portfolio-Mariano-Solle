@@ -8,7 +8,7 @@
  * GA4, Clarity, and any future tools are configured inside GTM — not here.
  *
  * Environment variables:
- *   NEXT_PUBLIC_GTM_ID  — GTM container ID (e.g. GTM-XXXXXXX)
+ *   GTM_ID  — GTM container ID, server-only (e.g. GTM-XXXXXXX)
  */
 
 // ---------------------------------------------------------------------------

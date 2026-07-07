@@ -1,6 +1,10 @@
 import Script from 'next/script'
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
+// Server-only env var — read at runtime, not baked in at build time.
+// Do NOT prefix with NEXT_PUBLIC_: the GTM ID is only ever used server-side,
+// and NEXT_PUBLIC_ vars are inlined by webpack at build time, making them
+// undefined forever if the variable was not set when `next build` ran.
+const GTM_ID = process.env.GTM_ID
 
 // True only on the live Vercel deployment.
 // VERCEL_ENV === 'preview' (preview deployments) is explicitly excluded.
@@ -11,7 +15,7 @@ const isLiveProduction =
 
 /**
  * Injects the GTM container script and noscript fallback.
- * Renders nothing when NEXT_PUBLIC_GTM_ID is unset or not on the live site.
+ * Renders nothing when GTM_ID is unset or not on the live site.
  * Preview deployments are intentionally excluded to keep production metrics clean.
  * Place as the first child of <body> in the root layout.
  */
