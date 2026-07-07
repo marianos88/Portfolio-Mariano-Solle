@@ -1,0 +1,27 @@
+{
+  "slug": "caso-nda-01",
+  "year": "2024",
+  "figmaEmbed": "",
+  "coverImage": "",
+  "images": [],
+  "featured": true,
+  "isNDA": true,
+  "es": {
+    "title": "Proyecto Confidencial A",
+    "category": "Banca · Producto interno",
+    "description": "Rediseño de plataforma interna para operaciones críticas en una entidad bancaria de primer nivel.",
+    "tags": ["Banking", "Enterprise"],
+    "context": "Proyecto bajo acuerdo de confidencialidad.",
+    "process": "Proyecto bajo acuerdo de confidencialidad.",
+    "result": "Proyecto bajo acuerdo de confidencialidad."
+  },
+  "en": {
+    "title": "Confidential Project A",
+    "category": "Banking · Internal Product",
+    "description": "Internal platform redesign for critical operations at a top-tier banking institution.",
+    "tags": ["Banking", "Enterprise"],
+    "context": "Project under non-disclosure agreement.",
+    "process": "Project under non-disclosure agreement.",
+    "result": "Project under non-disclosure agreement."
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "slug": "proyecto-06",
+  "year": "2023",
+  "visibility": "portfolio-plus",
+  "figmaEmbed": "",
+  "coverImage": "/images/vanish/portada.png",
+  "images": [],
+  "featured": true,
+  "isNDA": false,
+  "es": {
+    "title": "Producto Vanish - Incorporar contenido de Sustentabilidad",
+    "category": "CPG · Sostenibilidad · Bienes de Consumo",
+    "description": "Este proyecto exploró cómo el contenido de sostenibilidad puede convertirse en un pilar estratégico de la experiencia digital, diseñando una pestaña de menú dedicada con contenido para consumidores con conciencia ambiental.",
+    "tags": ["UX Research", "Estrategia de Contenido", "Arquitectura de Información"],
+    "role": "UX Designer",
+    "scope": ["UX Research", "Arquitectura de Información", "UX/UI Design", "Design System", "Pruebas de Usabilidad", "Análisis Competitivo"],
+    "challenge": "Crear una experiencia digital escalable que integre contenido de sostenibilidad en el ecosistema existente, fortaleciendo la percepción de marca y mejorando la descubribilidad del contenido.",
+    "sections": [
+      { "type": "image", "src": "/images/vanish/portada.png", "alt": "Experiencia de Contenido de Sostenibilidad" },
+      { "type": "twoCol", "col1Label": "Rol", "col1Content": "UX Designer", "col2Label": "Industria", "col2Content": "CPG · Sostenibilidad · Bienes de Consumo" },
+      { "type": "twoCol", "col1Label": "Producto", "col1Content": "Pestaña de menú dedicada con contenido de sostenibilidad en el sitio web del producto.", "col2Label": "Alcance", "col2Content": "UX Research, Arquitectura de Información, UX/UI Design, Design System, Pruebas de Usabilidad, Análisis Competitivo" },
+      { "type": "twoCol", "col1Label": "Equipo", "col1Content": "Product Owner, Tech Lead, Desarrolladores, Stakeholders de Marketing", "col2Label": "Desafío", "col2Content": "Crear una experiencia digital escalable que integre contenido de sostenibilidad en el ecosistema existente, fortaleciendo la percepción de marca y mejorando la descubribilidad del contenido." },
+      { "type": "image", "src": "/images/vanish/macbook.png", "alt": "Sitio web de quitamanchas para ropa" },
+      { "type": "text", "label": "Integrando la Sostenibilidad en el sitio UK de un quitamanchas para ropa", "content": "Estrategia de UX basada en investigación para definir cómo el contenido de sostenibilidad puede convertirse en una parte significativa del sitio UK de un quitamanchas para ropa." },
+      { "type": "grid", "label": "Métricas del Proyecto", "items": [
+        { "title": "Industria", "description": "FMCG/CPG" },
+        { "title": "Cliente", "description": "Quitamanchas para ropa" },
+        { "title": "Mercado", "description": "UK" },
+        { "title": "Tipo de proyecto", "description": "UX Research y Estrategia de Contenido" }
+      ]},
+      { "type": "text", "label": "1 · El Desafío", "content": "¿Cómo incorporar contenido de sostenibilidad dentro de un sitio enfocado en productos y soluciones de limpieza sin afectar la experiencia actual ni generar una percepción de greenwashing? La empresa buscaba explorar nuevas formas de comunicar su compromiso con la sostenibilidad a través de su sitio web, que estaba principalmente orientado a productos, eliminación de manchas, consejos de lavado y cuidado de telas." },
+      { "type": "list", "label": "Problema de Negocio", "intro": "La sostenibilidad estaba presente en algunas iniciativas de la empresa, pero:", "items": [
+        "Era difícil de descubrir.",
+        "No tenía un espacio dedicado.",
+        "El mensaje no era accionable.",
+        "La información estaba dispersa.",
+        "No había una estrategia de contenido clara."
+      ]},
+      { "type": "grid", "label": "Objetivos", "items": [
+        { "title": "Principal", "description": "Identificar oportunidades para incorporar una nueva sección de Sostenibilidad en el sitio web del producto." },
+        { "title": "Benchmark", "description": "Comprender cómo otras marcas comunican la sostenibilidad e identificar patrones exitosos." },
+        { "title": "Oportunidades de contenido", "description": "Detectar brechas de contenido y proponer una nueva arquitectura de información." },
+        { "title": "Descubribilidad", "description": "Mejorar la descubribilidad del contenido en todo el sitio." }
+      ]},
+      { "type": "list", "label": "Rol · Senior UX Designer", "intro": "Descubrimiento, Estrategia y Definición del Producto. Las responsabilidades incluyeron:", "items": [
+        "UX Research",
+        "Análisis Competitivo y Benchmark",
+        "Evaluación Heurística",
+        "Auditoría de Contenido",
+        "Estrategia de Contenido",
+        "Arquitectura de Información",
+        "Estrategia de Navegación",
+        "Recomendaciones de UX",
+        "Definición de oportunidades",
+        "Roadmap de contenido"
+      ]},
+      { "type": "text", "label": "2 · Metodología", "content": "La investigación abarcó una auditoría del sitio actual (navegación, contenido, arquitectura, CTAs, descubribilidad, experiencia mobile) y un benchmark competitivo en múltiples industrias: Ropa y Detergentes (Ariel, Persil, Comfort), Cuidado del Hogar (Cif, Domestos), Cuidado Personal (Dove, Gillette), Alimentos y Bebidas (Hellmann's, Knorr, PepsiCo), y Moda y Lifestyle (Adidas, Levi's, Gucci)." },
+      { "type": "list", "label": "Preguntas de Investigación", "items": [
+        "¿Cómo hacen visible la sostenibilidad las marcas?",
+        "¿Qué patrones de contenido utilizan?",
+        "¿Qué tipo de storytelling genera más engagement?",
+        "¿Qué nivel de profundidad esperan los usuarios?",
+        "¿Cómo integran la sostenibilidad sin afectar la experiencia principal?"
+      ]},
+      { "type": "list", "label": "3 · Hallazgos Clave", "items": [
+        "La mayoría de las marcas líderes dedican una sección de navegación específica a la sostenibilidad (Sostenibilidad, Nuestro Propósito, Planeta y Sociedad, Nuestro Impacto).",
+        "Las marcas exitosas transforman la sostenibilidad en contenido educativo: guías, consejos, artículos, tutoriales, historias.",
+        "Las mejores experiencias muestran acciones concretas y medibles: reducción de plástico, packaging reciclable, reducción de emisiones, objetivos 2030.",
+        "Los usuarios navegan entre: Educación > Consejos > Productos > Compromisos de marca > Acciones.",
+        "Las marcas más exitosas hacen la sostenibilidad práctica y accionable: cómo reciclar, donar, extender la vida de la ropa, ahorrar agua, reducir el consumo energético."
+      ]},
+      { "type": "image", "src": "/images/vanish/estrategia-diseno.png", "alt": "Estrategia de diseño", "size": "medium" },
+      { "type": "text", "label": "Oportunidad Detectada", "content": "El análisis reveló una oportunidad clara: posicionar la marca como aliada para extender la vida de las prendas y fomentar hábitos de consumo más sostenibles. Esto conecta perfectamente con la propuesta de valor: 'Keep Clothes Alive Longer.'" },
+      { "type": "image", "src": "/images/vanish/new-arch.png", "alt": "Nueva arquitectura de información", "size": "medium" },
+      { "type": "list", "label": "Recomendaciones Estratégicas", "items": [
+        "Incorporar una nueva pestaña de Sostenibilidad o Consejos de Sostenibilidad — derivada directamente de los patrones del benchmark.",
+        "Reemplazar el CTA principal 'Ver episodios' por 'Aprendé cómo hacer que tu ropa dure más' o 'Descubrí hábitos de lavado sostenibles'.",
+        "Reformular la suscripción al newsletter: 'Unite a nuestra comunidad y recibí consejos de sostenibilidad'.",
+        "Reorientar las FAQs hacia el cuidado de marcas, mantenimiento de ropa y hábitos sostenibles — menos hacia información corporativa del grupo."
+      ]},
+      { "type": "grid", "label": "Principios de Diseño", "items": [
+        { "title": "Educación Primero", "description": "Liderar con contenido informativo y útil." },
+        { "title": "Contenido Accionable", "description": "Que cada mensaje de sostenibilidad sea algo que el usuario pueda aplicar." },
+        { "title": "Divulgación Progresiva", "description": "Revelar profundidad de forma gradual sin sobrecargar." },
+        { "title": "Descubribilidad", "description": "Asegurar que el contenido de sostenibilidad sea fácil de encontrar y navegar." }
+      ]},
+      { "type": "grid", "label": "Impacto Esperado · Usuarios", "items": [
+        { "title": "Descubrimiento", "description": "Mayor descubribilidad del contenido." },
+        { "title": "Comprensión", "description": "Mejor comprensión de las acciones sostenibles." },
+        { "title": "Engagement", "description": "Mayor tiempo en el sitio e interacción." },
+        { "title": "Confianza", "description": "Mayor afinidad con la marca." }
+      ]},
+      { "type": "grid", "label": "Impacto Esperado · Negocio", "items": [
+        { "title": "Percepción de marca", "description": "Fortalecer el posicionamiento de la marca." },
+        { "title": "Diferenciación", "description": "Diferenciación competitiva a través del propósito." },
+        { "title": "Audiencias jóvenes", "description": "Mayor afinidad con consumidores jóvenes." },
+        { "title": "Posicionamiento por propósito", "description": "Alinear el producto con los compromisos globales de sostenibilidad." }
+      ]},
+      { "type": "list", "label": "Aprendizajes Clave", "items": [
+        "La sostenibilidad necesita ser útil, no solo visible.",
+        "El contenido educativo genera más confianza que los mensajes institucionales.",
+        "Las mejores experiencias convierten la sostenibilidad en hábitos cotidianos.",
+        "El benchmarking entre industrias puede revelar oportunidades de innovación que el análisis directo de competidores no detecta."
+      ]}
+    ]
+  },
+  "en": {
+    "title": "Vanish Product - Incorporating Sustainability Content",
+    "category": "CPG · Sustainability · Consumer Goods",
+    "description": "This project focused on exploring how sustainability content could become a strategic pillar of the digital experience by designing a dedicated Menu-tab with content for environmentally conscious consumers.",
+    "tags": ["UX Research", "Content Strategy", "Information Architecture"],
+    "role": "UX Designer",
+    "scope": ["UX Research", "Information Architecture", "UX/UI Design", "Design System", "Usability Testing", "Competitive Analysis"],
+    "challenge": "Create a scalable digital experience that integrates sustainability content into the existing ecosystem while strengthening brand perception and improving content discoverability.",
+    "sections": [
+      { "type": "image", "src": "/images/vanish/portada.png", "alt": "Sustainability Content Experience" },
+      { "type": "twoCol", "col1Label": "Role", "col1Content": "UX Designer", "col2Label": "Industry", "col2Content": "CPG · Sustainability · Consumer Goods" },
+      { "type": "twoCol", "col1Label": "Product", "col1Content": "Dedicated Menu-tab with sustainability content in the product website.", "col2Label": "Scope", "col2Content": "UX Research, Information Architecture, UX/UI Design, Design System, Usability Testing, Competitive Analysis" },
+      { "type": "twoCol", "col1Label": "Team", "col1Content": "Product Owner, Tech Lead, Developers, Marketing Stakeholders", "col2Label": "Challenge", "col2Content": "Create a scalable digital experience that integrates sustainability content into the existing ecosystem while strengthening brand perception and improving content discoverability." },
+      { "type": "image", "src": "/images/vanish/macbook.png", "alt": "Laundry stain remover website" },
+      { "type": "text", "label": "Integrating Sustainability into a laundry stain remover UK's site", "content": "Research-driven UX strategy to define how sustainability content could become a meaningful part of a laundry stain remover UK's site." },
+      { "type": "grid", "label": "Project Metrics", "items": [
+        { "title": "Industry", "description": "FMCG/CPG" },
+        { "title": "Client", "description": "Laundry stain remover" },
+        { "title": "Market", "description": "UK" },
+        { "title": "Project type", "description": "UX Research & Content strategy" }
+      ]},
+      { "type": "text", "label": "1 · The Challenge", "content": "How to incorporate sustainability content within a site focused on products and cleaning solutions without affecting the current experience or generating a perception of greenwashing? The company sought to explore new ways to communicate its sustainability commitment through its website, which was primarily focused on products, stain removal, washing tips, and fabric care." },
+      { "type": "list", "label": "Business Problem", "intro": "Sustainability was present in some company initiatives, but:", "items": [
+        "It was hard to discover.",
+        "It had no dedicated space.",
+        "The message was not actionable.",
+        "Information was scattered.",
+        "There was no clear content strategy."
+      ]},
+      { "type": "grid", "label": "Objectives", "items": [
+        { "title": "Main", "description": "Identify opportunities to incorporate a new Sustainability section into the product website." },
+        { "title": "Benchmark", "description": "Understand how other brands communicate sustainability and identify successful patterns." },
+        { "title": "Content opportunities", "description": "Detect content gaps and propose a new information architecture." },
+        { "title": "Findability", "description": "Improve content discoverability across the site." }
+      ]},
+      { "type": "list", "label": "Role · Senior UX Designer", "intro": "Discovery, Strategy and Product Definition. Responsibilities included:", "items": [
+        "UX Research",
+        "Competitive Analysis & Benchmark",
+        "Heuristic Evaluation",
+        "Content Audit",
+        "Content Strategy",
+        "Information Architecture",
+        "Navigation Strategy",
+        "UX Recommendations",
+        "Opportunity definition",
+        "Content roadmap"
+      ]},
+      { "type": "text", "label": "2 · Methodology", "content": "The research covered a current site audit (navigation, content, architecture, CTAs, discoverability, mobile experience) and a competitive benchmark across multiple industries: Laundry & Detergents (Ariel, Persil, Comfort), Home Care (Cif, Domestos), Personal Care (Dove, Gillette), Food & Beverage (Hellmann's, Knorr, PepsiCo), and Fashion & Lifestyle (Adidas, Levi's, Gucci)." },
+      { "type": "list", "label": "Research Questions", "items": [
+        "How do brands make sustainability visible?",
+        "What content patterns do they use?",
+        "What type of storytelling drives more engagement?",
+        "What level of depth do users expect?",
+        "How do they integrate sustainability without affecting the main experience?"
+      ]},
+      { "type": "list", "label": "3 · Key Findings", "items": [
+        "Most leading brands dedicate a specific navigation section to sustainability (Sustainability, Our Purpose, Planet & Society, Our Impact).",
+        "Successful brands transform sustainability into educational content: guides, tips, articles, tutorials, stories.",
+        "The best experiences show concrete and measurable actions: plastic reduction, recyclable packaging, emissions reduction, 2030 goals.",
+        "Users navigate between: Education > Advices > Products > Brand commitments > Actions.",
+        "The most successful brands make sustainability practical and actionable: how to recycle, donate, extend clothing life, save water, reduce energy consumption."
+      ]},
+      { "type": "image", "src": "/images/vanish/estrategia-diseno.png", "alt": "Design strategy", "size": "medium" },
+      { "type": "text", "label": "Opportunity Detected", "content": "The analysis revealed a clear opportunity: position the brand as an ally for extending the life of garments and fostering more sustainable consumption habits. This connects perfectly with the value proposition: 'Keep Clothes Alive Longer.'" },
+      { "type": "image", "src": "/images/vanish/new-arch.png", "alt": "New information architecture", "size": "medium" },
+      { "type": "list", "label": "Strategic Recommendations", "items": [
+        "Incorporate a new Sustainability or Sustainability Tips tab — directly derived from benchmark patterns.",
+        "Replace main CTA 'Ver episodios' with 'Learn how to make your clothes last longer' or 'Discover sustainable laundry habits'.",
+        "Reframe newsletter subscription to: 'Join our community and receive sustainability tips'.",
+        "Refocus FAQs on brand care, clothing maintenance, and sustainable habits — less on corporate group information."
+      ]},
+      { "type": "grid", "label": "Design Principles", "items": [
+        { "title": "Education First", "description": "Lead with informative, helpful content." },
+        { "title": "Actionable Content", "description": "Make every sustainability message something the user can act on." },
+        { "title": "Progressive Disclosure", "description": "Reveal depth progressively without overloading." },
+        { "title": "Discoverability", "description": "Ensure sustainability content is easy to find and navigate." }
+      ]},
+      { "type": "grid", "label": "Expected Impact · Users", "items": [
+        { "title": "Discovery", "description": "Greater content discoverability." },
+        { "title": "Comprehension", "description": "Better understanding of sustainable actions." },
+        { "title": "Engagement", "description": "Increased time on site and interaction." },
+        { "title": "Trust", "description": "Stronger brand affinity." }
+      ]},
+      { "type": "grid", "label": "Expected Impact · Business", "items": [
+        { "title": "Brand perception", "description": "Strengthen brand positioning." },
+        { "title": "Differentiation", "description": "Competitive differentiation through purpose." },
+        { "title": "Younger audiences", "description": "Greater affinity with younger consumers." },
+        { "title": "Purpose positioning", "description": "Align the product with global sustainability commitments." }
+      ]},
+      { "type": "list", "label": "Key Learnings", "items": [
+        "Sustainability needs to be useful, not just visible.",
+        "Educational content builds more trust than institutional messaging.",
+        "The best experiences turn sustainability into everyday habits.",
+        "Cross-industry benchmarking can surface innovation opportunities that direct competitor analysis misses."
+      ]}
+    ]
+  }
+}

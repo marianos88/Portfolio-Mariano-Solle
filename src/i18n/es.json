@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "portfolioPlus": "Portfolio Plus",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú de navegación",
+    "mobileNav": "Navegación móvil"
+  },
+  "hero": {
+    "tag": "PRODUCT DESIGNER",
+    "titleLine1": "Convierto procesos complejos en",
+    "titleLine2": "",
+    "titleHighlight": "experiencias claras",
+    "description": "Experiencia diseñando productos digitales para banca, CPG, Fintech, Gobierno y SaaS",
+    "ctaPrimary": "Ver proyectos",
+    "ctaSecondary": "Sobre mí"
+  },
+  "bentoGrid": {
+    "sectionTag": "PROYECTOS DESTACADOS",
+    "viewCase": "Ver caso",
+    "viewAll": "Ver todos los proyectos"
+  },
+  "plusBanner": {
+    "label": "PORTFOLIO PLUS",
+    "title": "Proyectos bajo NDA disponibles",
+    "description": "Accedé a casos de estudio privados de proyectos bancarios y SaaS con información detallada.",
+    "cta": "Solicitar acceso"
+  },
+  "about": {
+    "tag": "SOBRE MÍ",
+    "title": "Product Designer con foco en resultados",
+    "bio": "Soy Mariano Solle, Product Designer con más de 8 años de experiencia en Banca, Gobierno y agencias internacionales. Enfocado en transformar necesidades de usuarios y objetivos de negocio en soluciones digitales. Manejo avanzado de Figma, herramientas de Inteligencia Artificial, plataformas de colaboración y gestión de producto.",
+    "tools": "Herramientas",
+    "skills": "Skills",
+    "specializations": "Especializaciones"
+  },
+  "projects": {
+    "tag": "PROYECTOS",
+    "title": "Casos de estudio",
+    "viewCase": "Ver caso completo",
+    "prototype": "Ver prototipo",
+    "context": "Contexto",
+    "process": "Proceso",
+    "result": "Resultado"
+  },
+  "portfolioPlus": {
+    "tag": "PORTFOLIO PLUS",
+    "title": "Portfolio Plus",
+    "description": "Esta sección contiene una selección de proyectos desarrollados bajo acuerdos de confidencialidad (NDA).\n\nSi recibiste un código de acceso durante un proceso de selección o una conversación comercial, podés desbloquear el contenido a continuación.",
+    "accessCodeLabel": "Código de acceso",
+    "accessCodePlaceholder": "Ingresá tu código de acceso",
+    "submit": "Desbloquear Portfolio",
+    "error": "El código de acceso no es válido. Verificalo e intentá nuevamente.",
+    "errorSuffix": "Si el problema continúa, solicitá un nuevo Access Code a Mariano.",
+    "expired": "Tu acceso anterior a Portfolio Plus expiró.",
+    "expiredHint": "Ingresá nuevamente tu Access Code para continuar.",
+    "lockButton": "Bloquear Portfolio",
+    "confidentialityTitle": "Confidencialidad",
+    "confidentialityText": "Los proyectos incluidos en esta sección fueron desarrollados bajo acuerdos de confidencialidad (NDA) y se comparten exclusivamente con fines de evaluación profesional. La información presentada omite o adapta datos sensibles, procesos internos y contenido propietario para respetar los compromisos de confidencialidad asumidos con cada organización."
+  },
+  "contact": {
+    "tag": "CONTACTO",
+    "title": "Hablemos",
+    "description": "Estoy disponible para proyectos freelance, posiciones de Product Design y colaboraciones.",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "Tu email",
+    "messagePlaceholder": "Contame sobre tu proyecto...",
+    "submit": "Enviar mensaje",
+    "sending": "Enviando...",
+    "successTitle": "¡Gracias por tu mensaje!",
+    "successBody": "Lo recibí correctamente y te responderé lo antes posible.",
+    "errorGeneric": "Algo salió mal. Por favor intentá de nuevo.",
+    "errorValidation": "Revisá tus datos e intentá de nuevo.",
+    "errorName": "El nombre es requerido.",
+    "errorEmail": "Ingresá una dirección de email válida.",
+    "errorMessage": "El mensaje es requerido."
+  },
+  "videoPlayer": {
+    "play": "Reproducir video",
+    "pause": "Pausar video"
+  },
+  "footer": {
+    "copy": "Mariano Solle — Product Designer",
+    "linkedin": "LinkedIn",
+    "dribbble": "Dribbble",
+    "socialNav": "Redes sociales"
+  }
+}

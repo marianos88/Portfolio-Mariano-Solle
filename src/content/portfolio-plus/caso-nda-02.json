@@ -1,0 +1,27 @@
+{
+  "slug": "caso-nda-02",
+  "year": "2024",
+  "figmaEmbed": "",
+  "coverImage": "",
+  "images": [],
+  "featured": false,
+  "isNDA": true,
+  "es": {
+    "title": "Proyecto Confidencial B",
+    "category": "SaaS · Producto estratégico",
+    "description": "Diseño de producto 0→1 para startup en etapa de crecimiento con inversión Serie A.",
+    "tags": ["SaaS", "0 to 1"],
+    "context": "Proyecto bajo acuerdo de confidencialidad.",
+    "process": "Proyecto bajo acuerdo de confidencialidad.",
+    "result": "Proyecto bajo acuerdo de confidencialidad."
+  },
+  "en": {
+    "title": "Confidential Project B",
+    "category": "SaaS · Strategic Product",
+    "description": "0→1 product design for a growth-stage startup with Series A investment.",
+    "tags": ["SaaS", "0 to 1"],
+    "context": "Project under non-disclosure agreement.",
+    "process": "Project under non-disclosure agreement.",
+    "result": "Project under non-disclosure agreement."
+  }
+}

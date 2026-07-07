@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-mint: #AAEEC4;
+  --color-off-white: #F8F8F8;
+  --color-mid-gray: #3E3E3E;
+  --color-dark: #222222;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-dark text-off-white transition-colors duration-300;
+  }
+
+  .light body,
+  html.light body {
+    @apply bg-off-white text-dark;
+  }
+
+  /* Global focus-visible styles — visible ring on keyboard navigation only */
+  :focus-visible {
+    outline: 2px solid var(--color-mint);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  html.light :focus-visible {
+    outline-color: #2a7a4a;
+  }
+}
+
+@layer utilities {
+  .transition-theme {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+}
+
+/* Respect prefers-reduced-motion for CSS transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
