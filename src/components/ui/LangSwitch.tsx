@@ -1,12 +1,14 @@
 'use client'
 
 import { useLocale } from 'next-intl'
+import { track } from '@/lib/analytics'
 
 export default function LangSwitch() {
   const locale = useLocale()
 
   const toggle = () => {
     const next = locale === 'es' ? 'en' : 'es'
+    track({ name: 'language_switch', locale: next })
     document.cookie = `locale=${next}; path=/; max-age=31536000`
     window.location.reload()
   }

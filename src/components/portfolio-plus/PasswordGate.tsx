@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
+import { track } from '@/lib/analytics'
 
 export default function PasswordGate({ from }: { from?: string }) {
   const t = useTranslations('portfolioPlus')
@@ -24,6 +25,7 @@ export default function PasswordGate({ from }: { from?: string }) {
     })
 
     if (res.ok) {
+      track({ name: 'portfolio_plus_unlock_success' })
       if (from) router.push(from)
       else window.location.reload()
     } else {

@@ -19,13 +19,13 @@ export type AnalyticsEvent =
   | { name: 'page_view'; path: string; title?: string }
   | { name: 'contact_form_submit' }
   | { name: 'contact_form_error'; reason: string }
-  | { name: 'project_view'; slug: string; title: string }
+  | { name: 'project_view'; slug: string }
   | { name: 'portfolio_plus_unlock_attempt' }
   | { name: 'portfolio_plus_unlock_success' }
   | { name: 'portfolio_plus_case_view'; slug: string }
   | { name: 'theme_toggle'; theme: 'light' | 'dark' }
   | { name: 'language_switch'; locale: string }
-  | { name: 'external_link_click'; url: string; label?: string }
+  | { name: 'external_link_click'; url: string; destination?: string }
 
 // ---------------------------------------------------------------------------
 // Internal helpers
@@ -33,6 +33,16 @@ export type AnalyticsEvent =
 
 function isEnabled(): boolean {
   return typeof window !== 'undefined' && process.env.NODE_ENV === 'production'
+}
+
+// Reads ambient page context from the DOM — no coupling to app state.
+function getContext(): Record<string, unknown> {
+  return {
+    page_path: window.location.pathname,
+    page_title: document.title,
+    locale: document.documentElement.lang || undefined,
+    theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -47,7 +57,7 @@ export function track(event: AnalyticsEvent): void {
   if (!isEnabled()) return
 
   window.dataLayer = window.dataLayer || []
-  window.dataLayer.push({ event: event.name, ...event })
+  window.dataLayer.push({ event: event.name, ...getContext(), ...event })
 }
 
 /**

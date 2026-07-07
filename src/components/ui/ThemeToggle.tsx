@@ -1,13 +1,20 @@
 'use client'
 
 import { useTheme } from './ThemeProvider'
+import { track } from '@/lib/analytics'
 
 export default function ThemeToggle() {
   const { theme, toggle } = useTheme()
 
+  const handleClick = () => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    toggle()
+    track({ name: 'theme_toggle', theme: next })
+  }
+
   return (
     <button
-      onClick={toggle}
+      onClick={handleClick}
       aria-label="Toggle theme"
       className="flex items-center transition-theme hover:opacity-70"
     >
