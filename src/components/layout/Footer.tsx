@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import ExternalLink from '@/components/ui/ExternalLink'
 
 export default async function Footer() {
   const t = await getTranslations('footer')
@@ -12,15 +13,14 @@ export default async function Footer() {
         <nav aria-label={t('socialNav')}>
           <ul className="flex items-center gap-6 list-none m-0 p-0">
             <li>
-              <a
+              <ExternalLink
                 href="https://linkedin.com/in/marianosolle"
-                target="_blank"
-                rel="noopener noreferrer"
+                destination="linkedin"
                 className="text-[11px] tracking-[2px] uppercase transition-theme dark:text-off-white/60 text-mid-gray hover:opacity-100"
               >
                 {t('linkedin')}
                 <span className="sr-only"> (opens in new tab)</span>
-              </a>
+              </ExternalLink>
             </li>
           </ul>
         </nav>

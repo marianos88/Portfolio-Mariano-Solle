@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
+import { track } from '@/lib/analytics'
+import ExternalLink from '@/components/ui/ExternalLink'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -72,6 +74,7 @@ export default function ContactForm() {
       const data = await res.json()
 
       if (res.ok) {
+        track({ name: 'contact_form_submit' })
         setStatus('success')
         setName('')
         setEmail('')
@@ -223,26 +226,24 @@ export default function ContactForm() {
       )}
 
       <div className="mt-12 pt-8 border-t dark:border-mid-gray border-[#e0e0e0] flex gap-6">
-        <a
+        <ExternalLink
           href="https://linkedin.com/in/marianosolle"
-          target="_blank"
-          rel="noopener noreferrer"
+          destination="linkedin"
           className="text-[12px] tracking-[1px] uppercase transition-theme dark:text-off-white/60 text-mid-gray hover:opacity-100"
         >
           LinkedIn
           <span aria-hidden="true"> →</span>
           <span className="sr-only"> (opens in new tab)</span>
-        </a>
-        <a
+        </ExternalLink>
+        <ExternalLink
           href="https://dribbble.com/marianosolle"
-          target="_blank"
-          rel="noopener noreferrer"
+          destination="dribbble"
           className="text-[12px] tracking-[1px] uppercase transition-theme dark:text-off-white/60 text-mid-gray hover:opacity-100"
         >
           Dribbble
           <span aria-hidden="true"> →</span>
           <span className="sr-only"> (opens in new tab)</span>
-        </a>
+        </ExternalLink>
       </div>
     </>
   )

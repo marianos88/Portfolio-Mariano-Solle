@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,12 +9,21 @@ import type { Project, ProjectSection, ProjectLocale } from '@/lib/projects'
 import { getProjectLocale } from '@/lib/projects'
 import VideoPlayer from './VideoPlayer'
 import LockButton from '@/components/portfolio-plus/LockButton'
+import { track } from '@/lib/analytics'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
 export default function ProjectDetail({ project }: { project: Project }) {
   const locale = useLocale()
   const loc = getProjectLocale(project, locale)
+
+  useEffect(() => {
+    if (project.visibility === 'portfolio-plus') {
+      track({ name: 'portfolio_plus_case_view', slug: project.slug })
+    } else {
+      track({ name: 'project_view', slug: project.slug })
+    }
+  }, [project.slug, project.visibility])
 
   return (
     <article>
