@@ -96,7 +96,7 @@ export default function Navbar() {
             aria-controls="mobile-menu"
             className="text-[11px] tracking-[2px] uppercase dark:text-off-white/60 text-mid-gray w-6 text-center"
           >
-            <span aria-hidden="true">{menuOpen ? '✕' : '☰'}</span>
+            <span aria-hidden="true" className="text-2xl leading-none">{menuOpen ? '✕' : '☰'}</span>
           </button>
         </div>
       </div>

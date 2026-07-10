@@ -37,7 +37,7 @@ export default function HomePage() {
       {/* Hero in normal document flow */}
       <Hero />
       {/* About sticks below the navbar; Projects scrolls over it */}
-      <div className="sticky top-16 z-20 min-h-[100dvh]">
+      <div className="sticky top-16 z-20 min-h-screen">
         <AboutSection />
       </div>
       {/* Projects in normal flow, higher z-index to cover sticky About */}
