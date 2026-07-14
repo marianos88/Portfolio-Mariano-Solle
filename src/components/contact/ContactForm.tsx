@@ -235,15 +235,6 @@ export default function ContactForm() {
           <span aria-hidden="true"> →</span>
           <span className="sr-only"> (opens in new tab)</span>
         </ExternalLink>
-        <ExternalLink
-          href="https://dribbble.com/marianosolle"
-          destination="dribbble"
-          className="text-[12px] tracking-[1px] uppercase transition-theme dark:text-off-white/60 text-mid-gray hover:opacity-100"
-        >
-          Dribbble
-          <span aria-hidden="true"> →</span>
-          <span className="sr-only"> (opens in new tab)</span>
-        </ExternalLink>
       </div>
     </>
   )
