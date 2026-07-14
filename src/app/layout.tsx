@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer'
 import JsonLd from '@/components/seo/JsonLd'
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider'
 import { GtmScript } from '@/components/analytics/GtmScript'
+import { ClarityScript } from '@/components/analytics/ClarityScript'
 import { personSchema, webSiteSchema } from '@/lib/structured-data'
 import '@/styles/globals.css'
 
@@ -104,12 +105,17 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <GtmScript gtmId={
-          process.env.VERCEL_ENV === 'production' ||
-          (process.env.NODE_ENV === 'production' && !process.env.VERCEL_ENV)
-            ? process.env.GTM_ID
-            : undefined
-        } />
+        {(() => {
+          const isProd =
+            process.env.VERCEL_ENV === 'production' ||
+            (process.env.NODE_ENV === 'production' && !process.env.VERCEL_ENV)
+          return (
+            <>
+              <GtmScript gtmId={isProd ? process.env.GTM_ID : undefined} />
+              <ClarityScript clarityId={isProd ? process.env.CLARITY_PROJECT_ID : undefined} />
+            </>
+          )
+        })()}
         <ThemeProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
             <AnalyticsProvider>
