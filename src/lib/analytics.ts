@@ -19,10 +19,10 @@ export type AnalyticsEvent =
   | { name: 'page_view'; path: string; title?: string }
   | { name: 'contact_form_submit' }
   | { name: 'contact_form_error'; reason: string }
-  | { name: 'project_view'; slug: string }
+  | { name: 'project_view'; project_slug: string }
   | { name: 'portfolio_plus_unlock_attempt' }
   | { name: 'portfolio_plus_unlock_success' }
-  | { name: 'portfolio_plus_case_view'; slug: string }
+  | { name: 'portfolio_plus_case_view'; case_slug: string }
   | { name: 'theme_toggle'; theme: 'light' | 'dark' }
   | { name: 'language_switch'; locale: string }
   | { name: 'external_link_click'; url: string; destination?: string }
