@@ -19,9 +19,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
   useEffect(() => {
     if (project.visibility === 'portfolio-plus') {
-      track({ name: 'portfolio_plus_case_view', slug: project.slug })
+      track({ name: 'portfolio_plus_case_view', case_slug: project.slug })
     } else {
-      track({ name: 'project_view', slug: project.slug })
+      track({ name: 'project_view', project_slug: project.slug })
     }
   }, [project.slug, project.visibility])
 
