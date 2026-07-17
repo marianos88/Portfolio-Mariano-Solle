@@ -65,6 +65,10 @@ export function track(event: AnalyticsEvent): void {
  * Can also be called manually for virtual page views.
  */
 export function pageview(path: string, title?: string): void {
+  console.log('=== PAGEVIEW ===')
+  console.log('window.location.href:', window.location.href)
+  console.log('window.location.search:', window.location.search)
+  console.log('path recibido:', path)
   track({ name: 'page_view', path, title })
 }
 
