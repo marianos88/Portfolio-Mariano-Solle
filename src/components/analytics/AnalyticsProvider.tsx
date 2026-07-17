@@ -14,7 +14,10 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Defer so Next.js has flushed the new <title> to the DOM before we read it
-    const id = setTimeout(() => pageview(pathname, document.title), 0)
+    const id = setTimeout(() => {
+      pageview(pathname, document.title)
+      window.dispatchEvent(new Event('analytics:page_view_sent'))
+    }, 0)
     return () => clearTimeout(id)
   }, [pathname])
 
