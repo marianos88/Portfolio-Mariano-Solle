@@ -39,6 +39,7 @@ function isEnabled(): boolean {
 function getContext(): Record<string, unknown> {
   return {
     page_path: window.location.pathname,
+    page_location: window.location.href,
     page_title: document.title,
     locale: document.documentElement.lang || undefined,
     theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
