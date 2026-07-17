@@ -117,7 +117,7 @@ export default async function RootLayout({
             </>
           )
         })()}
-        <UrlCleaner />
+        {/* <UrlCleaner /> */}
         <ThemeProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
             <AnalyticsProvider>
