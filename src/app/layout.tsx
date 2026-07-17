@@ -10,6 +10,7 @@ import JsonLd from '@/components/seo/JsonLd'
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider'
 import { GtmScript } from '@/components/analytics/GtmScript'
 import { ClarityScript } from '@/components/analytics/ClarityScript'
+import { UrlCleaner } from '@/components/analytics/UrlCleaner'
 import { personSchema, webSiteSchema } from '@/lib/structured-data'
 import '@/styles/globals.css'
 
@@ -116,6 +117,7 @@ export default async function RootLayout({
             </>
           )
         })()}
+        <UrlCleaner />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
             <AnalyticsProvider>
