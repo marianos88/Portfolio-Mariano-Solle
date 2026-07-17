@@ -57,6 +57,11 @@ export function track(event: AnalyticsEvent): void {
   if (!isEnabled()) return
 
   window.dataLayer = window.dataLayer || []
+  console.log('dataLayer payload', {
+    event: event.name,
+    ...getContext(),
+    ...event,
+  })
   window.dataLayer.push({ event: event.name, ...getContext(), ...event })
 }
 
