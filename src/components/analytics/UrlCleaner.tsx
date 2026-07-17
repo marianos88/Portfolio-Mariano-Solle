@@ -20,7 +20,7 @@ const TRACKING_PARAMS = new Set([
  */
 export function UrlCleaner() {
   useEffect(() => {
-    const id = setTimeout(() => {
+    const handlePageViewSent = () => {
       const url = new URL(window.location.href)
       let changed = false
 
@@ -38,9 +38,10 @@ export function UrlCleaner() {
           url.hash
         window.history.replaceState(null, '', clean)
       }
-    }, 0)
+    }
 
-    return () => clearTimeout(id)
+    window.addEventListener('analytics:page_view_sent', handlePageViewSent, { once: true })
+    return () => window.removeEventListener('analytics:page_view_sent', handlePageViewSent)
   }, [])
 
   return null
