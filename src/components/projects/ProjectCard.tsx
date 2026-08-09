@@ -9,15 +9,7 @@ import type { Project } from '@/lib/projects'
 import { getProjectLocale } from '@/lib/projects'
 import ProjectCursor from './ProjectCursor'
 
-export default function ProjectCard({
-  project,
-  index = 0,
-  href,
-}: {
-  project: Project
-  index?: number
-  href?: string
-}) {
+export default function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
   const t = useTranslations('projects')
   const locale = useLocale()
   const loc = getProjectLocale(project, locale)
@@ -34,7 +26,7 @@ export default function ProjectCard({
       transition={{ duration: 0.6, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
     >
       <Link
-        href={href ?? `/projects/${project.slug}`}
+        href={`/projects/${project.slug}`}
         onMouseEnter={(e) => {
           mouseX.set(e.clientX)
           mouseY.set(e.clientY)
