@@ -49,6 +49,7 @@
     "tag": "PORTFOLIO PLUS",
     "title": "Portfolio Plus",
     "description": "Esta sección contiene una selección de proyectos desarrollados bajo acuerdos de confidencialidad (NDA).\n\nSi recibiste un código de acceso durante un proceso de selección o una conversación comercial, podés desbloquear el contenido a continuación.",
+    "cardDescription": "Proyectos confidenciales bajo NDA. Requiere código de acceso.",
     "accessCodeLabel": "Código de acceso",
     "accessCodePlaceholder": "Ingresá tu código de acceso",
     "submit": "Desbloquear Portfolio",

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
-import { getPublicProjects } from '@/lib/projects'
+import { getPublicProjects, type Project } from '@/lib/projects'
 import ProjectCard from '@/components/projects/ProjectCard'
 import JsonLd from '@/components/seo/JsonLd'
 import { webPageSchema } from '@/lib/structured-data'
@@ -26,7 +26,28 @@ export const metadata: Metadata = {
 
 export default async function ProjectsPage() {
   const t = await getTranslations('projects')
+  const tPlus = await getTranslations('portfolioPlus')
   const projects = getPublicProjects()
+
+  // Entry that surfaces Portfolio Plus in this list; the link goes to the
+  // existing /portfolio-plus access flow.
+  const portfolioPlusEntry: Project = {
+    slug: 'portfolio-plus',
+    year: '',
+    visibility: 'portfolio-plus',
+    es: {
+      title: tPlus('title'),
+      category: tPlus('tag'),
+      description: tPlus('cardDescription'),
+      tags: ['NDA'],
+    },
+    en: {
+      title: tPlus('title'),
+      category: tPlus('tag'),
+      description: tPlus('cardDescription'),
+      tags: ['NDA'],
+    },
+  }
 
   const jsonLd = webPageSchema(
     'Projects — Mariano Solle',
@@ -48,6 +69,12 @@ export default async function ProjectsPage() {
         {projects.map((project, i) => (
           <ProjectCard key={project.slug} project={project} index={i} />
         ))}
+        <ProjectCard
+          key="portfolio-plus"
+          project={portfolioPlusEntry}
+          index={projects.length}
+          href="/portfolio-plus"
+        />
         <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
       </div>
     </div>
