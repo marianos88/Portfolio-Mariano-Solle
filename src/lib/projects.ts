@@ -13,6 +13,7 @@ export type ProjectSection =
 
 export type ProjectLocale = {
   title: string
+  cardTitle?: string
   category: string
   description: string
   role?: string

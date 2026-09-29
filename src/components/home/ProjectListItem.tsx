@@ -56,7 +56,7 @@ export default function ProjectListItem({
               dark:text-off-white text-dark
               group-hover:dark:text-mint group-hover:text-[#2a7a4a]"
           >
-            {loc.title}
+            {loc.cardTitle ?? loc.title}
           </h3>
         </div>
 

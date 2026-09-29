@@ -52,7 +52,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
                 dark:text-off-white text-dark
                 group-hover:dark:text-mint group-hover:text-[#2a7a4a]"
             >
-              {loc.title}
+              {loc.cardTitle ?? loc.title}
             </h3>
             <p className="text-[13px] font-light mt-1 dark:text-off-white/60 text-mid-gray hidden md:block">
               {loc.description}

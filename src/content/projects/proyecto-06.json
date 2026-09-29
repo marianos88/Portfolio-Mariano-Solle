@@ -9,6 +9,7 @@
   "isNDA": false,
   "es": {
     "title": "Vanish - Incorporar contenido de Sustentabilidad",
+    "cardTitle": "Vanish - Contenido de Sustentabilidad",
     "category": "CPG · Sostenibilidad · Bienes de Consumo",
     "description": "Este proyecto exploró cómo el contenido de sostenibilidad puede convertirse en un pilar estratégico de la experiencia digital, diseñando una pestaña de menú dedicada con contenido para consumidores con conciencia ambiental.",
     "tags": ["UX Research", "Estrategia de Contenido", "Arquitectura de Información"],
@@ -106,6 +107,7 @@
   },
   "en": {
     "title": "Vanish - Incorporating Sustainability Content",
+    "cardTitle": "Vanish - Sustainability Content",
     "category": "CPG · Sustainability · Consumer Goods",
     "description": "This project focused on exploring how sustainability content could become a strategic pillar of the digital experience by designing a dedicated Menu-tab with content for environmentally conscious consumers.",
     "tags": ["UX Research", "Content Strategy", "Information Architecture"],
