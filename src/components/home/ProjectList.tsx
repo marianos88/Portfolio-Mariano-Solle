@@ -20,11 +20,11 @@ export default function ProjectList() {
         </p>
 
         <div>
+          {/* Portfolio Plus always first — never reveals NDA content */}
+          <PortfolioPlusCard index={0} />
           {projects.map((project, i) => (
-            <ProjectListItem key={project.slug} project={project} index={i} />
+            <ProjectListItem key={project.slug} project={project} index={i + 1} />
           ))}
-          {/* Portfolio Plus always last — never reveals NDA content */}
-          <PortfolioPlusCard index={projects.length} />
           {/* Bottom border */}
           <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
         </div>

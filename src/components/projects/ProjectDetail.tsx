@@ -172,7 +172,9 @@ function SectionRenderer({ section, coverImage }: { section: ProjectSection; cov
     const wrapClass =
       section.size === 'medium'
         ? 'max-w-2xl mx-auto w-full'
-        : 'w-full'
+        : section.size === 'small'
+          ? 'max-w-[336px] mx-auto w-full'
+          : 'w-full'
     return (
       <FadeSection>
         <div className="max-w-6xl mx-auto px-6 py-8">

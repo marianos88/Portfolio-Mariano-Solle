@@ -1,7 +1,7 @@
 {
   "slug": "proyecto-06",
   "year": "2023",
-  "visibility": "portfolio-plus",
+  "visibility": "public",
   "figmaEmbed": "",
   "coverImage": "/images/vanish/portada.png",
   "images": [],
@@ -71,7 +71,7 @@
       ]},
       { "type": "image", "src": "/images/vanish/estrategia-diseno.png", "alt": "Estrategia de diseño", "size": "medium" },
       { "type": "text", "label": "Oportunidad Detectada", "content": "El análisis reveló una oportunidad clara: posicionar la marca como aliada para extender la vida de las prendas y fomentar hábitos de consumo más sostenibles. Esto conecta perfectamente con la propuesta de valor: 'Keep Clothes Alive Longer.'" },
-      { "type": "image", "src": "/images/vanish/new-arch.png", "alt": "Nueva arquitectura de información", "size": "medium" },
+      { "type": "image", "src": "/images/vanish/new-arch.png", "alt": "Nueva arquitectura de información", "size": "small" },
       { "type": "list", "label": "Recomendaciones Estratégicas", "items": [
         "Incorporar una nueva pestaña de Sostenibilidad o Consejos de Sostenibilidad — derivada directamente de los patrones del benchmark.",
         "Reemplazar el CTA principal 'Ver episodios' por 'Aprendé cómo hacer que tu ropa dure más' o 'Descubrí hábitos de lavado sostenibles'.",
@@ -168,7 +168,7 @@
       ]},
       { "type": "image", "src": "/images/vanish/estrategia-diseno.png", "alt": "Design strategy", "size": "medium" },
       { "type": "text", "label": "Opportunity Detected", "content": "The analysis revealed a clear opportunity: position the brand as an ally for extending the life of garments and fostering more sustainable consumption habits. This connects perfectly with the value proposition: 'Keep Clothes Alive Longer.'" },
-      { "type": "image", "src": "/images/vanish/new-arch.png", "alt": "New information architecture", "size": "medium" },
+      { "type": "image", "src": "/images/vanish/new-arch.png", "alt": "New information architecture", "size": "small" },
       { "type": "list", "label": "Strategic Recommendations", "items": [
         "Incorporate a new Sustainability or Sustainability Tips tab — directly derived from benchmark patterns.",
         "Replace main CTA 'Ver episodios' with 'Learn how to make your clothes last longer' or 'Discover sustainable laundry habits'.",

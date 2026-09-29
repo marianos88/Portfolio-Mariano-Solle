@@ -46,11 +46,11 @@ export default async function ProjectsPage() {
       </h1>
 
       <div className="space-y-0">
+        {/* Portfolio Plus always first — never reveals NDA content */}
+        <PortfolioPlusCard index={0} />
         {projects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
+          <ProjectCard key={project.slug} project={project} index={i + 1} />
         ))}
-        {/* Portfolio Plus always last — never reveals NDA content */}
-        <PortfolioPlusCard index={projects.length} />
         <div className="border-t dark:border-mid-gray/50 border-[#e0e0e0]" />
       </div>
     </div>

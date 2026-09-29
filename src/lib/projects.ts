@@ -3,7 +3,7 @@ export type Stat = { value: string; label: string }
 export type ProjectSection =
   | { type: 'text'; label: string; content: string }
   | { type: 'twoCol'; col1Label: string; col1Content: string; col2Label: string; col2Content: string }
-  | { type: 'image'; src: string; alt?: string; size?: 'full' | 'medium' }
+  | { type: 'image'; src: string; alt?: string; size?: 'full' | 'medium' | 'small' }
   | { type: 'video'; src: string; poster?: string; label?: string; orientation?: 'landscape' | 'portrait' }
   | { type: 'list'; label: string; intro?: string; items: string[] }
   | { type: 'grid'; label: string; items: { title: string; description?: string }[] }
@@ -55,13 +55,13 @@ export function getProjectLocale(project: Project, locale: string): ProjectLocal
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const allProjects: Project[] = [
-  require('../content/projects/proyecto-01.json'),
-  require('../content/projects/proyecto-02.json'),
+  require('../content/projects/proyecto-05.json'),
+  require('../content/projects/proyecto-06.json'),
   require('../content/projects/proyecto-04.json'),
+  require('../content/projects/proyecto-02.json'),
+  require('../content/projects/proyecto-01.json'),
   require('../content/projects/proyecto-03.json'),
   require('../content/projects/proyecto-07.json'),
-  require('../content/projects/proyecto-06.json'),
-  require('../content/projects/proyecto-05.json'),
 ]
 
 export function getPublicProjects(): Project[] {
