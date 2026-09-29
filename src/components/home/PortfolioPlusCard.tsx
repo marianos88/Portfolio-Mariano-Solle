@@ -35,7 +35,7 @@ export default function PortfolioPlusCard({ index }: { index: number }) {
           </span>
 
           {/* Title with lock */}
-          <div className="flex items-center gap-3 min-w-0">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 min-w-0">
             <AnimatePresence>
               {hovered && !prefersReducedMotion && (
                 <motion.span
@@ -57,6 +57,9 @@ export default function PortfolioPlusCard({ index }: { index: number }) {
             >
               Portfolio Plus
             </h3>
+            <span className="text-[13px] font-light dark:text-off-white/50 text-mid-gray">
+              {t('cardSubtitle')}
+            </span>
           </div>
         </div>
 

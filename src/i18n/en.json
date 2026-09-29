@@ -26,7 +26,8 @@
     "label": "PORTFOLIO PLUS",
     "title": "NDA projects available",
     "description": "Access private case studies from banking and SaaS projects with detailed information.",
-    "cta": "Request access"
+    "cta": "Request access",
+    "cardSubtitle": "projects developed under confidentiality agreements (NDA)"
   },
   "about": {
     "tag": "ABOUT",

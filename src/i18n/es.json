@@ -26,7 +26,8 @@
     "label": "PORTFOLIO PLUS",
     "title": "Proyectos bajo NDA disponibles",
     "description": "Accedé a casos de estudio privados de proyectos bancarios y SaaS con información detallada.",
-    "cta": "Solicitar acceso"
+    "cta": "Solicitar acceso",
+    "cardSubtitle": "proyectos desarrollados bajo acuerdos de confidencialidad (NDA)"
   },
   "about": {
     "tag": "SOBRE MÍ",
