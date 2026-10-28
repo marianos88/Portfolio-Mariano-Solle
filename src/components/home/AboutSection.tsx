@@ -4,12 +4,15 @@ const tools = [
   'Figma', 'Jira', 'Confluence', 'ChatGPT', 'Claude', 'Gemini',
   'Copilot', 'Cursor', 'WordPress', 'HTML', 'CSS',
   'Adobe Photoshop', 'Adobe Illustrator',
+  'SQL Server Management Studio', 'Power BI', 'Google Analytics 4 (GA4)',
+  'Google Tag Manager (GTM)', 'Tableau', 'Hotjar', 'Relume', 'Miro',
 ]
 
 const skills = [
   'Product Design', 'UX Research', 'Wireframing & Prototyping',
   'Design Systems', 'Usability Testing', 'AI-Assisted Design',
   'Agile Methodologies', 'Stakeholder Management', 'Quality Assurance (QA)',
+  'SQL', 'Python', 'Data Analysis', 'Data Modeling', 'DAX', 'KPI Monitoring',
 ]
 
 const specializationsEs = [

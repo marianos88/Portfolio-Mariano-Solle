@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
 import AboutSection from '@/components/home/AboutSection'
+import StickyAbout from '@/components/home/StickyAbout'
 import ProjectList from '@/components/home/ProjectList'
 import JsonLd from '@/components/seo/JsonLd'
 import { webPageSchema } from '@/lib/structured-data'
@@ -37,9 +38,9 @@ export default function HomePage() {
       {/* Hero in normal document flow */}
       <Hero />
       {/* About sticks below the navbar; Projects scrolls over it */}
-      <div className="sticky top-16 z-20 min-h-screen">
+      <StickyAbout>
         <AboutSection />
-      </div>
+      </StickyAbout>
       {/* Projects in normal flow, higher z-index to cover sticky About */}
       <div className="relative z-30">
         <ProjectList />
