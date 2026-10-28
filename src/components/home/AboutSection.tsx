@@ -1,11 +1,12 @@
 import { getTranslations, getLocale } from 'next-intl/server'
 
 const tools = [
-  'Figma', 'Jira', 'Confluence', 'ChatGPT', 'Claude', 'Gemini',
+  'Figma', 'Jira', 'Confluence', 'Relume', 'Hotjar', 'Miro',
+  'ChatGPT', 'Claude', 'Gemini',
   'Copilot', 'Cursor', 'WordPress', 'HTML', 'CSS',
   'Adobe Photoshop', 'Adobe Illustrator',
   'SQL Server Management Studio', 'Power BI', 'Google Analytics 4 (GA4)',
-  'Google Tag Manager (GTM)', 'Tableau', 'Hotjar', 'Relume', 'Miro',
+  'Google Tag Manager (GTM)', 'Tableau',
 ]
 
 const skills = [
@@ -22,6 +23,7 @@ const specializationsEs = [
   'Gobierno',
   'Landing pages y micrositios',
   'Productos SaaS B2B y B2C',
+  'Data Analysis',
 ]
 
 const specializationsEn = [
@@ -31,6 +33,7 @@ const specializationsEn = [
   'Government',
   'Landing pages and microsites',
   'Mobile apps',
+  'Data Analysis',
 ]
 
 export default async function AboutSection() {
