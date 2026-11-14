@@ -19,6 +19,7 @@ export type ProjectLocale = {
   role?: string
   scope?: string[]
   challenge?: string
+  notice?: string
   tags?: string[]
   sections?: ProjectSection[]
   // Legacy fields (SportClub)

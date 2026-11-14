@@ -8,9 +8,9 @@
   "featured": true,
   "isNDA": false,
   "es": {
-    "title": "COMEX · Rediseño de una plataforma bancaria de Comercio Exterior",
+    "title": "Citibank · Rediseño de la plataforma de Comercio Exterior (COMEX)",
     "category": "Fintech · Banca · Comercio Exterior",
-    "description": "Rediseño end-to-end de una plataforma de Comercio Exterior de 13 años, regulada por el BCRA y usada por más de 2.000 personas, para un cliente bancario global.",
+    "description": "Rediseño end-to-end de una plataforma de Comercio Exterior de 13 años, regulada por el BCRA y usada por más de 2.000 personas, para Citibank.",
     "tags": [
       "UX Research",
       "UI Design",
@@ -28,18 +28,21 @@
       "QA funcional"
     ],
     "challenge": "Modernizar una plataforma regulada de 13 años, usada por más de 2.000 personas, sin interrumpir la operación diaria ni perder la información histórica.",
+    "notice": "Las imágenes y representaciones visuales de este caso fueron adaptadas con fines ilustrativos. No reproducen la identidad visual oficial de Citibank ni constituyen piezas institucionales del banco.",
     "sections": [
       {
-        "type": "image",
-        "src": "/images/bank/portada.png",
-        "alt": "Rediseño de la plataforma COMEX"
+        "type": "twoCol",
+        "col1Label": "Cliente",
+        "col1Content": "Citibank",
+        "col2Label": "Rol",
+        "col2Content": "Product Designer"
       },
       {
         "type": "twoCol",
-        "col1Label": "Rol",
-        "col1Content": "Product Designer",
-        "col2Label": "Empresa",
-        "col2Content": "C&S, para un cliente bancario global"
+        "col1Label": "Modalidad de contratación",
+        "col1Content": "Contractor independiente a través de C&S",
+        "col2Label": "Herramientas",
+        "col2Content": "Figma · Jira · Confluence"
       },
       {
         "type": "twoCol",
@@ -47,13 +50,6 @@
         "col1Content": "Plataforma web de Comercio Exterior (COMEX) para usuarios internos del banco y clientes externos.",
         "col2Label": "Equipo",
         "col2Content": "Product Owner, Product Manager, Apps Manager, Tech Lead, Desarrolladores, Business Reporter y stakeholders de negocio."
-      },
-      {
-        "type": "twoCol",
-        "col1Label": "Herramientas",
-        "col1Content": "Figma · Jira · Confluence",
-        "col2Label": "Duración",
-        "col2Content": "4 años"
       },
       {
         "type": "image",
@@ -85,7 +81,7 @@
       {
         "type": "text",
         "label": "01 · Contexto",
-        "content": "COMEX es la plataforma con la que el banco y sus clientes gestionan operaciones de comercio exterior: operaciones internacionales, documentación asociada y validaciones exigidas por las regulaciones del Banco Central de la República Argentina (BCRA). La usan más de 2.000 personas, tanto equipos internos del banco como usuarios de clientes externos, cada uno con responsabilidades y permisos distintos.\n\nEs una plataforma de misión crítica: soporta operaciones financieras diarias y procesos regulados, donde un error tiene consecuencias operativas y normativas. Por eso, cualquier cambio de experiencia tenía que convivir con una exigencia básica: la operación no podía detenerse."
+        "content": "COMEX es la plataforma con la que Citibank y sus clientes gestionan operaciones de comercio exterior: operaciones internacionales, documentación asociada y validaciones exigidas por las regulaciones del Banco Central de la República Argentina (BCRA). La usan más de 2.000 personas, tanto equipos internos del banco como usuarios de clientes externos, cada uno con responsabilidades y permisos distintos.\n\nEs una plataforma de misión crítica: soporta operaciones financieras diarias y procesos regulados, donde un error tiene consecuencias operativas y normativas. Por eso, cualquier cambio de experiencia tenía que convivir con una exigencia básica: la operación no podía detenerse."
       },
       {
         "type": "list",
@@ -162,7 +158,7 @@
       {
         "type": "text",
         "label": "03 · Mi rol y cómo trabajé",
-        "content": "Trabajé como Product Designer en C&S, asignado a este producto para un cliente bancario global. Mi trabajo cubrió el ciclo completo de la experiencia: investigar con usuarios, definir la arquitectura de información y los flujos, diseñar dashboards, widgets, formularios y componentes, y acompañar la definición y la validación de lo que se construía.\n\nProponía soluciones de diseño y las validaba con Product Owners y Product Managers antes de avanzar. Participé en la definición de User Stories y en el QA funcional y la validación de releases, lo que me permitió seguir cada solución desde la propuesta hasta su implementación. Trabajé con Figma, Jira y Confluence."
+        "content": "Trabajé como Product Designer para Citibank, como contractor independiente a través de C&S. Mi trabajo cubrió el ciclo completo de la experiencia: investigar con usuarios, definir la arquitectura de información y los flujos, diseñar dashboards, widgets, formularios y componentes, y acompañar la definición y la validación de lo que se construía.\n\nProponía soluciones de diseño y las validaba con Product Owners y Product Managers antes de avanzar. Participé en la definición de User Stories y en el QA funcional y la validación de releases, lo que me permitió seguir cada solución desde la propuesta hasta su implementación. Trabajé con Figma, Jira y Confluence."
       },
       {
         "type": "list",
@@ -283,6 +279,12 @@
         "content": "La información se ordenó en niveles: Dashboard → Widgets y cards → Datatables → Acciones y detalle. Cada nivel revela más información que el anterior, reduciendo la sobrecarga sin esconder los datos críticos, que siguen accesibles en todo momento."
       },
       {
+        "type": "image",
+        "src": "/images/bank/diagrama-mejoras.png",
+        "alt": "Niveles de información: Dashboard, widgets y cards, datatables, acciones y detalle",
+        "size": "small"
+      },
+      {
         "type": "text",
         "label": "El dashboard como hub operativo",
         "content": "El dashboard dejó de ser un punto de acceso para convertirse en el principal lugar de consulta y seguimiento de operaciones. Se priorizó la información contextual, la jerarquía del contenido, el acceso rápido a las acciones frecuentes y la reducción de la navegación innecesaria."
@@ -290,7 +292,8 @@
       {
         "type": "video",
         "src": "/videos/bank/login-dashboard.mp4",
-        "label": "Login y dashboard"
+        "label": "Login y dashboard",
+        "poster": "/images/bank/posters/login-dashboard.jpg"
       },
       {
         "type": "list",
@@ -312,7 +315,8 @@
       {
         "type": "video",
         "src": "/videos/bank/configurar-dashboard.mp4",
-        "label": "Configurar dashboard"
+        "label": "Configurar dashboard",
+        "poster": "/images/bank/posters/configurar-dashboard.jpg"
       },
       {
         "type": "text",
@@ -322,17 +326,28 @@
       {
         "type": "video",
         "src": "/videos/bank/carrusel-operaciones.mp4",
-        "label": "Carrusel de operaciones"
+        "label": "Carrusel de operaciones",
+        "poster": "/images/bank/posters/carrusel-operaciones.jpg"
+      },
+      {
+        "type": "heading",
+        "text": "Autorización de operaciones"
       },
       {
         "type": "video",
         "src": "/videos/bank/autorizar-operaciones-datatable.mp4",
-        "label": "Datatable de autorización de operaciones"
+        "label": "Datatable de autorización de operaciones",
+        "poster": "/images/bank/posters/autorizar-operaciones-datatable.jpg"
+      },
+      {
+        "type": "heading",
+        "text": "Creación de operaciones"
       },
       {
         "type": "video",
         "src": "/videos/bank/crear-operacion.mp4",
-        "label": "Crear operación"
+        "label": "Crear operación",
+        "poster": "/images/bank/posters/crear-operacion.jpg"
       },
       {
         "type": "text",
@@ -353,7 +368,8 @@
       {
         "type": "image",
         "src": "/images/bank/header-profile.png",
-        "alt": "Header y perfil de usuario"
+        "alt": "Header y perfil de usuario",
+        "size": "medium"
       },
       {
         "type": "heading",
@@ -430,9 +446,9 @@
     ]
   },
   "en": {
-    "title": "COMEX · Redesigning a Foreign Trade Banking Platform",
+    "title": "Citibank · Foreign Trade Platform Redesign (COMEX)",
     "category": "Fintech · Banking · Foreign Trade",
-    "description": "End-to-end redesign of a 13-year-old Foreign Trade platform, regulated by Argentina's Central Bank and used by more than 2,000 people, for a global banking client.",
+    "description": "End-to-end redesign of a 13-year-old Foreign Trade platform, regulated by Argentina's Central Bank and used by more than 2,000 people, for Citibank.",
     "tags": [
       "UX Research",
       "UI Design",
@@ -450,18 +466,21 @@
       "Functional QA"
     ],
     "challenge": "Modernize a 13-year-old regulated platform used by more than 2,000 people without disrupting daily operations or losing historical information.",
+    "notice": "The images and visual representations in this case study have been adapted for illustrative purposes. They do not reproduce Citibank's official visual identity or constitute official materials from the bank.",
     "sections": [
       {
-        "type": "image",
-        "src": "/images/bank/portada.png",
-        "alt": "COMEX platform redesign"
+        "type": "twoCol",
+        "col1Label": "Client",
+        "col1Content": "Citibank",
+        "col2Label": "Role",
+        "col2Content": "Product Designer"
       },
       {
         "type": "twoCol",
-        "col1Label": "Role",
-        "col1Content": "Product Designer",
-        "col2Label": "Company",
-        "col2Content": "C&S, for a global banking client"
+        "col1Label": "Engagement",
+        "col1Content": "Independent contractor through C&S",
+        "col2Label": "Tools",
+        "col2Content": "Figma · Jira · Confluence"
       },
       {
         "type": "twoCol",
@@ -469,13 +488,6 @@
         "col1Content": "Foreign Trade (COMEX) web platform for the bank's internal users and external clients.",
         "col2Label": "Team",
         "col2Content": "Product Owner, Product Manager, Apps Manager, Tech Lead, Developers, Business Reporter and business stakeholders."
-      },
-      {
-        "type": "twoCol",
-        "col1Label": "Tools",
-        "col1Content": "Figma · Jira · Confluence",
-        "col2Label": "Duration",
-        "col2Content": "4 years"
       },
       {
         "type": "image",
@@ -507,7 +519,7 @@
       {
         "type": "text",
         "label": "01 · Context",
-        "content": "COMEX is the platform the bank and its clients use to manage foreign trade: international operations, their supporting documentation, and the validations required by the regulations of Argentina's Central Bank (BCRA). It serves more than 2,000 people, both internal bank teams and users from external client companies, each with different responsibilities and permissions.\n\nIt is a mission-critical platform: it supports daily financial operations and regulated processes, where a mistake has operational and regulatory consequences. Every experience change therefore had to respect one basic requirement: operations could not stop."
+        "content": "COMEX is the platform Citibank and its clients use to manage foreign trade: international operations, their supporting documentation, and the validations required by the regulations of Argentina's Central Bank (BCRA). It serves more than 2,000 people, both internal bank teams and users from external client companies, each with different responsibilities and permissions.\n\nIt is a mission-critical platform: it supports daily financial operations and regulated processes, where a mistake has operational and regulatory consequences. Every experience change therefore had to respect one basic requirement: operations could not stop."
       },
       {
         "type": "list",
@@ -584,7 +596,7 @@
       {
         "type": "text",
         "label": "03 · My role and how I worked",
-        "content": "I worked as a Product Designer at C&S, assigned to this product for a global banking client. My work covered the full experience cycle: researching with users, defining the information architecture and flows, designing dashboards, widgets, forms and components, and supporting the definition and validation of what was being built.\n\nI proposed design solutions and validated them with Product Owners and Product Managers before moving forward. I took part in defining User Stories and in functional QA and release validation, which let me follow each solution from proposal to implementation. I worked with Figma, Jira and Confluence."
+        "content": "I worked as a Product Designer for Citibank as an independent contractor through C&S. My work covered the full experience cycle: researching with users, defining the information architecture and flows, designing dashboards, widgets, forms and components, and supporting the definition and validation of what was being built.\n\nI proposed design solutions and validated them with Product Owners and Product Managers before moving forward. I took part in defining User Stories and in functional QA and release validation, which let me follow each solution from proposal to implementation. I worked with Figma, Jira and Confluence."
       },
       {
         "type": "list",
@@ -705,6 +717,12 @@
         "content": "Information was organized in levels: Dashboard → Widgets and cards → Data tables → Actions and detail. Each level reveals more than the one before, reducing overload without hiding critical data, which stays accessible at all times."
       },
       {
+        "type": "image",
+        "src": "/images/bank/diagrama-mejoras.png",
+        "alt": "Information levels: dashboard, widgets and cards, data tables, actions and detail",
+        "size": "small"
+      },
+      {
         "type": "text",
         "label": "The dashboard as an operational hub",
         "content": "The dashboard stopped being an entry point and became the main place to check and track operations. The design prioritized contextual information, content hierarchy, quick access to frequent actions and less unnecessary navigation."
@@ -712,7 +730,8 @@
       {
         "type": "video",
         "src": "/videos/bank/login-dashboard.mp4",
-        "label": "Login and dashboard"
+        "label": "Login and dashboard",
+        "poster": "/images/bank/posters/login-dashboard.jpg"
       },
       {
         "type": "list",
@@ -734,7 +753,8 @@
       {
         "type": "video",
         "src": "/videos/bank/configurar-dashboard.mp4",
-        "label": "Dashboard configuration"
+        "label": "Dashboard configuration",
+        "poster": "/images/bank/posters/configurar-dashboard.jpg"
       },
       {
         "type": "text",
@@ -744,17 +764,28 @@
       {
         "type": "video",
         "src": "/videos/bank/carrusel-operaciones.mp4",
-        "label": "Operations carousel"
+        "label": "Operations carousel",
+        "poster": "/images/bank/posters/carrusel-operaciones.jpg"
+      },
+      {
+        "type": "heading",
+        "text": "Operation authorization"
       },
       {
         "type": "video",
         "src": "/videos/bank/autorizar-operaciones-datatable.mp4",
-        "label": "Operation authorization data table"
+        "label": "Operation authorization data table",
+        "poster": "/images/bank/posters/autorizar-operaciones-datatable.jpg"
+      },
+      {
+        "type": "heading",
+        "text": "Operation creation"
       },
       {
         "type": "video",
         "src": "/videos/bank/crear-operacion.mp4",
-        "label": "Create operation"
+        "label": "Create operation",
+        "poster": "/images/bank/posters/crear-operacion.jpg"
       },
       {
         "type": "text",
@@ -775,7 +806,8 @@
       {
         "type": "image",
         "src": "/images/bank/header-profile.png",
-        "alt": "Header and user profile"
+        "alt": "Header and user profile",
+        "size": "medium"
       },
       {
         "type": "heading",

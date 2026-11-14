@@ -82,6 +82,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
             </div>
           )}
         </motion.div>
+
+        {/* ── Optional notice (e.g. illustrative visuals disclaimer) ── */}
+        {loc.notice && (
+          <p className="mt-8 max-w-[640px] border-l-2 pl-4 text-[13px] font-light leading-[1.7] dark:border-mint/50 border-[#2a7a4a]/50 dark:text-off-white/50 text-mid-gray">
+            {loc.notice}
+          </p>
+        )}
       </div>
 
       {/* ── Challenge (always shown) ── */}
