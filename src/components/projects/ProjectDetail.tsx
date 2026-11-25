@@ -634,7 +634,7 @@ function EditorialHero({ loc }: { loc: ProjectLocale }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.05, ease }}
-        className="text-[40px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-medium tracking-[-0.025em] leading-[1.0] mb-12 md:mb-16 max-w-5xl dark:text-off-white text-dark"
+        className="text-[40px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-medium tracking-[-0.025em] leading-[1.0] mb-12 md:mb-16 dark:text-off-white text-dark"
       >
         {loc.title}
       </motion.h1>
@@ -643,7 +643,7 @@ function EditorialHero({ loc }: { loc: ProjectLocale }) {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.15 }}
-        className="max-w-3xl text-[17px] md:text-[18px] font-light leading-[1.7] dark:text-off-white/80 text-dark"
+        className="text-[17px] md:text-[18px] font-light leading-[1.7] dark:text-off-white/80 text-dark"
       >
         {loc.description}
       </motion.p>
