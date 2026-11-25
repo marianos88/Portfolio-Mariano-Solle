@@ -44,7 +44,13 @@
     "prototype": "Ver prototipo",
     "context": "Contexto",
     "process": "Proceso",
-    "result": "Resultado"
+    "result": "Resultado",
+    "metaTimeline": "Período analizado",
+    "metaRole": "Mi rol",
+    "metaTools": "Herramientas",
+    "metaCategory": "Categoría",
+    "metaClient": "Cliente",
+    "metaResponsibilities": "Responsabilidades"
   },
   "portfolioPlus": {
     "tag": "PORTFOLIO PLUS",

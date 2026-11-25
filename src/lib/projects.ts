@@ -1,5 +1,11 @@
 export type Stat = { value: string; label: string }
 
+/** Image with intrinsic dimensions — used by editorial sections to avoid layout shift. */
+export type SectionImage = { src: string; alt: string; width: number; height: number }
+
+/** Shared fields for editorial (long-scroll) sections. `tone: 'muted'` renders a full-bleed alternate background. */
+type EditorialBase = { index?: string; label: string; title: string; tone?: 'default' | 'muted' }
+
 export type ProjectSection =
   | { type: 'text'; label: string; content: string }
   | { type: 'twoCol'; col1Label: string; col1Content: string; col2Label: string; col2Content: string }
@@ -10,6 +16,38 @@ export type ProjectSection =
   | { type: 'stats'; label?: string; items: Stat[] }
   | { type: 'divider' }
   | { type: 'heading'; text: string; size?: 'sm' | 'md' | 'lg' }
+  // Editorial sections (layout: 'editorial')
+  | (EditorialBase & { type: 'intro'; paragraphs?: string[] })
+  | (EditorialBase & {
+      type: 'split'
+      level?: 2 | 3
+      paragraphs: string[]
+      /** Optional: without an image the text spans the full container width. */
+      image?: SectionImage
+      caption?: string
+      findingsLabel?: string
+      findings?: string[]
+      reverse?: boolean
+    })
+  | (EditorialBase & {
+      type: 'feature'
+      paragraphs: string[]
+      image: SectionImage
+      caption?: string
+      stats?: Stat[]
+    })
+  | (EditorialBase & { type: 'steps'; intro?: string; items: { title: string; description: string }[] })
+  | (EditorialBase & {
+      type: 'insights'
+      intro?: string
+      stats?: Stat[]
+      /** `tag` qualifies the evidence level of each insight (e.g. observed data, interpretation, hypothesis). */
+      items: { tag?: string; title: string; description: string }[]
+      conclusionLabel?: string
+      conclusion?: string[]
+      image?: SectionImage
+      caption?: string
+    })
 
 export type ProjectLocale = {
   title: string
@@ -18,6 +56,12 @@ export type ProjectLocale = {
   description: string
   role?: string
   scope?: string[]
+  // Editorial hero meta
+  timeline?: string
+  tools?: string[]
+  client?: string
+  responsibilities?: string[]
+  heroImage?: SectionImage
   challenge?: string
   tags?: string[]
   sections?: ProjectSection[]
@@ -46,6 +90,8 @@ export type Project = {
   images?: string[]
   featured?: boolean
   isNDA?: boolean
+  /** 'editorial' renders the long-scroll case-study hero and editorial sections. Default: classic cover layout. */
+  layout?: 'classic' | 'editorial'
   es: ProjectLocale
   en: ProjectLocale
 }
@@ -56,6 +102,7 @@ export function getProjectLocale(project: Project, locale: string): ProjectLocal
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const allProjects: Project[] = [
+  require('../content/projects/proyecto-08.json'),
   require('../content/projects/proyecto-05.json'),
   require('../content/projects/proyecto-06.json'),
   require('../content/projects/proyecto-04.json'),

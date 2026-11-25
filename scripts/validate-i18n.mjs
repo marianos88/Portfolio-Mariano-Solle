@@ -14,7 +14,7 @@ const ALLOWED_IDENTICAL = new Set([
   'Journey Maps', 'Benchmark', 'Engagement', 'Completion Rate',
   // tech/industry terms
   'NFT', 'blockchain', 'SaaS', 'Web3', 'Fintech', 'Enterprise',
-  'COMEX', 'BCRA', 'FMCG', 'CPG', 'FMCG/CPG', 'CTA', 'Dashboard',
+  'COMEX', 'BCRA', 'FMCG', 'CPG', 'FMCG/CPG', 'CTA', 'Dashboard', 'Data Analytics',
   // roles
   'Product Designer', 'UX Designer', 'Product Owner', 'Tech Lead', 'PM',
   // brand names / proper nouns
