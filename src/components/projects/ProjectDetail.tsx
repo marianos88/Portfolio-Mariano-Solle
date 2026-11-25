@@ -30,7 +30,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <article>
       {isEditorial ? (
-        <EditorialHero project={project} loc={loc} />
+        <EditorialHero loc={loc} />
       ) : (
       <>
       {/* ── Hero cover ── */}
@@ -601,17 +601,15 @@ type EditorialSectionData = Extract<
   { type: 'intro' | 'split' | 'feature' | 'steps' | 'insights' }
 >
 
-function EditorialHero({ project, loc }: { project: Project; loc: ProjectLocale }) {
+function EditorialHero({ loc }: { loc: ProjectLocale }) {
   const t = useTranslations('projects')
+  const responsibilitiesId = useId()
   const image = loc.heroImage
-  // Publication year and analyzed period are shown separately so the data range is never read as project duration.
   const meta = [
     loc.role ? { label: t('metaRole'), value: loc.role } : null,
     loc.client ? { label: t('metaClient'), value: loc.client } : null,
-    { label: t('metaPublication'), value: project.year },
     loc.timeline ? { label: t('metaTimeline'), value: loc.timeline } : null,
     loc.tools && loc.tools.length > 0 ? { label: t('metaTools'), value: loc.tools.join(' · ') } : null,
-    { label: t('metaCategory'), value: loc.category },
   ].filter((m): m is { label: string; value: string } => m !== null)
 
   return (
@@ -634,64 +632,66 @@ function EditorialHero({ project, loc }: { project: Project; loc: ProjectLocale 
         {loc.title}
       </motion.h1>
 
-      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="lg:col-span-5"
-        >
-          <p className="text-[17px] md:text-[18px] font-light leading-[1.7] dark:text-off-white/80 text-dark">
-            {loc.description}
-          </p>
-          <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 pt-8 border-t dark:border-mid-gray/30 border-[#e0e0e0]">
-            {meta.map((m) => (
-              <div key={m.label}>
-                <dt className="text-[10px] tracking-[2px] uppercase mb-2 dark:text-off-white/60 text-mid-gray">
-                  {m.label}
-                </dt>
-                <dd className="text-[14px] font-light leading-[1.6] dark:text-off-white/80 text-dark">
-                  {m.value}
-                </dd>
-              </div>
-            ))}
-            {loc.responsibilities && loc.responsibilities.length > 0 && (
-              <div className="col-span-2">
-                <dt className="text-[10px] tracking-[2px] uppercase mb-2 dark:text-off-white/60 text-mid-gray">
-                  {t('metaResponsibilities')}
-                </dt>
-                <dd>
-                  <ul className="space-y-1">
-                    {loc.responsibilities.map((r) => (
-                      <li key={r} className="flex items-start gap-3 text-[14px] font-light leading-[1.6] dark:text-off-white/80 text-dark">
-                        <span aria-hidden="true" className="dark:text-mint text-[#2a7a4a] shrink-0">→</span>
-                        {r}
-                      </li>
-                    ))}
-                  </ul>
-                </dd>
-              </div>
-            )}
-          </dl>
-        </motion.div>
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.15 }}
+        className="max-w-3xl text-[17px] md:text-[18px] font-light leading-[1.7] dark:text-off-white/80 text-dark"
+      >
+        {loc.description}
+      </motion.p>
 
-        {image && (
-          <motion.figure
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease }}
-            className="lg:col-span-7 rounded-2xl p-4 md:p-6 dark:bg-[#1e1e1e] bg-white border dark:border-mid-gray/30 border-[#e8e8e8]"
-          >
-            <EditorialImage
-              image={image}
-              priority
-              sizes={`(max-width: 1024px) 100vw, ${image.width}px`}
-              className="mx-auto"
-              style={{ maxWidth: image.width }}
-            />
-          </motion.figure>
+      {image && (
+        <motion.figure
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease }}
+          className="mt-12 md:mt-16 rounded-2xl p-4 md:p-8 lg:p-10 dark:bg-[#1e1e1e] bg-white border dark:border-mid-gray/30 border-[#e8e8e8]"
+        >
+          <EditorialImage image={image} priority sizes="(max-width: 1200px) 100vw, 1100px" />
+        </motion.figure>
+      )}
+
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className="mt-12 md:mt-16 pt-10 border-t dark:border-mid-gray/30 border-[#e0e0e0] grid lg:grid-cols-12 gap-10 lg:gap-16 items-start"
+      >
+        <dl className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
+          {meta.map((m) => (
+            <div key={m.label}>
+              <dt className="text-[10px] tracking-[2px] uppercase mb-2 dark:text-off-white/60 text-mid-gray">
+                {m.label}
+              </dt>
+              <dd className="text-[15px] font-light leading-[1.6] dark:text-off-white/80 text-dark">
+                {m.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        {loc.responsibilities && loc.responsibilities.length > 0 && (
+          <div className="lg:col-span-7">
+            <p id={responsibilitiesId} className="text-[10px] tracking-[2px] uppercase mb-4 dark:text-off-white/60 text-mid-gray">
+              {t('metaResponsibilities')}
+            </p>
+            <ol aria-labelledby={responsibilitiesId}>
+              {loc.responsibilities.map((r, i) => (
+                <li
+                  key={r}
+                  className="flex items-baseline gap-4 py-3 border-b dark:border-mid-gray/30 border-[#e8e8e8] text-[15px] font-light leading-[1.6] dark:text-off-white/80 text-dark"
+                >
+                  <span aria-hidden="true" className="text-[11px] tracking-[1px] tabular-nums shrink-0 dark:text-mint text-[#2a7a4a]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {r}
+                </li>
+              ))}
+            </ol>
+          </div>
         )}
-      </div>
+      </motion.div>
     </header>
   )
 }

@@ -25,21 +25,21 @@
       "Power Query",
       "SQL",
       "DAX",
-      "ArcGIS for Power BI"
+      "SSMS"
     ],
     "responsibilities": [
       "Preparación y transformación de datos (Power Query)",
       "Modelado de datos",
-      "Consultas y análisis mediante SQL",
+      "Consultas y análisis mediante SQL en SSMS",
       "Desarrollo de medidas y cálculos con DAX",
       "Construcción de dashboards en Power BI",
-      "Visualización geográfica con ArcGIS for Power BI"
+      "Visualización geográfica en Power BI"
     ],
     "heroImage": {
       "src": "/images/analytics/portada.png",
       "alt": "Portada del reporte de Power BI sobre operaciones bancarias en Florida, período 2020–2024, mostrada en una laptop, con el menú lateral de navegación entre páginas.",
-      "width": 497,
-      "height": 289
+      "width": 1474,
+      "height": 919
     },
     "sections": [
       {
@@ -76,11 +76,11 @@
           },
           {
             "title": "Análisis y consultas",
-            "description": "Consultas en SQL y medidas en DAX para calcular los indicadores clave —cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales— y explorar sus variaciones."
+            "description": "Consultas en SQL y gestión de la base de datos con SSMS, y medidas en DAX para calcular los indicadores clave —cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales— y explorar sus variaciones."
           },
           {
             "title": "Visualización y dashboard",
-            "description": "Construcción en Power BI de un reporte de siete páginas con navegación lateral, filtros, glosario de términos, página de conclusiones y un mapa de score crediticio por condado con ArcGIS for Power BI."
+            "description": "Construcción en Power BI de un reporte de siete páginas con navegación lateral, filtros, glosario de términos, página de conclusiones y un mapa de score crediticio por condado."
           }
         ]
       },
@@ -275,21 +275,21 @@
       "Power Query",
       "SQL",
       "DAX",
-      "ArcGIS for Power BI"
+      "SSMS"
     ],
     "responsibilities": [
       "Data preparation and transformation (Power Query)",
       "Data modeling",
-      "SQL queries and analysis",
+      "SQL queries and analysis in SSMS",
       "DAX measures and calculations",
       "Dashboard development in Power BI",
-      "Geographic visualization with ArcGIS for Power BI"
+      "Geographic visualization in Power BI"
     ],
     "heroImage": {
       "src": "/images/analytics/portada.png",
       "alt": "Cover page of the Power BI report on banking operations in Florida, 2020–2024, shown on a laptop, with the side navigation menu between report pages.",
-      "width": 497,
-      "height": 289
+      "width": 1474,
+      "height": 919
     },
     "sections": [
       {
@@ -326,11 +326,11 @@
           },
           {
             "title": "Analysis and queries",
-            "description": "SQL queries and DAX measures to calculate the key indicators —number of operations, total amount, average amount and share of international operations— and explore how they vary."
+            "description": "SQL queries and database management in SSMS, and DAX measures to calculate the key indicators —number of operations, total amount, average amount and share of international operations— and explore how they vary."
           },
           {
             "title": "Visualization and dashboard",
-            "description": "A seven-page Power BI report with side navigation, filters, a glossary of terms, a conclusions page and a county-level credit score map built with ArcGIS for Power BI."
+            "description": "A seven-page Power BI report with side navigation, filters, a glossary of terms, a conclusions page and a county-level credit score map."
           }
         ]
       },
