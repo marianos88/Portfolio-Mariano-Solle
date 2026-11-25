@@ -605,12 +605,19 @@ function EditorialHero({ loc }: { loc: ProjectLocale }) {
   const t = useTranslations('projects')
   const responsibilitiesId = useId()
   const image = loc.heroImage
-  const meta = [
-    loc.role ? { label: t('metaRole'), value: loc.role } : null,
-    loc.client ? { label: t('metaClient'), value: loc.client } : null,
-    loc.timeline ? { label: t('metaTimeline'), value: loc.timeline } : null,
-    loc.tools && loc.tools.length > 0 ? { label: t('metaTools'), value: loc.tools.join(' · ') } : null,
-  ].filter((m): m is { label: string; value: string } => m !== null)
+  type Meta = { label: string; value: string }
+  const isMeta = (m: Meta | null): m is Meta => m !== null
+  // Two meta columns (role + period, client + tools) plus responsibilities = three centered columns.
+  const metaColumns = [
+    [
+      loc.role ? { label: t('metaRole'), value: loc.role } : null,
+      loc.timeline ? { label: t('metaTimeline'), value: loc.timeline } : null,
+    ].filter(isMeta),
+    [
+      loc.client ? { label: t('metaClient'), value: loc.client } : null,
+      loc.tools && loc.tools.length > 0 ? { label: t('metaTools'), value: loc.tools.join(' · ') } : null,
+    ].filter(isMeta),
+  ].filter((col) => col.length > 0)
 
   return (
     <header className="max-w-6xl mx-auto px-6 pt-32 md:pt-40 pb-20 md:pb-28">
@@ -646,7 +653,7 @@ function EditorialHero({ loc }: { loc: ProjectLocale }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease }}
-          className="mt-12 md:mt-16 rounded-2xl p-4 md:p-8 lg:p-10 dark:bg-[#1e1e1e] bg-white border dark:border-mid-gray/30 border-[#e8e8e8]"
+          className="mt-10 md:mt-14"
         >
           <EditorialImage image={image} priority sizes="(max-width: 1200px) 100vw, 1100px" />
         </motion.figure>
@@ -656,23 +663,25 @@ function EditorialHero({ loc }: { loc: ProjectLocale }) {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.25 }}
-        className="mt-12 md:mt-16 pt-10 border-t dark:border-mid-gray/30 border-[#e0e0e0] grid lg:grid-cols-12 gap-10 lg:gap-16 items-start"
+        className="mt-8 md:mt-10 pt-10 border-t dark:border-mid-gray/30 border-[#e0e0e0] grid gap-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-[minmax(0,13rem)_minmax(0,15rem)_minmax(0,30rem)] lg:justify-center lg:gap-x-16 items-start"
       >
-        <dl className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
-          {meta.map((m) => (
-            <div key={m.label}>
-              <dt className="text-[10px] tracking-[2px] uppercase mb-2 dark:text-off-white/60 text-mid-gray">
-                {m.label}
-              </dt>
-              <dd className="text-[15px] font-light leading-[1.6] dark:text-off-white/80 text-dark">
-                {m.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        {metaColumns.map((col, ci) => (
+          <dl key={ci} className="grid gap-y-7">
+            {col.map((m) => (
+              <div key={m.label}>
+                <dt className="text-[10px] tracking-[2px] uppercase mb-2 dark:text-off-white/60 text-mid-gray">
+                  {m.label}
+                </dt>
+                <dd className="text-[15px] font-light leading-[1.6] dark:text-off-white/80 text-dark">
+                  {m.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        ))}
 
         {loc.responsibilities && loc.responsibilities.length > 0 && (
-          <div className="lg:col-span-7">
+          <div className="sm:col-span-2 lg:col-span-1">
             <p id={responsibilitiesId} className="text-[10px] tracking-[2px] uppercase mb-4 dark:text-off-white/60 text-mid-gray">
               {t('metaResponsibilities')}
             </p>

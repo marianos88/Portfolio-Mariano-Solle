@@ -18,7 +18,7 @@
       "Dashboard"
     ],
     "role": "Data Analyst",
-    "client": "Confidencial (protegido por NDA)",
+    "client": "Confidencial",
     "timeline": "2020–2024",
     "tools": [
       "Power BI",
@@ -38,8 +38,8 @@
     "heroImage": {
       "src": "/images/analytics/portada.png",
       "alt": "Portada del reporte de Power BI sobre operaciones bancarias en Florida, período 2020–2024, mostrada en una laptop, con el menú lateral de navegación entre páginas.",
-      "width": 1474,
-      "height": 919
+      "width": 1392,
+      "height": 849
     },
     "sections": [
       {
@@ -268,7 +268,7 @@
       "Dashboard"
     ],
     "role": "Data Analyst",
-    "client": "Confidential (NDA-protected)",
+    "client": "Confidential",
     "timeline": "2020–2024",
     "tools": [
       "Power BI",
@@ -288,8 +288,8 @@
     "heroImage": {
       "src": "/images/analytics/portada.png",
       "alt": "Cover page of the Power BI report on banking operations in Florida, 2020–2024, shown on a laptop, with the side navigation menu between report pages.",
-      "width": 1474,
-      "height": 919
+      "width": 1392,
+      "height": 849
     },
     "sections": [
       {
