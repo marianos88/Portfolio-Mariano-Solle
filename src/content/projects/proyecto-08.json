@@ -89,7 +89,7 @@
         "tone": "muted",
         "index": "04",
         "label": "Análisis general",
-        "title": "Una vista para leer el negocio de un vistazo",
+        "title": "Una visión general de las operaciones",
         "paragraphs": [
           "Es la puerta de entrada al reporte. Reúne los cuatro indicadores principales y permite filtrar por año-mes, región y tipo de transacción.",
           "Compara el monto transaccionado por tipo de operación y por región, y detalla para cada región la cantidad de operaciones, el monto total y el monto promedio. El gráfico de anillo deja ver de inmediato el peso de Florida del Sur sobre el total."
@@ -339,7 +339,7 @@
         "tone": "muted",
         "index": "04",
         "label": "General analysis",
-        "title": "One view to read the business at a glance",
+        "title": "An overview of the operations",
         "paragraphs": [
           "It is the entry point to the report. It brings together the four main indicators and can be filtered by year-month, region and transaction type.",
           "It compares the amount transacted by operation type and by region, and details for each region the number of operations, total amount and average amount. The donut chart makes the weight of South Florida over the total immediately visible."
