@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useId } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
-import type { Project, ProjectSection, ProjectLocale } from '@/lib/projects'
+import { useLocale, useTranslations } from 'next-intl'
+import type { Project, ProjectSection, ProjectLocale, SectionImage, Stat } from '@/lib/projects'
 import { getProjectLocale } from '@/lib/projects'
 import VideoPlayer from './VideoPlayer'
 import LockButton from '@/components/portfolio-plus/LockButton'
@@ -25,8 +25,14 @@ export default function ProjectDetail({ project }: { project: Project }) {
     }
   }, [project.slug, project.visibility])
 
+  const isEditorial = project.layout === 'editorial'
+
   return (
     <article>
+      {isEditorial ? (
+        <EditorialHero project={project} loc={loc} />
+      ) : (
+      <>
       {/* ── Hero cover ── */}
       <div className="relative w-full h-[60vh] min-h-[420px] overflow-hidden dark:bg-[#1a1a1a] bg-[#e8e8e8]">
         {project.coverImage && (
@@ -83,6 +89,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
           )}
         </motion.div>
       </div>
+      </>
+      )}
 
       {/* ── Challenge (always shown) ── */}
       {loc.challenge && (
@@ -99,7 +107,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
       {/* ── Flexible sections ── */}
       {loc.sections && loc.sections.length > 0 && (
         <>
-          <Divider />
+          {!isEditorial && <Divider />}
           {loc.sections.map((section, i) => (
             <SectionRenderer key={i} section={section} coverImage={project.coverImage} />
           ))}
@@ -144,6 +152,16 @@ export default function ProjectDetail({ project }: { project: Project }) {
    Section renderer — handles all section types
 ───────────────────────────────────────────── */
 function SectionRenderer({ section, coverImage }: { section: ProjectSection; coverImage?: string }) {
+  if (
+    section.type === 'intro' ||
+    section.type === 'split' ||
+    section.type === 'feature' ||
+    section.type === 'steps' ||
+    section.type === 'insights'
+  ) {
+    return <EditorialSection section={section} />
+  }
+
   if (section.type === 'divider') {
     return <Divider />
   }
@@ -571,6 +589,386 @@ function LegacyLayout({
         </>
       )}
     </>
+  )
+}
+
+/* ─────────────────────────────────────────────
+   Editorial layout — long-scroll case study (project.layout === 'editorial')
+   Reuses the site tokens: Inter scale, mint accent, #1e1e1e / white surfaces.
+───────────────────────────────────────────── */
+type EditorialSectionData = Extract<
+  ProjectSection,
+  { type: 'intro' | 'split' | 'feature' | 'steps' | 'insights' }
+>
+
+function EditorialHero({ project, loc }: { project: Project; loc: ProjectLocale }) {
+  const t = useTranslations('projects')
+  const image = loc.heroImage
+  const meta = [
+    loc.timeline ? { label: t('metaTimeline'), value: loc.timeline } : null,
+    loc.role ? { label: t('metaRole'), value: loc.role } : null,
+    loc.tools && loc.tools.length > 0 ? { label: t('metaTools'), value: loc.tools.join(' · ') } : null,
+    { label: t('metaCategory'), value: loc.category },
+  ].filter((m): m is { label: string; value: string } => m !== null)
+
+  return (
+    <header className="max-w-6xl mx-auto px-6 pt-32 md:pt-40 pb-20 md:pb-28">
+      <motion.p
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="text-[11px] tracking-[2px] uppercase mb-4 font-light dark:text-mint text-[#2a7a4a]"
+      >
+        {loc.category}
+      </motion.p>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.05, ease }}
+        className="text-[40px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-medium tracking-[-0.025em] leading-[1.0] mb-12 md:mb-16 max-w-5xl dark:text-off-white text-dark"
+      >
+        {loc.title}
+      </motion.h1>
+
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="lg:col-span-5"
+        >
+          <p className="text-[17px] md:text-[18px] font-light leading-[1.7] dark:text-off-white/80 text-dark">
+            {loc.description}
+          </p>
+          <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 pt-8 border-t dark:border-mid-gray/30 border-[#e0e0e0]">
+            {meta.map((m) => (
+              <div key={m.label}>
+                <dt className="text-[10px] tracking-[2px] uppercase mb-2 dark:text-off-white/60 text-mid-gray">
+                  {m.label}
+                </dt>
+                <dd className="text-[14px] font-light leading-[1.6] dark:text-off-white/80 text-dark">
+                  {m.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </motion.div>
+
+        {image && (
+          <motion.figure
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease }}
+            className="lg:col-span-7 rounded-2xl p-4 md:p-6 dark:bg-[#1e1e1e] bg-white border dark:border-mid-gray/30 border-[#e8e8e8]"
+          >
+            <EditorialImage
+              image={image}
+              priority
+              sizes="(max-width: 1024px) 100vw, 680px"
+            />
+          </motion.figure>
+        )}
+      </div>
+    </header>
+  )
+}
+
+function EditorialSection({ section }: { section: EditorialSectionData }) {
+  const headingId = useId()
+  const muted = section.tone === 'muted'
+  const card = muted
+    ? 'dark:bg-dark bg-off-white'
+    : 'dark:bg-[#1e1e1e] bg-white'
+  const cardClass = `rounded-xl border dark:border-mid-gray/30 border-[#e8e8e8] transition-colors duration-200 hover:dark:border-mint/30 hover:border-[#aaeec4] ${card}`
+  // An intro only opens a group of subsections, so it carries no bottom padding.
+  const padding = section.type === 'intro' ? 'pt-20 md:pt-28' : 'py-20 md:py-28'
+
+  return (
+    <section
+      aria-labelledby={headingId}
+      className={`transition-theme ${muted ? 'dark:bg-[#1e1e1e] bg-white' : ''}`}
+    >
+      <FadeSection>
+        <div className={`max-w-6xl mx-auto px-6 ${padding}`}>
+          {section.type === 'intro' && (
+            <>
+              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} />
+              {section.paragraphs && <Paragraphs items={section.paragraphs} className="max-w-3xl" />}
+            </>
+          )}
+
+          {section.type === 'split' && (
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className={`lg:col-span-5 ${section.reverse ? 'lg:order-2' : ''}`}>
+                <EditorialHeading
+                  id={headingId}
+                  index={section.index}
+                  label={section.label}
+                  title={section.title}
+                  level={section.level}
+                  compact
+                />
+                <Paragraphs items={section.paragraphs} />
+                {section.findings && section.findings.length > 0 && (
+                  <Findings label={section.findingsLabel} items={section.findings} />
+                )}
+              </div>
+              <figure className={`lg:col-span-7 ${section.reverse ? 'lg:order-1' : ''}`}>
+                <EditorialImage image={section.image} sizes="(max-width: 1024px) 100vw, 680px" />
+                {section.caption && <Caption>{section.caption}</Caption>}
+              </figure>
+            </div>
+          )}
+
+          {section.type === 'feature' && (
+            <>
+              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} />
+              <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <Paragraphs items={section.paragraphs} className="lg:col-span-6" />
+                {section.stats && section.stats.length > 0 && (
+                  <StatCards stats={section.stats} cardClass={cardClass} className="lg:col-span-6" />
+                )}
+              </div>
+              <figure className="mt-14 md:mt-20">
+                <EditorialImage
+                  image={section.image}
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                  className="mx-auto max-w-[960px]"
+                />
+                {section.caption && <Caption className="text-center">{section.caption}</Caption>}
+              </figure>
+            </>
+          )}
+
+          {section.type === 'steps' && (
+            <>
+              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} />
+              {section.intro && <Paragraphs items={[section.intro]} className="max-w-3xl mb-12 md:mb-14" />}
+              <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                {section.items.map((item, i) => (
+                  <motion.li
+                    key={item.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.06 }}
+                    className={`p-6 md:p-7 flex flex-col ${cardClass}`}
+                  >
+                    <span aria-hidden="true" className="text-[32px] font-medium tracking-[-0.03em] leading-none mb-8 dark:text-mint text-[#2a7a4a]">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="text-[16px] font-medium mb-3 dark:text-off-white text-dark">{item.title}</h3>
+                    <p className="text-[14px] font-light leading-[1.7] dark:text-off-white/70 text-mid-gray">
+                      {item.description}
+                    </p>
+                  </motion.li>
+                ))}
+              </ol>
+            </>
+          )}
+
+          {section.type === 'insights' && (
+            <>
+              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} />
+              {section.intro && <Paragraphs items={[section.intro]} className="max-w-3xl mb-12 md:mb-14" />}
+              {section.stats && section.stats.length > 0 && (
+                <StatCards stats={section.stats} cardClass={cardClass} className="mb-6" wide />
+              )}
+              <ul className="grid md:grid-cols-2 gap-4 md:gap-6">
+                {section.items.map((item, i) => (
+                  <motion.li
+                    key={item.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.06 }}
+                    className={`p-6 md:p-8 ${cardClass}`}
+                  >
+                    <h3 className="text-[18px] md:text-[20px] font-medium tracking-[-0.01em] mb-3 dark:text-off-white text-dark">
+                      {item.title}
+                    </h3>
+                    <p className="text-[15px] font-light leading-[1.7] dark:text-off-white/70 text-mid-gray">
+                      {item.description}
+                    </p>
+                  </motion.li>
+                ))}
+              </ul>
+              {(section.conclusion || section.image) && (
+                <div className="mt-20 md:mt-28 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                  {section.conclusion && (
+                    <div className="lg:col-span-5">
+                      {section.conclusionLabel && (
+                        <h3 className="text-[11px] tracking-[2px] uppercase mb-6 dark:text-mint text-[#2a7a4a]">
+                          {section.conclusionLabel}
+                        </h3>
+                      )}
+                      <div className="space-y-5">
+                        {section.conclusion.map((p, i) => (
+                          <p
+                            key={i}
+                            className={
+                              i === 0
+                                ? 'text-[20px] md:text-[24px] font-light leading-[1.5] dark:text-off-white/90 text-dark'
+                                : 'text-[15px] font-light leading-[1.8] dark:text-off-white/70 text-mid-gray'
+                            }
+                          >
+                            {p}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {section.image && (
+                    <figure className="lg:col-span-7">
+                      <EditorialImage image={section.image} sizes="(max-width: 1024px) 100vw, 680px" />
+                      {section.caption && <Caption>{section.caption}</Caption>}
+                    </figure>
+                  )}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </FadeSection>
+    </section>
+  )
+}
+
+function EditorialHeading({
+  id,
+  index,
+  label,
+  title,
+  level = 2,
+  compact = false,
+}: {
+  id: string
+  index?: string
+  label: string
+  title: string
+  level?: 2 | 3
+  compact?: boolean
+}) {
+  const Tag = level === 3 ? 'h3' : 'h2'
+  const size =
+    level === 3
+      ? 'text-[26px] md:text-[32px]'
+      : compact
+        ? 'text-[30px] md:text-[36px]'
+        : 'text-[32px] md:text-[44px]'
+  return (
+    <div className={compact ? 'mb-6' : 'mb-10 md:mb-14'}>
+      <p className="flex items-center gap-3 text-[11px] tracking-[2px] uppercase mb-4 dark:text-mint text-[#2a7a4a]">
+        {index && (
+          <>
+            <span>{index}</span>
+            <span aria-hidden="true" className="w-6 h-px bg-current opacity-60" />
+          </>
+        )}
+        <span>{label}</span>
+      </p>
+      <Tag
+        id={id}
+        className={`${size} font-medium tracking-[-0.02em] leading-[1.1] max-w-3xl dark:text-off-white text-dark`}
+      >
+        {title}
+      </Tag>
+    </div>
+  )
+}
+
+function Paragraphs({ items, className = '' }: { items: string[]; className?: string }) {
+  return (
+    <div className={`space-y-5 ${className}`}>
+      {items.map((p, i) => (
+        <p key={i} className="text-[15px] md:text-[16px] font-light leading-[1.8] dark:text-off-white/70 text-mid-gray">
+          {p}
+        </p>
+      ))}
+    </div>
+  )
+}
+
+function Findings({ label, items }: { label?: string; items: string[] }) {
+  return (
+    <div className="mt-8 pt-6 border-t dark:border-mid-gray/30 border-[#e0e0e0]">
+      {label && (
+        <p className="text-[10px] tracking-[2px] uppercase mb-4 dark:text-off-white/60 text-mid-gray">{label}</p>
+      )}
+      <ul className="space-y-3">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-3 text-[14px] font-light leading-[1.7] dark:text-off-white/80 text-dark">
+            <span aria-hidden="true" className="dark:text-mint text-[#2a7a4a] mt-[1px] shrink-0">→</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function StatCards({
+  stats,
+  cardClass,
+  className = '',
+  wide = false,
+}: {
+  stats: Stat[]
+  cardClass: string
+  className?: string
+  wide?: boolean
+}) {
+  return (
+    <dl className={`grid grid-cols-2 ${wide ? 'lg:grid-cols-4' : ''} gap-4 ${className}`}>
+      {stats.map((s, i) => (
+        <motion.div
+          key={s.label}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: i * 0.06 }}
+          className={`p-5 md:p-6 flex flex-col-reverse justify-end gap-3 ${cardClass}`}
+        >
+          <dt className="text-[12px] font-light leading-[1.5] dark:text-off-white/60 text-mid-gray">{s.label}</dt>
+          <dd className="text-[24px] md:text-[30px] font-medium tracking-[-0.02em] leading-none dark:text-mint text-[#2a7a4a]">
+            {s.value}
+          </dd>
+        </motion.div>
+      ))}
+    </dl>
+  )
+}
+
+function EditorialImage({
+  image,
+  sizes,
+  priority = false,
+  className = '',
+}: {
+  image: SectionImage
+  sizes: string
+  priority?: boolean
+  className?: string
+}) {
+  return (
+    <Image
+      src={image.src}
+      alt={image.alt}
+      width={image.width}
+      height={image.height}
+      sizes={sizes}
+      priority={priority}
+      className={`block w-full h-auto ${className}`}
+    />
+  )
+}
+
+function Caption({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <figcaption className={`mt-4 text-[12px] font-light leading-[1.6] dark:text-off-white/60 text-mid-gray ${className}`}>
+      {children}
+    </figcaption>
   )
 }
 

@@ -1,0 +1,493 @@
+{
+  "slug": "proyecto-08",
+  "year": "2026",
+  "visibility": "public",
+  "figmaEmbed": "",
+  "coverImage": "/images/analytics/analisis-general.png",
+  "images": [],
+  "featured": true,
+  "isNDA": false,
+  "layout": "editorial",
+  "es": {
+    "title": "Operaciones Bancarias - Florida",
+    "category": "Data Analytics",
+    "description": "Análisis de 2.500 operaciones bancarias registradas en Florida (EE.UU.) entre 2020 y 2024. Un reporte en Power BI que ordena el volumen, la evolución, la distribución geográfica y el perfil de los clientes para convertir los datos en información útil para decidir.",
+    "tags": [
+      "Data Analytics",
+      "Power BI",
+      "Dashboard"
+    ],
+    "role": "Data Analyst — preparación, modelado, análisis y diseño del dashboard",
+    "timeline": "2020 – 2024 · período analizado",
+    "tools": [
+      "Power BI",
+      "ArcGIS for Power BI"
+    ],
+    "heroImage": {
+      "src": "/images/analytics/analisis-general.png",
+      "alt": "Dashboard de Análisis General en Power BI: KPIs de cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales; filtros por año-mes, región y tipo de transacción; barras de monto por tipo de operación y por región; tabla y gráfico de anillo de operaciones por región.",
+      "width": 830,
+      "height": 466
+    },
+    "sections": [
+      {
+        "type": "split",
+        "tone": "muted",
+        "index": "02",
+        "label": "Contexto",
+        "title": "Entender dónde, cuánto y quién opera",
+        "paragraphs": [
+          "El proyecto analiza un conjunto de operaciones bancarias registradas en Florida (EE.UU.) entre 2020 y 2024. Cada operación incluye su tipo —depósito, retiro, pago o transferencia—, el monto, la región y la ciudad, si es nacional o internacional y atributos del cliente como segmento, ingresos, saldo, score crediticio, utilización del crédito y productos contratados.",
+          "El problema de negocio es comprender cómo se distribuye y evoluciona esa actividad. El reporte se organiza en siete páginas —portada, glosario, análisis general, evolución de operaciones, evolución por ciudad, clientes y productos y conclusión— que responden a tres preguntas guía."
+        ],
+        "findingsLabel": "Preguntas guía",
+        "findings": [
+          "¿Cómo evolucionaron el volumen y el monto de las operaciones entre 2020 y 2024?",
+          "¿Cómo evolucionaron la cantidad, el volumen y el monto de las operaciones por ciudad?",
+          "¿Cómo se caracterizan los clientes y sus productos según el segmento, el tipo de cuenta y el perfil crediticio?"
+        ],
+        "image": {
+          "src": "/images/analytics/portada.png",
+          "alt": "Portada del reporte de Power BI sobre operaciones bancarias en Florida, período 2020–2024, mostrada en una laptop, con el menú lateral de navegación entre páginas.",
+          "width": 497,
+          "height": 289
+        },
+        "caption": "Portada del reporte y navegación lateral entre sus siete páginas."
+      },
+      {
+        "type": "steps",
+        "index": "03",
+        "label": "Metodología",
+        "title": "De los datos crudos a un reporte navegable",
+        "intro": "El trabajo siguió cuatro etapas, desde la preparación de la fuente hasta la construcción del dashboard final.",
+        "items": [
+          {
+            "title": "Preparación y limpieza de datos",
+            "description": "Revisión y depuración del conjunto de operaciones y clientes para trabajar con fechas, montos y categorías consistentes."
+          },
+          {
+            "title": "Modelado de datos",
+            "description": "Estructuración de las tablas y sus relaciones para analizar las operaciones por año-mes, región, ciudad, tipo de transacción y segmento de cliente."
+          },
+          {
+            "title": "Análisis y consultas",
+            "description": "Definición de los indicadores clave —cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales— y exploración de sus variaciones."
+          },
+          {
+            "title": "Visualización y dashboard",
+            "description": "Diseño de un reporte de siete páginas con navegación lateral, filtros, un glosario de términos y una página de conclusiones."
+          }
+        ]
+      },
+      {
+        "type": "feature",
+        "tone": "muted",
+        "index": "04",
+        "label": "Análisis general",
+        "title": "Una vista para leer el negocio de un vistazo",
+        "paragraphs": [
+          "Es la puerta de entrada al reporte. Reúne los cuatro indicadores principales y permite filtrar por año-mes, región y tipo de transacción.",
+          "Compara el monto transaccionado por tipo de operación y por región, y detalla para cada región la cantidad de operaciones, el monto total y el monto promedio. El gráfico de anillo deja ver de inmediato el peso de Florida del Sur sobre el total."
+        ],
+        "stats": [
+          {
+            "value": "2.500",
+            "label": "Operaciones analizadas"
+          },
+          {
+            "value": "USD 1.142,5 M",
+            "label": "Monto total transaccionado"
+          },
+          {
+            "value": "USD 457.007,67",
+            "label": "Monto promedio por operación"
+          },
+          {
+            "value": "19,89 %",
+            "label": "Operaciones internacionales"
+          }
+        ],
+        "image": {
+          "src": "/images/analytics/analisis-general.png",
+          "alt": "Dashboard de Análisis General en Power BI: KPIs de cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales; filtros por año-mes, región y tipo de transacción; barras de monto por tipo de operación y por región; tabla y gráfico de anillo de operaciones por región.",
+          "width": 830,
+          "height": 466
+        },
+        "caption": "Dashboard de Análisis General con filtros por año-mes, región y tipo de transacción."
+      },
+      {
+        "type": "intro",
+        "index": "05",
+        "label": "Análisis por dimensiones",
+        "title": "Tres lecturas complementarias del mismo conjunto de datos",
+        "paragraphs": [
+          "Cada página profundiza en una dimensión: el tiempo, la geografía y el perfil de los clientes."
+        ]
+      },
+      {
+        "type": "split",
+        "level": 3,
+        "label": "A · Evolución de operaciones",
+        "title": "Cómo cambió la actividad entre 2020 y 2024",
+        "paragraphs": [
+          "Analiza la cantidad de operaciones y el monto total por año, el monto por tipo de transacción y una serie mensual que combina monto y cantidad para leer tendencias."
+        ],
+        "findingsLabel": "Hallazgos",
+        "findings": [
+          "2021 registra la menor cantidad de operaciones del período y 2023 la mayor.",
+          "El monto total anual acompaña esa tendencia: desciende en 2021 y se recupera en los años siguientes.",
+          "Depósitos, retiros, pagos y transferencias movilizan montos de magnitud similar."
+        ],
+        "image": {
+          "src": "/images/analytics/ev-ops.png",
+          "alt": "Dashboard de Evolución de Operaciones: cantidad de operaciones por año, monto total transaccionado por año, monto por tipo de operación y serie mensual que combina monto total y cantidad de operaciones.",
+          "width": 722,
+          "height": 406
+        }
+      },
+      {
+        "type": "split",
+        "level": 3,
+        "tone": "muted",
+        "reverse": true,
+        "label": "B · Evolución por ciudad",
+        "title": "Distribución geográfica y comparación entre ciudades",
+        "paragraphs": [
+          "Compara siete ciudades por cantidad de operaciones, monto total transaccionado, utilización del crédito e ingreso anual promedio de sus clientes."
+        ],
+        "findingsLabel": "Hallazgos",
+        "findings": [
+          "West Palm Beach lidera en cantidad de operaciones y monto total; Palm Beach Gardens registra los valores más bajos.",
+          "Las diferencias de actividad entre ciudades son moderadas: todas operan en niveles similares.",
+          "La utilización del crédito oscila aproximadamente entre el 42 % y el 46 % según la ciudad.",
+          "West Palm Beach presenta el ingreso anual promedio más alto y Tampa el más bajo."
+        ],
+        "image": {
+          "src": "/images/analytics/ev-ops-ciudad.png",
+          "alt": "Dashboard de Evolución de Operaciones por Ciudad: cantidad de operaciones, utilización del crédito e ingreso anual promedio por ciudad, y gráfico combinado de monto total y cantidad de operaciones por ciudad.",
+          "width": 721,
+          "height": 405
+        }
+      },
+      {
+        "type": "split",
+        "level": 3,
+        "label": "C · Clientes y productos",
+        "title": "Perfil de los clientes por segmento y tipo de cuenta",
+        "paragraphs": [
+          "Caracteriza a los clientes a partir de su score crediticio, ingresos, saldo y utilización del crédito, y analiza los productos por tipo de cuenta y el score crediticio por condado."
+        ],
+        "findingsLabel": "Hallazgos",
+        "findings": [
+          "Score crediticio promedio de 573,16 y utilización del crédito del 44,57 %.",
+          "Ingreso anual promedio de USD 9.872.438,01 y saldo promedio de USD 2.294.504.",
+          "El ingreso anual promedio es similar entre los segmentos Estudiante, Minorista, Privado y Corporativo.",
+          "La cantidad promedio de productos ronda los tres en todos los tipos de cuenta."
+        ],
+        "image": {
+          "src": "/images/analytics/clientes-prods.png",
+          "alt": "Dashboard de Clientes y Productos: KPIs de score crediticio, ingreso anual, saldo promedio y utilización del crédito; ingreso por segmento de cliente; productos promedio por tipo de cuenta y mapa de score crediticio por condado.",
+          "width": 690,
+          "height": 388
+        }
+      },
+      {
+        "type": "insights",
+        "tone": "muted",
+        "index": "06",
+        "label": "Insights y conclusiones",
+        "title": "Qué nos dicen los datos",
+        "intro": "La síntesis final reúne los hallazgos que se desprenden de las distintas vistas del reporte.",
+        "stats": [
+          {
+            "value": "71,4 %",
+            "label": "De las operaciones se concentra en Florida del Sur"
+          },
+          {
+            "value": "1.785",
+            "label": "Operaciones en Florida del Sur"
+          },
+          {
+            "value": "362 · 353",
+            "label": "Operaciones en Florida Central y Florida del Norte"
+          },
+          {
+            "value": "19,89 %",
+            "label": "De las operaciones fueron internacionales"
+          }
+        ],
+        "items": [
+          {
+            "title": "Marcada concentración regional",
+            "description": "Florida del Sur reúne 1.785 operaciones y USD 808,9 millones transaccionados. Florida Central y Florida del Norte presentan volúmenes considerablemente menores y similares entre sí."
+          },
+          {
+            "title": "Actividad por ciudad pareja",
+            "description": "A nivel ciudad las diferencias son moderadas: el peso de Florida del Sur se explica porque agrupa la mayor cantidad de ciudades analizadas, más que por una actividad mucho mayor en cada una."
+          },
+          {
+            "title": "Evolución con un pico en 2023",
+            "description": "La cantidad de operaciones cae en 2021 y alcanza su máximo en 2023. El monto promedio por operación también llega a su punto más alto en 2023 y desciende en 2024."
+          },
+          {
+            "title": "Clientes con perfiles similares entre segmentos",
+            "description": "Ingresos y cantidad de productos se mantienen en niveles parecidos entre segmentos y tipos de cuenta, lo que orienta el análisis hacia la geografía y el comportamiento en el tiempo."
+          }
+        ],
+        "conclusionLabel": "Conclusión",
+        "conclusion": [
+          "El dashboard permite identificar patrones de actividad, concentración regional y características de los clientes, ofreciendo una visión integral de las operaciones bancarias analizadas.",
+          "Para la toma de decisiones, transforma 2.500 registros en una lectura ordenada: qué volumen se opera, cómo evoluciona, dónde se concentra y quiénes son los clientes, con filtros que permiten profundizar en cada región, período y tipo de transacción."
+        ],
+        "image": {
+          "src": "/images/analytics/conclusion-gral.png",
+          "alt": "Página de Conclusión General del reporte: KPIs principales, texto de síntesis y gráfico combinado de cantidad de operaciones y monto promedio por operación por año.",
+          "width": 865,
+          "height": 485
+        },
+        "caption": "Conclusión General: cantidad de operaciones y monto promedio por operación por año."
+      }
+    ]
+  },
+  "en": {
+    "title": "Banking Operations - Florida",
+    "category": "Data Analytics",
+    "description": "Analysis of 2,500 banking operations recorded in Florida (USA) between 2020 and 2024. A Power BI report that organizes volume, trends, geographic distribution and customer profile to turn data into information that supports decisions.",
+    "tags": [
+      "Data Analytics",
+      "Power BI",
+      "Dashboard"
+    ],
+    "role": "Data Analyst — data preparation, modeling, analysis and dashboard design",
+    "timeline": "2020 – 2024 · analyzed period",
+    "tools": [
+      "Power BI",
+      "ArcGIS for Power BI"
+    ],
+    "heroImage": {
+      "src": "/images/analytics/analisis-general.png",
+      "alt": "General Analysis dashboard in Power BI: KPIs for number of operations, total amount, average amount and share of international operations; filters by year-month, region and transaction type; bar charts of amount by operation type and by region; table and donut chart of operations by region.",
+      "width": 830,
+      "height": 466
+    },
+    "sections": [
+      {
+        "type": "split",
+        "tone": "muted",
+        "index": "02",
+        "label": "Context",
+        "title": "Understanding where, how much and who operates",
+        "paragraphs": [
+          "The project analyzes a set of banking operations recorded in Florida (USA) between 2020 and 2024. Each operation includes its type —deposit, withdrawal, payment or transfer—, the amount, region and city, whether it is domestic or international, and customer attributes such as segment, income, balance, credit score, credit utilization and products held.",
+          "The business problem is understanding how that activity is distributed and how it evolves. The report is organized into seven pages —cover, glossary, general analysis, operations trend, trend by city, customers and products, and conclusion— that answer three guiding questions."
+        ],
+        "findingsLabel": "Guiding questions",
+        "findings": [
+          "How did the volume and amount of operations evolve between 2020 and 2024?",
+          "How did the number, volume and amount of operations evolve by city?",
+          "How can customers and their products be characterized by segment, account type and credit profile?"
+        ],
+        "image": {
+          "src": "/images/analytics/portada.png",
+          "alt": "Cover page of the Power BI report on banking operations in Florida, 2020–2024, shown on a laptop, with the side navigation menu between report pages.",
+          "width": 497,
+          "height": 289
+        },
+        "caption": "Report cover and side navigation across its seven pages."
+      },
+      {
+        "type": "steps",
+        "index": "03",
+        "label": "Methodology",
+        "title": "From raw data to a navigable report",
+        "intro": "The work followed four stages, from preparing the source to building the final dashboard.",
+        "items": [
+          {
+            "title": "Data preparation and cleaning",
+            "description": "Review and cleanup of the operations and customer data to work with consistent dates, amounts and categories."
+          },
+          {
+            "title": "Data modeling",
+            "description": "Structuring tables and relationships to analyze operations by year-month, region, city, transaction type and customer segment."
+          },
+          {
+            "title": "Analysis and queries",
+            "description": "Defining the key indicators —number of operations, total amount, average amount and share of international operations— and exploring how they vary."
+          },
+          {
+            "title": "Visualization and dashboard",
+            "description": "Design of a seven-page report with side navigation, filters, a glossary of terms and a conclusions page."
+          }
+        ]
+      },
+      {
+        "type": "feature",
+        "tone": "muted",
+        "index": "04",
+        "label": "General analysis",
+        "title": "One view to read the business at a glance",
+        "paragraphs": [
+          "It is the entry point to the report. It brings together the four main indicators and can be filtered by year-month, region and transaction type.",
+          "It compares the amount transacted by operation type and by region, and details for each region the number of operations, total amount and average amount. The donut chart makes the weight of South Florida over the total immediately visible."
+        ],
+        "stats": [
+          {
+            "value": "2,500",
+            "label": "Operations analyzed"
+          },
+          {
+            "value": "USD 1,142.5M",
+            "label": "Total amount transacted"
+          },
+          {
+            "value": "USD 457,007.67",
+            "label": "Average amount per operation"
+          },
+          {
+            "value": "19.89%",
+            "label": "International operations"
+          }
+        ],
+        "image": {
+          "src": "/images/analytics/analisis-general.png",
+          "alt": "General Analysis dashboard in Power BI: KPIs for number of operations, total amount, average amount and share of international operations; filters by year-month, region and transaction type; bar charts of amount by operation type and by region; table and donut chart of operations by region.",
+          "width": 830,
+          "height": 466
+        },
+        "caption": "General Analysis dashboard with filters by year-month, region and transaction type."
+      },
+      {
+        "type": "intro",
+        "index": "05",
+        "label": "Analysis by dimension",
+        "title": "Three complementary readings of the same dataset",
+        "paragraphs": [
+          "Each page goes deeper into one dimension: time, geography and customer profile."
+        ]
+      },
+      {
+        "type": "split",
+        "level": 3,
+        "label": "A · Operations trend",
+        "title": "How activity changed between 2020 and 2024",
+        "paragraphs": [
+          "It analyzes the number of operations and total amount per year, the amount by transaction type and a monthly series that combines amount and count to read trends."
+        ],
+        "findingsLabel": "Findings",
+        "findings": [
+          "2021 has the lowest number of operations in the period and 2023 the highest.",
+          "Total annual amount follows the same trend: it drops in 2021 and recovers in the following years.",
+          "Deposits, withdrawals, payments and transfers move amounts of a similar magnitude."
+        ],
+        "image": {
+          "src": "/images/analytics/ev-ops.png",
+          "alt": "Operations Trend dashboard: operations per year, total amount per year, amount by operation type and a monthly series combining total amount and number of operations.",
+          "width": 722,
+          "height": 406
+        }
+      },
+      {
+        "type": "split",
+        "level": 3,
+        "tone": "muted",
+        "reverse": true,
+        "label": "B · Trend by city",
+        "title": "Geographic distribution and comparison between cities",
+        "paragraphs": [
+          "It compares seven cities by number of operations, total amount transacted, credit utilization and average annual income of their customers."
+        ],
+        "findingsLabel": "Findings",
+        "findings": [
+          "West Palm Beach leads in number of operations and total amount; Palm Beach Gardens shows the lowest values.",
+          "Differences in activity between cities are moderate: all of them operate at similar levels.",
+          "Credit utilization ranges roughly between 42% and 46% depending on the city.",
+          "West Palm Beach has the highest average annual income and Tampa the lowest."
+        ],
+        "image": {
+          "src": "/images/analytics/ev-ops-ciudad.png",
+          "alt": "Operations by City dashboard: number of operations, credit utilization and average annual income by city, plus a combined chart of total amount and number of operations by city.",
+          "width": 721,
+          "height": 405
+        }
+      },
+      {
+        "type": "split",
+        "level": 3,
+        "label": "C · Customers and products",
+        "title": "Customer profile by segment and account type",
+        "paragraphs": [
+          "It characterizes customers by credit score, income, balance and credit utilization, and analyzes products by account type and credit score by county."
+        ],
+        "findingsLabel": "Findings",
+        "findings": [
+          "Average credit score of 573.16 and credit utilization of 44.57%.",
+          "Average annual income of USD 9,872,438.01 and average balance of USD 2,294,504.",
+          "Average annual income is similar across the Student, Retail, Private and Corporate segments.",
+          "The average number of products is around three for every account type."
+        ],
+        "image": {
+          "src": "/images/analytics/clientes-prods.png",
+          "alt": "Customers and Products dashboard: KPIs for credit score, annual income, average balance and credit utilization; income by customer segment; average products by account type and a map of credit score by county.",
+          "width": 690,
+          "height": 388
+        }
+      },
+      {
+        "type": "insights",
+        "tone": "muted",
+        "index": "06",
+        "label": "Insights and conclusions",
+        "title": "What the data tells us",
+        "intro": "The final summary brings together the findings that emerge from the different views of the report.",
+        "stats": [
+          {
+            "value": "71.4%",
+            "label": "Of operations are concentrated in South Florida"
+          },
+          {
+            "value": "1,785",
+            "label": "Operations in South Florida"
+          },
+          {
+            "value": "362 · 353",
+            "label": "Operations in Central Florida and North Florida"
+          },
+          {
+            "value": "19.89%",
+            "label": "Of operations were international"
+          }
+        ],
+        "items": [
+          {
+            "title": "Strong regional concentration",
+            "description": "South Florida accounts for 1,785 operations and USD 808.9 million transacted. Central Florida and North Florida show considerably lower volumes, similar to each other."
+          },
+          {
+            "title": "Even activity across cities",
+            "description": "At city level the differences are moderate: South Florida's weight comes from grouping most of the cities analyzed, rather than from much higher activity in each one."
+          },
+          {
+            "title": "A trend that peaks in 2023",
+            "description": "The number of operations drops in 2021 and reaches its maximum in 2023. The average amount per operation also peaks in 2023 and declines in 2024."
+          },
+          {
+            "title": "Similar customer profiles across segments",
+            "description": "Income and number of products stay at comparable levels across segments and account types, which points the analysis towards geography and behavior over time."
+          }
+        ],
+        "conclusionLabel": "Conclusion",
+        "conclusion": [
+          "The dashboard makes it possible to identify activity patterns, regional concentration and customer characteristics, offering a comprehensive view of the banking operations analyzed.",
+          "For decision-making, it turns 2,500 records into an organized reading: how much is transacted, how it evolves, where it is concentrated and who the customers are, with filters to drill into each region, period and transaction type."
+        ],
+        "image": {
+          "src": "/images/analytics/conclusion-gral.png",
+          "alt": "General Conclusion page of the report: main KPIs, summary text and a combined chart of number of operations and average amount per operation by year.",
+          "width": 865,
+          "height": 485
+        },
+        "caption": "General Conclusion: number of operations and average amount per operation by year."
+      }
+    ]
+  }
+}

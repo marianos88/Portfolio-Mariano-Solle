@@ -23,7 +23,8 @@ public/
 │   ├── bank/
 │   ├── internal-monitoring/
 │   ├── vanish/
-│   └── finish/
+│   ├── finish/
+│   └── analytics/
 │
 └── videos/
     ├── shared/
