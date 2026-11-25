@@ -604,9 +604,12 @@ type EditorialSectionData = Extract<
 function EditorialHero({ project, loc }: { project: Project; loc: ProjectLocale }) {
   const t = useTranslations('projects')
   const image = loc.heroImage
+  // Publication year and analyzed period are shown separately so the data range is never read as project duration.
   const meta = [
-    loc.timeline ? { label: t('metaTimeline'), value: loc.timeline } : null,
     loc.role ? { label: t('metaRole'), value: loc.role } : null,
+    loc.client ? { label: t('metaClient'), value: loc.client } : null,
+    { label: t('metaPublication'), value: project.year },
+    loc.timeline ? { label: t('metaTimeline'), value: loc.timeline } : null,
     loc.tools && loc.tools.length > 0 ? { label: t('metaTools'), value: loc.tools.join(' · ') } : null,
     { label: t('metaCategory'), value: loc.category },
   ].filter((m): m is { label: string; value: string } => m !== null)
@@ -652,6 +655,23 @@ function EditorialHero({ project, loc }: { project: Project; loc: ProjectLocale 
                 </dd>
               </div>
             ))}
+            {loc.responsibilities && loc.responsibilities.length > 0 && (
+              <div className="col-span-2">
+                <dt className="text-[10px] tracking-[2px] uppercase mb-2 dark:text-off-white/60 text-mid-gray">
+                  {t('metaResponsibilities')}
+                </dt>
+                <dd>
+                  <ul className="space-y-1">
+                    {loc.responsibilities.map((r) => (
+                      <li key={r} className="flex items-start gap-3 text-[14px] font-light leading-[1.6] dark:text-off-white/80 text-dark">
+                        <span aria-hidden="true" className="dark:text-mint text-[#2a7a4a] shrink-0">→</span>
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            )}
           </dl>
         </motion.div>
 
@@ -785,6 +805,9 @@ function EditorialSection({ section }: { section: EditorialSectionData }) {
                     transition={{ duration: 0.4, delay: i * 0.06 }}
                     className={`p-6 md:p-8 ${cardClass}`}
                   >
+                    {item.tag && (
+                      <p className="text-[10px] tracking-[2px] uppercase mb-3 dark:text-mint text-[#2a7a4a]">{item.tag}</p>
+                    )}
                     <h3 className="text-[18px] md:text-[20px] font-medium tracking-[-0.01em] mb-3 dark:text-off-white text-dark">
                       {item.title}
                     </h3>

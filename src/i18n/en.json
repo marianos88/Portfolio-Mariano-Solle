@@ -45,10 +45,13 @@
     "context": "Context",
     "process": "Process",
     "result": "Result",
-    "metaTimeline": "Timeline",
+    "metaTimeline": "Analysis period",
     "metaRole": "My role",
     "metaTools": "Tools",
-    "metaCategory": "Category"
+    "metaCategory": "Category",
+    "metaPublication": "Publication",
+    "metaClient": "Client",
+    "metaResponsibilities": "Responsibilities"
   },
   "portfolioPlus": {
     "tag": "PORTFOLIO PLUS",

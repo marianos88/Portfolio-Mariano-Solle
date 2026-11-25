@@ -17,11 +17,23 @@
       "Power BI",
       "Dashboard"
     ],
-    "role": "Data Analyst — preparación, modelado, análisis y diseño del dashboard",
-    "timeline": "2020 – 2024 · período analizado",
+    "role": "Data Analyst",
+    "client": "Confidencial (protegido por NDA)",
+    "timeline": "2020–2024",
     "tools": [
       "Power BI",
+      "Power Query",
+      "SQL",
+      "DAX",
       "ArcGIS for Power BI"
+    ],
+    "responsibilities": [
+      "Preparación y transformación de datos (Power Query)",
+      "Modelado de datos",
+      "Consultas y análisis mediante SQL",
+      "Desarrollo de medidas y cálculos con DAX",
+      "Construcción de dashboards en Power BI",
+      "Visualización geográfica con ArcGIS for Power BI"
     ],
     "heroImage": {
       "src": "/images/analytics/analisis-general.png",
@@ -63,7 +75,7 @@
         "items": [
           {
             "title": "Preparación y limpieza de datos",
-            "description": "Revisión y depuración del conjunto de operaciones y clientes para trabajar con fechas, montos y categorías consistentes."
+            "description": "Revisión, depuración y transformación del conjunto de operaciones y clientes con Power Query para trabajar con fechas, montos y categorías consistentes."
           },
           {
             "title": "Modelado de datos",
@@ -71,11 +83,11 @@
           },
           {
             "title": "Análisis y consultas",
-            "description": "Definición de los indicadores clave —cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales— y exploración de sus variaciones."
+            "description": "Consultas en SQL y medidas en DAX para calcular los indicadores clave —cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales— y explorar sus variaciones."
           },
           {
             "title": "Visualización y dashboard",
-            "description": "Diseño de un reporte de siete páginas con navegación lateral, filtros, un glosario de términos y una página de conclusiones."
+            "description": "Construcción en Power BI de un reporte de siete páginas con navegación lateral, filtros, glosario de términos, página de conclusiones y un mapa de score crediticio por condado con ArcGIS for Power BI."
           }
         ]
       },
@@ -92,19 +104,19 @@
         "stats": [
           {
             "value": "2.500",
-            "label": "Operaciones analizadas"
+            "label": "Cantidad de operaciones registradas"
           },
           {
             "value": "USD 1.142,5 M",
-            "label": "Monto total transaccionado"
+            "label": "Monto total: suma de los montos transaccionados"
           },
           {
             "value": "USD 457.007,67",
-            "label": "Monto promedio por operación"
+            "label": "Monto promedio: monto total ÷ cantidad de operaciones"
           },
           {
-            "value": "19,89 %",
-            "label": "Operaciones internacionales"
+            "value": "19,89 %",
+            "label": "Operaciones internacionales sobre el total de operaciones"
           }
         ],
         "image": {
@@ -197,7 +209,7 @@
         "index": "06",
         "label": "Insights y conclusiones",
         "title": "Qué nos dicen los datos",
-        "intro": "La síntesis final reúne los hallazgos que se desprenden de las distintas vistas del reporte.",
+        "intro": "Los hallazgos se presentan diferenciando datos observados en el dashboard, interpretaciones derivadas de esos datos e hipótesis que requieren validación.",
         "stats": [
           {
             "value": "71,4 %",
@@ -218,26 +230,30 @@
         ],
         "items": [
           {
-            "title": "Marcada concentración regional",
-            "description": "Florida del Sur reúne 1.785 operaciones y USD 808,9 millones transaccionados. Florida Central y Florida del Norte presentan volúmenes considerablemente menores y similares entre sí."
+            "tag": "Dato observado",
+            "title": "Concentración regional",
+            "description": "Florida del Sur reúne 1.785 de las 2.500 operaciones (71,4 %) y USD 808,9 millones transaccionados. Florida Central registra 362 operaciones y Florida del Norte 353."
           },
           {
-            "title": "Actividad por ciudad pareja",
-            "description": "A nivel ciudad las diferencias son moderadas: el peso de Florida del Sur se explica porque agrupa la mayor cantidad de ciudades analizadas, más que por una actividad mucho mayor en cada una."
-          },
-          {
+            "tag": "Dato observado",
             "title": "Evolución con un pico en 2023",
-            "description": "La cantidad de operaciones cae en 2021 y alcanza su máximo en 2023. El monto promedio por operación también llega a su punto más alto en 2023 y desciende en 2024."
+            "description": "La cantidad de operaciones desciende en 2021 y alcanza su máximo en 2023. El monto promedio por operación también es máximo en 2023 y registra su valor más bajo del período en 2024."
           },
           {
-            "title": "Clientes con perfiles similares entre segmentos",
-            "description": "Ingresos y cantidad de productos se mantienen en niveles parecidos entre segmentos y tipos de cuenta, lo que orienta el análisis hacia la geografía y el comportamiento en el tiempo."
+            "tag": "Interpretación",
+            "title": "Perfiles de clientes similares",
+            "description": "El ingreso anual promedio y la cantidad promedio de productos presentan valores parecidos entre segmentos y tipos de cuenta: en este conjunto de datos, esas variables diferencian poco a los clientes."
+          },
+          {
+            "tag": "Hipótesis a validar",
+            "title": "Origen de la concentración",
+            "description": "Los datos no permiten atribuir una causa a la concentración en Florida del Sur. Dado que la actividad por ciudad es pareja, una línea a validar es la relación entre la cantidad de ciudades de cada región y su volumen de operaciones."
           }
         ],
         "conclusionLabel": "Conclusión",
         "conclusion": [
-          "El dashboard permite identificar patrones de actividad, concentración regional y características de los clientes, ofreciendo una visión integral de las operaciones bancarias analizadas.",
-          "Para la toma de decisiones, transforma 2.500 registros en una lectura ordenada: qué volumen se opera, cómo evoluciona, dónde se concentra y quiénes son los clientes, con filtros que permiten profundizar en cada región, período y tipo de transacción."
+          "El análisis permite conocer cuánto se opera, cómo evoluciona la actividad, dónde se concentra y cómo se caracterizan los clientes, ofreciendo una visión integral de las operaciones bancarias analizadas.",
+          "Para la toma de decisiones, aporta una base cuantitativa para identificar dónde se concentra el volumen, seguir la evolución de cantidades y montos y profundizar por región, período y tipo de transacción mediante filtros. Las preguntas abiertas, como el origen de la concentración regional, quedan planteadas como líneas de análisis a validar."
         ],
         "image": {
           "src": "/images/analytics/conclusion-gral.png",
@@ -258,11 +274,23 @@
       "Power BI",
       "Dashboard"
     ],
-    "role": "Data Analyst — data preparation, modeling, analysis and dashboard design",
-    "timeline": "2020 – 2024 · analyzed period",
+    "role": "Data Analyst",
+    "client": "Confidential (NDA-protected)",
+    "timeline": "2020–2024",
     "tools": [
       "Power BI",
+      "Power Query",
+      "SQL",
+      "DAX",
       "ArcGIS for Power BI"
+    ],
+    "responsibilities": [
+      "Data preparation and transformation (Power Query)",
+      "Data modeling",
+      "SQL queries and analysis",
+      "DAX measures and calculations",
+      "Dashboard development in Power BI",
+      "Geographic visualization with ArcGIS for Power BI"
     ],
     "heroImage": {
       "src": "/images/analytics/analisis-general.png",
@@ -304,7 +332,7 @@
         "items": [
           {
             "title": "Data preparation and cleaning",
-            "description": "Review and cleanup of the operations and customer data to work with consistent dates, amounts and categories."
+            "description": "Review, cleanup and transformation of the operations and customer data with Power Query to work with consistent dates, amounts and categories."
           },
           {
             "title": "Data modeling",
@@ -312,11 +340,11 @@
           },
           {
             "title": "Analysis and queries",
-            "description": "Defining the key indicators —number of operations, total amount, average amount and share of international operations— and exploring how they vary."
+            "description": "SQL queries and DAX measures to calculate the key indicators —number of operations, total amount, average amount and share of international operations— and explore how they vary."
           },
           {
             "title": "Visualization and dashboard",
-            "description": "Design of a seven-page report with side navigation, filters, a glossary of terms and a conclusions page."
+            "description": "A seven-page Power BI report with side navigation, filters, a glossary of terms, a conclusions page and a county-level credit score map built with ArcGIS for Power BI."
           }
         ]
       },
@@ -333,19 +361,19 @@
         "stats": [
           {
             "value": "2,500",
-            "label": "Operations analyzed"
+            "label": "Number of operations recorded"
           },
           {
             "value": "USD 1,142.5M",
-            "label": "Total amount transacted"
+            "label": "Total amount: sum of amounts transacted"
           },
           {
             "value": "USD 457,007.67",
-            "label": "Average amount per operation"
+            "label": "Average amount: total amount ÷ number of operations"
           },
           {
             "value": "19.89%",
-            "label": "International operations"
+            "label": "International operations over total operations"
           }
         ],
         "image": {
@@ -438,7 +466,7 @@
         "index": "06",
         "label": "Insights and conclusions",
         "title": "What the data tells us",
-        "intro": "The final summary brings together the findings that emerge from the different views of the report.",
+        "intro": "Findings are presented distinguishing data observed in the dashboard, interpretations derived from that data and hypotheses that require validation.",
         "stats": [
           {
             "value": "71.4%",
@@ -459,26 +487,30 @@
         ],
         "items": [
           {
-            "title": "Strong regional concentration",
-            "description": "South Florida accounts for 1,785 operations and USD 808.9 million transacted. Central Florida and North Florida show considerably lower volumes, similar to each other."
+            "tag": "Observed data",
+            "title": "Regional concentration",
+            "description": "South Florida accounts for 1,785 of the 2,500 operations (71.4%) and USD 808.9 million transacted. Central Florida records 362 operations and North Florida 353."
           },
           {
-            "title": "Even activity across cities",
-            "description": "At city level the differences are moderate: South Florida's weight comes from grouping most of the cities analyzed, rather than from much higher activity in each one."
-          },
-          {
+            "tag": "Observed data",
             "title": "A trend that peaks in 2023",
-            "description": "The number of operations drops in 2021 and reaches its maximum in 2023. The average amount per operation also peaks in 2023 and declines in 2024."
+            "description": "The number of operations drops in 2021 and reaches its maximum in 2023. The average amount per operation also peaks in 2023 and reaches its lowest value of the period in 2024."
           },
           {
-            "title": "Similar customer profiles across segments",
-            "description": "Income and number of products stay at comparable levels across segments and account types, which points the analysis towards geography and behavior over time."
+            "tag": "Interpretation",
+            "title": "Similar customer profiles",
+            "description": "Average annual income and average number of products show similar values across segments and account types: in this dataset, those variables do little to differentiate customers."
+          },
+          {
+            "tag": "Hypothesis to validate",
+            "title": "Origin of the concentration",
+            "description": "The data does not allow attributing a cause to the concentration in South Florida. Since activity per city is even, one line to validate is the relationship between the number of cities in each region and its operations volume."
           }
         ],
         "conclusionLabel": "Conclusion",
         "conclusion": [
-          "The dashboard makes it possible to identify activity patterns, regional concentration and customer characteristics, offering a comprehensive view of the banking operations analyzed.",
-          "For decision-making, it turns 2,500 records into an organized reading: how much is transacted, how it evolves, where it is concentrated and who the customers are, with filters to drill into each region, period and transaction type."
+          "The analysis shows how much is transacted, how activity evolves, where it is concentrated and how customers can be characterized, offering a comprehensive view of the banking operations analyzed.",
+          "For decision-making, it provides a quantitative basis to identify where volume is concentrated, track how counts and amounts evolve, and drill down by region, period and transaction type through filters. Open questions, such as the origin of the regional concentration, are framed as lines of analysis to validate."
         ],
         "image": {
           "src": "/images/analytics/conclusion-gral.png",

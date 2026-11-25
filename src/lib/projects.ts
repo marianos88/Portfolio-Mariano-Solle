@@ -40,7 +40,8 @@ export type ProjectSection =
       type: 'insights'
       intro?: string
       stats?: Stat[]
-      items: { title: string; description: string }[]
+      /** `tag` qualifies the evidence level of each insight (e.g. observed data, interpretation, hypothesis). */
+      items: { tag?: string; title: string; description: string }[]
       conclusionLabel?: string
       conclusion?: string[]
       image?: SectionImage
@@ -57,6 +58,8 @@ export type ProjectLocale = {
   // Editorial hero meta
   timeline?: string
   tools?: string[]
+  client?: string
+  responsibilities?: string[]
   heroImage?: SectionImage
   challenge?: string
   tags?: string[]
