@@ -788,7 +788,7 @@ function EditorialSection({ section }: { section: EditorialSectionData }) {
 
           {section.type === 'steps' && (
             <>
-              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} />
+              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} fullWidth />
               {section.intro && <Paragraphs items={[section.intro]} className="max-w-3xl mb-12 md:mb-14" />}
               <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {section.items.map((item, i) => (
