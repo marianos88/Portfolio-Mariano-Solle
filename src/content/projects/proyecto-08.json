@@ -36,10 +36,10 @@
       "Visualización geográfica con ArcGIS for Power BI"
     ],
     "heroImage": {
-      "src": "/images/analytics/analisis-general.png",
-      "alt": "Dashboard de Análisis General en Power BI: KPIs de cantidad de operaciones, monto total, monto promedio y porcentaje de operaciones internacionales; filtros por año-mes, región y tipo de transacción; barras de monto por tipo de operación y por región; tabla y gráfico de anillo de operaciones por región.",
-      "width": 830,
-      "height": 466
+      "src": "/images/analytics/portada.png",
+      "alt": "Portada del reporte de Power BI sobre operaciones bancarias en Florida, período 2020–2024, mostrada en una laptop, con el menú lateral de navegación entre páginas.",
+      "width": 497,
+      "height": 289
     },
     "sections": [
       {
@@ -57,14 +57,7 @@
           "¿Cómo evolucionaron el volumen y el monto de las operaciones entre 2020 y 2024?",
           "¿Cómo evolucionaron la cantidad, el volumen y el monto de las operaciones por ciudad?",
           "¿Cómo se caracterizan los clientes y sus productos según el segmento, el tipo de cuenta y el perfil crediticio?"
-        ],
-        "image": {
-          "src": "/images/analytics/portada.png",
-          "alt": "Portada del reporte de Power BI sobre operaciones bancarias en Florida, período 2020–2024, mostrada en una laptop, con el menú lateral de navegación entre páginas.",
-          "width": 497,
-          "height": 289
-        },
-        "caption": "Portada del reporte y navegación lateral entre sus siete páginas."
+        ]
       },
       {
         "type": "steps",
@@ -293,10 +286,10 @@
       "Geographic visualization with ArcGIS for Power BI"
     ],
     "heroImage": {
-      "src": "/images/analytics/analisis-general.png",
-      "alt": "General Analysis dashboard in Power BI: KPIs for number of operations, total amount, average amount and share of international operations; filters by year-month, region and transaction type; bar charts of amount by operation type and by region; table and donut chart of operations by region.",
-      "width": 830,
-      "height": 466
+      "src": "/images/analytics/portada.png",
+      "alt": "Cover page of the Power BI report on banking operations in Florida, 2020–2024, shown on a laptop, with the side navigation menu between report pages.",
+      "width": 497,
+      "height": 289
     },
     "sections": [
       {
@@ -314,14 +307,7 @@
           "How did the volume and amount of operations evolve between 2020 and 2024?",
           "How did the number, volume and amount of operations evolve by city?",
           "How can customers and their products be characterized by segment, account type and credit profile?"
-        ],
-        "image": {
-          "src": "/images/analytics/portada.png",
-          "alt": "Cover page of the Power BI report on banking operations in Florida, 2020–2024, shown on a laptop, with the side navigation menu between report pages.",
-          "width": 497,
-          "height": 289
-        },
-        "caption": "Report cover and side navigation across its seven pages."
+        ]
       },
       {
         "type": "steps",

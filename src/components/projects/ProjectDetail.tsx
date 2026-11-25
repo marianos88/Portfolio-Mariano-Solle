@@ -685,7 +685,9 @@ function EditorialHero({ project, loc }: { project: Project; loc: ProjectLocale 
             <EditorialImage
               image={image}
               priority
-              sizes="(max-width: 1024px) 100vw, 680px"
+              sizes={`(max-width: 1024px) 100vw, ${image.width}px`}
+              className="mx-auto"
+              style={{ maxWidth: image.width }}
             />
           </motion.figure>
         )}
@@ -718,9 +720,23 @@ function EditorialSection({ section }: { section: EditorialSectionData }) {
             </>
           )}
 
-          {section.type === 'split' && (
-            <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-              <div className={`lg:col-span-5 ${section.reverse ? 'lg:order-2' : ''}`}>
+          {section.type === 'split' && !section.image && (
+            <>
+              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} level={section.level} />
+              <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+                <Paragraphs items={section.paragraphs} className="lg:col-span-7" />
+                {section.findings && section.findings.length > 0 && (
+                  <div className="lg:col-span-5 [&>div]:mt-0 lg:[&>div]:border-t-0 lg:[&>div]:pt-0">
+                    <Findings label={section.findingsLabel} items={section.findings} />
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+
+          {section.type === 'split' && section.image && (
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              <div className={`lg:col-span-4 ${section.reverse ? 'lg:order-2' : ''}`}>
                 <EditorialHeading
                   id={headingId}
                   index={section.index}
@@ -734,8 +750,8 @@ function EditorialSection({ section }: { section: EditorialSectionData }) {
                   <Findings label={section.findingsLabel} items={section.findings} />
                 )}
               </div>
-              <figure className={`lg:col-span-7 ${section.reverse ? 'lg:order-1' : ''}`}>
-                <EditorialImage image={section.image} sizes="(max-width: 1024px) 100vw, 680px" />
+              <figure className={`lg:col-span-8 ${section.reverse ? 'lg:order-1' : ''}`}>
+                <EditorialImage image={section.image} sizes="(max-width: 1024px) 100vw, 780px" />
                 {section.caption && <Caption>{section.caption}</Caption>}
               </figure>
             </div>
@@ -818,9 +834,9 @@ function EditorialSection({ section }: { section: EditorialSectionData }) {
                 ))}
               </ul>
               {(section.conclusion || section.image) && (
-                <div className="mt-20 md:mt-28 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                <div className="mt-20 md:mt-28 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
                   {section.conclusion && (
-                    <div className="lg:col-span-5">
+                    <div className="lg:col-span-4">
                       {section.conclusionLabel && (
                         <h3 className="text-[11px] tracking-[2px] uppercase mb-6 dark:text-mint text-[#2a7a4a]">
                           {section.conclusionLabel}
@@ -843,8 +859,8 @@ function EditorialSection({ section }: { section: EditorialSectionData }) {
                     </div>
                   )}
                   {section.image && (
-                    <figure className="lg:col-span-7">
-                      <EditorialImage image={section.image} sizes="(max-width: 1024px) 100vw, 680px" />
+                    <figure className="lg:col-span-8">
+                      <EditorialImage image={section.image} sizes="(max-width: 1024px) 100vw, 780px" />
                       {section.caption && <Caption>{section.caption}</Caption>}
                     </figure>
                   )}
@@ -968,11 +984,13 @@ function EditorialImage({
   sizes,
   priority = false,
   className = '',
+  style,
 }: {
   image: SectionImage
   sizes: string
   priority?: boolean
   className?: string
+  style?: React.CSSProperties
 }) {
   return (
     <Image
@@ -983,6 +1001,7 @@ function EditorialImage({
       sizes={sizes}
       priority={priority}
       className={`block w-full h-auto ${className}`}
+      style={style}
     />
   )
 }

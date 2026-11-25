@@ -22,7 +22,8 @@ export type ProjectSection =
       type: 'split'
       level?: 2 | 3
       paragraphs: string[]
-      image: SectionImage
+      /** Optional: without an image the text spans the full container width. */
+      image?: SectionImage
       caption?: string
       findingsLabel?: string
       findings?: string[]
