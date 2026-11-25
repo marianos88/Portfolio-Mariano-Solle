@@ -724,7 +724,7 @@ function EditorialSection({ section }: { section: EditorialSectionData }) {
         <div className={`max-w-6xl mx-auto px-6 ${padding}`}>
           {section.type === 'intro' && (
             <>
-              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} />
+              <EditorialHeading id={headingId} index={section.index} label={section.label} title={section.title} fullWidth />
               {section.paragraphs && <Paragraphs items={section.paragraphs} className="max-w-3xl" />}
             </>
           )}
@@ -890,6 +890,7 @@ function EditorialHeading({
   title,
   level = 2,
   compact = false,
+  fullWidth = false,
 }: {
   id: string
   index?: string
@@ -897,6 +898,8 @@ function EditorialHeading({
   title: string
   level?: 2 | 3
   compact?: boolean
+  /** Lets the heading span the whole container instead of the default max-w-3xl. */
+  fullWidth?: boolean
 }) {
   const Tag = level === 3 ? 'h3' : 'h2'
   const size =
@@ -918,7 +921,11 @@ function EditorialHeading({
       </p>
       <Tag
         id={id}
-        className={`${size} font-medium tracking-[-0.02em] leading-[1.1] max-w-3xl dark:text-off-white text-dark`}
+        className={`${size} font-medium tracking-[-0.02em] leading-[1.1] ${fullWidth ? '' : 'max-w-3xl'} dark:text-off-white text-dark`}
+        // fullWidth: stay left-aligned with the content but run into the right page margin,
+        // up to the 24px page gutter. 50vw + 528px = right edge of the max-w-6xl (1152px)
+        // container's content box + its 24px padding; below 1152px it equals the container width.
+        style={fullWidth ? { width: 'min(calc(50vw + 528px), calc(100vw - 48px))' } : undefined}
       >
         {title}
       </Tag>
