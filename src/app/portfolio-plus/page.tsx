@@ -6,18 +6,19 @@ import PasswordGate from '@/components/portfolio-plus/PasswordGate'
 import LockButton from '@/components/portfolio-plus/LockButton'
 import { getPortfolioPlusProjects, getProjectLocale } from '@/lib/projects'
 import { verifySessionToken } from '@/lib/auth'
+import { absoluteUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Portfolio Plus',
   description:
     'Private case studies from banking and SaaS projects under NDA. Access requires a valid access code.',
-  alternates: { canonical: 'https://marianosolle.com/portfolio-plus' },
+  alternates: { canonical: absoluteUrl('/portfolio-plus') },
   robots: { index: false, follow: false },
   openGraph: {
     title: 'Portfolio Plus — Mariano Solle',
     description:
       'Private case studies from banking and SaaS projects under NDA.',
-    url: 'https://marianosolle.com/portfolio-plus',
+    url: absoluteUrl('/portfolio-plus'),
     type: 'website',
   },
   twitter: {

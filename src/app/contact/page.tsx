@@ -3,17 +3,18 @@ import { getTranslations } from 'next-intl/server'
 import ContactForm from '@/components/contact/ContactForm'
 import JsonLd from '@/components/seo/JsonLd'
 import { webPageSchema } from '@/lib/structured-data'
+import { absoluteUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Get in touch with Mariano Solle. Available for freelance projects, Product Design positions and collaborations.',
-  alternates: { canonical: 'https://marianosolle.com/contact' },
+  alternates: { canonical: absoluteUrl('/contact') },
   openGraph: {
     title: 'Contact — Mariano Solle',
     description:
       'Get in touch with Mariano Solle. Available for freelance projects, Product Design positions and collaborations.',
-    url: 'https://marianosolle.com/contact',
+    url: absoluteUrl('/contact'),
     type: 'website',
   },
   twitter: {

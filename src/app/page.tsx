@@ -5,17 +5,18 @@ import StickyAbout from '@/components/home/StickyAbout'
 import ProjectList from '@/components/home/ProjectList'
 import JsonLd from '@/components/seo/JsonLd'
 import { webPageSchema } from '@/lib/structured-data'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Mariano Solle — Product Designer',
   description:
     'Portfolio of Mariano Solle, Product Designer with 8+ years of experience in banking, fintech, government and SaaS. Specialized in mobile apps, digital banking and e-commerce.',
-  alternates: { canonical: 'https://marianosolle.com' },
+  alternates: { canonical: SITE_URL },
   openGraph: {
     title: 'Mariano Solle — Product Designer',
     description:
       'Product Designer with 8+ years of experience in banking, fintech, government and SaaS.',
-    url: 'https://marianosolle.com',
+    url: SITE_URL,
     type: 'website',
   },
   twitter: {

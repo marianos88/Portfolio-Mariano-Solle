@@ -12,6 +12,7 @@ import { GtmScript } from '@/components/analytics/GtmScript'
 import { ClarityScript } from '@/components/analytics/ClarityScript'
 import { UrlCleaner } from '@/components/analytics/UrlCleaner'
 import { personSchema, webSiteSchema } from '@/lib/structured-data'
+import { SITE_URL } from '@/lib/site'
 import '@/styles/globals.css'
 
 const inter = Inter({
@@ -20,7 +21,6 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const SITE_URL = 'https://marianosolle.com'
 const DEFAULT_DESCRIPTION =
   'Product Designer with 8+ years of experience in banking, fintech, government and SaaS. Specialized in mobile apps, digital banking, and e-commerce.'
 
