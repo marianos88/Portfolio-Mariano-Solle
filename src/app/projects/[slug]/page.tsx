@@ -6,6 +6,7 @@ import { verifySessionToken } from '@/lib/auth'
 import ProjectDetail from '@/components/projects/ProjectDetail'
 import JsonLd from '@/components/seo/JsonLd'
 import { creativeWorkSchema } from '@/lib/structured-data'
+import { absoluteUrl } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,17 +24,22 @@ export async function generateMetadata({
 
   if (!project) return {}
 
-  // For NDA projects, return minimal non-indexed metadata
+  // For NDA projects, return minimal non-indexed metadata. Without a valid
+  // Portfolio Plus session the page only redirects, so its response must not
+  // carry the confidential case title.
   if (project.visibility === 'portfolio-plus') {
+    const cookieStore = await cookies()
+    const token = cookieStore.get('portfolio_plus_session')?.value ?? ''
+    const hasAccess = await verifySessionToken(token)
     return {
-      title: project.es.title,
+      title: hasAccess ? project.es.title : 'Portfolio Plus',
       robots: { index: false, follow: false },
     }
   }
 
   const title = project.es.title
   const description = project.es.description
-  const url = `https://marianosolle.com/projects/${slug}`
+  const url = absoluteUrl(`/projects/${slug}`)
   const ogImage = project.coverImage
     ? [{ url: project.coverImage, width: 1200, height: 630, alt: title }]
     : undefined

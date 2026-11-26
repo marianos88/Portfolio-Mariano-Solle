@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getPublicProjects } from '@/lib/projects'
-
-const BASE = 'https://marianosolle.com'
+import { SITE_URL as BASE } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publicProjects = getPublicProjects()
@@ -16,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: BASE, lastModified: new Date(), changeFrequency: 'monthly', priority: 1.0 },
     { url: `${BASE}/projects`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/about`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
     { url: `${BASE}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
     ...projectUrls,
   ]

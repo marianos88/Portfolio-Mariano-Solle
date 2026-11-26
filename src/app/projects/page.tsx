@@ -5,17 +5,18 @@ import ProjectCard from '@/components/projects/ProjectCard'
 import PortfolioPlusCard from '@/components/home/PortfolioPlusCard'
 import JsonLd from '@/components/seo/JsonLd'
 import { webPageSchema } from '@/lib/structured-data'
+import { absoluteUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Projects',
   description:
     'Case studies by Mariano Solle — UX/UI design projects for banking, fintech, SaaS, and e-commerce.',
-  alternates: { canonical: 'https://marianosolle.com/projects' },
+  alternates: { canonical: absoluteUrl('/projects') },
   openGraph: {
     title: 'Projects — Mariano Solle',
     description:
       'Case studies by Mariano Solle — UX/UI design projects for banking, fintech, SaaS, and e-commerce.',
-    url: 'https://marianosolle.com/projects',
+    url: absoluteUrl('/projects'),
     type: 'website',
   },
   twitter: {

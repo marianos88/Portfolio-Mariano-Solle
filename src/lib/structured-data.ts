@@ -1,4 +1,4 @@
-const BASE = 'https://marianosolle.com'
+import { SITE_URL as BASE } from '@/lib/site'
 
 export type WithContext<T> = T & { '@context': string }
 
